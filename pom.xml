@@ -76,9 +76,11 @@
             <version>3.1.3</version>
         </dependency>
         <dependency>
-            <groupId>testlink.api.java</groupId>
-            <artifactId>testlink-api</artifactId>
+            <groupId>br.eti.kinoshita</groupId>
+            <artifactId>testlink-java-api</artifactId>
             <version>2.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/3rdLib/testlink-api-client-2.0.jar</systemPath>
         </dependency>
 
 

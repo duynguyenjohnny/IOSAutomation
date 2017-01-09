@@ -67,7 +67,7 @@ public class Helper {
                     e = By.xpath("//*[@text = '" + value + "']");
                     break;
                 case TEXT_START_WITH:
-                    e = By.xpath("//*[contains(@text, '" + value + "']");
+                    e = By.xpath("//*[starts-with(@text, '" + value + "']");
                     break;
                 case CLASS_NAME:
                     e = By.className(value);
