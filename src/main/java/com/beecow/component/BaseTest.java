@@ -38,7 +38,7 @@ public class BaseTest {
     public void runCommandToLaunchAppium() throws IOException, InterruptedException {
         cp=new CommandPrompt();
         if(Utils.getInstance().isAndroidDevice()||Utils.getInstance().isWebAndroidDevice()) {
-            cp.runCommand("\"C:\\Program Files (x86)\\Appium\\node.exe\" \"C:\\Program Files (x86)\\Appium\\node_modules\\appium\\lib\\server\\main.js\" --address 127.0.0.1 --port 4723 --app E:\\WorkSP\\test-mobile-qa\\beecow-ProjectMobile\\BeeCow.apk --pre-launch --platform-name Android --platform-version 19 --automation-name Appium --log-no-color");
+            cp.runCommand("\"C:\\Program Files (x86)\\Appium\\node.exe\" \"C:\\Program Files (x86)\\Appium\\node_modules\\appium\\lib\\server\\main.js\" --address 127.0.0.1 --port 4723 --app C:\\jenkins\\workspace\\android-beecow\\app\\build\\outputs\\apk\\BeeCow_1.0_RELEASE_12Jan2017_Build_1.apk --pre-launch --platform-name Android --platform-version 19 --automation-name Appium --log-no-color");
         }
         if(Utils.getInstance().isIosDevice()){
             cp.runCommand("");
