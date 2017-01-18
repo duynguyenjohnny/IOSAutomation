@@ -4,8 +4,6 @@ import static com.beecow.model.CommonElement.failed;
 import static com.beecow.model.CommonElement.screenShot_login;
 import static com.beecow.model.MarketElement.*;
 
-import com.beecow.component.CommonScreenObjects;
-
 import io.appium.java_client.AppiumDriver;
 import static com.beecow.component.Constant.*;
 import testlink.api.java.client.TestLinkAPIException;
@@ -14,7 +12,7 @@ import testlink.api.java.client.TestLinkAPIException;
  * Created by HangPham on 12/18/2016.
  */
 
-public class MarketScreen extends BeeCowLayoutScreen {
+public class MarketScreen extends SearchComponent {
     public MarketScreen(AppiumDriver driver){
         super(driver);
     }

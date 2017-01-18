@@ -7,9 +7,11 @@ import io.appium.java_client.AppiumDriver;
  * Created by PhuocHa on 01/10/2017.
  */
 
-public class HomeScreen extends BeeCowLayoutScreen {
-
+public class HomeScreen extends CommonScreenObjects
+{
+    public FooterComponent footerComponent;
     public HomeScreen(AppiumDriver driver){
         super(driver);
+        footerComponent = new FooterComponent(driver);
     }
 }

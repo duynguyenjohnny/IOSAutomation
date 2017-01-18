@@ -1,7 +1,6 @@
 package com.beecow.utils;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.NetworkConnectionSetting;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.ios.IOSDriver;
@@ -463,7 +462,7 @@ public class Helper {
     /**
      * turn off and turn on wifi
      */
-    public void turnOFFWifi() {
+    /*public void turnOFFWifi() {
         NetworkConnectionSetting networkConnection = new NetworkConnectionSetting(false, false, false);
         networkConnection.setData(true); // enable mobile data
         networkConnection.setWifi(false); // close wifi
@@ -482,7 +481,7 @@ public class Helper {
         System.out.println("airplaneModeEnabled() :: " + networkConnection.airplaneModeEnabled() +
                 "\ndataEnabled() :: " + networkConnection.dataEnabled() +
                 "\nwifiEnabled() :: " + networkConnection.wifiEnabled());
-    }
+    }*/
 
     /**
      * get textElements for list

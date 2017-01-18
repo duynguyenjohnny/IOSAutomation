@@ -32,7 +32,7 @@ public class MarketBannerTest extends BaseTest {
             return;
             String str="AND_MAR_TC_";
             String testCasesID=str.concat(Integer.toString(i));
-//           marketScreen.checkReportTestLinkLogin(testCasesID);
+           marketScreen.checkReportTestLinkLogin(testCasesID);
         i=i+1;
         Thread.sleep(5000);
         driver.quit();
@@ -41,7 +41,8 @@ public class MarketBannerTest extends BaseTest {
     @Test
     public void AND_MAR_8_TC_1() throws TestLinkAPIException {
         System.out.println("Checking market page ... ");
-        homeScreen.clickMarketTabView();
-        marketScreen.verifyMarketPage();
+//        homeScreen.clickMarketTabView();
+//        marketScreen.verifyMarketPage();
     }
+
 }

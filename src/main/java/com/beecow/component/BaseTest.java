@@ -1,10 +1,11 @@
 package com.beecow.component;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
+import io.appium.java_client.service.local.AppiumDriverLocalService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 
@@ -15,6 +16,7 @@ import com.beecow.utils.Utils;
 
 import static com.beecow.component.Constant.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
@@ -34,37 +36,55 @@ public class BaseTest {
     public Result getResult(){
         return new Result();
     }
-    @BeforeSuite
-    public void runCommandToLaunchAppium() throws IOException, InterruptedException {
-        cp=new CommandPrompt();
-        if(Utils.getInstance().isAndroidDevice()||Utils.getInstance().isWebAndroidDevice()) {
-            cp.runCommand("\"C:\\Program Files (x86)\\Appium\\node.exe\" \"C:\\Program Files (x86)\\Appium\\node_modules\\appium\\lib\\server\\main.js\" --address 127.0.0.1 --port 4723 --app C:\\jenkins\\workspace\\android-beecow\\app\\build\\outputs\\apk\\BeeCow_1.0_RELEASE_12Jan2017_Build_1.apk --pre-launch --platform-name Android --platform-version 19 --automation-name Appium --log-no-color");
-        }
-        if(Utils.getInstance().isIosDevice()){
-            cp.runCommand("");
-        }
-        if(Utils.getInstance().isWebIOSDevice()){
-            //open new terminal
-            Runtime.getRuntime().exec("/usr/bin/open -a Terminal /path/to/the/executable");
-        }
-        Thread.sleep(20000);
-    }
+
     @BeforeMethod
     public void setUp() throws Exception {
-        initDriver();
+        try{
+            System.out.println("Before Method: Setup");
+            initDriver();
+        }catch (Exception ex){
+            System.out.println("Error Before Method: Setup:" + ex.getMessage());
+        }
+
     }
 
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
-    }
+
+//      @BeforeSuite
+//    public void runCommandToLaunchAppium() throws IOException, InterruptedException {
+//        cp=new CommandPrompt();
+//        if(Utils.getInstance().isAndroidDevice()||Utils.getInstance().isWebAndroidDevice()) {
+//            cp.runCommand("appium --address 127.0.0.1 --port 4723 --app C:\\jenkins\\workspace\\BeeCow-QAAndroid\\BeeCow.apk --session-override --log C:\\jenkins\\workspace\\BeeCow-QAAndroid\\appium.log -bp 4724");
+//            //cp.runCommand("\"C:\\Program Files (x86)\\Appium\\node.exe\" \"C:\\Program Files (x86)\\Appium\\node_modules\\appium\\lib\\server\\main.js\" --address 127.0.0.1 --port 4723 --app C:\\jenkins\\workspace\\android-beecow\\app\\build\\outputs\\apk\\BeeCow_1.0_RELEASE_12Jan2017_Build_1.apk --pre-launch --platform-name Android --platform-version 19 --automation-name Appium --log-no-color");
+//        }
+//        if(Utils.getInstance().isIosDevice()){
+//            cp.runCommand("");
+//        }
+//        if(Utils.getInstance().isWebIOSDevice()){
+//            //open new terminal
+//            Runtime.getRuntime().exec("/usr/bin/open -a Terminal /path/to/the/executable");
+//        }
+//        System.out.println("Appium is started");
+//        //Thread.sleep(20000);
+//    }
+//
+//
+//    @AfterMethod
+//    public void tearDown() {
+//        driver.quit();
+//    }
 
     private void initDriver() throws Exception {
-        DesiredCapabilities capabilities = getPlatform_capabilities();
-        URL url = new URL("http://127.0.0.1:4723/wd/hub");
-        driver = buildDriver(url, capabilities);
-        driver.manage().timeouts().implicitlyWait(TIME_OUT, TimeUnit.SECONDS);
+        try{
+            DesiredCapabilities capabilities = getPlatform_capabilities();
+            URL url = new URL("http://127.0.0.1:4723/wd/hub");
+            driver = buildDriver(url, capabilities);
+            driver.manage().timeouts().implicitlyWait(TIME_OUT, TimeUnit.SECONDS);
+        }catch (Exception ex){
+            System.out.println("[Error] : " + ex.getMessage());
+        }
+
     }
+
 
     private AppiumDriver buildDriver(URL url, DesiredCapabilities capabilities) throws Exception {
         if (Utils.getInstance().isAndroidDevice()) {
@@ -99,12 +119,12 @@ public class BaseTest {
     }
 
     private DesiredCapabilities getAndroid_capability() {
-        String userDir = System.getProperty("user.dir");
-        String appPath = Paths.get(userDir, localApp).toAbsolutePath().toString();
+        //String userDir = System.getProperty("user.dir");
+        //String appPath = Paths.get(userDir, localApp).toAbsolutePath().toString();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        capabilities.setCapability(MobileCapabilityType.APP, appPath);
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "K153XB1X6B250744");//ASUS_T00N
+        capabilities.setCapability(MobileCapabilityType.APP, Constant.APP_PATH);
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "K153XB1X6B050128");//ASUS_T00N
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "6.0");
 //        capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, APP_PACKAGE_LIVE);
         return capabilities;

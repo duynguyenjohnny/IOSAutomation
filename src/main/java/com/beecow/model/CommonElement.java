@@ -1,5 +1,6 @@
 package com.beecow.model;
 
+import com.beecow.utils.Utils;
 import testlink.api.java.client.TestLinkAPIResults;
 
 /**
@@ -11,4 +12,5 @@ public class CommonElement {
 
 
     public static String screenShot_login="src\\report\\screenshot\\market\\";
+
 }
