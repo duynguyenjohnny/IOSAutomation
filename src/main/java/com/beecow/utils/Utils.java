@@ -2,6 +2,12 @@ package com.beecow.utils;
 
 import com.beecow.component.Constant;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Properties;
+
 /**
  * Created by HangPham on 12/17/2016.
  */
@@ -52,6 +58,33 @@ public class Utils {
         }
         return false;
     }
+
+    public static String getPropertyValue(String propertyFile, String propertyName) throws Exception{
+        try{
+            String value = "";
+            Properties pro = new Properties();
+            String workingdir = Paths.get(".").toAbsolutePath().normalize().toString() + "\\src\\main\\resources\\";
+
+            File f = new File(workingdir + propertyFile);
+            if(f.exists() && !f.isDirectory()) {
+                FileInputStream Master = new FileInputStream(workingdir + propertyFile);
+                pro.load(Master);
+                Master.close();
+                return pro.getProperty(propertyName);
+            }else{
+                System.out.println("Get Property Value");
+                return null;
+            }
+        }catch (Exception ex){
+            System.out.println("Exception Error while Get Property Value: " + ex.getMessage());
+            return null;
+        }
+
+
+
+
+    };
+
 //    public static void main(String[] args){
 //        Utils utils=new Utils();
 //        utils.isAndroidDevice();

@@ -37,11 +37,12 @@ public class BaseTest {
         return new Result();
     }
 
+    @Parameters({ "config_file"})
     @BeforeMethod
-    public void setUp() throws Exception {
+    public void setUp(String propertyFile) throws Exception {
         try{
             System.out.println("Before Method: Setup");
-            initDriver();
+            initDriver(propertyFile);
         }catch (Exception ex){
             System.out.println("Error Before Method: Setup:" + ex.getMessage());
         }
@@ -73,9 +74,9 @@ public class BaseTest {
 //        driver.quit();
 //    }
 
-    private void initDriver() throws Exception {
+    private void initDriver(String propertyFile) throws Exception {
         try{
-            DesiredCapabilities capabilities = getPlatform_capabilities();
+            DesiredCapabilities capabilities = getPlatform_capabilities(propertyFile);
             URL url = new URL("http://127.0.0.1:4723/wd/hub");
             driver = buildDriver(url, capabilities);
             driver.manage().timeouts().implicitlyWait(TIME_OUT, TimeUnit.SECONDS);
@@ -102,9 +103,9 @@ public class BaseTest {
         throw new Exception("the driver does not find");
     }
 
-    private DesiredCapabilities getPlatform_capabilities() throws Exception {
+    private DesiredCapabilities getPlatform_capabilities(String propertyFile) throws Exception {
         if (Utils.getInstance().isAndroidDevice()) {
-            return getAndroid_capability();
+            return getAndroid_capability(propertyFile);
         }
         if (Utils.getInstance().isIosDevice()) {
             return getiOS_capability();
@@ -118,14 +119,14 @@ public class BaseTest {
         throw new Exception("does not find the platform correspon");
     }
 
-    private DesiredCapabilities getAndroid_capability() {
+    private DesiredCapabilities getAndroid_capability(String propertyFile) throws Exception {
         //String userDir = System.getProperty("user.dir");
         //String appPath = Paths.get(userDir, localApp).toAbsolutePath().toString();
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        capabilities.setCapability(MobileCapabilityType.APP, Constant.APP_PATH);
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "K153XB1X6B050128");//ASUS_T00N
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "6.0");
+        capabilities.setCapability(MobileCapabilityType.APP, Utils.getPropertyValue(propertyFile,"Android_AppPath"));
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, Utils.getPropertyValue(propertyFile,"Android_DeviceName"));//ASUS_T00N
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, Utils.getPropertyValue(propertyFile,"Android_PlatformVersion"));
 //        capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, APP_PACKAGE_LIVE);
         return capabilities;
     }

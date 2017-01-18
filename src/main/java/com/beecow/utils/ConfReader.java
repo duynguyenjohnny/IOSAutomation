@@ -6,6 +6,7 @@ import java.util.Properties;
 
 public class ConfReader {
 
+
 	public String getPropValues(String varName) {
 
 		Properties prop = new Properties();
@@ -32,4 +33,5 @@ public class ConfReader {
 		}
 		return result;
 	}
+
 }

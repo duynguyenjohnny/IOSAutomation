@@ -3,6 +3,7 @@
 
 
 <suite name="Cupid Test Suite" verbose="3" >
+    <parameter name="config_file" value="Cupid.properties" />
     <test name="The cupid test suite" >
         <classes>
             <!--For Non login users-->

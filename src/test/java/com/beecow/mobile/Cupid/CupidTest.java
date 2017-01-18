@@ -17,14 +17,17 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 
-public class CupidTest extends BaseTest {
+public class CupidTest extends BaseTest{
     int i=1;
     private CupidScreen cupidScreen;
 
+    public CupidTest() throws Exception {
+    }
+
     AppiumDriverLocalService service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
-            .usingDriverExecutable(new File("c:\\Program Files\\nodejs\\node.exe"))
-            .withAppiumJS(new File("C:\\Users\\Hoang Nguyen\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
-            .withLogFile(new File("D:\\Appium.log"))
+            .usingDriverExecutable(new File(Utils.getPropertyValue("Cupid.properties", "Android_NodeJSPath")))
+            .withAppiumJS(new File(Utils.getPropertyValue("Cupid.properties","Android_AppiumMainJSPath")))
+            .withLogFile(new File(Utils.getPropertyValue("Cupid.properties","Android_LogPath")))
             .withStartUpTimeOut(20, TimeUnit.SECONDS));
 
     @BeforeClass
@@ -33,9 +36,10 @@ public class CupidTest extends BaseTest {
         service.start();
         System.out.println("Appium is started");
     }
+
     @BeforeMethod
-    public void setUp() throws Exception {
-        super.setUp();
+    public void Up() throws Exception {
+        super.setUp("Cupid.properties");
         cupidScreen = new CupidScreen(driver);
     }
 

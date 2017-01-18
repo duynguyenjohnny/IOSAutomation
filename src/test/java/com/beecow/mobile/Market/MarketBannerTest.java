@@ -19,10 +19,10 @@ public class MarketBannerTest extends BaseTest {
     private HomeScreen homeScreen;
     private MarketScreen marketScreen;
 
-    @Override
+    //@Override
     @BeforeMethod
     public void setUp() throws Exception {
-        super.setUp();
+        super.setUp("Market.properties");
         homeScreen=new HomeScreen(driver);
         marketScreen =new MarketScreen(driver);
     }
