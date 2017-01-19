@@ -53,13 +53,11 @@ public class CupidScreen extends CommonScreenObjects{
 
 
     public void clickCupidTab() throws Exception{
-        try {
+
             WebElement WEcupidTab = getHelper().findElement(CupidElement.tab_Cupid());
             WEcupidTab.click();
             System.out.print("Click on Cupid Tab successfully");
-        }catch (Exception ex ){
-            System.out.println("Error: " + ex.getMessage());
-        }
+
     }
 
 }

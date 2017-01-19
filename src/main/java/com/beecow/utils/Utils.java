@@ -3,7 +3,9 @@ package com.beecow.utils;
 import com.beecow.component.Constant;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileInputStream;
+import java.io.FilenameFilter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -79,15 +81,43 @@ public class Utils {
             System.out.println("Exception Error while Get Property Value: " + ex.getMessage());
             return null;
         }
-
-
-
-
     };
 
-//    public static void main(String[] args){
-//        Utils utils=new Utils();
-//        utils.isAndroidDevice();
-//        utils.isIosDevice();
-//    }
+    /**
+     * @Function: Get Last APK File in a Folder
+     * @Description: Get Last APK File in a Folder and return a String with full file path
+     * @Author: thaihoang.nguyen
+     * @CreateDate: Jan-19-2017
+     * @throws Exception
+     */
+    public static String GetLastAPKFileInFolder(String sPath) throws Exception{
+        try{
+            //check folder exists or not
+            File folder = new File(sPath);
+            if (folder.exists() && folder.isDirectory()) {
+                File[] files = folder.listFiles(new FilenameFilter() {
+                    public boolean accept(File folder, String fileName) {
+                        return fileName.endsWith(".apk");
+                    }
+                });
+                long lastMod = Long.MIN_VALUE;
+                File choice = null;
+                for (File file : files) {
+                    if (file.lastModified() > lastMod) {
+                        choice = file;
+                        lastMod = file.lastModified();
+                    }
+                }
+                if(choice != null){
+                    return choice.getCanonicalPath();
+                }else{
+                    return null;
+                }
+            }else{
+                return null;
+            }
+        } catch (Exception ex) {
+            return "Function GetLastFileInFolder - Error: " + ex.getMessage();
+        }
+    }
 }

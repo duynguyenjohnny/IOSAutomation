@@ -6,9 +6,7 @@
     <parameter name="config_file" value="Cupid.properties" />
     <test name="The cupid test suite" >
         <classes>
-            <!--For Non login users-->
             <class name="com.beecow.mobile.Cupid.CupidTest"/>
-
         </classes>
     </test>
 </suite>
