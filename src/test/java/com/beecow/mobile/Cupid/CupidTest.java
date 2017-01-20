@@ -58,28 +58,11 @@ public class CupidTest extends BaseTest{
      * DAT_1 - Screen is turn off
      */
     public void DAT_1() throws Exception {
-        try{
             System.out.println("Wait 20 seconds");
             Thread.sleep(20000);
             System.out.println("Begin Click on Cupid Tab");
             cupidScreen.clickCupidTab();
             System.out.println("End Click on Cupid Tab");
-
-            Reporter.getCurrentTestResult().setStatus(ITestResult.SUCCESS);
-        }catch(Exception ex){
-            int result = Reporter.getCurrentTestResult().getStatus();
-            if(result  == ITestResult.FAILURE)
-            {
-
-                Reporter.log("DAT_1 failed: " + ex.getMessage());
-
-                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-                System.out.println("Result:" + Reporter.getCurrentTestResult());
-                System.out.println("Result:" + Reporter.getCurrentTestResult());
-
-            }
-
-        }
     }
 
     @AfterClass
