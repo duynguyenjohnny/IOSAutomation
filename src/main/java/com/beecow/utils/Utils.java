@@ -94,7 +94,8 @@ public class Utils {
      */
     public static String GetLastAPKFileInFolder(String sPath) throws Exception{
         try{
-            String url = "smb://192.168.1.114//apk//app//build//outputs//apk//";
+
+            String url = "smb:" + utils.getPropertyValue("Cupid.properties", "Android_APKFolder");;
             NtlmPasswordAuthentication auth = new NtlmPasswordAuthentication(null, "mediastep.guest", "M@diaSt@p");
             SmbFile dir = new SmbFile(url, auth);
             for (SmbFile f : dir.listFiles())
