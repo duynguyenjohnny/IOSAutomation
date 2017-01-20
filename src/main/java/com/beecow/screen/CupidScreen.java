@@ -63,7 +63,7 @@ public class CupidScreen extends CommonScreenObjects{
             System.out.print("Click on Cupid Tab successfully");
         }catch (NoSuchElementException noElement){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-            throw new Exception("FAILED: " + noElement.getMessage());
+            throw new Exception("Can't find Element: " + CupidElement.tab_Cupid() + noElement.getMessage());
         }catch (Exception ex){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
             throw new Exception("FAILED: " + ex.getMessage());

@@ -1,47 +1,54 @@
 package com.beecow.mobile.Cupid;
 
 import com.beecow.component.BaseTest;
-import com.beecow.screen.HomeScreen;
 import com.beecow.screen.CupidScreen;
-import com.beecow.utils.CommandPrompt;
+import com.beecow.utils.TestLink;
 import com.beecow.utils.Utils;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
-import io.appium.java_client.service.local.flags.GeneralServerFlag;
-import org.testng.ITestResult;
-import org.testng.TestNGUtils;
 import org.testng.annotations.*;
-import testlink.api.java.client.TestLinkAPIException;
-
 import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
-import org.testng.Reporter;
+import testlink.api.java.client.TestLinkAPIResults;
 
 
 public class CupidTest extends BaseTest{
-
+    AppiumDriverLocalService service;
     private CupidScreen cupidScreen;
-    ITestResult result;
-    static String service_url;
+    public String Appium_IPAddress;
+    public String Appium_Port;
+
+    public String Android_NodeJSPath;
+    public String Android_AppiumMainJSPath;
+    public String Android_LogPath;
+    public String Testlink_ProjectName;
+    public String Testlink_TestPlanName;
+    public String Testlink_BuildName;
+
+
     public CupidTest() throws Exception {
-
+        Appium_IPAddress = Utils.getPropertyValue("Global.properties", "Appium_IPAddress");
+        Appium_Port = Utils.getPropertyValue("Global.properties", "Appium_Port");
+        Android_NodeJSPath = Utils.getPropertyValue("Cupid.properties", "Android_NodeJSPath");
+        Android_AppiumMainJSPath = Utils.getPropertyValue("Cupid.properties", "Android_AppiumMainJSPath");
+        Android_LogPath = Utils.getPropertyValue("Cupid.properties", "Android_LogPath");
+        Testlink_ProjectName = Utils.getPropertyValue("Cupid.properties", "Testlink_ProjectName");
+        Testlink_TestPlanName = Utils.getPropertyValue("Cupid.properties", "Testlink_TestPlanName");
+        Testlink_BuildName = Utils.getPropertyValue("Cupid.properties", "Testlink_BuildName");
+        service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
+                .usingDriverExecutable(new File(Android_NodeJSPath))
+                .usingPort(Integer.parseInt(Appium_Port))
+                .withIPAddress(Appium_IPAddress)
+                .withAppiumJS(new File(Android_AppiumMainJSPath))
+                .withLogFile(new File(Android_LogPath))
+                .withStartUpTimeOut(50, TimeUnit.SECONDS));
     }
-
-    AppiumDriverLocalService service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
-            .usingDriverExecutable(new File(Utils.getPropertyValue("Cupid.properties", "Android_NodeJSPath")))
-            .usingPort(4723)
-            .withIPAddress("127.0.0.1")
-            .withAppiumJS(new File(Utils.getPropertyValue("Cupid.properties","Android_AppiumMainJSPath")))
-            .withLogFile(new File(Utils.getPropertyValue("Cupid.properties","Android_LogPath")))
-            .withStartUpTimeOut(50, TimeUnit.SECONDS));
-
 
     @BeforeClass
     public void RunAppium() throws IOException, InterruptedException {
+
         System.out.println("Appium is starting");
-        service_url = service.getUrl().toString();
         service.start();
         System.out.println("Appium is started");
     }
@@ -58,11 +65,37 @@ public class CupidTest extends BaseTest{
      * DAT_1 - Screen is turn off
      */
     public void DAT_1() throws Exception {
+        try{
             System.out.println("Wait 20 seconds");
             Thread.sleep(20000);
             System.out.println("Begin Click on Cupid Tab");
             cupidScreen.clickCupidTab();
             System.out.println("End Click on Cupid Tab");
+            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-1", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
+        }catch (Exception ex){
+            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-1", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
+            throw new Exception("Failed: " + ex.getMessage());
+        }
+
+    }
+
+    @Test
+    /**
+     * DAT_2 - Screen is turn off
+     */
+    public void DAT_2() throws Exception {
+        try{
+            System.out.println("Wait 20 seconds");
+            Thread.sleep(20000);
+            System.out.println("Begin Click on Cupid Tab 2");
+            cupidScreen.clickCupidTab();
+            System.out.println("End Click on Cupid Tab 2");
+            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-2", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
+        }catch (Exception ex){
+            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-2", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
+            throw new Exception("Failed 2: " + ex.getMessage());
+        }
+
     }
 
     @AfterClass

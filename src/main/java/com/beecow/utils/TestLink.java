@@ -34,14 +34,14 @@ public class TestLink {
      * @param testPlan
      * @param testCaseName
      * @param build
-     * @param exception
+     * @param ExcutionNote
      * @param result
      * @throws TestLinkAPIException
      * @throws TestLinkAPIException
      */
-    public static void updateTestLinkResult(String testProject, String testPlan, String testCaseName,String build, String exception, String result) throws TestLinkAPIException, TestLinkAPIException {
+    public static void updateResult(String testProject, String testPlan, String testCaseName,String build, String ExcutionNote, String result) throws TestLinkAPIException, TestLinkAPIException {
         TestLinkAPIClient testlinkAPIClient = new TestLinkAPIClient(DEVKEY,URL);
-        testlinkAPIClient.reportTestCaseResult(testProject, testPlan, testCaseName, build, exception, result);
+        testlinkAPIClient.reportTestCaseResult(testProject, testPlan, testCaseName, build, ExcutionNote, result);
     }
 
 }
