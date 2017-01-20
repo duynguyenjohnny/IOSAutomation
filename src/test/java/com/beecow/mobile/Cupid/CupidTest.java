@@ -68,6 +68,8 @@ public class CupidTest extends BaseTest{
         }catch(Exception ex){
             Reporter.log("DAT_1 failed: " + ex.getMessage());
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            System.out.println("Result:" + Reporter.getCurrentTestResult());
+            System.out.println("Result:" + Reporter.getCurrentTestResult());
         }
     }
 
