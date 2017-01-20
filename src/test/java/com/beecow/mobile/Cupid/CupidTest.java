@@ -8,6 +8,7 @@ import com.beecow.utils.Utils;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import testlink.api.java.client.TestLinkAPIException;
 
@@ -15,12 +16,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
+import org.testng.Reporter;
 
 
 public class CupidTest extends BaseTest{
-    int i=1;
-    private CupidScreen cupidScreen;
 
+    private CupidScreen cupidScreen;
+    ITestResult result;
     public CupidTest() throws Exception {
     }
 
@@ -43,13 +45,24 @@ public class CupidTest extends BaseTest{
         cupidScreen = new CupidScreen(driver);
     }
 
+
     @Test
-    public void ClickOnCupidTab() throws Exception {
-        System.out.println("Wait 20 seconds");
-        Thread.sleep(20000);
-        System.out.println("Begin Click on Cupid Tab");
-        cupidScreen.clickCupidTab();
-        System.out.println("End Click on Cupid Tab");
+    /**
+     * DAT_1 - Screen is turn off
+     */
+    public void DAT_1() throws Exception {
+        try{
+            System.out.println("Wait 20 seconds");
+            Thread.sleep(20000);
+            System.out.println("Begin Click on Cupid Tab");
+            cupidScreen.clickCupidTab();
+            System.out.println("End Click on Cupid Tab");
+
+            Reporter.getCurrentTestResult().setStatus(ITestResult.SUCCESS);
+        }catch(Exception ex){
+            Reporter.log("DAT_1 failed: " + ex.getMessage());
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+        }
     }
 
     @AfterClass

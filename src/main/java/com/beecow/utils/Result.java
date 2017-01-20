@@ -122,4 +122,6 @@ public class Result {
         fileReport = "Report//Error" + dateFormat.format(date).toString() + ".txt";
         stringToFile(getObservation(), fileReport);
     }
+
+
 }

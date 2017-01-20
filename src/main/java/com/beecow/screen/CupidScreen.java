@@ -3,6 +3,7 @@ package com.beecow.screen;
 import com.beecow.component.CommonScreenObjects;
 import com.beecow.model.CupidElement;
 import io.appium.java_client.AppiumDriver;
+import org.jboss.netty.channel.ExceptionEvent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import testlink.api.java.client.TestLinkAPIException;
@@ -53,10 +54,14 @@ public class CupidScreen extends CommonScreenObjects{
 
 
     public void clickCupidTab() throws Exception{
-
+        try{
             WebElement WEcupidTab = getHelper().findElement(CupidElement.tab_Cupid());
             WEcupidTab.click();
             System.out.print("Click on Cupid Tab successfully");
+        }catch (Exception ex){
+            System.out.println("Error - " + ex.getMessage());
+        }
+
 
     }
 
