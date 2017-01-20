@@ -30,7 +30,7 @@ public class CupidTest extends BaseTest{
 
     AppiumDriverLocalService service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
             .usingDriverExecutable(new File(Utils.getPropertyValue("Cupid.properties", "Android_NodeJSPath")))
-            .usingPort(4723)
+            .usingAnyFreePort()
             .withIPAddress("127.0.0.1")
             .withAppiumJS(new File(Utils.getPropertyValue("Cupid.properties","Android_AppiumMainJSPath")))
             .withLogFile(new File(Utils.getPropertyValue("Cupid.properties","Android_LogPath")))
