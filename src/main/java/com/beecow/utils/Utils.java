@@ -4,13 +4,13 @@ import com.beecow.component.Constant;
 import jcifs.smb.NtlmPasswordAuthentication;
 import jcifs.smb.SmbFile;
 
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileInputStream;
-import java.io.FilenameFilter;
+import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Properties;
+import static java.nio.file.StandardCopyOption.*;
 
 /**
  * Created by HangPham on 12/17/2016.
@@ -94,33 +94,40 @@ public class Utils {
      */
     public static String GetLastAPKFileInFolder(String sPath) throws Exception{
         try{
+            String destFilename = Paths.get(".").toAbsolutePath().normalize().toString() + "\\1.apk";
+            FileOutputStream fileOutputStream;
+            InputStream fileInputStream;
+            byte[] buf;
+            int len;
             String sNetworkShare_User = utils.getPropertyValue("Global.properties", "NetworkShare_User");
             String sNetworkShare_Pass = utils.getPropertyValue("Global.properties", "NetworkShare_Pass");
             String url = "smb:" + utils.getPropertyValue("Global.properties", "Android_APKFolder");
             NtlmPasswordAuthentication auth = new NtlmPasswordAuthentication(null, sNetworkShare_User, sNetworkShare_Pass);
             SmbFile dir = new SmbFile(url, auth);
-            for (SmbFile f : dir.listFiles())
-            {
-                System.out.println(f.getName());
-            }
+            //File folder = new File(dir.getPath());
+
             //check folder exists or not
-            File folder = new File(sPath);
-            if (folder.exists() && folder.isDirectory()) {
-                File[] files = folder.listFiles(new FilenameFilter() {
-                    public boolean accept(File folder, String fileName) {
-                        return fileName.endsWith(".apk");
-                    }
-                });
+
+            if (dir.exists() && dir.isDirectory()) {
+                SmbFile[] files = dir.listFiles();
                 long lastMod = Long.MIN_VALUE;
-                File choice = null;
-                for (File file : files) {
+                SmbFile choice = null;
+                for (SmbFile file : files) {
                     if (file.lastModified() > lastMod) {
                         choice = file;
                         lastMod = file.lastModified();
                     }
                 }
                 if(choice != null){
-                    return choice.getCanonicalPath();
+                    fileOutputStream = new FileOutputStream(destFilename);
+                    fileInputStream = choice.getInputStream();
+                    buf = new byte[16 * 1024 * 1024];
+                    while ((len = fileInputStream.read(buf)) > 0) {
+                        fileOutputStream.write(buf, 0, len);
+                    }
+                    fileInputStream.close();
+                    fileOutputStream.close();
+                    return destFilename;
                 }else{
                     return null;
                 }
