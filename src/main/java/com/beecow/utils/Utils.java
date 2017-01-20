@@ -1,6 +1,8 @@
 package com.beecow.utils;
 
 import com.beecow.component.Constant;
+import jcifs.smb.NtlmPasswordAuthentication;
+import jcifs.smb.SmbFile;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -92,6 +94,13 @@ public class Utils {
      */
     public static String GetLastAPKFileInFolder(String sPath) throws Exception{
         try{
+            String url = "smb://192.168.1.114//apk//app//build//outputs//apk//";
+            NtlmPasswordAuthentication auth = new NtlmPasswordAuthentication(null, "mediastep.guest", "M@diaSt@p");
+            SmbFile dir = new SmbFile(url, auth);
+            for (SmbFile f : dir.listFiles())
+            {
+                System.out.println(f.getName());
+            }
             //check folder exists or not
             File folder = new File(sPath);
             if (folder.exists() && folder.isDirectory()) {
