@@ -5,6 +5,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
+import io.appium.java_client.remote.MobilePlatform;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
@@ -123,10 +124,11 @@ public class BaseTest {
         //String userDir = System.getProperty("user.dir");
         //String appPath = Paths.get(userDir, localApp).toAbsolutePath().toString();
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
         capabilities.setCapability(MobileCapabilityType.APP, Utils.GetLastAPKFileInFolder(Utils.getPropertyValue(propertyFile,"Android_APKFolder")));
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, Utils.getPropertyValue(propertyFile,"Android_DeviceName"));//ASUS_T00N
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, Utils.getPropertyValue(propertyFile,"Android_PlatformVersion"));
+        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "100");
 //        capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, APP_PACKAGE_LIVE);
         return capabilities;
     }

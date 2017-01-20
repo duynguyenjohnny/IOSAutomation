@@ -23,18 +23,24 @@ public class CupidTest extends BaseTest{
 
     private CupidScreen cupidScreen;
     ITestResult result;
+    static String service_url;
     public CupidTest() throws Exception {
+
     }
 
     AppiumDriverLocalService service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
             .usingDriverExecutable(new File(Utils.getPropertyValue("Cupid.properties", "Android_NodeJSPath")))
+            .usingPort(4723)
+            .withIPAddress("127.0.0.1")
             .withAppiumJS(new File(Utils.getPropertyValue("Cupid.properties","Android_AppiumMainJSPath")))
             .withLogFile(new File(Utils.getPropertyValue("Cupid.properties","Android_LogPath")))
             .withStartUpTimeOut(20, TimeUnit.SECONDS));
 
+
     @BeforeClass
     public void RunAppium() throws IOException, InterruptedException {
         System.out.println("Appium is starting");
+        service_url = service.getUrl().toString();
         service.start();
         System.out.println("Appium is started");
     }
