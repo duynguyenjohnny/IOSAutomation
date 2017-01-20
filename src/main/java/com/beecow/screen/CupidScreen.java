@@ -5,7 +5,10 @@ import com.beecow.model.CupidElement;
 import io.appium.java_client.AppiumDriver;
 import org.jboss.netty.channel.ExceptionEvent;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.testng.ITestResult;
+import org.testng.Reporter;
 import testlink.api.java.client.TestLinkAPIException;
 
 import java.util.HashMap;
@@ -54,9 +57,18 @@ public class CupidScreen extends CommonScreenObjects{
 
 
     public void clickCupidTab() throws Exception{
-        WebElement WEcupidTab = getHelper().findElement(CupidElement.tab_Cupid());
-        WEcupidTab.click();
-        System.out.print("Click on Cupid Tab successfully");
+        try{
+            WebElement WEcupidTab = getHelper().findElement(CupidElement.tab_Cupid());
+            WEcupidTab.click();
+            System.out.print("Click on Cupid Tab successfully");
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("FAILED: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("FAILED: " + ex.getMessage());
+        }
+
     }
 
 }

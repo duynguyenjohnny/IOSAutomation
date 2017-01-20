@@ -9,6 +9,7 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.testng.ITestResult;
+import org.testng.TestNGUtils;
 import org.testng.annotations.*;
 import testlink.api.java.client.TestLinkAPIException;
 
@@ -66,10 +67,18 @@ public class CupidTest extends BaseTest{
 
             Reporter.getCurrentTestResult().setStatus(ITestResult.SUCCESS);
         }catch(Exception ex){
-            Reporter.log("DAT_1 failed: " + ex.getMessage());
-            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-            System.out.println("Result:" + Reporter.getCurrentTestResult());
-            System.out.println("Result:" + Reporter.getCurrentTestResult());
+            int result = Reporter.getCurrentTestResult().getStatus();
+            if(result  == ITestResult.FAILURE)
+            {
+
+                Reporter.log("DAT_1 failed: " + ex.getMessage());
+
+                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+                System.out.println("Result:" + Reporter.getCurrentTestResult());
+                System.out.println("Result:" + Reporter.getCurrentTestResult());
+
+            }
+
         }
     }
 
