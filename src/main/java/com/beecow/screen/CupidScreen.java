@@ -59,7 +59,7 @@ public class CupidScreen extends CommonScreenObjects{
             WEcupidTab.click();
             System.out.print("Click on Cupid Tab successfully");
         }catch (Exception ex){
-            System.out.println("Error - " + ex.getMessage());
+            throw new Exception("Error - " + ex.getMessage());
         }
 
 
