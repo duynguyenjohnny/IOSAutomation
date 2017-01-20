@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite verbose="0" name="Failed suite [Test Suite Demo]">
-  <test name="The Internet Site Demo(failed)">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Cupid Test Suite]">
+  <parameter name="config_file" value="Cupid.properties"/>
+  <test name="The cupid test suite(failed)">
     <classes>
-      <class name="testSuites.LoginPage">
+      <class name="com.beecow.mobile.Cupid.CupidTest">
         <methods>
-          <include name="testAndroid3"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="afterMethod"/>
+          <include name="DAT_1"/>
+          <include name="RunAppium"/>
         </methods>
-      </class> <!-- testSuites.LoginPage -->
+      </class> <!-- com.beecow.mobile.Cupid.CupidTest -->
     </classes>
-  </test> <!-- The Internet Site Demo(failed) -->
-</suite> <!-- Failed suite [Test Suite Demo] -->
+  </test> <!-- The cupid test suite(failed) -->
+</suite> <!-- Failed suite [Cupid Test Suite] -->
