@@ -94,9 +94,10 @@ public class Utils {
      */
     public static String GetLastAPKFileInFolder(String sPath) throws Exception{
         try{
-
-            String url = "smb:" + utils.getPropertyValue("Cupid.properties", "Android_APKFolder");;
-            NtlmPasswordAuthentication auth = new NtlmPasswordAuthentication(null, "mediastep.guest", "M@diaSt@p");
+            String sNetworkShare_User = utils.getPropertyValue("Global.properties", "NetworkShare_User");
+            String sNetworkShare_Pass = utils.getPropertyValue("Global.properties", "NetworkShare_Pass");
+            String url = "smb:" + utils.getPropertyValue("Global.properties", "Android_APKFolder");
+            NtlmPasswordAuthentication auth = new NtlmPasswordAuthentication(null, sNetworkShare_User, sNetworkShare_Pass);
             SmbFile dir = new SmbFile(url, auth);
             for (SmbFile f : dir.listFiles())
             {
