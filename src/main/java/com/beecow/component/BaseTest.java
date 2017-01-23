@@ -3,6 +3,7 @@ package com.beecow.component;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 
 import io.appium.java_client.remote.MobilePlatform;
@@ -87,7 +88,6 @@ public class BaseTest {
 
     }
 
-
     private AppiumDriver buildDriver(URL url, DesiredCapabilities capabilities) throws Exception {
         if (Utils.getInstance().isAndroidDevice()) {
             return new AndroidDriver(url, capabilities);
@@ -121,15 +121,17 @@ public class BaseTest {
     }
 
     private DesiredCapabilities getAndroid_capability(String propertyFile) throws Exception {
-        //String userDir = System.getProperty("user.dir");
-        //String appPath = Paths.get(userDir, localApp).toAbsolutePath().toString();
+        String Android_APKFile = Paths.get(".").toAbsolutePath().normalize().toString() + "\\" + Utils.getPropertyValue("Global.properties", "Android_APKFile");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
-        capabilities.setCapability(MobileCapabilityType.APP, Utils.GetLastAPKFileInFolder(Utils.getPropertyValue(propertyFile,"Android_APKFolder")));
+        capabilities.setCapability(MobileCapabilityType.APP, Android_APKFile);
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, Utils.getPropertyValue(propertyFile, "Android_AppPackage"));
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, Utils.getPropertyValue(propertyFile, "Android_AppActivity"));
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, Utils.getPropertyValue(propertyFile,"Android_DeviceName"));//ASUS_T00N
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, Utils.getPropertyValue(propertyFile,"Android_PlatformVersion"));
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "100");
-//        capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, APP_PACKAGE_LIVE);
+        capabilities.setCapability("fullReset", false);
+        capabilities.setCapability("noReset", true);
         return capabilities;
     }
 

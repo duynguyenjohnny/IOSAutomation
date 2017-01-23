@@ -29,7 +29,7 @@ import static java.util.concurrent.TimeUnit.MINUTES;
  */
 public class TestLink {
     /**
-     * update report pass/fail to testLink
+     *
      * @param testProject
      * @param testPlan
      * @param testCaseName
@@ -37,11 +37,12 @@ public class TestLink {
      * @param ExcutionNote
      * @param result
      * @throws TestLinkAPIException
-     * @throws TestLinkAPIException
      */
-    public static void updateResult(String testProject, String testPlan, String testCaseName,String build, String ExcutionNote, String result) throws TestLinkAPIException, TestLinkAPIException {
+    public static void updateResult(String testProject, String testPlan, String testCaseName,String build, String ExcutionNote, String result) throws TestLinkAPIException {
+        System.out.println("Start update result to Testlink");
         TestLinkAPIClient testlinkAPIClient = new TestLinkAPIClient(DEVKEY,URL);
         testlinkAPIClient.reportTestCaseResult(testProject, testPlan, testCaseName, build, ExcutionNote, result);
+        System.out.println("End update result to Testlink");
     }
 
 }

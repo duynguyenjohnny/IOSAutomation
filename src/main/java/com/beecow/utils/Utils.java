@@ -86,15 +86,13 @@ public class Utils {
     };
 
     /**
-     * @Function: Get Last APK File in a Folder
-     * @Description: Get Last APK File in a Folder and return a String with full file path
-     * @Author: thaihoang.nguyen
-     * @CreateDate: Jan-19-2017
+     * This function will copy .apk file from share server (config in Global.properties) to local
+     * @return
      * @throws Exception
      */
-    public static String GetLastAPKFileInFolder(String sPath) throws Exception{
+    public static String GetLastAPKFile() throws Exception{
         try{
-            String destFilename = Paths.get(".").toAbsolutePath().normalize().toString() + "\\1.apk";
+            String destFilename = Paths.get(".").toAbsolutePath().normalize().toString() + "\\" + Utils.getPropertyValue("Global.properties", "Android_APKFile");
             FileOutputStream fileOutputStream;
             InputStream fileInputStream;
             byte[] buf;
@@ -113,6 +111,9 @@ public class Utils {
                 long lastMod = Long.MIN_VALUE;
                 SmbFile choice = null;
                 for (SmbFile file : files) {
+                    if(file.getName().toLowerCase().contains("release")){
+                        continue;
+                    }
                     if (file.lastModified() > lastMod) {
                         choice = file;
                         lastMod = file.lastModified();
@@ -135,7 +136,7 @@ public class Utils {
                 return null;
             }
         } catch (Exception ex) {
-            return "Function GetLastFileInFolder - Error: " + ex.getMessage();
+            return "Function GetLastAPKFile - Error: " + ex.getMessage();
         }
     }
 }

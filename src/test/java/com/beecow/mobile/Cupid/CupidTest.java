@@ -10,6 +10,8 @@ import org.testng.annotations.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
+import testlink.api.java.client.TestLinkAPIException;
 import testlink.api.java.client.TestLinkAPIResults;
 
 
@@ -45,18 +47,22 @@ public class CupidTest extends BaseTest{
                 .withStartUpTimeOut(50, TimeUnit.SECONDS));
     }
 
-    @BeforeClass
-    public void RunAppium() throws IOException, InterruptedException {
-
+    @BeforeSuite
+    public void GetLastAPKFile() throws Exception{
+        System.out.println("Start Get APK File");
+        Utils.GetLastAPKFile();
+        System.out.println("Done Get APK File");
         System.out.println("Appium is starting");
         service.start();
         System.out.println("Appium is started");
     }
 
+
     @BeforeMethod
-    public void Up() throws Exception {
+    public void setUp() throws Exception {
         super.setUp("Cupid.properties");
         cupidScreen = new CupidScreen(driver);
+        driver.launchApp();
     }
 
 
@@ -64,7 +70,7 @@ public class CupidTest extends BaseTest{
     /**
      * DAT_1 - Screen is turn off
      */
-    public void DAT_1() throws Exception {
+    public void DAT_1() throws Exception, TestLinkAPIException {
         try{
             System.out.println("Wait 20 seconds");
             Thread.sleep(20000);
@@ -72,7 +78,10 @@ public class CupidTest extends BaseTest{
             cupidScreen.clickCupidTab();
             System.out.println("End Click on Cupid Tab");
             TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-1", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
-        }catch (Exception ex){
+        }catch (TestLinkAPIException ex){
+            System.out.print("Can't update result to Testlink for DAT_1");
+        }
+        catch (Exception ex){
             TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-1", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
             throw new Exception("Failed: " + ex.getMessage());
         }
@@ -91,6 +100,8 @@ public class CupidTest extends BaseTest{
             cupidScreen.clickCupidTab();
             System.out.println("End Click on Cupid Tab 2");
             TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-2", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
+        }catch (TestLinkAPIException ex){
+            System.out.print("Can't update result to Testlink for DAT_2");
         }catch (Exception ex){
             TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-2", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
             throw new Exception("Failed 2: " + ex.getMessage());
@@ -98,8 +109,18 @@ public class CupidTest extends BaseTest{
 
     }
 
-    @AfterClass
-    public void Stop() throws IOException, InterruptedException {
+    @AfterMethod
+    public void closeApp() throws Exception{
+        System.out.println("Closing app");
+        driver.closeApp();
+        System.out.println("Closed app");
+    }
+
+    @AfterSuite
+    public void Stop() throws IOException, InterruptedException, Exception {
+        System.out.println("Start Remove App");
+        driver.removeApp(Utils.getPropertyValue("Global.properties","Android_AppPackage"));
+        System.out.println("End Remove App");
         System.out.println("Stopping Appium");
         service.stop();
         System.out.println("Appium is stopped");
