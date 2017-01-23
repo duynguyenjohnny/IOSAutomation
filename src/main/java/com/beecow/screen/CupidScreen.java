@@ -27,35 +27,6 @@ public class CupidScreen extends CommonScreenObjects{
 
     }
 
-    /**
-     * report pass/fail for each screen
-     * @param testCaseID need to update result
-     */
-    public void checkReportTestLinkLogin(String testCaseID) {
-        String sResult = result.getResult();
-        if (sResult.equals("p")) {
-            try {
-                System.out.println("Result: " + sResult);
-                getHelper().takeScreenshot(screenShot_login,"Cupid_passed\\", testCaseID);
-                getHelper().updateTestLinkResult(TEST_CUPID_PROJECT, TEST_CUPID_PLAN, testCaseID, TEST_CUPID_BUILD, null, sResult);
-            } catch (TestLinkAPIException e) {
-                e.printStackTrace();
-            }
-
-        } else {
-            try {
-                System.out.println("Result: " + sResult);
-                getHelper().takeScreenshot(screenShot_login,"Cupid_failed\\", testCaseID);
-                getHelper().updateTestLinkResult(TEST_CUPID_PROJECT, TEST_CUPID_PLAN, testCaseID, TEST_CUPID_BUILD, null, sResult);
-            } catch (TestLinkAPIException e) {
-                e.printStackTrace();
-            } catch (Exception e) {
-                e.getMessage();
-            }
-        }
-    }
-
-
     public void clickCupidTab() throws Exception{
         try{
             WebElement WEcupidTab = getHelper().findElement(CupidElement.tab_Cupid());

@@ -32,7 +32,7 @@ public class MarketBannerTest extends BaseTest {
             return;
             String str="AND_MAR_TC_";
             String testCasesID=str.concat(Integer.toString(i));
-           marketScreen.checkReportTestLinkLogin(testCasesID);
+//           marketScreen.checkReportTestLinkLogin(testCasesID);
         i=i+1;
         Thread.sleep(5000);
         driver.quit();

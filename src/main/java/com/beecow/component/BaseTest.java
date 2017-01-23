@@ -132,6 +132,7 @@ public class BaseTest {
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "100");
         capabilities.setCapability("fullReset", false);
         capabilities.setCapability("noReset", true);
+        capabilities.setCapability("noReset", true);
         return capabilities;
     }
 

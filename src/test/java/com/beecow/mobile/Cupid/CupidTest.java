@@ -6,6 +6,8 @@ import com.beecow.utils.TestLink;
 import com.beecow.utils.Utils;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import javassist.bytecode.stackmap.TypeData;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 import java.io.File;
 import java.io.IOException;
@@ -27,6 +29,7 @@ public class CupidTest extends BaseTest{
     public String Testlink_ProjectName;
     public String Testlink_TestPlanName;
     public String Testlink_BuildName;
+    String className = this.getClass().getSimpleName();
 
 
     public CupidTest() throws Exception {
@@ -49,9 +52,9 @@ public class CupidTest extends BaseTest{
 
     @BeforeSuite
     public void GetLastAPKFile() throws Exception{
-        System.out.println("Start Get APK File");
+        System.out.println("Start Get APK File from share folder");
         Utils.GetLastAPKFile();
-        System.out.println("Done Get APK File");
+        System.out.println("Done Get APK File from share folder");
         System.out.println("Appium is starting");
         service.start();
         System.out.println("Appium is started");
@@ -71,43 +74,44 @@ public class CupidTest extends BaseTest{
      * DAT_1 - Screen is turn off
      */
     public void DAT_1() throws Exception, TestLinkAPIException {
+        String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
         try{
-            System.out.println("Wait 20 seconds");
-            Thread.sleep(20000);
             System.out.println("Begin Click on Cupid Tab");
             cupidScreen.clickCupidTab();
             System.out.println("End Click on Cupid Tab");
+            //Test passed
+            getHelper().takeScreenshot("Cupid", className, "Passed", sMethodName);
             TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-1", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
         }catch (TestLinkAPIException ex){
             System.out.print("Can't update result to Testlink for DAT_1");
         }
-        catch (Exception ex){
-            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-1", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
+        catch (Exception ex) {
+            //Test failed
+            getHelper().takeScreenshot("Cupid", className, "Failed", sMethodName);
+            System.out.println("Current working dir: " + new File(CupidTest.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
+            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "DAT-1", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
             throw new Exception("Failed: " + ex.getMessage());
         }
-
     }
 
-    @Test
-    /**
-     * DAT_2 - Screen is turn off
-     */
-    public void DAT_2() throws Exception {
-        try{
-            System.out.println("Wait 20 seconds");
-            Thread.sleep(20000);
-            System.out.println("Begin Click on Cupid Tab 2");
-            cupidScreen.clickCupidTab();
-            System.out.println("End Click on Cupid Tab 2");
-            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-2", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
-        }catch (TestLinkAPIException ex){
-            System.out.print("Can't update result to Testlink for DAT_2");
-        }catch (Exception ex){
-            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-2", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
-            throw new Exception("Failed 2: " + ex.getMessage());
-        }
-
-    }
+//    @Test
+//    /**
+//     * DAT_2 - Screen is turn off
+//     */
+//    public void DAT_2() throws Exception {
+//        try{
+//            System.out.println("Begin Click on Cupid Tab 2");
+//            cupidScreen.clickCupidTab();
+//            System.out.println("End Click on Cupid Tab 2");
+//            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-2", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
+//        }catch (TestLinkAPIException ex){
+//            System.out.print("Can't update result to Testlink for DAT_2");
+//        }catch (Exception ex){
+//            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-2", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
+//            throw new Exception("Failed 2: " + ex.getMessage());
+//        }
+//
+//    }
 
     @AfterMethod
     public void closeApp() throws Exception{

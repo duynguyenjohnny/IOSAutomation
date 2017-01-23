@@ -16,6 +16,7 @@ import testlink.api.java.client.TestLinkAPIException;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -146,23 +147,26 @@ public class Helper {
             return isPresent;
         }
     }
-    /**
-     * take screen shot
-     *
-     * @return File
-     * @throws java.io.IOException
-     */
-    public File takeScreenshot(String SCREENSHOT_PATH, String result, String TCsID) {
 
+    /**
+     *
+     * @param Project Project Name: Cupid, Social Network, Market, ...
+     * @param ClassNames Current Class Name, contains test cases
+     * @param Result Passed or Failed
+     * @param TCsID Current Test Case ID
+     * @return A screenshot locate in path with given param above
+     */
+    public File takeScreenshot(String Project, String ClassNames, String Result, String TCsID) {
+        String sProjectPath = Paths.get(".").toAbsolutePath().normalize().toString() + "\\src\\report\\" + Project + "\\";
         DateFormat dateFormat = new SimpleDateFormat("_yyyy_MM_dd_HH_mm_ss");
         //get current date time with Date()
         Date date = new Date();
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        String fileScrShot;
+        String fileScrShot = "";
         if(Utils.getInstance().isAndroidDevice()) {
-            fileScrShot = SCREENSHOT_PATH.concat("Android\\")+result+ TCsID + dateFormat.format(date).toString() + ".png";
-        }else {
-            fileScrShot = SCREENSHOT_PATH.concat("IOS\\") +result+ TCsID + dateFormat.format(date).toString() + ".png";
+            fileScrShot = sProjectPath.concat("Android") + "\\" + ClassNames + "\\" + TCsID + "\\" + Result + "_" + dateFormat.format(date).toString() + ".png";
+        }else if(Utils.getInstance().isIosDevice()){
+            fileScrShot = sProjectPath.concat("IOS") + "\\" + ClassNames + "\\" + TCsID + "\\" + Result + "_" + dateFormat.format(date).toString() + ".png";
         }
         try {
             FileUtils.copyFile(scrFile, new File(fileScrShot));

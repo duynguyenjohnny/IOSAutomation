@@ -45,29 +45,29 @@ public class MarketScreen extends SearchComponent {
      * report pass/fail for each screen
      * @param testCaseID
      */
-    public void checkReportTestLinkLogin(String testCaseID) {
-        String sResult = result.getResult();
-        if (sResult.equals("p")) {
-            try {
-                System.out.println("Result: " + sResult);
-                getHelper().takeScreenshot(screenShot_login,"Market_passed\\", testCaseID);
-                getHelper().updateTestLinkResult(TEST_PROJECT, TEST_PLAN, testCaseID, TEST_BUILD, null, sResult);
-            } catch (TestLinkAPIException e) {
-                e.printStackTrace();
-            }
-
-        } else {
-            try {
-                System.out.println("Result: " + sResult);
-                getHelper().takeScreenshot(screenShot_login,"Market_failed\\", testCaseID);
-                getHelper().updateTestLinkResult(TEST_PROJECT, TEST_PLAN, testCaseID, TEST_BUILD, null, sResult);
-            } catch (TestLinkAPIException e) {
-                e.printStackTrace();
-            } catch (Exception e) {
-                e.getMessage();
-            }
-        }
-    }
+//    public void checkReportTestLinkLogin(String testCaseID) {
+//        String sResult = result.getResult();
+//        if (sResult.equals("p")) {
+//            try {
+//                System.out.println("Result: " + sResult);
+//                getHelper().takeScreenshot(screenShot_login,"Market_passed\\", testCaseID);
+//                getHelper().updateTestLinkResult(TEST_PROJECT, TEST_PLAN, testCaseID, TEST_BUILD, null, sResult);
+//            } catch (TestLinkAPIException e) {
+//                e.printStackTrace();
+//            }
+//
+//        } else {
+//            try {
+//                System.out.println("Result: " + sResult);
+//                getHelper().takeScreenshot(screenShot_login,"Market_failed\\", testCaseID);
+//                getHelper().updateTestLinkResult(TEST_PROJECT, TEST_PLAN, testCaseID, TEST_BUILD, null, sResult);
+//            } catch (TestLinkAPIException e) {
+//                e.printStackTrace();
+//            } catch (Exception e) {
+//                e.getMessage();
+//            }
+//        }
+//    }
 //
 //
 //
