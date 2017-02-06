@@ -80,10 +80,11 @@ public class BaseTest {
     }
     @AfterMethod
     public void teardown() {
-        if(driver!=null){
-            driver.quit();
+        if (driver != null){
+            System.out.println("Closing app");
+            driver.closeApp();
+            System.out.println("Closed app");
         }
-
     }
 
     @AfterSuite
@@ -123,7 +124,6 @@ public class BaseTest {
                     .usingPort(Integer.parseInt(GLOBALPROPERTIES.getProperty("Appium_Port")))
                     .withIPAddress(GLOBALPROPERTIES.getProperty("Appium_IPAddress"))
                     .withAppiumJS(new File(GLOBALPROPERTIES.getProperty("Android_AppiumMainJSPath_Win")))
-
                     .withLogFile(file)
                     .withStartUpTimeOut(50, TimeUnit.SECONDS));
 
@@ -147,7 +147,7 @@ public class BaseTest {
             driver = buildDriver(url, capabilities);
             driver.manage().timeouts().implicitlyWait(TIME_OUT, TimeUnit.SECONDS);
         }catch (Exception ex){
-            System.out.println("[Error] : " + ex.getMessage());
+            System.out.println("[Error initDriver] : " + ex.getMessage());
         }
 
     }

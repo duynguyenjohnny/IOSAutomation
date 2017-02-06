@@ -1,7 +1,7 @@
 package com.beecow.mobile.Cupid;
 
 import com.beecow.component.BaseTest;
-import com.beecow.screen.CupidScreen;
+import com.beecow.screen.*;
 import com.beecow.utils.TestLink;
 import com.beecow.utils.Utils;
 import io.appium.java_client.AppiumDriver;
@@ -19,58 +19,40 @@ import testlink.api.java.client.TestLinkAPIResults;
 
 
 public class CupidTest extends BaseTest{
-    AppiumDriverLocalService service;
-    private CupidScreen cupidScreen;
-    public String Appium_IPAddress;
-    public String Appium_Port;
-
-    public String Android_NodeJSPath;
-    public String Android_AppiumMainJSPath;
-    public String Android_LogPath;
     public String Testlink_ProjectName;
     public String Testlink_TestPlanName;
     public String Testlink_BuildName;
     String className = this.getClass().getSimpleName();
     Properties globalProperties;
     Properties cupidProperties;
+    static String cupidPropertiesFile = "Cupid.properties";
+    private ActivityFirstScreen firstScreen;
+    private ActivitySecondScreen secondScreen;
+    private HomeScreen homeScreen;
+    private CupidScreen cupidScreen;
+    public String CUPIDPROPERTIESFile = "Cupid.properties";
+    public static Properties CUPIDPROPERTIES;
 
+
+    // DATA TEST
+    String cats[] = {"Sport", "Computer", "Meal Deals"};
+    String inds[] = {"Consulting", "Design", "Education"};
 
     public CupidTest() throws Exception {
-        globalProperties = Utils.initProperties("Global.properties");
-        cupidProperties = Utils.initProperties("Cupid.properties");
-        Appium_IPAddress = Utils.getPropertyValue(globalProperties, "Appium_IPAddress");
-        Appium_Port = Utils.getPropertyValue(globalProperties, "Appium_Port");
-        Android_NodeJSPath = Utils.getPropertyValue(globalProperties, "Android_NodeJSPath");
-        Android_AppiumMainJSPath = Utils.getPropertyValue(globalProperties, "Android_AppiumMainJSPath");
-        Android_LogPath = Utils.getPropertyValue(globalProperties, "Android_LogPath");
-        Testlink_ProjectName = Utils.getPropertyValue(cupidProperties, "Testlink_ProjectName");
-        Testlink_TestPlanName = Utils.getPropertyValue(cupidProperties, "Testlink_TestPlanName");
-        Testlink_BuildName = Utils.getPropertyValue(cupidProperties, "Testlink_BuildName");
-        service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
-                .usingDriverExecutable(new File(Android_NodeJSPath))
-                .usingPort(Integer.parseInt(Appium_Port))
-                .withIPAddress(Appium_IPAddress)
-                .withAppiumJS(new File(Android_AppiumMainJSPath))
-                .withLogFile(new File(Android_LogPath))
-                .withStartUpTimeOut(50, TimeUnit.SECONDS));
-    }
-
-    @BeforeSuite
-    public void GetLastAPKFile() throws Exception{
-        System.out.println("Start Get APK File from share folder");
-        Utils.GetLastAPKFile();
-        System.out.println("Done Get APK File from share folder");
-        System.out.println("Appium is starting");
-        service.start();
-        System.out.println("Appium is started");
+        CUPIDPROPERTIES = Utils.initProperties(CUPIDPROPERTIESFile);
+        Testlink_ProjectName = Utils.getPropertyValue(CUPIDPROPERTIES, "Testlink_ProjectName");
+        Testlink_TestPlanName = Utils.getPropertyValue(CUPIDPROPERTIES, "Testlink_TestPlanName");
+        Testlink_BuildName = Utils.getPropertyValue(CUPIDPROPERTIES, "Testlink_BuildName");
     }
 
 
     @BeforeMethod
     public void setUp() throws Exception {
-        super.setUp("Cupid.properties");
+        super.setUp(cupidPropertiesFile);
+        firstScreen = new ActivityFirstScreen(driver);
+        secondScreen = new ActivitySecondScreen(driver);
+        homeScreen = new HomeScreen(driver);
         cupidScreen = new CupidScreen(driver);
-//        driver.launchApp();
     }
 
 
@@ -81,11 +63,20 @@ public class CupidTest extends BaseTest{
     public void DAT_1() throws Exception, TestLinkAPIException {
         String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
         try{
+            System.out.println("Begin Select categories for first launching");
+            firstScreen.selectCategories(cats);
+            System.out.println("Click button Next to go second launching");
+            firstScreen.clickButtonNext();
+            secondScreen.selectIndustries(inds);
+            System.out.println("Then click button Done");
+            secondScreen.clickButtonDone();
+
             System.out.println("Begin Click on Cupid Tab");
-//            cupidScreen.clickCupidTab();
+            cupidScreen.clickCupidTab();
             System.out.println("End Click on Cupid Tab");
+
             //Test passed
-//            getHelper().takeScreenshot("Cupid", className, "Passed", sMethodName);
+            getHelper().takeScreenshot("Cupid", className, "Passed", sMethodName);
             TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-1", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
         }catch (TestLinkAPIException ex){
             System.out.print("Can't update result to Testlink for DAT_1");
@@ -117,25 +108,4 @@ public class CupidTest extends BaseTest{
 //        }
 //
 //    }
-
-    @AfterMethod
-    public void closeApp() throws Exception{
-        System.out.println("Closing app");
-        if ((driver!=null)){
-            driver.quit();
-        }
-//        driver.quit();
-        System.out.println("Closed app");
-    }
-
-    @AfterSuite
-    public void Stop() throws IOException, InterruptedException, Exception {
-        System.out.println("Start Remove App");
-        if (driver!= null)
-            driver.removeApp(Utils.getPropertyValue(globalProperties,"Android_AppPackage"));
-        System.out.println("End Remove App");
-        System.out.println("Stopping Appium");
-        service.stop();
-        System.out.println("Appium is stopped");
-    }
 }
