@@ -64,6 +64,11 @@ public class MarketBannerTest extends BaseTest {
             throw new Exception("Failed: " + ex.getMessage());
         }
     }
+    @Test
+    public void AND_MAR_TC_14() throws Exception, TestLinkAPIException {
+        System.out.println("run demo tc14");
+        getHelper().findElement("abc").click();
+    }
 
     public void selectFirstSecondLaunchingAndGoToMarketPage() {
         System.out.println("Begin Select categories for first launching");

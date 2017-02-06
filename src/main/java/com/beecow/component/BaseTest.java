@@ -9,10 +9,10 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import org.junit.Assert;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 
-import com.beecow.utils.CommandPrompt;
 import com.beecow.utils.Helper;
 import com.beecow.utils.Result;
 import com.beecow.utils.Utils;
@@ -32,17 +32,10 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
     // GENERAL
     protected static AppiumDriver driver;
-    private CommandPrompt cp;
 //    public String localApp = APP_PATH;
-    public String globalPropertiesFile = "Global.properties";
+    public String GLOBALPROPERTIESFile = "Global.properties";
     public static Properties GLOBALPROPERTIES;
     AppiumDriverLocalService service;
-
-    public String Appium_IPAddress;
-    public String Appium_Port;
-    public String Android_NodeJSPath;
-    public String Android_AppiumMainJSPath;
-    public String Android_LogPath;
 
     // FOR EACH PROJECT
     public static Properties PROJECTPROPERTIES;
@@ -50,9 +43,9 @@ public class BaseTest {
     public String Testlink_TestPlanName;
     public String Testlink_BuildName;
 
-    public BaseTest() {
-        GLOBALPROPERTIES = Utils.initProperties(globalPropertiesFile);
-    }
+    public static final String ROOT_PATH = System.getProperty("user.dir");
+    public static final String LOG_PATH_FOLDER = ROOT_PATH + "/log";
+    public static final String LOG_FILE_PATH = LOG_PATH_FOLDER + "/androidLog.txt";
 
     public Helper getHelper(){
         return new Helper(driver);
@@ -63,8 +56,9 @@ public class BaseTest {
 
     @BeforeSuite
     public void GetLastAPKFile() throws Exception{
+        GLOBALPROPERTIES = Utils.initProperties(GLOBALPROPERTIESFile);
         System.out.println("Start Get APK File from share folder");
-//        Utils.GetLastAPKFile();
+        Utils.GetLastAPKFile();
         System.out.println("Done Get APK File from share folder");
         System.out.println("Appium is starting");
         setAppium();
@@ -73,8 +67,8 @@ public class BaseTest {
 
     }
 
-//    @Parameters({ "config_file"})
-//    @BeforeMethod
+    @Parameters({ "config_file"})
+    @BeforeMethod
     public void setUp(String propertyFile) throws Exception {
         try{
             System.out.println("Before Method: Setup");
@@ -84,58 +78,67 @@ public class BaseTest {
         }
 
     }
+    @AfterMethod
+    public void teardown() {
+        if(driver!=null){
+            driver.quit();
+        }
+
+    }
 
     @AfterSuite
     public void Stop() throws IOException, InterruptedException, Exception {
-        System.out.println("Start Remove App");
-        driver.removeApp(Utils.getPropertyValue(GLOBALPROPERTIES,"Android_AppPackage"));
-        System.out.println("End Remove App");
-        System.out.println("Stopping Appium");
-        service.stop();
-        System.out.println("Appium is stopped");
+        if(driver!=null) {
+            System.out.println("Start Remove App");
+            driver.removeApp(Utils.getPropertyValue(GLOBALPROPERTIES, "Android_AppPackage"));
+            System.out.println("End Remove App");
+            System.out.println("Stopping Appium");
+            service.stop();
+            System.out.println("Appium is stopped");
+        }
     }
 
     public void setAppium() {
-        System.out.println("Start APPIUM");
-        Appium_IPAddress = Utils.getPropertyValue(GLOBALPROPERTIES, "Appium_IPAddress");
-        Appium_Port = Utils.getPropertyValue(GLOBALPROPERTIES, "Appium_Port");
-        Android_NodeJSPath = Utils.getPropertyValue(GLOBALPROPERTIES, "Android_NodeJSPath");
-        Android_AppiumMainJSPath = Utils.getPropertyValue(GLOBALPROPERTIES, "Android_AppiumMainJSPath");
-        Android_LogPath = Utils.getPropertyValue(GLOBALPROPERTIES, "Android_LogPath");
-        service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
-                .usingDriverExecutable(new File(Android_NodeJSPath))
-                .usingPort(Integer.parseInt(Appium_Port))
-                .withIPAddress(Appium_IPAddress)
-                .withAppiumJS(new File(Android_AppiumMainJSPath))
-                .withLogFile(new File(Android_LogPath))
-                .withStartUpTimeOut(50, TimeUnit.SECONDS));
+        File classPathRoot = new File(ROOT_PATH);
+        String osName = System.getProperty("os.name");
+
+        File dir = new File(LOG_PATH_FOLDER);
+        if (!dir.exists()) {
+            dir.mkdir();
+        }
+        File file = new File(LOG_FILE_PATH);
+        if (!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println("File log path is created!");
+        }else{
+            System.out.println("File log path already exists.");
+        }
+        if (osName.contains("Windows")) {
+            service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
+                    .usingDriverExecutable(new File(GLOBALPROPERTIES.getProperty("Android_NodeJSPath_win")))
+                    .usingPort(Integer.parseInt(GLOBALPROPERTIES.getProperty("Appium_Port")))
+                    .withIPAddress(GLOBALPROPERTIES.getProperty("Appium_IPAddress"))
+                    .withAppiumJS(new File(GLOBALPROPERTIES.getProperty("Android_AppiumMainJSPath_Win")))
+
+                    .withLogFile(file)
+                    .withStartUpTimeOut(50, TimeUnit.SECONDS));
+
+        } else if (osName.contains("Mac")) {
+            service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
+                    .usingDriverExecutable(new File("/Applications/Appium.app/Contents/Resources/node/bin/node"))
+                    .withAppiumJS(new File("/Applications/Appium.app/Contents/Resources/node_modules/appium/bin/appium.js"))
+                    .withLogFile(new File(new File(classPathRoot, File.separator + "log"), "androidLog.txt"))
+                    .withStartUpTimeOut(50, TimeUnit.SECONDS));
+
+        } else {
+            // you can add for other OS, just to track added a fail message
+            Assert.fail("Starting appium is not supporting the current OS.");
+        }
     }
-
-
-
-//      @BeforeSuite
-//    public void runCommandToLaunchAppium() throws IOException, InterruptedException {
-//        cp=new CommandPrompt();
-//        if(Utils.getInstance().isAndroidDevice()||Utils.getInstance().isWebAndroidDevice()) {
-//            cp.runCommand("appium --address 127.0.0.1 --port 4723 --app C:\\jenkins\\workspace\\BeeCow-QAAndroid\\BeeCow.apk --session-override --log C:\\jenkins\\workspace\\BeeCow-QAAndroid\\appium.log -bp 4724");
-//            //cp.runCommand("\"C:\\Program Files (x86)\\Appium\\node.exe\" \"C:\\Program Files (x86)\\Appium\\node_modules\\appium\\lib\\server\\main.js\" --address 127.0.0.1 --port 4723 --app C:\\jenkins\\workspace\\android-beecow\\app\\build\\outputs\\apk\\BeeCow_1.0_RELEASE_12Jan2017_Build_1.apk --pre-launch --platform-name Android --platform-version 19 --automation-name Appium --log-no-color");
-//        }
-//        if(Utils.getInstance().isIosDevice()){
-//            cp.runCommand("");
-//        }
-//        if(Utils.getInstance().isWebIOSDevice()){
-//            //open new terminal
-//            Runtime.getRuntime().exec("/usr/bin/open -a Terminal /path/to/the/executable");
-//        }
-//        System.out.println("Appium is started");
-//        //Thread.sleep(20000);
-//    }
-//
-//
-//    @AfterMethod
-//    public void tearDown() {
-//        driver.quit();
-//    }
 
     private void initDriver(String propertyFile) throws Exception {
         try{

@@ -7,7 +7,6 @@ import com.beecow.utils.Utils;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
-import javassist.bytecode.stackmap.TypeData;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 import java.io.File;
