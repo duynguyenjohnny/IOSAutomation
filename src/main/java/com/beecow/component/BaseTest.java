@@ -64,7 +64,6 @@ public class BaseTest {
         setAppium();
         service.start();
         System.out.println("Appium is started");
-
     }
 
     @Parameters({ "config_file"})
@@ -81,9 +80,8 @@ public class BaseTest {
     @AfterMethod
     public void teardown() {
         if(driver!=null){
-            driver.quit();
+            driver.closeApp();
         }
-
     }
 
     @AfterSuite
