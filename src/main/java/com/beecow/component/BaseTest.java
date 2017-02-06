@@ -8,6 +8,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 
 import io.appium.java_client.remote.MobilePlatform;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 
@@ -22,15 +23,36 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by HangPham on 12/18/2016.
  */
 public class BaseTest {
-    public AppiumDriver driver;
+    // GENERAL
+    protected static AppiumDriver driver;
     private CommandPrompt cp;
-    public String localApp = APP_PATH;
+//    public String localApp = APP_PATH;
+    public String globalPropertiesFile = "Global.properties";
+    public static Properties GLOBALPROPERTIES;
+    AppiumDriverLocalService service;
+
+    public String Appium_IPAddress;
+    public String Appium_Port;
+    public String Android_NodeJSPath;
+    public String Android_AppiumMainJSPath;
+    public String Android_LogPath;
+
+    // FOR EACH PROJECT
+    public static Properties PROJECTPROPERTIES;
+    public String Testlink_ProjectName;
+    public String Testlink_TestPlanName;
+    public String Testlink_BuildName;
+
+    public BaseTest() {
+        GLOBALPROPERTIES = Utils.initProperties(globalPropertiesFile);
+    }
 
     public Helper getHelper(){
         return new Helper(driver);
@@ -39,8 +61,20 @@ public class BaseTest {
         return new Result();
     }
 
-    @Parameters({ "config_file"})
-    @BeforeMethod
+    @BeforeSuite
+    public void GetLastAPKFile() throws Exception{
+        System.out.println("Start Get APK File from share folder");
+//        Utils.GetLastAPKFile();
+        System.out.println("Done Get APK File from share folder");
+        System.out.println("Appium is starting");
+        setAppium();
+        service.start();
+        System.out.println("Appium is started");
+
+    }
+
+//    @Parameters({ "config_file"})
+//    @BeforeMethod
     public void setUp(String propertyFile) throws Exception {
         try{
             System.out.println("Before Method: Setup");
@@ -50,6 +84,33 @@ public class BaseTest {
         }
 
     }
+
+    @AfterSuite
+    public void Stop() throws IOException, InterruptedException, Exception {
+        System.out.println("Start Remove App");
+        driver.removeApp(Utils.getPropertyValue(GLOBALPROPERTIES,"Android_AppPackage"));
+        System.out.println("End Remove App");
+        System.out.println("Stopping Appium");
+        service.stop();
+        System.out.println("Appium is stopped");
+    }
+
+    public void setAppium() {
+        System.out.println("Start APPIUM");
+        Appium_IPAddress = Utils.getPropertyValue(GLOBALPROPERTIES, "Appium_IPAddress");
+        Appium_Port = Utils.getPropertyValue(GLOBALPROPERTIES, "Appium_Port");
+        Android_NodeJSPath = Utils.getPropertyValue(GLOBALPROPERTIES, "Android_NodeJSPath");
+        Android_AppiumMainJSPath = Utils.getPropertyValue(GLOBALPROPERTIES, "Android_AppiumMainJSPath");
+        Android_LogPath = Utils.getPropertyValue(GLOBALPROPERTIES, "Android_LogPath");
+        service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
+                .usingDriverExecutable(new File(Android_NodeJSPath))
+                .usingPort(Integer.parseInt(Appium_Port))
+                .withIPAddress(Appium_IPAddress)
+                .withAppiumJS(new File(Android_AppiumMainJSPath))
+                .withLogFile(new File(Android_LogPath))
+                .withStartUpTimeOut(50, TimeUnit.SECONDS));
+    }
+
 
 
 //      @BeforeSuite
@@ -79,7 +140,7 @@ public class BaseTest {
     private void initDriver(String propertyFile) throws Exception {
         try{
             DesiredCapabilities capabilities = getPlatform_capabilities(propertyFile);
-            URL url = new URL("http://127.0.0.1:4723/wd/hub");
+            URL url = new URL(Utils.getPropertyValue(GLOBALPROPERTIES,"Server_Test"));
             driver = buildDriver(url, capabilities);
             driver.manage().timeouts().implicitlyWait(TIME_OUT, TimeUnit.SECONDS);
         }catch (Exception ex){
@@ -120,18 +181,26 @@ public class BaseTest {
         throw new Exception("does not find the platform correspon");
     }
 
-    private DesiredCapabilities getAndroid_capability(String propertyFile) throws Exception {
-        String Android_APKFile = Paths.get(".").toAbsolutePath().normalize().toString() + "\\" + Utils.getPropertyValue("Global.properties", "Android_APKFile");
-        DesiredCapabilities capabilities = new DesiredCapabilities();
+    private DesiredCapabilities getAndroid_capability(String projectPropertiesFile) throws Exception {
+        PROJECTPROPERTIES = Utils.initProperties(projectPropertiesFile);
+        Testlink_ProjectName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_ProjectName");
+        Testlink_TestPlanName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_TestPlanName");
+        Testlink_BuildName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_BuildName");
+        String Android_APKFile = Paths.get(".").toAbsolutePath().normalize().toString() + "\\" + Utils.getPropertyValue(GLOBALPROPERTIES, "Android_APKFile");
+        DesiredCapabilities capabilities = new DesiredCapabilities("appWaitActivity", null, null);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
         capabilities.setCapability(MobileCapabilityType.APP, Android_APKFile);
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, Utils.getPropertyValue(propertyFile, "Android_AppPackage"));
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, Utils.getPropertyValue(propertyFile, "Android_AppActivity"));
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, Utils.getPropertyValue(propertyFile,"Android_DeviceName"));//ASUS_T00N
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, Utils.getPropertyValue(propertyFile,"Android_PlatformVersion"));
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, Utils.getPropertyValue(GLOBALPROPERTIES, "Android_AppPackage"));
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, Utils.getPropertyValue(GLOBALPROPERTIES, "Android_AppActivity"));
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, Utils.getPropertyValue(PROJECTPROPERTIES, "Android_DeviceName"));//ASUS_T00N
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, Utils.getPropertyValue(PROJECTPROPERTIES,"Android_PlatformVersion"));
+
+        capabilities.setCapability(MobileCapabilityType.VERSION, Utils.getPropertyValue(PROJECTPROPERTIES,"Android_Version"));
+        capabilities.setCapability(MobileCapabilityType.PLATFORM, Utils.getPropertyValue(PROJECTPROPERTIES,"Android_Platform"));
+
+
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "100");
         capabilities.setCapability("fullReset", false);
-        capabilities.setCapability("noReset", true);
         capabilities.setCapability("noReset", true);
         return capabilities;
     }

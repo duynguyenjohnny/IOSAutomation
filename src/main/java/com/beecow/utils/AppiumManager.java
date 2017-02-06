@@ -43,6 +43,6 @@ public class AppiumManager {
 
 //    public static void main(String[] args) throws IOException, InterruptedException {
 //        AppiumManager manager = new AppiumManager();
-//        manager.startAppium();
+//        manager.setAppium();
 //    }
 }

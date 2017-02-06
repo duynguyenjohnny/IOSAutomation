@@ -1,22 +1,26 @@
 package com.beecow.screen;
 
 import static com.beecow.model.CommonElement.failed;
-import static com.beecow.model.CommonElement.screenShot_login;
 import static com.beecow.model.MarketElement.*;
 
+import com.beecow.component.CommonScreenObjects;
 import io.appium.java_client.AppiumDriver;
-import static com.beecow.component.Constant.*;
-import testlink.api.java.client.TestLinkAPIException;
 
 /**
  * Created by HangPham on 12/18/2016.
  */
 
-public class MarketScreen extends SearchComponent {
+public class MarketScreen extends CommonScreenObjects {
     public MarketScreen(AppiumDriver driver){
         super(driver);
     }
 
+    public void verifyButtonGotItShouldBeEnabled(){
+        elementShouldBeEnable(getButtonGotIt());
+    }
+    public void clickButtonGotIt(){
+        getHelper().findElement(getButtonGotIt()).click();
+    }
     public void swipeBannerLeft() {
         getHelper().swipeRightToLeftElement(getHelper().findElement(getCurrentBannerLocator()));
     }
