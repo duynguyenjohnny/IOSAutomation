@@ -82,7 +82,11 @@
             <scope>system</scope>
             <systemPath>${basedir}/3rdLib/testlink-api-client-2.0.jar</systemPath>
         </dependency>
-
+        <dependency>
+            <groupId>org.samba.jcifs</groupId>
+            <artifactId>jcifs</artifactId>
+            <version>1.3.17</version>
+        </dependency>
 
         <!--Appium and Java Integrated with Maven-->
         <dependency>
