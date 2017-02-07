@@ -121,10 +121,8 @@ public class BaseTest {
                     .usingPort(Integer.parseInt(GLOBALPROPERTIES.getProperty("Appium_Port")))
                     .withIPAddress(GLOBALPROPERTIES.getProperty("Appium_IPAddress"))
                     .withAppiumJS(new File(GLOBALPROPERTIES.getProperty("Android_AppiumMainJSPath_Win")))
-
                     .withLogFile(file)
                     .withStartUpTimeOut(50, TimeUnit.SECONDS));
-
         } else if (osName.contains("Mac")) {
             service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
                     .usingDriverExecutable(new File("/Applications/Appium.app/Contents/Resources/node/bin/node"))
