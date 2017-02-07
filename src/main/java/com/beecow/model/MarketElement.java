@@ -8,6 +8,13 @@ import com.beecow.utils.Utils;
 
 public class MarketElement {
 
+    public static String getButtonGotIt(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "text::Got it";
+        }
+        return "ios";
+    }
+
     public static String getBannerLocator(){
         if(Utils.getInstance().isAndroidDevice()){
             return "resourceID::fragment_market_banner_pager";

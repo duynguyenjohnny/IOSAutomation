@@ -348,12 +348,17 @@ public class Helper {
         driver.swipe(middleX, upperY, middleX, lowerY, 3000);
     }
 
+    public Boolean isElementEnabled(String locator) {
+        WebElement element = findElement(locator);
+        return element.isEnabled();
+    }
+
     public Boolean waitElementByID(String locationID) {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.id(locationID)));
         return element.isEnabled();
-
     }
+
     public void waitElementIsDisplayed(By locator) {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.elementToBeClickable(locator));

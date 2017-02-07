@@ -14,4 +14,8 @@ public class HomeScreen extends CommonScreenObjects
         super(driver);
         footerComponent = new FooterComponent(driver);
     }
+
+    public void clickMarketTabView() {
+        footerComponent.clickMarketTabView();
+    }
 }
