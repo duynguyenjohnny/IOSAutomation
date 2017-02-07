@@ -92,20 +92,46 @@ public class CupidTest extends BaseTest{
 
     @Test
     /**
-     * DAT_2 - Screen is turn on
+     * DAT_2 - Turn on, turn off Cupid feature and Verify Cupid Hint
      */
     public void DAT_2() throws Exception {
         try{
-            System.out.println("Begin Click on Cupid Tab 2");
             cupidScreen.clickCupidTab();
-            System.out.println("End Click on Cupid Tab 2");
+            cupidScreen.VerifyCupidHint(true);
             cupidScreen.TurnCupidFeatureOnOff(false);
+            cupidScreen.TurnCupidFeatureOnOff(true);
+            cupidScreen.VerifyCupidHint(false);
+            cupidScreen.TurnCupidFeatureOnOff(true);
+            cupidScreen.InputMyAlias("thai hoang");
             TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-2", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
         }catch (TestLinkAPIException ex){
             System.out.print("Can't update result to Testlink for DAT_2");
         }catch (Exception ex){
             TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-2", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
-            throw new Exception("Failed 2: " + ex.getMessage());
+            throw new Exception("[DAT_2] Failed : " + ex.getMessage());
+        }
+
+    }
+
+    @Test
+    /**
+     * DAT_3 - Create new profile
+     */
+    public void DAT_3() throws Exception {
+        try{
+            cupidScreen.clickCupidTab();
+            cupidScreen.TurnCupidFeatureOnOff(true);
+
+            cupidScreen.SelectGender("Woman");
+            cupidScreen.InputMyAlias("thai hoang");
+            cupidScreen.SelectLookingFor("Both");
+
+            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-3", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
+        }catch (TestLinkAPIException ex){
+            System.out.print("Can't update result to Testlink for DAT_3");
+        }catch (Exception ex){
+            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-3", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
+            throw new Exception("[DAT_3] Failed : " + ex.getMessage());
         }
 
     }
