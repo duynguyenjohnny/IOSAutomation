@@ -128,7 +128,9 @@ public class BaseTest {
         } else if (osName.contains("Mac")) {
             service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
                     .usingDriverExecutable(new File("/Applications/Appium.app/Contents/Resources/node/bin/node"))
-                    .withAppiumJS(new File("/Applications/Appium.app/Contents/Resources/node_modules/appium/bin/appium.js"))
+                    .usingPort(Integer.parseInt("4723"))
+                    .withIPAddress("127.0.0.1")
+                    .withAppiumJS(new File("/Applications/Appium.app/Contents/Resources/node_modules/appium/build/lib/main.js"))
                     .withLogFile(new File(new File(classPathRoot, File.separator + "log"), "androidLog.txt"))
                     .withStartUpTimeOut(50, TimeUnit.SECONDS));
 
@@ -187,10 +189,11 @@ public class BaseTest {
         Testlink_ProjectName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_ProjectName");
         Testlink_TestPlanName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_TestPlanName");
         Testlink_BuildName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_BuildName");
-        String Android_APKFile = Paths.get(".").toAbsolutePath().normalize().toString() + "\\" + Utils.getPropertyValue(GLOBALPROPERTIES, "Android_APKFile");
+//        String Android_APKFile = Paths.get(".").toAbsolutePath().normalize().toString() + File.separator + Utils.getPropertyValue(GLOBALPROPERTIES, "Android_APKFile");
+        String androidAPKFile = Utils.getPropertyValue(GLOBALPROPERTIES, "Android_APKFile");
         DesiredCapabilities capabilities = new DesiredCapabilities("appWaitActivity", null, null);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
-        capabilities.setCapability(MobileCapabilityType.APP, Android_APKFile);
+        capabilities.setCapability(MobileCapabilityType.APP, androidAPKFile);
         capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, Utils.getPropertyValue(GLOBALPROPERTIES, "Android_AppPackage"));
         capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, Utils.getPropertyValue(GLOBALPROPERTIES, "Android_AppActivity"));
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, Utils.getPropertyValue(PROJECTPROPERTIES, "Android_DeviceName"));//ASUS_T00N

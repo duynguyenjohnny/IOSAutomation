@@ -67,7 +67,7 @@ public class MarketBannerTest extends BaseTest {
     @Test
     public void AND_MAR_TC_14() throws Exception, TestLinkAPIException {
         System.out.println("run demo tc14");
-        getHelper().findElement("abc").click();
+        marketScreen.clickButtonGotIt();
     }
 
     public void selectFirstSecondLaunchingAndGoToMarketPage() {
