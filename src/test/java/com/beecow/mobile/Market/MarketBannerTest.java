@@ -49,7 +49,7 @@ public class MarketBannerTest extends BaseTest {
             System.out.println("Verify button Got It should be enabled");
             marketScreen.verifyButtonGotItShouldBeEnabled();
             System.out.println("Then click button Got It");
-            marketScreen.clickButtonGotIt();
+//            marketScreen.clickButtonGotIt();
 
             TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "AND_MAR_TC-13", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
         }catch (TestLinkAPIException ex){
@@ -66,6 +66,9 @@ public class MarketBannerTest extends BaseTest {
     @Test
     public void AND_MAR_TC_14() throws Exception, TestLinkAPIException {
         System.out.println("run demo tc14");
+        System.out.println("Click Market Tab view to go Market Overview page");
+        homeScreen.clickMarketTabView();
+        marketScreen.clickButtonGotIt();
     }
 
     public void selectFirstSecondLaunchingAndGoToMarketPage() {
