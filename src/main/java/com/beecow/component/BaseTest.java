@@ -9,6 +9,8 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import io.appium.java_client.service.local.flags.ServerArgument;
+import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.junit.Assert;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
@@ -119,12 +121,14 @@ public class BaseTest {
             System.out.println("File log path already exists.");
         }
         if (osName.contains("Windows")) {
+
             service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
                     .usingDriverExecutable(new File(GLOBALPROPERTIES.getProperty("Android_NodeJSPath_win")))
                     .usingPort(Integer.parseInt(GLOBALPROPERTIES.getProperty("Appium_Port")))
                     .withIPAddress(GLOBALPROPERTIES.getProperty("Appium_IPAddress"))
                     .withAppiumJS(new File(GLOBALPROPERTIES.getProperty("Android_AppiumMainJSPath_Win")))
                     .withLogFile(file)
+                    .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                     .withStartUpTimeOut(50, TimeUnit.SECONDS));
 
         } else if (osName.contains("Mac")) {
@@ -132,7 +136,9 @@ public class BaseTest {
                     .usingDriverExecutable(new File("/Applications/Appium.app/Contents/Resources/node/bin/node"))
                     .withAppiumJS(new File("/Applications/Appium.app/Contents/Resources/node_modules/appium/bin/appium.js"))
                     .withLogFile(new File(new File(classPathRoot, File.separator + "log"), "androidLog.txt"))
-                    .withStartUpTimeOut(50, TimeUnit.SECONDS));
+                    .withStartUpTimeOut(50, TimeUnit.SECONDS)
+                    .withArgument(GeneralServerFlag.SESSION_OVERRIDE));
+
 
         } else {
             // you can add for other OS, just to track added a fail message
@@ -200,7 +206,6 @@ public class BaseTest {
 
         capabilities.setCapability(MobileCapabilityType.VERSION, Utils.getPropertyValue(PROJECTPROPERTIES,"Android_Version"));
         capabilities.setCapability(MobileCapabilityType.PLATFORM, Utils.getPropertyValue(PROJECTPROPERTIES,"Android_Platform"));
-
 
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "100");
         capabilities.setCapability("fullReset", false);

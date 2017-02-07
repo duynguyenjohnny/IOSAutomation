@@ -90,22 +90,22 @@ public class CupidTest extends BaseTest{
         }
     }
 
-//    @Test
-//    /**
-//     * DAT_2 - Screen is turn off
-//     */
-//    public void DAT_2() throws Exception {
-//        try{
-//            System.out.println("Begin Click on Cupid Tab 2");
-//            cupidScreen.clickCupidTab();
-//            System.out.println("End Click on Cupid Tab 2");
-//            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-2", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
-//        }catch (TestLinkAPIException ex){
-//            System.out.print("Can't update result to Testlink for DAT_2");
-//        }catch (Exception ex){
-//            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-2", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
-//            throw new Exception("Failed 2: " + ex.getMessage());
-//        }
-//
-//    }
+    @Test
+    /**
+     * DAT_2 - Screen is turn off
+     */
+    public void DAT_2() throws Exception {
+        try{
+            System.out.println("Begin Click on Cupid Tab 2");
+            cupidScreen.clickCupidTab();
+            System.out.println("End Click on Cupid Tab 2");
+            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-2", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
+        }catch (TestLinkAPIException ex){
+            System.out.print("Can't update result to Testlink for DAT_2");
+        }catch (Exception ex){
+            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-2", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
+            throw new Exception("Failed 2: " + ex.getMessage());
+        }
+
+    }
 }
