@@ -8,10 +8,12 @@ import io.appium.java_client.remote.MobileCapabilityType;
 
 import io.appium.java_client.remote.MobilePlatform;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
+import io.appium.java_client.service.local.flags.GeneralServerFlag;
+import org.junit.Assert;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 
-import com.beecow.utils.CommandPrompt;
 import com.beecow.utils.Helper;
 import com.beecow.utils.Result;
 import com.beecow.utils.Utils;
@@ -22,15 +24,29 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by HangPham on 12/18/2016.
  */
 public class BaseTest {
-    public AppiumDriver driver;
-    private CommandPrompt cp;
-    public String localApp = APP_PATH;
+    // GENERAL
+    protected static AppiumDriver driver;
+//    public String localApp = APP_PATH;
+    public String GLOBALPROPERTIESFile = "Global.properties";
+    public static Properties GLOBALPROPERTIES;
+    AppiumDriverLocalService service;
+
+    // FOR EACH PROJECT
+    public static Properties PROJECTPROPERTIES;
+    public String Testlink_ProjectName;
+    public String Testlink_TestPlanName;
+    public String Testlink_BuildName;
+
+    public static final String ROOT_PATH = System.getProperty("user.dir");
+    public static final String LOG_PATH_FOLDER = ROOT_PATH + "/log";
+    public static final String LOG_FILE_PATH = LOG_PATH_FOLDER + "/androidLog.txt";
 
     public Helper getHelper(){
         return new Helper(driver);
@@ -39,8 +55,20 @@ public class BaseTest {
         return new Result();
     }
 
-    @Parameters({ "config_file"})
-    @BeforeMethod
+    @BeforeSuite
+    public void GetLastAPKFile() throws Exception{
+        GLOBALPROPERTIES = Utils.initProperties(GLOBALPROPERTIESFile);
+        System.out.println("Start Get APK File from share folder");
+        Utils.GetLastAPKFile();
+        System.out.println("Done Get APK File from share folder");
+        System.out.println("Appium is starting");
+        setAppium();
+        service.start();
+        System.out.println("Appium is started");
+    }
+
+//    @Parameters({ "config_file"})
+//    @BeforeMethod
     public void setUp(String propertyFile) throws Exception {
         try{
             System.out.println("Before Method: Setup");
@@ -50,36 +78,73 @@ public class BaseTest {
         }
 
     }
+    @AfterMethod
+    public void teardown() {
+        if(driver!=null){
+            driver.closeApp();
+        }
+    }
 
+    @AfterSuite
+    public void Stop() throws IOException, InterruptedException, Exception {
+        if(driver!=null) {
+            System.out.println("Start Remove App");
+            driver.removeApp(Utils.getPropertyValue(GLOBALPROPERTIES, "Android_AppPackage"));
+            System.out.println("End Remove App");
+            System.out.println("Stopping Appium");
+            service.stop();
+            System.out.println("Appium is stopped");
+        }
+    }
 
-//      @BeforeSuite
-//    public void runCommandToLaunchAppium() throws IOException, InterruptedException {
-//        cp=new CommandPrompt();
-//        if(Utils.getInstance().isAndroidDevice()||Utils.getInstance().isWebAndroidDevice()) {
-//            cp.runCommand("appium --address 127.0.0.1 --port 4723 --app C:\\jenkins\\workspace\\BeeCow-QAAndroid\\BeeCow.apk --session-override --log C:\\jenkins\\workspace\\BeeCow-QAAndroid\\appium.log -bp 4724");
-//            //cp.runCommand("\"C:\\Program Files (x86)\\Appium\\node.exe\" \"C:\\Program Files (x86)\\Appium\\node_modules\\appium\\lib\\server\\main.js\" --address 127.0.0.1 --port 4723 --app C:\\jenkins\\workspace\\android-beecow\\app\\build\\outputs\\apk\\BeeCow_1.0_RELEASE_12Jan2017_Build_1.apk --pre-launch --platform-name Android --platform-version 19 --automation-name Appium --log-no-color");
-//        }
-//        if(Utils.getInstance().isIosDevice()){
-//            cp.runCommand("");
-//        }
-//        if(Utils.getInstance().isWebIOSDevice()){
-//            //open new terminal
-//            Runtime.getRuntime().exec("/usr/bin/open -a Terminal /path/to/the/executable");
-//        }
-//        System.out.println("Appium is started");
-//        //Thread.sleep(20000);
-//    }
-//
-//
-//    @AfterMethod
-//    public void tearDown() {
-//        driver.quit();
-//    }
+    public void setAppium() {
+        File classPathRoot = new File(ROOT_PATH);
+        String osName = System.getProperty("os.name");
+
+        File dir = new File(LOG_PATH_FOLDER);
+        if (!dir.exists()) {
+            dir.mkdir();
+        }
+        File file = new File(LOG_FILE_PATH);
+        if (!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println("File log path is created!");
+        }else{
+            System.out.println("File log path already exists.");
+        }
+        if (osName.contains("Windows")) {
+            service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
+                    .usingDriverExecutable(new File(GLOBALPROPERTIES.getProperty("Android_NodeJSPath_win")))
+                    .usingPort(Integer.parseInt(GLOBALPROPERTIES.getProperty("Appium_Port")))
+                    .withIPAddress(GLOBALPROPERTIES.getProperty("Appium_IPAddress"))
+                    .withAppiumJS(new File(GLOBALPROPERTIES.getProperty("Android_AppiumMainJSPath_Win")))
+                    .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
+                    .withLogFile(file)
+                    .withStartUpTimeOut(50, TimeUnit.SECONDS));
+        } else if (osName.contains("Mac")) {
+            service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
+                    .usingDriverExecutable(new File("/Applications/Appium.app/Contents/Resources/node/bin/node"))
+                    .usingPort(Integer.parseInt("4723"))
+                    .withIPAddress("127.0.0.1")
+                    .withAppiumJS(new File("/Applications/Appium.app/Contents/Resources/node_modules/appium/build/lib/main.js"))
+                    .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
+                    .withLogFile(new File(new File(classPathRoot, File.separator + "log"), "androidLog.txt"))
+                    .withStartUpTimeOut(50, TimeUnit.SECONDS));
+
+        } else {
+            // you can add for other OS, just to track added a fail message
+            Assert.fail("Starting appium is not supporting the current OS.");
+        }
+    }
 
     private void initDriver(String propertyFile) throws Exception {
         try{
             DesiredCapabilities capabilities = getPlatform_capabilities(propertyFile);
-            URL url = new URL("http://127.0.0.1:4723/wd/hub");
+            URL url = new URL(Utils.getPropertyValue(GLOBALPROPERTIES,"Server_Test"));
             driver = buildDriver(url, capabilities);
             driver.manage().timeouts().implicitlyWait(TIME_OUT, TimeUnit.SECONDS);
         }catch (Exception ex){
@@ -120,18 +185,27 @@ public class BaseTest {
         throw new Exception("does not find the platform correspon");
     }
 
-    private DesiredCapabilities getAndroid_capability(String propertyFile) throws Exception {
-        String Android_APKFile = Paths.get(".").toAbsolutePath().normalize().toString() + "\\" + Utils.getPropertyValue("Global.properties", "Android_APKFile");
-        DesiredCapabilities capabilities = new DesiredCapabilities();
+    private DesiredCapabilities getAndroid_capability(String projectPropertiesFile) throws Exception {
+        PROJECTPROPERTIES = Utils.initProperties(projectPropertiesFile);
+        Testlink_ProjectName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_ProjectName");
+        Testlink_TestPlanName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_TestPlanName");
+        Testlink_BuildName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_BuildName");
+        String Android_APKFile = Paths.get(".").toAbsolutePath().normalize().toString() + File.separator + Utils.getPropertyValue(GLOBALPROPERTIES, "Android_APKFile");
+        String androidAPKFile = new File(Utils.getPropertyValue(GLOBALPROPERTIES, "Android_APKFile")).getAbsolutePath();
+        DesiredCapabilities capabilities = new DesiredCapabilities("appWaitActivity", null, null);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
-        capabilities.setCapability(MobileCapabilityType.APP, Android_APKFile);
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, Utils.getPropertyValue(propertyFile, "Android_AppPackage"));
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, Utils.getPropertyValue(propertyFile, "Android_AppActivity"));
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, Utils.getPropertyValue(propertyFile,"Android_DeviceName"));//ASUS_T00N
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, Utils.getPropertyValue(propertyFile,"Android_PlatformVersion"));
+        capabilities.setCapability(MobileCapabilityType.APP, androidAPKFile);
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, Utils.getPropertyValue(GLOBALPROPERTIES, "Android_AppPackage"));
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, Utils.getPropertyValue(GLOBALPROPERTIES, "Android_AppActivity"));
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, Utils.getPropertyValue(PROJECTPROPERTIES, "Android_DeviceName"));//ASUS_T00N
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, Utils.getPropertyValue(PROJECTPROPERTIES,"Android_PlatformVersion"));
+
+        capabilities.setCapability(MobileCapabilityType.VERSION, Utils.getPropertyValue(PROJECTPROPERTIES,"Android_Version"));
+        capabilities.setCapability(MobileCapabilityType.PLATFORM, Utils.getPropertyValue(PROJECTPROPERTIES,"Android_Platform"));
+
+
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "100");
         capabilities.setCapability("fullReset", false);
-        capabilities.setCapability("noReset", true);
         capabilities.setCapability("noReset", true);
         return capabilities;
     }

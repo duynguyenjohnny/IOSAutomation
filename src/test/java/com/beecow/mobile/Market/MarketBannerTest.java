@@ -1,5 +1,6 @@
 package com.beecow.mobile.Market;
 
+import com.beecow.screen.MarketScreen;
 import com.beecow.screen.CupidScreen;
 import com.beecow.screen.HomeScreen;
 import com.beecow.utils.Utils;
@@ -9,11 +10,16 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
+import com.beecow.screen.*;
+import com.beecow.utils.TestLink;
+import org.testng.annotations.*;
 
 import com.beecow.component.BaseTest;
-import com.beecow.screen.MarketScreen;
 
 import testlink.api.java.client.TestLinkAPIException;
+import testlink.api.java.client.TestLinkAPIResults;
+
+import java.io.File;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -35,30 +41,21 @@ public class MarketBannerTest extends BaseTest {
     public String Testlink_TestPlanName;
     public String Testlink_BuildName;
     public String marketPropertyPath="Market.properties";
-    String className = this.getClass().getSimpleName();
 
-    int i=2;
+    String className = this.getClass().getSimpleName();
+    private ActivityFirstScreen firstScreen;
+    private ActivitySecondScreen secondScreen;
     private HomeScreen homeScreen;
     private MarketScreen marketScreen;
+    
+    static String marketPropertiesFile = "Market.properties";
 
+    // DATA TEST
+    String cats[] = {"Sport", "Computer", "Meal Deals"};
+    String catList[] = {"Men's Fashion", "Women's Fashion", "Mobile & Tablet", "Computer", "Camera & TV", "Home & Living", "Mom & Kids", "Health & Beauty", "Sport", "Meal Deals", "Spa Deals", "Entertainment Deals", "Travel Deals"};
+    String inds[] = {"Consulting", "Design", "Education"};
+    String indList[] = {"Accounting & Auditing Services", "Advertising & Public RelationstAds & PR", "Agriculture/Forestry/Fishing", "Airlines & Aviation", "Architecture", "Automotive", "Banking", "Beauty/Cosmetics", "Biotechnology/Pharmaceuticals", "Broadcasting/Music/Film", "Chemical/Petro-chemical", "Clothing & Textile Manufacturing", "Computer/IT", "Construction", "Consulting", "Design", "Distribution/Logistics", "Education", "Energy/Utilities", "Engineering", "Financial Services", "Food/Beverage Production", "Government", "Healthcare Services", "Hotels/Lodging", "Import/Export/Trade", "Insurance", "Internet Services", "Legal Services", "Manufacturing", "Medical/Hospital", "NGO/INGO/Non-profit", "Performing Arts/Fine Arts", "Personal & Household Services", "Printing/Publishing", "Real Estate/Property", "Recruitment Agencies", "Restaurant/Food Services", "Retail", "Security/Surveillance", "Social Services", "Sports/Physical Recreation", "Telecommunications Services", "Tourism/Travel Services", "Transportation & Storage"};
 
-    public MarketBannerTest() throws Exception {
-        Appium_IPAddress = Utils.getPropertyValue("Global.properties", "Appium_IPAddress");
-        Appium_Port = Utils.getPropertyValue("Global.properties", "Appium_Port");
-        Android_NodeJSPath = Utils.getPropertyValue(marketPropertyPath, "Android_NodeJSPath");
-        Android_AppiumMainJSPath = Utils.getPropertyValue(marketPropertyPath, "Android_AppiumMainJSPath");
-        Android_LogPath = Utils.getPropertyValue(marketPropertyPath, "Android_LogPath");
-        Testlink_ProjectName = Utils.getPropertyValue(marketPropertyPath, "Testlink_ProjectName");
-        Testlink_TestPlanName = Utils.getPropertyValue(marketPropertyPath, "Testlink_TestPlanName");
-        Testlink_BuildName = Utils.getPropertyValue(marketPropertyPath, "Testlink_BuildName");
-        service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
-                .usingDriverExecutable(new File(Android_NodeJSPath))
-                .usingPort(Integer.parseInt(Appium_Port))
-                .withIPAddress(Appium_IPAddress)
-                .withAppiumJS(new File(Android_AppiumMainJSPath))
-                .withLogFile(new File(Android_LogPath))
-                .withStartUpTimeOut(50, TimeUnit.SECONDS));
-    }
 
     @BeforeSuite
     public void GetLastAPKFile() throws Exception{
@@ -70,32 +67,58 @@ public class MarketBannerTest extends BaseTest {
         System.out.println("Appium is started");
     }
 
-
-    //@Override
     @BeforeMethod
     public void setUp() throws Exception {
-        super.setUp("Market.properties");
-        homeScreen=new HomeScreen(driver);
-        marketScreen =new MarketScreen(driver);
-    }
-    @AfterMethod(alwaysRun = true)
-    public void afterMethod() throws InterruptedException {
-        if (driver==null)
-            return;
-        String str="AND_MAR_TC_";
-        String testCasesID=str.concat(Integer.toString(i));
-//           marketScreen.checkReportTestLinkLogin(testCasesID);
-        i=i+1;
-        Thread.sleep(5000);
-        driver.quit();
+        super.setUp(marketPropertiesFile);
+
+        firstScreen = new ActivityFirstScreen(driver);
+        secondScreen = new ActivitySecondScreen(driver);
+        homeScreen = new HomeScreen(driver);
+        marketScreen = new MarketScreen(driver);
+
     }
 
 
     @Test
-    public void AND_MAR_8_TC_1() throws TestLinkAPIException {
-        System.out.println("Checking market page ... ");
-//        homeScreen.clickMarketTabView();
-//        marketScreen.verifyMarketPage();
+    public void AND_MAR_TC_13() throws Exception, TestLinkAPIException {
+        String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            selectFirstSecondLaunchingAndGoToMarketPage();
+            System.out.println("Verify button Got It should be enabled");
+            marketScreen.verifyButtonGotItShouldBeEnabled();
+            System.out.println("Then click button Got It");
+//            marketScreen.clickButtonGotIt();
+
+            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "AND_MAR_TC-13", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
+        }catch (TestLinkAPIException ex){
+            System.out.print("Can't update result to Testlink for AND_MAR_TC_13");
+        }
+        catch (Exception ex) {
+            //Test failed
+            getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
+            System.out.println("Current working dir: " + new File(MarketBannerTest.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
+            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "AND_MAR_TC-13", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
+            throw new Exception("Failed: " + ex.getMessage());
+        }
+    }
+    @Test
+    public void AND_MAR_TC_14() throws Exception, TestLinkAPIException {
+        System.out.println("run demo tc14");
+        System.out.println("Click Market Tab view to go Market Overview page");
+        homeScreen.clickMarketTabView();
+        marketScreen.clickButtonGotIt();
     }
 
+    public void selectFirstSecondLaunchingAndGoToMarketPage() {
+        System.out.println("Begin Select categories for first launching");
+        firstScreen.selectCategories(cats);
+        System.out.println("Click button Next to go second launching");
+        firstScreen.clickButtonNext();
+        System.out.println("Next select industries");
+        secondScreen.selectIndustries(inds);
+        System.out.println("Then click button Done");
+        secondScreen.clickButtonDone();
+        System.out.println("Click Market Tab view to go Market Overview page");
+        homeScreen.clickMarketTabView();
+    }
 }

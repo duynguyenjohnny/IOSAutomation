@@ -10,6 +10,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Properties;
+import java.util.ResourceBundle;
+
 import static java.nio.file.StandardCopyOption.*;
 
 /**
@@ -17,6 +19,7 @@ import static java.nio.file.StandardCopyOption.*;
  */
 public class Utils {
     private static Utils utils;
+    public static String globalPro = "Global.properties";
 
     public static synchronized Utils getInstance(){
         if(utils==null){
@@ -60,30 +63,69 @@ public class Utils {
         if(Constant.TYPE_PLATFORM.equals(Constant.MOBILE_PLATFORM.SAFARI_IOS)){
             return true;
         }
+
         return false;
+
     }
 
-    public static String getPropertyValue(String propertyFile, String propertyName) throws Exception{
+    public static Properties initProperties(String propertyFile) {
         try{
-            String value = "";
-            Properties pro = new Properties();
-            String workingdir = Paths.get(".").toAbsolutePath().normalize().toString() + "\\src\\main\\resources\\";
 
-            File f = new File(workingdir + propertyFile);
-            if(f.exists() && !f.isDirectory()) {
-                FileInputStream Master = new FileInputStream(workingdir + propertyFile);
-                pro.load(Master);
-                Master.close();
-                return pro.getProperty(propertyName);
-            }else{
-                System.out.println("Get Property Value");
-                return null;
-            }
-        }catch (Exception ex){
-            System.out.println("Exception Error while Get Property Value: " + ex.getMessage());
-            return null;
+            Properties pro = new Properties();
+            InputStream resourceAsStream = Utils.class.getClassLoader()
+                    .getResourceAsStream(propertyFile);
+            pro.load(resourceAsStream);
+//            String workingdir = ResourceBundle.getBundle("Global");
+
+//            File f = new File(workingdir + propertyFile);
+//            if(f.exists() && !f.isDirectory()) {
+//                FileInputStream Master = new FileInputStream(workingdir + propertyFile);
+//                pro.load(Master);
+//                Master.close();
+//                return pro;
+//            } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+            return pro;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-    };
+//    }catch (Exception ex){
+//            ex.printStackTrace();
+//        }
+        return null;
+    }
+
+    public static String getPropertyValue(Properties pro, String propertyName) {
+        if (pro == null || propertyName == null) {
+            return null;//new Exception("properties==null || propertyName==null");
+        }
+        return pro.getProperty(propertyName);
+    }
+
+    private static void initProperties(Properties pro) {
+    }
+
+//    public static String getPropertyValue(String propertyFile, String propertyName) throws Exception{
+//        try{
+//            String value = "";
+//            Properties pro = new Properties();
+//            String workingdir = Paths.get(".").toAbsolutePath().normalize().toString() + "\\src\\main\\resources\\";
+//
+//            File f = new File(workingdir + propertyFile);
+//            if(f.exists() && !f.isDirectory()) {
+//                FileInputStream Master = new FileInputStream(workingdir + propertyFile);
+//                pro.load(Master);
+//                Master.close();
+//                return pro.getProperty(propertyName);
+//            }else{
+//                System.out.println("Get Property Value");
+//                return null;
+//            }
+//        }catch (Exception ex){
+//            System.out.println("Exception Error while Get Property Value: " + ex.getMessage());
+//            return null;
+//        }
+//    };
 
     /**
      * This function will copy .apk file from share server (config in Global.properties) to local
@@ -92,14 +134,15 @@ public class Utils {
      */
     public static String GetLastAPKFile() throws Exception{
         try{
-            String destFilename = Paths.get(".").toAbsolutePath().normalize().toString() + "\\" + Utils.getPropertyValue("Global.properties", "Android_APKFile");
+            Properties initPro = initProperties(globalPro);
+            String destFilename = getPropertyValue(initPro, "Android_APKFile");
             FileOutputStream fileOutputStream;
             InputStream fileInputStream;
             byte[] buf;
             int len;
-            String sNetworkShare_User = utils.getPropertyValue("Global.properties", "NetworkShare_User");
-            String sNetworkShare_Pass = utils.getPropertyValue("Global.properties", "NetworkShare_Pass");
-            String url = "smb:" + utils.getPropertyValue("Global.properties", "Android_APKFolder");
+            String sNetworkShare_User = getPropertyValue(initPro,  "NetworkShare_User");
+            String sNetworkShare_Pass = getPropertyValue(initPro,  "NetworkShare_Pass");
+            String url = "smb:" + getPropertyValue(initPro,  "Android_APKFolder");
             NtlmPasswordAuthentication auth = new NtlmPasswordAuthentication(null, sNetworkShare_User, sNetworkShare_Pass);
             SmbFile dir = new SmbFile(url, auth);
             //File folder = new File(dir.getPath());
@@ -138,5 +181,11 @@ public class Utils {
         } catch (Exception ex) {
             return "Function GetLastAPKFile - Error: " + ex.getMessage();
         }
+    }
+
+    public static  void main(String[] args){
+        Properties initPro = initProperties(globalPro);
+        String test = getPropertyValue(initPro,"Android_AppiumMainJSPath_Win").replaceAll("C:/.*/Appium/", "");
+        System.out.println(test);
     }
 }

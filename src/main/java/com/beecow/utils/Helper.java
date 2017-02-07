@@ -157,16 +157,16 @@ public class Helper {
      * @return A screenshot locate in path with given param above
      */
     public File takeScreenshot(String Project, String ClassNames, String Result, String TCsID) {
-        String sProjectPath = Paths.get(".").toAbsolutePath().normalize().toString() + "\\src\\report\\" + Project + "\\";
+        String sProjectPath = Paths.get(".").toAbsolutePath().normalize().toString() + "/src/report/" + Project + File.separator;
         DateFormat dateFormat = new SimpleDateFormat("_yyyy_MM_dd_HH_mm_ss");
         //get current date time with Date()
         Date date = new Date();
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         String fileScrShot = "";
         if(Utils.getInstance().isAndroidDevice()) {
-            fileScrShot = sProjectPath.concat("Android") + "\\" + ClassNames + "\\" + TCsID + "\\" + Result + "_" + dateFormat.format(date).toString() + ".png";
+            fileScrShot = sProjectPath.concat("Android") + File.separator + ClassNames + File.separator + TCsID + File.separator + Result + "_" + dateFormat.format(date).toString() + ".png";
         }else if(Utils.getInstance().isIosDevice()){
-            fileScrShot = sProjectPath.concat("IOS") + "\\" + ClassNames + "\\" + TCsID + "\\" + Result + "_" + dateFormat.format(date).toString() + ".png";
+            fileScrShot = sProjectPath.concat("IOS") + File.separator + ClassNames + File.separator + TCsID + File.separator + Result + "_" + dateFormat.format(date).toString() + ".png";
         }
         try {
             FileUtils.copyFile(scrFile, new File(fileScrShot));
@@ -348,12 +348,17 @@ public class Helper {
         driver.swipe(middleX, upperY, middleX, lowerY, 3000);
     }
 
+    public Boolean isElementEnabled(String locator) {
+        WebElement element = findElement(locator);
+        return element.isEnabled();
+    }
+
     public Boolean waitElementByID(String locationID) {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.id(locationID)));
         return element.isEnabled();
-
     }
+
     public void waitElementIsDisplayed(By locator) {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.elementToBeClickable(locator));
