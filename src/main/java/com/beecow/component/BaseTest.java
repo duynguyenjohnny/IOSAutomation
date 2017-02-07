@@ -9,6 +9,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.junit.Assert;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
@@ -66,8 +67,8 @@ public class BaseTest {
         System.out.println("Appium is started");
     }
 
-    @Parameters({ "config_file"})
-    @BeforeMethod
+//    @Parameters({ "config_file"})
+//    @BeforeMethod
     public void setUp(String propertyFile) throws Exception {
         try{
             System.out.println("Before Method: Setup");
@@ -121,6 +122,7 @@ public class BaseTest {
                     .usingPort(Integer.parseInt(GLOBALPROPERTIES.getProperty("Appium_Port")))
                     .withIPAddress(GLOBALPROPERTIES.getProperty("Appium_IPAddress"))
                     .withAppiumJS(new File(GLOBALPROPERTIES.getProperty("Android_AppiumMainJSPath_Win")))
+                    .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                     .withLogFile(file)
                     .withStartUpTimeOut(50, TimeUnit.SECONDS));
         } else if (osName.contains("Mac")) {
@@ -129,6 +131,7 @@ public class BaseTest {
                     .usingPort(Integer.parseInt("4723"))
                     .withIPAddress("127.0.0.1")
                     .withAppiumJS(new File("/Applications/Appium.app/Contents/Resources/node_modules/appium/build/lib/main.js"))
+                    .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                     .withLogFile(new File(new File(classPathRoot, File.separator + "log"), "androidLog.txt"))
                     .withStartUpTimeOut(50, TimeUnit.SECONDS));
 
@@ -187,8 +190,8 @@ public class BaseTest {
         Testlink_ProjectName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_ProjectName");
         Testlink_TestPlanName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_TestPlanName");
         Testlink_BuildName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_BuildName");
-//        String Android_APKFile = Paths.get(".").toAbsolutePath().normalize().toString() + File.separator + Utils.getPropertyValue(GLOBALPROPERTIES, "Android_APKFile");
-        String androidAPKFile = Utils.getPropertyValue(GLOBALPROPERTIES, "Android_APKFile");
+        String Android_APKFile = Paths.get(".").toAbsolutePath().normalize().toString() + File.separator + Utils.getPropertyValue(GLOBALPROPERTIES, "Android_APKFile");
+        String androidAPKFile = new File(Utils.getPropertyValue(GLOBALPROPERTIES, "Android_APKFile")).getAbsolutePath();
         DesiredCapabilities capabilities = new DesiredCapabilities("appWaitActivity", null, null);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
         capabilities.setCapability(MobileCapabilityType.APP, androidAPKFile);
