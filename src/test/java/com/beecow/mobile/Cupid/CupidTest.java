@@ -92,13 +92,14 @@ public class CupidTest extends BaseTest{
 
     @Test
     /**
-     * DAT_2 - Screen is turn off
+     * DAT_2 - Screen is turn on
      */
     public void DAT_2() throws Exception {
         try{
             System.out.println("Begin Click on Cupid Tab 2");
             cupidScreen.clickCupidTab();
             System.out.println("End Click on Cupid Tab 2");
+            cupidScreen.TurnCupidFeatureOnOff(false);
             TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "DAT-2", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
         }catch (TestLinkAPIException ex){
             System.out.print("Can't update result to Testlink for DAT_2");

@@ -9,7 +9,6 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
-import io.appium.java_client.service.local.flags.ServerArgument;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.junit.Assert;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -34,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
     // GENERAL
     protected static AppiumDriver driver;
-//    public String localApp = APP_PATH;
+    //    public String localApp = APP_PATH;
     public String GLOBALPROPERTIESFile = "Global.properties";
     public static Properties GLOBALPROPERTIES;
     AppiumDriverLocalService service;
@@ -66,11 +65,10 @@ public class BaseTest {
         setAppium();
         service.start();
         System.out.println("Appium is started");
-
     }
 
-    @Parameters({ "config_file"})
-    @BeforeMethod
+    //    @Parameters({ "config_file"})
+//    @BeforeMethod
     public void setUp(String propertyFile) throws Exception {
         try{
             System.out.println("Before Method: Setup");
@@ -82,10 +80,8 @@ public class BaseTest {
     }
     @AfterMethod
     public void teardown() {
-        if (driver != null){
-            System.out.println("Closing app");
+        if(driver!=null){
             driver.closeApp();
-            System.out.println("Closed app");
         }
     }
 
@@ -121,24 +117,23 @@ public class BaseTest {
             System.out.println("File log path already exists.");
         }
         if (osName.contains("Windows")) {
-
             service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
                     .usingDriverExecutable(new File(GLOBALPROPERTIES.getProperty("Android_NodeJSPath_win")))
                     .usingPort(Integer.parseInt(GLOBALPROPERTIES.getProperty("Appium_Port")))
                     .withIPAddress(GLOBALPROPERTIES.getProperty("Appium_IPAddress"))
                     .withAppiumJS(new File(GLOBALPROPERTIES.getProperty("Android_AppiumMainJSPath_Win")))
-                    .withLogFile(file)
                     .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
+                    .withLogFile(file)
                     .withStartUpTimeOut(50, TimeUnit.SECONDS));
-
         } else if (osName.contains("Mac")) {
             service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
                     .usingDriverExecutable(new File("/Applications/Appium.app/Contents/Resources/node/bin/node"))
-                    .withAppiumJS(new File("/Applications/Appium.app/Contents/Resources/node_modules/appium/bin/appium.js"))
+                    .usingPort(Integer.parseInt("4723"))
+                    .withIPAddress("127.0.0.1")
+                    .withAppiumJS(new File("/Applications/Appium.app/Contents/Resources/node_modules/appium/build/lib/main.js"))
+                    .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                     .withLogFile(new File(new File(classPathRoot, File.separator + "log"), "androidLog.txt"))
-                    .withStartUpTimeOut(50, TimeUnit.SECONDS)
-                    .withArgument(GeneralServerFlag.SESSION_OVERRIDE));
-
+                    .withStartUpTimeOut(50, TimeUnit.SECONDS));
 
         } else {
             // you can add for other OS, just to track added a fail message
@@ -153,7 +148,7 @@ public class BaseTest {
             driver = buildDriver(url, capabilities);
             driver.manage().timeouts().implicitlyWait(TIME_OUT, TimeUnit.SECONDS);
         }catch (Exception ex){
-            System.out.println("[Error initDriver] : " + ex.getMessage());
+            System.out.println("[Error] : " + ex.getMessage());
         }
 
     }
@@ -195,10 +190,11 @@ public class BaseTest {
         Testlink_ProjectName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_ProjectName");
         Testlink_TestPlanName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_TestPlanName");
         Testlink_BuildName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_BuildName");
-        String Android_APKFile = Paths.get(".").toAbsolutePath().normalize().toString() + "\\" + Utils.getPropertyValue(GLOBALPROPERTIES, "Android_APKFile");
+        String Android_APKFile = Paths.get(".").toAbsolutePath().normalize().toString() + File.separator + Utils.getPropertyValue(GLOBALPROPERTIES, "Android_APKFile");
+        String androidAPKFile = new File(Utils.getPropertyValue(GLOBALPROPERTIES, "Android_APKFile")).getAbsolutePath();
         DesiredCapabilities capabilities = new DesiredCapabilities("appWaitActivity", null, null);
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
-        capabilities.setCapability(MobileCapabilityType.APP, Android_APKFile);
+        capabilities.setCapability(MobileCapabilityType.APP, androidAPKFile);
         capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, Utils.getPropertyValue(GLOBALPROPERTIES, "Android_AppPackage"));
         capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, Utils.getPropertyValue(GLOBALPROPERTIES, "Android_AppActivity"));
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, Utils.getPropertyValue(PROJECTPROPERTIES, "Android_DeviceName"));//ASUS_T00N
@@ -206,6 +202,7 @@ public class BaseTest {
 
         capabilities.setCapability(MobileCapabilityType.VERSION, Utils.getPropertyValue(PROJECTPROPERTIES,"Android_Version"));
         capabilities.setCapability(MobileCapabilityType.PLATFORM, Utils.getPropertyValue(PROJECTPROPERTIES,"Android_Platform"));
+
 
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "100");
         capabilities.setCapability("fullReset", false);

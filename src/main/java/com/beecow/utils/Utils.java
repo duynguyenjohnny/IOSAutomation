@@ -10,6 +10,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Properties;
+import java.util.ResourceBundle;
+
 import static java.nio.file.StandardCopyOption.*;
 
 /**
@@ -61,24 +63,35 @@ public class Utils {
         if(Constant.TYPE_PLATFORM.equals(Constant.MOBILE_PLATFORM.SAFARI_IOS)){
             return true;
         }
+
         return false;
+
     }
 
     public static Properties initProperties(String propertyFile) {
         try{
-            Properties pro = new Properties();
-            String workingdir = Paths.get(".").toAbsolutePath().normalize().toString() + "\\src\\main\\resources\\";
 
-            File f = new File(workingdir + propertyFile);
-            if(f.exists() && !f.isDirectory()) {
-                FileInputStream Master = new FileInputStream(workingdir + propertyFile);
-                pro.load(Master);
-                Master.close();
-                return pro;
-            }
-        }catch (Exception ex){
-            ex.printStackTrace();
+            Properties pro = new Properties();
+            InputStream resourceAsStream = Utils.class.getClassLoader()
+                    .getResourceAsStream(propertyFile);
+            pro.load(resourceAsStream);
+//            String workingdir = ResourceBundle.getBundle("Global");
+
+//            File f = new File(workingdir + propertyFile);
+//            if(f.exists() && !f.isDirectory()) {
+//                FileInputStream Master = new FileInputStream(workingdir + propertyFile);
+//                pro.load(Master);
+//                Master.close();
+//                return pro;
+//            } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+            return pro;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+//    }catch (Exception ex){
+//            ex.printStackTrace();
+//        }
         return null;
     }
 
@@ -122,7 +135,7 @@ public class Utils {
     public static String GetLastAPKFile() throws Exception{
         try{
             Properties initPro = initProperties(globalPro);
-            String destFilename = Paths.get(".").toAbsolutePath().normalize().toString() + "\\" + getPropertyValue(initPro, "Android_APKFile");
+            String destFilename = getPropertyValue(initPro, "Android_APKFile");
             FileOutputStream fileOutputStream;
             InputStream fileInputStream;
             byte[] buf;
@@ -168,5 +181,11 @@ public class Utils {
         } catch (Exception ex) {
             return "Function GetLastAPKFile - Error: " + ex.getMessage();
         }
+    }
+
+    public static  void main(String[] args){
+        Properties initPro = initProperties(globalPro);
+        String test = getPropertyValue(initPro,"Android_AppiumMainJSPath_Win").replaceAll("C:/.*/Appium/", "");
+        System.out.println(test);
     }
 }

@@ -27,6 +27,10 @@ public class CupidScreen extends CommonScreenObjects{
 
     }
 
+    /**
+     * Click on Cupid Tab in the Footer
+     * @throws Exception
+     */
     public void clickCupidTab() throws Exception{
         try{
             WebElement WEcupidTab = getHelper().findElement(CupidElement.tab_Cupid());
@@ -35,6 +39,39 @@ public class CupidScreen extends CommonScreenObjects{
         }catch (NoSuchElementException noElement){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
             throw new Exception("Can't find Element: " + CupidElement.tab_Cupid() + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("FAILED: " + ex.getMessage());
+        }
+
+    }
+
+
+    /**
+     * Turn on or off the Cupid Feature
+     * @param on true or false
+     * @throws Exception
+     */
+    public void TurnCupidFeatureOnOff(boolean on) throws Exception{
+        try{
+            if (on){
+                if (getHelper().isElementPresent(CupidElement.switch_CupidFeatureOFF())){
+                    WebElement WEcupidFeatureOFF = getHelper().findElement(CupidElement.switch_CupidFeatureOFF());
+                    WEcupidFeatureOFF.click();
+                }else{
+                    System.out.println("Cupid feature is already ON");
+                }
+            }else{
+                if (getHelper().isElementPresent(CupidElement.switch_CupidFeatureON())){
+                    WebElement WEcupidFeatureON = getHelper().findElement(CupidElement.switch_CupidFeatureON());
+                    WEcupidFeatureON.click();
+                }else{
+                    System.out.println("Cupid feature is already OFF");
+                }
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("Can't find Element: " + noElement.getMessage());
         }catch (Exception ex){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
             throw new Exception("FAILED: " + ex.getMessage());
