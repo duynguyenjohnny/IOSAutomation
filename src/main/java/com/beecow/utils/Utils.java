@@ -12,14 +12,13 @@ import java.nio.file.StandardCopyOption;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
-import static java.nio.file.StandardCopyOption.*;
+import static com.beecow.model.CommonElement.*;
 
 /**
  * Created by HangPham on 12/17/2016.
  */
 public class Utils {
     private static Utils utils;
-    public static String globalPro = "Global.properties";
 
     public static synchronized Utils getInstance(){
         if(utils==null){
@@ -134,15 +133,15 @@ public class Utils {
      */
     public static String GetLastAPKFile() throws Exception{
         try{
-            Properties initPro = initProperties(globalPro);
-            String destFilename = getPropertyValue(initPro, "Android_APKFile");
+            Properties initPro = initProperties(GLOBALPROPERTIESFile);
+            String destFilename = getPropertyValue(initPro, Android_APKFile);
             FileOutputStream fileOutputStream;
             InputStream fileInputStream;
             byte[] buf;
             int len;
-            String sNetworkShare_User = getPropertyValue(initPro,  "NetworkShare_User");
-            String sNetworkShare_Pass = getPropertyValue(initPro,  "NetworkShare_Pass");
-            String url = "smb:" + getPropertyValue(initPro,  "Android_APKFolder");
+            String sNetworkShare_User = getPropertyValue(initPro,  NetworkShare_User);
+            String sNetworkShare_Pass = getPropertyValue(initPro,  NetworkShare_Pass);
+            String url = "smb:" + getPropertyValue(initPro,  Android_APKFolder);
             NtlmPasswordAuthentication auth = new NtlmPasswordAuthentication(null, sNetworkShare_User, sNetworkShare_Pass);
             SmbFile dir = new SmbFile(url, auth);
             //File folder = new File(dir.getPath());
@@ -184,7 +183,7 @@ public class Utils {
     }
 
     public static  void main(String[] args){
-        Properties initPro = initProperties(globalPro);
+        Properties initPro = initProperties(GLOBALPROPERTIESFile);
         String test = getPropertyValue(initPro,"Android_AppiumMainJSPath_Win").replaceAll("C:/.*/Appium/", "");
         System.out.println(test);
     }
