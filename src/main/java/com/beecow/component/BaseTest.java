@@ -18,8 +18,6 @@ import com.beecow.utils.Helper;
 import com.beecow.utils.Result;
 import com.beecow.utils.Utils;
 
-import static com.beecow.component.Constant.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -30,10 +28,12 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by HangPham on 12/18/2016.
  */
+
 public class BaseTest {
     // GENERAL
     protected static AppiumDriver driver;
-    private int TimeOut = 100;
+    private int TIMEOUT100 = 100;
+    private int TIMEOUT10 = 10;
     public String GLOBALPROPERTIESFile = "Global.properties";
     public static Properties GLOBALPROPERTIES;
     AppiumDriverLocalService service;
@@ -67,8 +67,6 @@ public class BaseTest {
         System.out.println("Appium is started");
     }
 
-//    @Parameters({ "config_file"})
-//    @BeforeMethod
     public void setUp(String propertyFile) throws Exception {
         try{
             System.out.println("Before Method: Setup");
@@ -124,7 +122,7 @@ public class BaseTest {
                     .withAppiumJS(new File(GLOBALPROPERTIES.getProperty("Android_AppiumMainJSPath_Win")))
                     .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                     .withLogFile(file)
-                    .withStartUpTimeOut(TimeOut, TimeUnit.SECONDS));
+                    .withStartUpTimeOut(TIMEOUT100, TimeUnit.SECONDS));
         } else if (osName.contains("Mac")) {
             service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
                     .usingDriverExecutable(new File("/Applications/Appium.app/Contents/Resources/node/bin/node"))
@@ -133,7 +131,7 @@ public class BaseTest {
                     .withAppiumJS(new File("/Applications/Appium.app/Contents/Resources/node_modules/appium/build/lib/main.js"))
                     .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                     .withLogFile(new File(new File(classPathRoot, File.separator + "log"), "androidLog.txt"))
-                    .withStartUpTimeOut(TimeOut, TimeUnit.SECONDS));
+                    .withStartUpTimeOut(TIMEOUT100, TimeUnit.SECONDS));
 
         } else {
             // you can add for other OS, just to track added a fail message
@@ -146,7 +144,7 @@ public class BaseTest {
             DesiredCapabilities capabilities = getPlatform_capabilities(propertyFile);
             URL url = new URL(Utils.getPropertyValue(GLOBALPROPERTIES,"Server_Test"));
             driver = buildDriver(url, capabilities);
-            driver.manage().timeouts().implicitlyWait(TIME_OUT, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(TIMEOUT10, TimeUnit.SECONDS);
         }catch (Exception ex){
             System.out.println("[Error] : " + ex.getMessage());
         }
@@ -204,7 +202,7 @@ public class BaseTest {
         capabilities.setCapability(MobileCapabilityType.PLATFORM, Utils.getPropertyValue(PROJECTPROPERTIES,"Android_Platform"));
 
 
-        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, TimeOut);
+        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, TIMEOUT100);
         capabilities.setCapability("fullReset", false);
         capabilities.setCapability("noReset", true);
         return capabilities;

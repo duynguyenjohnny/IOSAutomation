@@ -36,14 +36,6 @@ public class Helper {
     private AppiumDriver driver;
     private Dimension size;
 
-    //Enter your project API key here.
-    public static String devKey=DEVKEY;
-
-    //Enter your Test Link URL here
-//    public static String URL= "http://192.168.1.83:9091/testlink/index.php";//
-    public static String url= URL;//testlink/lib/api/xmlrpc/v1/xmlrpc.php
-
-
     public Helper(AppiumDriver driver) {
         this.driver = driver;
     }
@@ -53,11 +45,7 @@ public class Helper {
         UISelectorType selector = UISelectorType.fromString(selectorTypeStr);
         if (driver instanceof AndroidDriver) {
             String appPackage = APP_PACKAGE_LIVE;
-//            String androidPackage = ANDROID_APP_PACKAGE;
             switch (selector) {
-//                case ANDROID_PACKAGE:
-//                    e = By.id(androidPackage + ":id/" + value);
-//                    break;
                 case RESOURCE_ID:
                     e = By.id(appPackage + ":id/" + value);
                     break;
