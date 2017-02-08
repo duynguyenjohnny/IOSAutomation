@@ -13,6 +13,9 @@ import testlink.api.java.client.TestLinkAPIResults;
 import java.io.File;
 
 import static com.beecow.model.CommonElement.marketPropertiesFile;
+import static com.beecow.utils.PropertiesUtils.testlinkBuildName;
+import static com.beecow.utils.PropertiesUtils.testlinkProjectName;
+import static com.beecow.utils.PropertiesUtils.testlinkTestPlanName;
 
 /**
  * Created by HangPham on 12/18/2016.
@@ -59,7 +62,7 @@ public class FirstSecondLaunchingTest extends BaseTest {
             secondScreen.selectIndustries(inds);
             System.out.println("Then click button Done");
             secondScreen.clickButtonDone();
-            TestLink.updateResult(Testlink_ProjectName,Testlink_TestPlanName, "AND_MAR_TC-51", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
+            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "AND_MAR_TC-51", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         }catch (TestLinkAPIException ex){
             System.out.print("Can't update result to Testlink for AND_MAR_TC_51");
         }
@@ -67,7 +70,7 @@ public class FirstSecondLaunchingTest extends BaseTest {
             //Test failed
             getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
             System.out.println("Current working dir: " + new File(FirstSecondLaunchingTest.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
-            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "AND_MAR_TC-51", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
+            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-51", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
             throw new Exception("Failed: " + ex.getMessage());
         }
     }

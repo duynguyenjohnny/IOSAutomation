@@ -25,6 +25,9 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import static com.beecow.model.CommonElement.marketPropertiesFile;
+import static com.beecow.utils.PropertiesUtils.testlinkBuildName;
+import static com.beecow.utils.PropertiesUtils.testlinkProjectName;
+import static com.beecow.utils.PropertiesUtils.testlinkTestPlanName;
 
 /**
  * Created by HangPham on 12/18/2016.
@@ -67,14 +70,14 @@ public class MarketBannerTest extends BaseTest {
             System.out.println("Verify button Got It should be enabled");
             marketScreen.verifyButtonGotItShouldBeEnabled();
 
-            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "AND_MAR_TC-13", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
+            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-13", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         } catch (TestLinkAPIException ex) {
             System.out.print("Can't update result to Testlink for AND_MAR_TC_13");
         } catch (Exception ex) {
             //Test failed
             getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
             System.out.println("Current working dir: " + new File(MarketBannerTest.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
-            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "AND_MAR_TC-13", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
+            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-13", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
             throw new Exception("Failed: " + ex.getMessage());
         }
     }
