@@ -12,7 +12,6 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.junit.Assert;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 
@@ -21,13 +20,11 @@ import com.beecow.utils.Result;
 import com.beecow.utils.Utils;
 
 
-import static com.beecow.component.Constant.*;
 import static com.beecow.model.CommonElement.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Paths;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -38,7 +35,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
     // GENERAL
     protected static AppiumDriver driver;
-    private int TIMEOUT100 = 100;
+    private int TIMEOUT200 = 200;
     private int TIMEOUT10 = 10;
 
     public static Properties GLOBALPROPERTIES;
@@ -128,7 +125,7 @@ public class BaseTest {
                     .withAppiumJS(new File(GLOBALPROPERTIES.getProperty(Android_AppiumMainJSPath_Win)))
                     .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                     .withLogFile(file)
-                    .withStartUpTimeOut(TIMEOUT100, TimeUnit.SECONDS));
+                    .withStartUpTimeOut(TIMEOUT200, TimeUnit.SECONDS));
         } else if (osName.contains("Mac")) {
             service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
                     .usingDriverExecutable(new File(Android_NodeJSPath_Mac))
@@ -137,7 +134,7 @@ public class BaseTest {
                     .withAppiumJS(new File(Android_AppiumMainJSPath_Mac))
                     .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                     .withLogFile(new File(new File(classPathRoot, File.separator + "log"), "androidLog.txt"))
-                    .withStartUpTimeOut(TIMEOUT100, TimeUnit.SECONDS));
+                    .withStartUpTimeOut(TIMEOUT200, TimeUnit.SECONDS));
 
         } else {
             // you can add for other OS, just to track added a fail message
@@ -208,7 +205,7 @@ public class BaseTest {
         capabilities.setCapability(MobileCapabilityType.PLATFORM, Utils.getPropertyValue(PROJECTPROPERTIES,Android_Platform));
 
 
-        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, TIMEOUT100);
+        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, TIMEOUT200);
         capabilities.setCapability(MobileCapabilityType.FULL_RESET, false);
         capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
         return capabilities;
