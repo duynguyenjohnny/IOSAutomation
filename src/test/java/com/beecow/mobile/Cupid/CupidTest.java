@@ -35,30 +35,11 @@ public class CupidTest extends BaseTest{
     Properties cupidProperties;
 
 
-    public CupidTest() throws Exception {
-        globalProperties = Utils.initProperties("Global.properties");
-        cupidProperties = Utils.initProperties("Cupid.properties");
-        Appium_IPAddress = Utils.getPropertyValue(globalProperties, "Appium_IPAddress");
-        Appium_Port = Utils.getPropertyValue(globalProperties, "Appium_Port");
-        Android_NodeJSPath = Utils.getPropertyValue(globalProperties, "Android_NodeJSPath");
-        Android_AppiumMainJSPath = Utils.getPropertyValue(globalProperties, "Android_AppiumMainJSPath");
-        Android_LogPath = Utils.getPropertyValue(globalProperties, "Android_LogPath");
-        Testlink_ProjectName = Utils.getPropertyValue(cupidProperties, "Testlink_ProjectName");
-        Testlink_TestPlanName = Utils.getPropertyValue(cupidProperties, "Testlink_TestPlanName");
-        Testlink_BuildName = Utils.getPropertyValue(cupidProperties, "Testlink_BuildName");
-        service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
-                .usingDriverExecutable(new File(Android_NodeJSPath))
-                .usingPort(Integer.parseInt(Appium_Port))
-                .withIPAddress(Appium_IPAddress)
-                .withAppiumJS(new File(Android_AppiumMainJSPath))
-                .withLogFile(new File(Android_LogPath))
-                .withStartUpTimeOut(50, TimeUnit.SECONDS));
-    }
+
 
     @BeforeSuite
     public void GetLastAPKFile() throws Exception{
         System.out.println("Start Get APK File from share folder");
-        Utils.GetLastAPKFile();
         System.out.println("Done Get APK File from share folder");
         System.out.println("Appium is starting");
         service.start();
@@ -128,14 +109,5 @@ public class CupidTest extends BaseTest{
         System.out.println("Closed app");
     }
 
-    @AfterSuite
-    public void Stop() throws IOException, InterruptedException, Exception {
-        System.out.println("Start Remove App");
-        if (driver!= null)
-            driver.removeApp(Utils.getPropertyValue(globalProperties,"Android_AppPackage"));
-        System.out.println("End Remove App");
-        System.out.println("Stopping Appium");
-        service.stop();
-        System.out.println("Appium is stopped");
-    }
+    
 }
