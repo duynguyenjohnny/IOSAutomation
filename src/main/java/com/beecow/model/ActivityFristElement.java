@@ -19,7 +19,7 @@ public class ActivityFristElement {
     }
 
     public static String getBtnNext(){
-        if(Utils.getInstance().isAndroidDevice()) return "text::Next";
+        if(Utils.getInstance().isAndroidDevice()) return "resourceID::bottom_bar_tvPositive";
         return "ios";
     }
 }

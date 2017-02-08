@@ -14,7 +14,7 @@ public class ActivitySecondElement {
     }
 
     public static String getBtnDone(){
-        if(Utils.getInstance().isAndroidDevice()) return "text::Done";
+        if(Utils.getInstance().isAndroidDevice()) return "resourceID::bottom_bar_tvPositive";
         return "ios";
     }
 }

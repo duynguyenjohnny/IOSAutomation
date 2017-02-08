@@ -10,7 +10,7 @@ public class MarketElement {
 
     public static String getButtonGotIt(){
         if(Utils.getInstance().isAndroidDevice()){
-            return "text::Got it";
+            return "resourceID::fragment_market_btn_tutorial";
         }
         return "ios";
     }

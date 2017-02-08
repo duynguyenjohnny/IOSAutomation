@@ -23,9 +23,9 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.NoSuchElementException;
 
-import static com.beecow.component.Constant.APP_PACKAGE_LIVE;
 import static com.beecow.component.Constant.DEVKEY;
 import static com.beecow.component.Constant.URL;
+import static com.beecow.model.CommonElement.Android_AppPackage;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.MINUTES;
 
@@ -44,7 +44,7 @@ public class Helper {
         By e = null;
         UISelectorType selector = UISelectorType.fromString(selectorTypeStr);
         if (driver instanceof AndroidDriver) {
-            String appPackage = APP_PACKAGE_LIVE;
+            String appPackage = "com.mediastep.beecow";
             switch (selector) {
                 case RESOURCE_ID:
                     e = By.id(appPackage + ":id/" + value);

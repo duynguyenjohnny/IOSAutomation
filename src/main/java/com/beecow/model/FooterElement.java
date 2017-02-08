@@ -12,32 +12,32 @@ public class FooterElement {
 
     public static String getTabHomeLocator(){
         if(Utils.getInstance().isAndroidDevice()){
-            return "text::Home";
+            return "resourceID::bottom_navigation_tab_home";
         }
         return "ios";
     }
     public static String getTabMarketLocator(){
         if(Utils.getInstance().isAndroidDevice()){
-            return "text::Market";
+            return "resourceID::bottom_navigation_tab_market";
         }
         return "ios";
     }
 
     public static String getTabMessagesLocator(){
         if(Utils.getInstance().isAndroidDevice()){
-            return "text::Messages";
+            return "resourceID::bottom_navigation_tab_message";
         }
         return "ios";
     }
     public static String getTabCupidLocator(){
         if(Utils.getInstance().isAndroidDevice()){
-            return "text::Cupid";
+            return "resourceID::bottom_navigation_tab_cupid";
         }
         return "ios";
     }
     public static String getTabProfileLocator(){
         if(Utils.getInstance().isAndroidDevice()){
-            return "text::Profile";
+            return "resourceID::bottom_navigation_tab_profile";
         }
         return "ios";
     }
