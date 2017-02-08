@@ -120,6 +120,7 @@ public class CupidScreen extends CommonScreenObjects{
         try{
             WebElement WEinput_CupidAlias = getHelper().findElement(CupidElement.input_CupidAlias());
             WEinput_CupidAlias.sendKeys(aliasName);
+            getHelper().hideKeyBoard();
         }catch (NoSuchElementException noElement){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
             throw new Exception("[InputMyAlias] Can't find Element: " + noElement.getMessage());
