@@ -23,9 +23,9 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.NoSuchElementException;
 
-import static com.beecow.component.Constant.APP_PACKAGE_LIVE;
 import static com.beecow.component.Constant.DEVKEY;
 import static com.beecow.component.Constant.URL;
+import static com.beecow.utils.PropertiesUtils.androidAppPackage;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.MINUTES;
 
@@ -36,14 +36,6 @@ public class Helper {
     private AppiumDriver driver;
     private Dimension size;
 
-    //Enter your project API key here.
-    public static String devKey=DEVKEY;
-
-    //Enter your Test Link URL here
-//    public static String URL= "http://192.168.1.83:9091/testlink/index.php";//
-    public static String url= URL;//testlink/lib/api/xmlrpc/v1/xmlrpc.php
-
-
     public Helper(AppiumDriver driver) {
         this.driver = driver;
     }
@@ -52,12 +44,8 @@ public class Helper {
         By e = null;
         UISelectorType selector = UISelectorType.fromString(selectorTypeStr);
         if (driver instanceof AndroidDriver) {
-            String appPackage = APP_PACKAGE_LIVE;
-//            String androidPackage = ANDROID_APP_PACKAGE;
+            String appPackage = androidAppPackage;
             switch (selector) {
-//                case ANDROID_PACKAGE:
-//                    e = By.id(androidPackage + ":id/" + value);
-//                    break;
                 case RESOURCE_ID:
                     e = By.id(appPackage + ":id/" + value);
                     break;
@@ -157,16 +145,16 @@ public class Helper {
      * @return A screenshot locate in path with given param above
      */
     public File takeScreenshot(String Project, String ClassNames, String Result, String TCsID) {
-        String sProjectPath = Paths.get(".").toAbsolutePath().normalize().toString() + "\\src\\report\\" + Project + "\\";
+        String sProjectPath = Paths.get(".").toAbsolutePath().normalize().toString() + "/src/report/" + Project + File.separator;
         DateFormat dateFormat = new SimpleDateFormat("_yyyy_MM_dd_HH_mm_ss");
         //get current date time with Date()
         Date date = new Date();
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         String fileScrShot = "";
         if(Utils.getInstance().isAndroidDevice()) {
-            fileScrShot = sProjectPath.concat("Android") + "\\" + ClassNames + "\\" + TCsID + "\\" + Result + "_" + dateFormat.format(date).toString() + ".png";
+            fileScrShot = sProjectPath.concat("Android") + File.separator + ClassNames + File.separator + TCsID + File.separator + Result + "_" + dateFormat.format(date).toString() + ".png";
         }else if(Utils.getInstance().isIosDevice()){
-            fileScrShot = sProjectPath.concat("IOS") + "\\" + ClassNames + "\\" + TCsID + "\\" + Result + "_" + dateFormat.format(date).toString() + ".png";
+            fileScrShot = sProjectPath.concat("IOS") + File.separator + ClassNames + File.separator + TCsID + File.separator + Result + "_" + dateFormat.format(date).toString() + ".png";
         }
         try {
             FileUtils.copyFile(scrFile, new File(fileScrShot));

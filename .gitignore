@@ -5,3 +5,6 @@ BeeCowProject.iml
 *.apk
 /src/report/Cupid/
 log/androidLog\.txt
+/log/
+*.png
+
