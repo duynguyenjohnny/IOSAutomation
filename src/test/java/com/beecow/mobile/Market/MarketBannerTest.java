@@ -24,15 +24,13 @@ import java.io.File;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+import static com.beecow.model.CommonElement.marketPropertiesFile;
+
 /**
  * Created by HangPham on 12/18/2016.
  */
 
 public class MarketBannerTest extends BaseTest {
-
-    public String Testlink_ProjectName;
-    public String Testlink_TestPlanName;
-    public String Testlink_BuildName;
 
     String className = this.getClass().getSimpleName();
     private ActivityFirstScreen firstScreen;
@@ -40,7 +38,7 @@ public class MarketBannerTest extends BaseTest {
     private HomeScreen homeScreen;
     private MarketScreen marketScreen;
 
-    static String marketPropertiesFile = "Market.properties";
+
 
     // DATA TEST
     String cats[] = {"Sport", "Computer", "Meal Deals"};
@@ -62,27 +60,24 @@ public class MarketBannerTest extends BaseTest {
 
 
     @Test
-    public void AND_MAR_TC_13() throws Exception, TestLinkAPIException {
+    public void AND_MAR_TC_13() throws Exception {
         String sMethodName = new Object() {
         }.getClass().getEnclosingMethod().getName();
-//        try {
+        try {
             selectFirstSecondLaunchingAndGoToMarketPage();
             System.out.println("Verify button Got It should be enabled");
             marketScreen.verifyButtonGotItShouldBeEnabled();
-            System.out.println("Then click button Got It");
-            homeScreen.clickMarketTabView();
-//            marketScreen.clickButtonGotIt();
 
-//            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "AND_MAR_TC-13", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
-//        } catch (TestLinkAPIException ex) {
-//            System.out.print("Can't update result to Testlink for AND_MAR_TC_13");
-//        } catch (Exception ex) {
-//            //Test failed
-//            getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
-//            System.out.println("Current working dir: " + new File(MarketBannerTest.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
-//            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "AND_MAR_TC-13", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
-//            throw new Exception("Failed: " + ex.getMessage());
-//        }
+            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "AND_MAR_TC-13", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
+        } catch (TestLinkAPIException ex) {
+            System.out.print("Can't update result to Testlink for AND_MAR_TC_13");
+        } catch (Exception ex) {
+            //Test failed
+            getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
+            System.out.println("Current working dir: " + new File(MarketBannerTest.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
+            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "AND_MAR_TC-13", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
+            throw new Exception("Failed: " + ex.getMessage());
+        }
     }
 
     @Test
@@ -103,6 +98,6 @@ public class MarketBannerTest extends BaseTest {
         System.out.println("Then click button Done");
         secondScreen.clickButtonDone();
         System.out.println("Click Market Tab view to go Market Overview page");
-//        homeScreen.clickMarketTabView();
+        homeScreen.clickMarketTabView();
     }
 }
