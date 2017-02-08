@@ -12,6 +12,8 @@ import testlink.api.java.client.TestLinkAPIResults;
 
 import java.io.File;
 
+import static com.beecow.model.CommonElement.marketPropertiesFile;
+
 /**
  * Created by HangPham on 12/18/2016.
  */
@@ -19,15 +21,12 @@ import java.io.File;
 public class FirstSecondLaunchingTest extends BaseTest {
 
 
-    public String marketPropertyPath="Market.properties";
     String className = this.getClass().getSimpleName();
 
-    int i=2;
     private ActivityFirstScreen firstScreen;
     private ActivitySecondScreen secondScreen;
     private HomeScreen homeScreen;
     
-    static String marketPropertiesFile = "Market.properties";
 
     String cats[] = {"Sport", "Computer", "Meal Deals"};
     String catList[] = {"Men's Fashion", "Women's Fashion", "Mobile & Tablet", "Computer", "Camera & TV", "Home & Living", "Mom & Kids", "Health & Beauty", "Sport", "Meal Deals", "Spa Deals", "Entertainment Deals", "Travel Deals"};
