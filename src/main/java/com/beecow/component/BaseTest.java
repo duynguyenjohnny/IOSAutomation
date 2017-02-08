@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
     // GENERAL
     protected static AppiumDriver driver;
-//    public String localApp = APP_PATH;
+    private int TimeOut = 100;
     public String GLOBALPROPERTIESFile = "Global.properties";
     public static Properties GLOBALPROPERTIES;
     AppiumDriverLocalService service;
@@ -124,7 +124,7 @@ public class BaseTest {
                     .withAppiumJS(new File(GLOBALPROPERTIES.getProperty("Android_AppiumMainJSPath_Win")))
                     .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                     .withLogFile(file)
-                    .withStartUpTimeOut(50, TimeUnit.SECONDS));
+                    .withStartUpTimeOut(TimeOut, TimeUnit.SECONDS));
         } else if (osName.contains("Mac")) {
             service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
                     .usingDriverExecutable(new File("/Applications/Appium.app/Contents/Resources/node/bin/node"))
@@ -133,7 +133,7 @@ public class BaseTest {
                     .withAppiumJS(new File("/Applications/Appium.app/Contents/Resources/node_modules/appium/build/lib/main.js"))
                     .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                     .withLogFile(new File(new File(classPathRoot, File.separator + "log"), "androidLog.txt"))
-                    .withStartUpTimeOut(50, TimeUnit.SECONDS));
+                    .withStartUpTimeOut(TimeOut, TimeUnit.SECONDS));
 
         } else {
             // you can add for other OS, just to track added a fail message
@@ -204,7 +204,7 @@ public class BaseTest {
         capabilities.setCapability(MobileCapabilityType.PLATFORM, Utils.getPropertyValue(PROJECTPROPERTIES,"Android_Platform"));
 
 
-        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "100");
+        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, TimeOut);
         capabilities.setCapability("fullReset", false);
         capabilities.setCapability("noReset", true);
         return capabilities;
