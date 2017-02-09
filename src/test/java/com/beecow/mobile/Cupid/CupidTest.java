@@ -123,7 +123,6 @@ public class CupidTest extends BaseTest{
             TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "DAT-3", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
             throw new Exception("[DAT_3] Failed : " + ex.getMessage());
         }
-
     }
 
 }

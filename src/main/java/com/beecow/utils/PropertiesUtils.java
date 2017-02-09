@@ -99,7 +99,7 @@ public class PropertiesUtils {
                 long lastMod = Long.MIN_VALUE;
                 SmbFile choice = null;
                 for (SmbFile file : files) {
-                    if (!file.getName().toLowerCase().contains("release")) {
+                    if (file.getName().toLowerCase().contains("release")) {
                         continue;
                     }
                     if (file.lastModified() > lastMod) {
