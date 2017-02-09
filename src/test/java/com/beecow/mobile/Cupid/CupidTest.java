@@ -43,6 +43,7 @@ public class CupidTest extends BaseTest{
         secondScreen = new ActivitySecondScreen(driver);
         homeScreen = new HomeScreen(driver);
         cupidScreen = new CupidScreen(driver);
+
     }
 
 
@@ -52,7 +53,7 @@ public class CupidTest extends BaseTest{
      */
     public void DAT_1() throws Exception, TestLinkAPIException {
         String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
-//        try{
+        try{
             System.out.println("Begin Select categories for first launching");
             firstScreen.selectCategories(cats);
             System.out.println("Click button Next to go second launching");
@@ -68,16 +69,16 @@ public class CupidTest extends BaseTest{
             //Test passed
             getHelper().takeScreenshot("Cupid", className, "Passed", sMethodName);
             TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "DAT-1", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
-//        }catch (TestLinkAPIException ex){
-//            System.out.print("Can't update result to Testlink for DAT_1");
-//        }
-//        catch (Exception ex) {
-//            //Test failed
-////            getHelper().takeScreenshot("Cupid", className, "Failed", sMethodName);
-//            System.out.println("Current working dir: " + new File(CupidTest.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
-//            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "DAT-1", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
-//            throw new Exception("Failed: " + ex.getMessage());
-//        }
+        }catch (TestLinkAPIException ex){
+            System.out.print("Can't update result to Testlink for DAT_1");
+        }
+        catch (Exception ex) {
+            //Test failed
+            getHelper().takeScreenshot("Cupid", className, "Failed", sMethodName);
+            System.out.println("Current working dir: " + new File(CupidTest.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
+            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "DAT-1", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+            throw new Exception("Failed: " + ex.getMessage());
+        }
     }
 
     @Test
@@ -123,7 +124,10 @@ public class CupidTest extends BaseTest{
             TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "DAT-3", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
             throw new Exception("[DAT_3] Failed : " + ex.getMessage());
         }
-
     }
 
+    public static void main (String args[]){
+        String sProjectPath = new File("src/report").getAbsolutePath().concat("A");
+System.out.print(sProjectPath);
+    }
 }

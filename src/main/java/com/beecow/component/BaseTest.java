@@ -83,9 +83,9 @@ public class BaseTest {
     @AfterSuite
     public void Stop() throws IOException, InterruptedException, Exception {
         if(driver!=null) {
-            System.out.println("Start Remove App");
-            driver.removeApp(androidAppPackage);
-            System.out.println("End Remove App");
+//            System.out.println("Start Remove App");
+//            driver.removeApp(androidAppPackage);
+//            System.out.println("End Remove App");
             System.out.println("Stopping Appium");
             service.stop();
             System.out.println("Appium is stopped");

@@ -65,7 +65,6 @@ public class Helper {
                     e = By.xpath(value);
                     break;
             }
-//            return e;
         } else if (driver instanceof IOSDriver) {
             switch (selector) {
                 case XPATH:
@@ -78,7 +77,6 @@ public class Helper {
                     e = By.xpath("//*[@value = '" + value + "']");
                     break;
             }
-//            return e;
         }
         return e;
     }
@@ -145,7 +143,7 @@ public class Helper {
      * @return A screenshot locate in path with given param above
      */
     public File takeScreenshot(String Project, String ClassNames, String Result, String TCsID) {
-        String sProjectPath = new File("src/report").getAbsolutePath().concat(Project);
+        String sProjectPath = new File("src/report/").getAbsolutePath().concat(Project) + File.separator;
         DateFormat dateFormat = new SimpleDateFormat("_yyyy_MM_dd_HH_mm_ss");
         //get current date time with Date()
         Date date = new Date();
@@ -194,147 +192,7 @@ public class Helper {
         Reporter.log(text+ "</br>", true);
     }
 
-    /**
-     * swipe right, left, up, down
-     * @param dMiddleY
-     * @param dRightX
-     * @param dLeftX
-     * @throws InterruptedException
-     */
 
-    public void swipingHorizontal(double dLeftX, double dRightX, double dMiddleY){
-        //Get the size of screen.
-        size = driver.manage().window().getSize();
-//        System.out.println(size);
-        //        Find swipe start and end point from screen's with and height.
-//        Find startx point which is at right side of screen.
-        int leftX = (int)(size.width * dLeftX);
-        //Find endx point which is at left side of screen.
-        int rightX = (int)(size.width * dRightX);
-        // Find vertical point where you wants to swipe. It is in middle of screen height.
-        int centerY = (int)(size.height * dMiddleY);
-        System.out.println("Swipe horizontal with coordinates is: \nleftX = " + leftX + " , rightX = " + rightX + " , centerY = " + centerY);
-
-        driver.swipe(leftX, centerY, rightX, centerY, 3000);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-    public void swipingVertical(double dMiddleX, double dUpperY, double dLowerY){
-        //Get the size of screen.
-        size = driver.manage().window().getSize();
-        System.out.println(size);
-
-        int middleX = (int) (size.width * dMiddleX);
-        //Find endY point which is at left side of screen.
-        int bottomY = (int) (size.height * dLowerY);
-        // Find vertical point where you wants to swipe. It is in middle of screen height.
-        int topY = (int) (size.height * dUpperY);
-        System.out.println("Swipe vertical with coordinates is: \nmiddleX = " + middleX + " , topY = " + topY + " , bottomY = " + bottomY);
-
-        driver.swipe(middleX, topY, middleX, bottomY, 3000);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Swipe left, right
-     * @throws InterruptedException
-     */
-
-    public void swipeRightToLeft() throws InterruptedException {
-        //Get the size of screen.
-        size = driver.manage().window().getSize();
-        System.out.println(size);
-        //        Find swipe start and end point from screen's with and height.
-//        Find startx point which is at right side of screen.
-        int leftX = (int) (size.width * 0.1);
-        //Find endx point which is at left side of screen.
-        int rightX = (int) (size.width * 0.9);
-        // Find vertical point where you wants to swipe. It is in middle of screen height.
-        int middleY = (int) (size.height * 0.66);
-        driver.swipe(rightX, middleY, leftX, middleY, 3000);
-        Thread.sleep(2000);
-    }
-    public void swipeLeftToRight() throws InterruptedException {
-        size = driver.manage().window().getSize();
-        System.out.println(size);
-        int leftX = (int) (size.width * 0.1);
-        int rightX = (int) (size.width * 0.9);
-        int middleY = (int) (size.height * 0.66);
-        System.out.println("Swipe left to right with coordinates is: \nleftX = " + leftX + " ,rightX = " + rightX + " , middleY = " + middleY);
-        driver.swipe(leftX, middleY, rightX, middleY, 3000);
-        Thread.sleep(2000);
-    }
-    public void swipeBottomToTop() throws InterruptedException {
-        Dimension size = driver.manage().window().getSize();
-//        System.out.println(size);
-        int middleX = (int) (size.width * 0.5);
-        int topY = (int) (size.height * 0.17);
-        int bottomY = (int) (size.height * 0.85);
-//        Swipe from Bottom to Top.
-        driver.swipe(middleX, bottomY, middleX, topY, 5000);
-        Thread.sleep(2000);
-    }
-    public void swipeTopToBottom() throws InterruptedException {
-        Dimension size = driver.manage().window().getSize();
-//        System.out.println(size);
-        int middleX = (int) (size.width * 0.5);
-        int topY = (int) (size.height * 0.125);
-        int bottomY = (int) (size.height * 0.75);
-//        Swipe from Bottom to Top.
-        driver.swipe(middleX, topY, middleX, bottomY, 3000);
-        Thread.sleep(2000);
-    }
-
-    public void swipeLeftToRightElement(WebElement el){
-        // get the X coordinate of the upper left corner of the element, then add the element's width to get the rightmost X value of the element
-        int leftX = el.getLocation().getX()+1;
-        int rightX = leftX + el.getSize().getWidth();
-
-        // get the Y coordinate of the upper left corner of the element, then subtract the height to get the lowest Y value of the element
-        int upperY = el.getLocation().getY();
-        int middleY = upperY + (el.getSize().getHeight()) / 2;
-        driver.swipe(leftX, middleY, rightX, middleY, 3000);
-    }
-    public void swipeRightToLeftElement(WebElement el){
-        // get the X coordinate of the upper left corner of the element, then add the element's width to get the rightmost X value of the element
-        int leftX = el.getLocation().getX()+1;
-        int rightX = leftX + el.getSize().getWidth();
-
-        // get the Y coordinate of the upper left corner of the element, then subtract the height to get the lowest Y value of the element
-        int upperY = el.getLocation().getY();
-        int middleY = upperY + (el.getSize().getHeight()) / 2;
-        driver.swipe(rightX, middleY, leftX, middleY, 3000);
-    }
-    public void swipeBottomToTopElement(WebElement el){
-        size = driver.manage().window().getSize();
-        System.out.println("size: "+size);
-        // get the X coordinate of the upper left corner of the element, then add the element's width to get the rightmost X value of the element
-        int upperY = el.getLocation().getY();
-        int lowerY = upperY + el.getSize().getHeight();
-
-        // get the Y coordinate of the upper left corner of the element, then subtract the height to get the lowest Y value of the element
-//        int middleX = (el.getSize().getWidth()) / 2;
-        int middleX = (int) (size.width * 0.5);
-        driver.swipe(middleX, lowerY, middleX, upperY, 3000);
-    }
-    public void swipeTopToBottomElement(WebElement el){
-        Dimension size = driver.manage().window().getSize();
-        System.out.println("size: "+size);
-        // get the X coordinate of the upper left corner of the element, then add the element's width to get the rightmost X value of the element
-        int upperY = el.getLocation().getY();
-        int lowerY = upperY + el.getSize().getHeight()/3;
-
-        // get the Y coordinate of the upper left corner of the element, then subtract the height to get the lowest Y value of the element
-        int middleX = (el.getSize().getWidth()) / 2;
-        driver.swipe(middleX, upperY, middleX, lowerY, 3000);
-    }
 
     public Boolean isElementEnabled(String locator) {
         WebElement element = findElement(locator);
@@ -459,26 +317,26 @@ public class Helper {
     /**
      * turn off and turn on wifi
      */
-    /*public void turnOFFWifi() {
-        NetworkConnectionSetting networkConnection = new NetworkConnectionSetting(false, false, false);
-        networkConnection.setData(true); // enable mobile data
-        networkConnection.setWifi(false); // close wifi
-        ((AndroidDriver) driver).setNetworkConnection(networkConnection);
-        networkConnection = ((AndroidDriver) driver).getNetworkConnection();
-        System.out.println("airplaneModeEnabled() :: " + networkConnection.airplaneModeEnabled() +
-                "\ndataEnabled() :: " + networkConnection.dataEnabled() +
-                "\nwifiEnabled() :: " + networkConnection.wifiEnabled());
-    }
-    public void turnONWifi(){
-        NetworkConnectionSetting networkConnection = new NetworkConnectionSetting(false, false, false);
-        networkConnection.setData(true); // enable mobile data
-        networkConnection.setWifi(true); // open wifi
-        ((AndroidDriver)driver).setNetworkConnection(networkConnection);
-        networkConnection = ((AndroidDriver)driver).getNetworkConnection();
-        System.out.println("airplaneModeEnabled() :: " + networkConnection.airplaneModeEnabled() +
-                "\ndataEnabled() :: " + networkConnection.dataEnabled() +
-                "\nwifiEnabled() :: " + networkConnection.wifiEnabled());
-    }*/
+//    public void turnOFFWifi() {
+//        NetworkConnectionSetting networkConnection = new NetworkConnectionSetting(false, false, false);
+//        networkConnection.setData(true); // enable mobile data
+//        networkConnection.setWifi(false); // close wifi
+//        ((AndroidDriver) driver).setNetworkConnection(networkConnection);
+//        networkConnection = ((AndroidDriver) driver).getNetworkConnection();
+//        System.out.println("airplaneModeEnabled() :: " + networkConnection.airplaneModeEnabled() +
+//                "\ndataEnabled() :: " + networkConnection.dataEnabled() +
+//                "\nwifiEnabled() :: " + networkConnection.wifiEnabled());
+//    }
+//    public void turnONWifi(){
+//        NetworkConnectionSetting networkConnection = new NetworkConnectionSetting(false, false, false);
+//        networkConnection.setData(true); // enable mobile data
+//        networkConnection.setWifi(true); // open wifi
+//        ((AndroidDriver)driver).setNetworkConnection(networkConnection);
+//        networkConnection = ((AndroidDriver)driver).getNetworkConnection();
+//        System.out.println("airplaneModeEnabled() :: " + networkConnection.airplaneModeEnabled() +
+//                "\ndataEnabled() :: " + networkConnection.dataEnabled() +
+//                "\nwifiEnabled() :: " + networkConnection.wifiEnabled());
+//    }
 
     /**
      * get textElements for list
@@ -546,22 +404,4 @@ public class Helper {
             e.printStackTrace();
         }
     }
-
-    /**
-     * update report pass/fail to testLink
-     * @param testProject
-     * @param testPlan
-     * @param testCaseName
-     * @param build
-     * @param exception
-     * @param result
-     * @throws TestLinkAPIException
-     * @throws testlink.api.java.client.TestLinkAPIException
-     */
-    public void updateTestLinkResult(String testProject, String testPlan, String testCaseName,String build, String exception, String result) throws TestLinkAPIException, testlink.api.java.client.TestLinkAPIException {
-        TestLinkAPIClient testlinkAPIClient = new TestLinkAPIClient(DEVKEY,URL);
-        testlinkAPIClient.reportTestCaseResult(testProject, testPlan, testCaseName, build, exception, result);
-//        System.out.println("str: "+testCaseName.length());
-    }
-
 }
