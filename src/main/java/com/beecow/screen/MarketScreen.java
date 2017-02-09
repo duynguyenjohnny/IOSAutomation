@@ -21,13 +21,6 @@ public class MarketScreen extends CommonScreenObjects {
     public void clickButtonGotIt(){
         getHelper().findElement(getButtonGotIt()).click();
     }
-    public void swipeBannerLeft() {
-        getHelper().swipeRightToLeftElement(getHelper().findElement(getCurrentBannerLocator()));
-    }
-
-    public void swipeBannerRight() {
-        getHelper().swipeLeftToRightElement(getHelper().findElement(getBannerLocator()));
-    }
 
     public void verifyBannerIsVisible() {
         getHelper().waitElementIsDisplayed(getHelper().byLocator(getBannerLocator()));
