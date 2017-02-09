@@ -54,7 +54,7 @@ public class BaseTest {
     public void GetLastAPKFile() throws Exception{
         PropertiesUtils.getPropertiesGlobal();
         System.out.println("Start Get APK File from share folder");
-//        PropertiesUtils.GetLastAPKFile();
+        PropertiesUtils.GetLastAPKFile();
         System.out.println("Done Get APK File from share folder");
         System.out.println("Appium is starting");
         setAppium();

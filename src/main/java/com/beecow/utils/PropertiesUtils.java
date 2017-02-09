@@ -16,9 +16,6 @@ import static com.beecow.model.CommonElement.*;
 public class PropertiesUtils {
     public static Properties globalProperties;
     public static Properties otherProperties;
-    public static Properties marketProperties;
-    public static Properties cupidProperties;
-    public static Properties snProperties;
 
     public static String serverTest;
     public static String androidAPKFile;
@@ -87,7 +84,7 @@ public class PropertiesUtils {
             int len;
             String sNetworkShare_User = getPropertyValue(initPro, NetworkShare_User_Element);
             String sNetworkShare_Pass = getPropertyValue(initPro, NetworkShare_Pass_Element);
-            String url = "smb:" + getPropertyValue(initPro, androidAPKFolder);
+            String url = "smb:" + getPropertyValue(initPro, Android_APKFolder_Element);
             NtlmPasswordAuthentication auth = new NtlmPasswordAuthentication(null, sNetworkShare_User, sNetworkShare_Pass);
             SmbFile dir = new SmbFile(url, auth);
             //File folder = new File(dir.getPath());
