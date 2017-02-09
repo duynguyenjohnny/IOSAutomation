@@ -87,7 +87,7 @@ public class PropertiesUtils {
             int len;
             String sNetworkShare_User = getPropertyValue(initPro, NetworkShare_User_Element);
             String sNetworkShare_Pass = getPropertyValue(initPro, NetworkShare_Pass_Element);
-            String url = "smb:" + getPropertyValue(initPro, androidAPKFolder);
+            String url = "smb:" + getPropertyValue(initPro, Android_APKFolder_Element);
             NtlmPasswordAuthentication auth = new NtlmPasswordAuthentication(null, sNetworkShare_User, sNetworkShare_Pass);
             SmbFile dir = new SmbFile(url, auth);
             //File folder = new File(dir.getPath());
@@ -99,7 +99,7 @@ public class PropertiesUtils {
                 long lastMod = Long.MIN_VALUE;
                 SmbFile choice = null;
                 for (SmbFile file : files) {
-                    if (file.getName().toLowerCase().contains("release")) {
+                    if (!file.getName().toLowerCase().contains("release")) {
                         continue;
                     }
                     if (file.lastModified() > lastMod) {
@@ -108,6 +108,7 @@ public class PropertiesUtils {
                     }
                 }
                 if (choice != null) {
+                    System.out.println("Last APK file is [" + choice.getName() + "]");
                     fileOutputStream = new FileOutputStream(destFilename);
                     fileInputStream = choice.getInputStream();
                     buf = new byte[16 * 1024 * 1024];
