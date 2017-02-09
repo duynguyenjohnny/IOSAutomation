@@ -35,10 +35,9 @@ public class BaseTest {
 
     // GENERAL
     protected static AppiumDriver driver;
+    AppiumDriverLocalService service;
     private int TIMEOUT200 = 200;
     private int TIMEOUT10 = 10;
-
-    AppiumDriverLocalService service;
 
     public static final String ROOT_PATH = System.getProperty("user.dir");
     public static final String LOG_PATH_FOLDER = ROOT_PATH + "/log";
@@ -63,6 +62,8 @@ public class BaseTest {
         System.out.println("Appium is started");
     }
 
+    //    @Parameters({ "config_file"})
+//    @BeforeMethod
     public void setUp(String propertyFile) throws Exception {
         try{
             System.out.println("Before Method: Setup");

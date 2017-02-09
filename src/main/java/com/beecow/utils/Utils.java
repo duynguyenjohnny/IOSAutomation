@@ -6,6 +6,9 @@ import jcifs.smb.SmbFile;
 
 import java.io.*;
 import java.util.Properties;
+import java.util.ResourceBundle;
+
+import static java.nio.file.StandardCopyOption.*;
 
 import static com.beecow.model.CommonElement.*;
 
@@ -57,7 +60,6 @@ public class Utils {
         if(Constant.TYPE_PLATFORM.equals(Constant.MOBILE_PLATFORM.SAFARI_IOS)){
             return true;
         }
-
         return false;
 
     }
@@ -83,4 +85,6 @@ public class Utils {
 //            return null;
 //        }
 //    };
+
+
 }
