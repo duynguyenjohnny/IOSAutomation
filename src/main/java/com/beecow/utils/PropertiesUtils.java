@@ -105,6 +105,7 @@ public class PropertiesUtils {
                     }
                 }
                 if (choice != null) {
+                    System.out.println("Last APK file is [" + choice.getName() + "]");
                     fileOutputStream = new FileOutputStream(destFilename);
                     fileInputStream = choice.getInputStream();
                     buf = new byte[16 * 1024 * 1024];
