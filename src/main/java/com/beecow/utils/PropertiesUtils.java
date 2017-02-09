@@ -16,9 +16,6 @@ import static com.beecow.model.CommonElement.*;
 public class PropertiesUtils {
     public static Properties globalProperties;
     public static Properties otherProperties;
-    public static Properties marketProperties;
-    public static Properties cupidProperties;
-    public static Properties snProperties;
 
     public static String serverTest;
     public static String androidAPKFile;

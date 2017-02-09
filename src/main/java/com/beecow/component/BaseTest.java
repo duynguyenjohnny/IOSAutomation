@@ -20,8 +20,6 @@ import com.beecow.utils.Helper;
 import com.beecow.utils.Result;
 import com.beecow.utils.Utils;
 
-
-import static com.beecow.model.CommonElement.*;
 import static com.beecow.utils.PropertiesUtils.*;
 
 import java.io.File;
