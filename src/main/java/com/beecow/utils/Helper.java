@@ -9,6 +9,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
 import org.testng.Reporter;
 
 import testlink.api.java.client.TestLinkAPIClient;
@@ -28,6 +29,11 @@ import static com.beecow.component.Constant.URL;
 import static com.beecow.utils.PropertiesUtils.androidAppPackage;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.MINUTES;
+
+import org.bytedeco.javacpp.*;
+import static org.bytedeco.javacpp.lept.*;
+import static org.bytedeco.javacpp.tesseract.*;
+
 
 /**
  * Created by HangPham on 12/18/2016.
@@ -143,7 +149,7 @@ public class Helper {
      * @return A screenshot locate in path with given param above
      */
     public File takeScreenshot(String Project, String ClassNames, String Result, String TCsID) {
-        String sProjectPath = new File("src/report/").getAbsolutePath().concat(Project) + File.separator;
+        String sProjectPath = new File("src/report").getAbsolutePath().concat(File.separator).concat(Project).concat(File.separator);
         DateFormat dateFormat = new SimpleDateFormat("_yyyy_MM_dd_HH_mm_ss");
         //get current date time with Date()
         Date date = new Date();
@@ -402,6 +408,50 @@ public class Helper {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * This function will take screenshot of current screen, then use OCR to parse into Text, then verify with input text
+     * @param sVerifyText Text need to verify in current screen, case sensitive
+     */
+    public void VerifyTextInCurrentScreen(String sVerifyText) throws Exception{
+        try{
+            //Take Screenshot
+            File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+            System.out.println("Start - Parse OCR");
+            BytePointer outText;
+
+            TessBaseAPI api = new TessBaseAPI();
+            // Initialize tesseract-ocr with English, without specifying tessdata path
+            if (api.Init(null, "eng") != 0) {
+                System.err.println("Could not initialize tesseract.");
+                System.exit(1);
+            }
+            // Open input image with leptonica library
+            PIX image = pixRead(scrFile.getCanonicalPath());
+            api.SetImage(image);
+            // Get OCR result
+            outText = api.GetUTF8Text();
+            System.out.println("OCR output:\n" + outText.getString());
+
+            // Destroy used object and release memory
+            api.End();
+            outText.deallocate();
+            pixDestroy(image);
+            System.out.println("End - Parse OCR");
+
+            //Verify with Input parameter
+            if (outText.getString().contains(sVerifyText)){
+                System.out.println("[VerifyTextInCurrentScreen] Passed");
+            }else{
+                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+                throw new Exception("[VerifyTextInCurrentScreen] FAILED: Expected [" + sVerifyText + "] in the current screen, Actual [Not Found]");
+            }
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[VerifyTextInCurrentScreen] - FAILED: " + ex.getMessage());
         }
     }
 }
