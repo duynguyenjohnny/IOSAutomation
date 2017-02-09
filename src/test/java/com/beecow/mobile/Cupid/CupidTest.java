@@ -125,4 +125,9 @@ public class CupidTest extends BaseTest{
             throw new Exception("[DAT_3] Failed : " + ex.getMessage());
         }
     }
+
+    public static void main (String args[]){
+        String sProjectPath = new File("src/report").getAbsolutePath().concat("A");
+System.out.print(sProjectPath);
+    }
 }
