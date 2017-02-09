@@ -20,8 +20,6 @@ import com.beecow.utils.Helper;
 import com.beecow.utils.Result;
 import com.beecow.utils.Utils;
 
-
-import static com.beecow.model.CommonElement.*;
 import static com.beecow.utils.PropertiesUtils.*;
 
 import java.io.File;
@@ -37,10 +35,9 @@ public class BaseTest {
 
     // GENERAL
     protected static AppiumDriver driver;
+    AppiumDriverLocalService service;
     private int TIMEOUT200 = 200;
     private int TIMEOUT10 = 10;
-
-    AppiumDriverLocalService service;
 
     public static final String ROOT_PATH = System.getProperty("user.dir");
     public static final String LOG_PATH_FOLDER = ROOT_PATH + "/log";
@@ -57,7 +54,7 @@ public class BaseTest {
     public void GetLastAPKFile() throws Exception{
         PropertiesUtils.getPropertiesGlobal();
         System.out.println("Start Get APK File from share folder");
-        PropertiesUtils.GetLastAPKFile();
+//        PropertiesUtils.GetLastAPKFile();
         System.out.println("Done Get APK File from share folder");
         System.out.println("Appium is starting");
         setAppium();
@@ -65,6 +62,8 @@ public class BaseTest {
         System.out.println("Appium is started");
     }
 
+    //    @Parameters({ "config_file"})
+//    @BeforeMethod
     public void setUp(String propertyFile) throws Exception {
         try{
             System.out.println("Before Method: Setup");
