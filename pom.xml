@@ -104,7 +104,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!--Tesseract Plugin-->
+        <!--Tesseract Pluginn-->
         <dependency>
             <groupId>org.bytedeco.javacpp-presets</groupId>
             <artifactId>tesseract-platform</artifactId>
