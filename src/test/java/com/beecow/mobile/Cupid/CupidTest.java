@@ -86,7 +86,9 @@ public class CupidTest extends BaseTest{
      * DAT_2 - Turn on, turn off Cupid feature and Verify Cupid Hint
      */
     public void DAT_2() throws Exception {
+        String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
         try{
+
             cupidScreen.clickCupidTab();
             cupidScreen.VerifyCupidHint(true);
             cupidScreen.TurnCupidFeatureOnOff(false);
@@ -98,6 +100,7 @@ public class CupidTest extends BaseTest{
         }catch (TestLinkAPIException ex){
             System.out.print("Can't update result to Testlink for DAT_2");
         }catch (Exception ex){
+            getHelper().takeScreenshot("Cupid", className, "Failed", sMethodName);
             TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "DAT-2", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
             throw new Exception("[DAT_2] Failed : " + ex.getMessage());
         }
@@ -109,8 +112,12 @@ public class CupidTest extends BaseTest{
      * DAT_3 - Create new profile
      */
     public void DAT_3() throws Exception {
+        String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
         try{
+
+
             cupidScreen.clickCupidTab();
+            getHelper().VerifyTextInCurrentScreen("abdddd");
             cupidScreen.TurnCupidFeatureOnOff(true);
 
             cupidScreen.SelectGender("Woman");
@@ -121,13 +128,13 @@ public class CupidTest extends BaseTest{
         }catch (TestLinkAPIException ex){
             System.out.print("Can't update result to Testlink for DAT_3");
         }catch (Exception ex){
+            getHelper().takeScreenshot("Cupid", className, "Failed", sMethodName);
             TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "DAT-3", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
             throw new Exception("[DAT_3] Failed : " + ex.getMessage());
         }
     }
 
     public static void main (String args[]){
-        String sProjectPath = new File("src/report").getAbsolutePath().concat("A");
-System.out.print(sProjectPath);
+        //getHelper().VerifyTextInCurrentScreen("A");
     }
 }
