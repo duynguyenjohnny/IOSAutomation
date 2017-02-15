@@ -2,18 +2,11 @@ package com.beecow.mobile.Market;
 
 
 import com.beecow.screen.MarketScreen;
-import com.beecow.screen.CupidScreen;
 import com.beecow.screen.HomeScreen;
-import com.beecow.utils.Utils;
-import io.appium.java_client.service.local.AppiumDriverLocalService;
-import io.appium.java_client.service.local.AppiumServiceBuilder;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import com.beecow.screen.*;
 import com.beecow.utils.TestLink;
-import org.testng.annotations.*;
 
 import com.beecow.component.BaseTest;
 
@@ -21,8 +14,6 @@ import testlink.api.java.client.TestLinkAPIException;
 import testlink.api.java.client.TestLinkAPIResults;
 
 import java.io.File;
-
-import java.util.concurrent.TimeUnit;
 
 import static com.beecow.model.CommonElement.marketPropertiesFile;
 import static com.beecow.utils.PropertiesUtils.testlinkBuildName;
@@ -68,7 +59,7 @@ public class MarketBannerTest extends BaseTest {
         try {
             selectFirstSecondLaunchingAndGoToMarketPage();
             System.out.println("Verify button Got It should be enabled");
-            marketScreen.verifyButtonGotItShouldBeEnabled();
+            marketScreen.verifyButtonGotIt();
 
             TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-13", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         } catch (TestLinkAPIException ex) {
