@@ -3,15 +3,18 @@ package com.beecow.screen;
 import com.beecow.component.CommonScreenObjects;
 import com.beecow.model.CupidElement;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import org.jboss.netty.channel.ExceptionEvent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import sun.plugin.javascript.navig.Array;
 import testlink.api.java.client.TestLinkAPIException;
 
 import java.util.HashMap;
+import java.util.List;
 
 import static com.beecow.component.Constant.*;
 import static com.beecow.model.CommonElement.failed;
@@ -132,7 +135,7 @@ public class CupidScreen extends CommonScreenObjects{
 
     /**
      * Select Gender  in screen Create Cupid Profile
-     * @param Gender: Man or Woman
+     * @param Gender Man or Woman
      * @throws Exception
      */
     public void SelectGender(String Gender) throws Exception{
@@ -194,4 +197,161 @@ public class CupidScreen extends CommonScreenObjects{
             throw new Exception("[SelectLookingFor] FAILED: " + ex.getMessage());
         }
     }
+
+    /**
+     * Tap on Birthday Edit Text in screen Create Cupid Profile
+     * @throws Exception
+     */
+    public void ClickOnBirthDay() throws Exception{
+        try{
+            if (getHelper().isElementPresent(CupidElement.select_CupidBirthday())){
+                WebElement WEselect_CupidBirthday = getHelper().findElement(CupidElement.select_CupidBirthday());
+                WEselect_CupidBirthday.click();
+            }else{
+                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+                throw new Exception("[ClickOnBirthDay] Not found BirthDay field");
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickOnBirthDay] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickOnBirthDay] FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
+     * Tap on Button OK in the Calendar
+     * @throws Exception
+     */
+    public void ClickOnButtonCalendarOK() throws Exception{
+        try{
+            if (getHelper().isElementPresent(CupidElement.btn_Calendar_OK())){
+                WebElement WEbtn_Calendar_OK = getHelper().findElement(CupidElement.btn_Calendar_OK());
+                WEbtn_Calendar_OK.click();
+            }else{
+                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+                throw new Exception("[ClickOnButtonCalendarOK] There is no button OK");
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickOnButtonCalendarOK] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickOnButtonCalendarOK] FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
+     * Tap on Button Big Photo Upload in the Cupid create profile screen
+     * @throws Exception
+     */
+    public void ClickOnBigPhotoUpload() throws Exception{
+        try{
+            if (getHelper().isElementPresent(CupidElement.btn_CupidSelectBigPhoto())){
+                WebElement WEbtn_CupidSelectBigPhoto = getHelper().findElement(CupidElement.btn_CupidSelectBigPhoto());
+                WEbtn_CupidSelectBigPhoto.click();
+            }else{
+                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+                throw new Exception("[ClickOnBigPhotoUpload] There is no button Big Photo Upload");
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickOnBigPhotoUpload] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickOnBigPhotoUpload] FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
+     * Choose number of photo in the screen choose photo
+     * @param number
+     * @throws Exception
+     */
+    public void ChooseImageForUpload(int number) throws Exception{
+        try{
+            //Verify input parameter
+            if (number <= 0){
+                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+                throw new Exception("[ChooseImageForUpload] Input parameter failed, number must be > 0, your input is [" + number + "]");
+            }
+            //Get number of photo
+            int photo_count = driver.findElements(By.xpath("//android.widget.Button[contains(@resource-id,'item_choose_photo_dialog_btn_select')]")).size();
+            if (photo_count == 0){
+                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+                throw new Exception("[ChooseImageForUpload] There is no Photo for upload");
+            }else{
+                System.out.print("Number of photo is [" + photo_count + "]");
+            }
+            //choose photo
+            List<WebElement> lstPhoto = driver.findElements(By.xpath("//android.widget.Button[contains(@resource-id,'item_choose_photo_dialog_btn_select')]"));
+            for (int i = 0; i < number; i++) {
+                lstPhoto.get(i).click();
+            }
+
+            //select choose button
+            if (getHelper().isElementPresent(CupidElement.btn_ChooseEnabled())){
+                WebElement WEbtn_ChooseEnabled = getHelper().findElement(CupidElement.btn_ChooseEnabled());
+                WEbtn_ChooseEnabled.click();
+            }else{
+                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+                throw new Exception("[ChooseImageForUpload] Button choose is not enable or not found");
+            }
+
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ChooseImageForUpload] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ChooseImageForUpload] FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
+     * Verify button Save is enabled or not, then click on it
+     * @throws Exception
+     */
+    public void SwipeToSaveButton() throws Exception{
+        try{
+            ((AndroidDriver)driver).swipe(100,100,100,800,3000);
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickOnSaveButton] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickOnSaveButton] FAILED: " + ex.getMessage());
+        }
+    }
+    public void swipeUpElement(AppiumDriver driver, WebElement element, int duration){
+        int topY = element.getLocation().getY();
+        int bottomY = topY + element.getSize().getHeight();
+        int centerX = element.getLocation().getX() + (element.getSize().getWidth()/2);
+        driver.swipe(centerX, bottomY, centerX, topY, duration);
+    }
+    /**
+     * Verify button Save is enabled or not, then click on it
+     * @throws Exception
+     */
+    public void ClickOnSaveButton() throws Exception{
+        try{
+            //select choose button
+            if (getHelper().isElementPresent(CupidElement.btn_CupidSaveEnable())){
+                WebElement WEbtn_CupidSaveEnable = getHelper().findElement(CupidElement.btn_CupidSaveEnable());
+                WEbtn_CupidSaveEnable.click();
+            }else{
+                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+                throw new Exception("[ClickOnSaveButton] Button SAVE is not enable or not found");
+            }
+
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickOnSaveButton] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickOnSaveButton] FAILED: " + ex.getMessage());
+        }
+    }
+
+
 }

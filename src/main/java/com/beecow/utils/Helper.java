@@ -454,4 +454,60 @@ public class Helper {
             throw new Exception("[VerifyTextInCurrentScreen] - FAILED: " + ex.getMessage());
         }
     }
+
+    /**
+     * Swipe Left To Right Element
+     * @param el Element need to swipe to
+     */
+    public void swipeLeftToRightElement(WebElement el){
+        // get the X coordinate of the upper left corner of the element, then add the element's width to get the rightmost X value of the element
+        int leftX = el.getLocation().getX()+1;
+        int rightX = leftX + el.getSize().getWidth();
+
+        // get the Y coordinate of the upper left corner of the element, then subtract the height to get the lowest Y value of the element
+        int upperY = el.getLocation().getY();
+        int middleY = upperY + (el.getSize().getHeight()) / 2;
+        if(Utils.getInstance().isAndroidDevice()){
+            ((AndroidDriver)driver).swipe(leftX, middleY, rightX, middleY, 3000);
+
+        }else ((IOSDriver)driver).swipe(leftX, middleY, rightX, middleY, 3000);
+    }
+
+
+    public void swipeRightToLeftElement(WebElement el){
+        // get the X coordinate of the upper left corner of the element, then add the element's width to get the rightmost X value of the element
+        int leftX = el.getLocation().getX()+1;
+        int rightX = leftX + el.getSize().getWidth();
+
+        // get the Y coordinate of the upper left corner of the element, then subtract the height to get the lowest Y value of the element
+        int upperY = el.getLocation().getY();
+        int middleY = upperY + (el.getSize().getHeight()) / 2;
+        driver.swipe(rightX, middleY, leftX, middleY, 3000);
+    }
+    public void swipeBottomToTopElement(WebElement el){
+        size = driver.manage().window().getSize();
+        System.out.println("size: "+size);
+        // get the X coordinate of the upper left corner of the element, then add the element's width to get the rightmost X value of the element
+        int upperY = el.getLocation().getY();
+        int lowerY = upperY + el.getSize().getHeight();
+
+        // get the Y coordinate of the upper left corner of the element, then subtract the height to get the lowest Y value of the element
+//        int middleX = (el.getSize().getWidth()) / 2;
+        int middleX = (int) (size.width * 0.5);
+        driver.swipe(middleX, lowerY, middleX, upperY, 3000);
+    }
+    public void swipeTopToBottomElement(WebElement el){
+        Dimension size = driver.manage().window().getSize();
+        System.out.println("size: "+size);
+        // get the X coordinate of the upper left corner of the element, then add the element's width to get the rightmost X value of the element
+        int upperY = el.getLocation().getY();
+        int lowerY = upperY + el.getSize().getHeight()/3;
+
+        // get the Y coordinate of the upper left corner of the element, then subtract the height to get the lowest Y value of the element
+        int middleX = (el.getSize().getWidth()) / 2;
+        if(Utils.getInstance().isAndroidDevice()){
+            ((AndroidDriver)driver).swipe(middleX, upperY, middleX, lowerY, 3000);
+        }else         driver.swipe(middleX, upperY, middleX, lowerY, 3000);
+
+    }
 }
