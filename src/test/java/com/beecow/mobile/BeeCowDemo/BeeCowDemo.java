@@ -28,7 +28,7 @@ public class BeeCowDemo extends BaseTest {
     private CupidScreen cupidScreen;
 
     // DATA TEST
-    String cats[] = {"Sport", "Computer", "Meal Deals"};
+    String cats[] = {"Computer", "Sport", "Spa Deals", "Travel Deals", "Meal Deals", "Entertainment Deals"};
     String inds[] = {"Consulting", "Design", "Education"};
 
 
