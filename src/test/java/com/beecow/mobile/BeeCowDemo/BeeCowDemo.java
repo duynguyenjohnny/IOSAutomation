@@ -48,7 +48,7 @@ public class BeeCowDemo extends BaseTest {
         }.getClass().getEnclosingMethod().getName();
         try {
             selectFirstSecondLaunchingAndGoToMarketPage();
-            System.out.println("Verify Market Instruction show with description & button [Got It]");
+            System.out.println("Verify Market Instruction show with description & button [Got It] ");
             marketScreen.verifyInstructionText();
             marketScreen.verifyButtonGotIt();
 
