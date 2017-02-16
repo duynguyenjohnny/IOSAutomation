@@ -129,7 +129,7 @@ public class CreateProfile extends BaseTest{
             cupidScreen.ClickOnButtonCalendarOK();
             cupidScreen.ClickOnBigPhotoUpload();
             cupidScreen.ChooseImageForUpload(6);
-cupidScreen.SwipeToSaveButton();
+            cupidScreen.SwipeDown();
             cupidScreen.ClickOnSaveButton();
             //TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "DAT-3", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         }catch (TestLinkAPIException ex){

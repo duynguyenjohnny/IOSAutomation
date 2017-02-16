@@ -3,9 +3,11 @@ package com.beecow.screen;
 import com.beecow.component.CommonScreenObjects;
 import com.beecow.model.CupidElement;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import org.jboss.netty.channel.ExceptionEvent;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.testng.ITestResult;
@@ -308,19 +310,27 @@ public class CupidScreen extends CommonScreenObjects{
         }
     }
 
-    /**
-     * Verify button Save is enabled or not, then click on it
-     * @throws Exception
-     */
-    public void SwipeToSaveButton() throws Exception{
+    public void SwipeDown() throws Exception{
         try{
-            ((AndroidDriver)driver).swipe(100,100,100,800,3000);
+            TouchAction tAction=new TouchAction(driver);
+            Dimension dimensions = driver.manage().window().getSize();
+            int screenWidth = dimensions.getWidth();
+            int screenHeight = dimensions.getHeight();
+            System.out.println(screenWidth + " ::::::: " + screenHeight + " ::::::: " + screenWidth/2 +  " ::::::: " +	((screenHeight/2)+100));
+            Thread.sleep(1000);
+            //First tap on the screen and swipe it right using moveTo function
+            tAction.press(360,500).moveTo(0,100).release().perform();
+            Thread.sleep(1000);
+
+            //Second tap on the screen and swipe it left using moveTo function
+//            tAction.press(endx+20,endy+20).moveTo(startx+20,starty+20).release().perform();
+//            Thread.sleep(1000);
         }catch (NoSuchElementException noElement){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-            throw new Exception("[ClickOnSaveButton] Can't find Element: " + noElement.getMessage());
+            throw new Exception("[SwipeDown] Can't find Element: " + noElement.getMessage());
         }catch (Exception ex){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-            throw new Exception("[ClickOnSaveButton] FAILED: " + ex.getMessage());
+            throw new Exception("[SwipeDown] FAILED: " + ex.getMessage());
         }
     }
     public void swipeUpElement(AppiumDriver driver, WebElement element, int duration){
