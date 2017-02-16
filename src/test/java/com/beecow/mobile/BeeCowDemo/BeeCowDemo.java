@@ -64,75 +64,75 @@ public class BeeCowDemo extends BaseTest {
         }
     }
 
-    @Test(dependsOnMethods = { "testMarketPageInstruction" })
-    public void testMarketOverviewPage() throws Exception {
-        String sMethodName = new Object() {
-        }.getClass().getEnclosingMethod().getName();
-        try {
-            System.out.println("Click Market Tab view to go Market Overview page");
-            homeScreen.clickMarketTabView();
-            System.out.println("Click button Got It");
-            marketScreen.clickButtonGotIt();
-            System.out.println("Verify market banner is visibled");
-            marketScreen.verifyBannerIsVisible();
-
-            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "TC-2", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
-        } catch (TestLinkAPIException ex) {
-            System.out.print("Can't update result to Testlink for TC-2");
-        } catch (Exception ex) {
-            //Test failed
-            getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
-            System.out.println("Current working dir: " + new File(BeeCowDemo.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
-            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "TC-2", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
-            throw new Exception("Failed: " + ex.getMessage());
-        }
-    }
-
-    @Test(dependsOnMethods = { "testMarketOverviewPage" })
-    public void testCupidOverviewPage() throws Exception {
-        String sMethodName = new Object() {
-        }.getClass().getEnclosingMethod().getName();
-        try {
-            System.out.println("Click Cupid Tab view to go Cuspid Overview page");
-            homeScreen.clickCupidTabView();
-            System.out.println("Turn on Cupid feature");
-            cupidScreen.TurnCupidFeatureOnOff(true);
-
-            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "TC-3", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
-        } catch (TestLinkAPIException ex) {
-            System.out.print("Can't update result to Testlink for TC-3");
-        } catch (Exception ex) {
-            //Test failed
-            getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
-            System.out.println("Current working dir: " + new File(BeeCowDemo.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
-            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "TC-3", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
-            throw new Exception("Failed: " + ex.getMessage());
-        }
-    }
-
-    @Test(dependsOnMethods = { "testCupidOverviewPage" })
-    public void testHomePageWithNewFeed() throws Exception {
-        String sMethodName = new Object() {
-        }.getClass().getEnclosingMethod().getName();
-        try {
-            System.out.println("Click Cupid Tab");
-            homeScreen.clickCupidTabView();
-            System.out.println("Click Market Tab");
-            homeScreen.clickMarketTabView();
-            System.out.println("Click Home Tab");
-            homeScreen.clickHomeTabView();
-
-            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "TC-4", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
-        } catch (TestLinkAPIException ex) {
-            System.out.print("Can't update result to Testlink for TC-4");
-        } catch (Exception ex) {
-            //Test failed
-            getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
-            System.out.println("Current working dir: " + new File(BeeCowDemo.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
-            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "TC-4", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
-            throw new Exception("Failed: " + ex.getMessage());
-        }
-    }
+//    @Test(dependsOnMethods = { "testMarketPageInstruction" })
+//    public void testMarketOverviewPage() throws Exception {
+//        String sMethodName = new Object() {
+//        }.getClass().getEnclosingMethod().getName();
+//        try {
+//            System.out.println("Click Market Tab view to go Market Overview page");
+//            homeScreen.clickMarketTabView();
+//            System.out.println("Click button Got It");
+//            marketScreen.clickButtonGotIt();
+//            System.out.println("Verify market banner is visibled");
+//            marketScreen.verifyBannerIsVisible();
+//
+//            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "TC-2", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
+//        } catch (TestLinkAPIException ex) {
+//            System.out.print("Can't update result to Testlink for TC-2");
+//        } catch (Exception ex) {
+//            //Test failed
+//            getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
+//            System.out.println("Current working dir: " + new File(BeeCowDemo.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
+//            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "TC-2", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+//            throw new Exception("Failed: " + ex.getMessage());
+//        }
+//    }
+//
+//    @Test(dependsOnMethods = { "testMarketOverviewPage" })
+//    public void testCupidOverviewPage() throws Exception {
+//        String sMethodName = new Object() {
+//        }.getClass().getEnclosingMethod().getName();
+//        try {
+//            System.out.println("Click Cupid Tab view to go Cuspid Overview page");
+//            homeScreen.clickCupidTabView();
+//            System.out.println("Turn on Cupid feature");
+//            cupidScreen.TurnCupidFeatureOnOff(true);
+//
+//            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "TC-3", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
+//        } catch (TestLinkAPIException ex) {
+//            System.out.print("Can't update result to Testlink for TC-3");
+//        } catch (Exception ex) {
+//            //Test failed
+//            getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
+//            System.out.println("Current working dir: " + new File(BeeCowDemo.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
+//            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "TC-3", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+//            throw new Exception("Failed: " + ex.getMessage());
+//        }
+//    }
+//
+//    @Test(dependsOnMethods = { "testCupidOverviewPage" })
+//    public void testHomePageWithNewFeed() throws Exception {
+//        String sMethodName = new Object() {
+//        }.getClass().getEnclosingMethod().getName();
+//        try {
+//            System.out.println("Click Cupid Tab");
+//            homeScreen.clickCupidTabView();
+//            System.out.println("Click Market Tab");
+//            homeScreen.clickMarketTabView();
+//            System.out.println("Click Home Tab");
+//            homeScreen.clickHomeTabView();
+//
+//            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "TC-4", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
+//        } catch (TestLinkAPIException ex) {
+//            System.out.print("Can't update result to Testlink for TC-4");
+//        } catch (Exception ex) {
+//            //Test failed
+//            getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
+//            System.out.println("Current working dir: " + new File(BeeCowDemo.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
+//            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "TC-4", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+//            throw new Exception("Failed: " + ex.getMessage());
+//        }
+//    }
 
     @Test(dependsOnMethods = { "testHomePageWithNewFeed" })
     public void testMessagesPageWithButtonGotIt() throws Exception {
@@ -141,8 +141,8 @@ public class BeeCowDemo extends BaseTest {
         try {
             System.out.println("Click Messages Tab");
             homeScreen.clickMessagesTabView();
-//            System.out.println("Verify button [Got It]");
-//            marketScreen.verifyButtonGotIt();
+            System.out.println("Verify button [Got It]");
+            marketScreen.verifyButtonGotIt();
 
             TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "TC-8", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         } catch (TestLinkAPIException ex) {
