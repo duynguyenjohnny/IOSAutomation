@@ -116,21 +116,22 @@ public class CreateProfile extends BaseTest{
     public void DAT_3() throws Exception {
         String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
         try{
-
-
             cupidScreen.clickCupidTab();
-            //getHelper().VerifyTextInCurrentScreen("abdddd");
             cupidScreen.TurnCupidFeatureOnOff(true);
-
             cupidScreen.SelectGender("Woman");
-            cupidScreen.InputMyAlias("test thai hoang");
-            cupidScreen.SelectLookingFor("Both");
+            cupidScreen.InputMyAlias("test nguyen thai hoang");
+            cupidScreen.SelectLookingFor("Man");
             cupidScreen.ClickOnBirthDay();
             cupidScreen.ClickOnButtonCalendarOK();
             cupidScreen.ClickOnBigPhotoUpload();
-            cupidScreen.ChooseImageForUpload(6);
-            cupidScreen.SwipeDown();
+            cupidScreen.VerifyStatusOfChooseButton(false);
+            cupidScreen.ChooseImageForUpload(2);
+            cupidScreen.VerifyStatusOfChooseButton(true);
+            cupidScreen.ClickOnChooseButton();
+            System.out.println("Swipe");
+            cupidScreen.Swipe(2, 9, 2, 2, 2000);
             cupidScreen.ClickOnSaveButton();
+            cupidScreen.VerifyTextInCurrentScreen("Registration succeeded", 5);
             //TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "DAT-3", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         }catch (TestLinkAPIException ex){
             System.out.print("Can't update result to Testlink for DAT_3");
