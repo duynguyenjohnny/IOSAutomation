@@ -21,22 +21,30 @@ public class PropertiesUtils {
     public static String androidAPKFile;
     public static String androidAppPackage;
     public static String androidAppActivities;
-    public static String androidNodeJSPath_win;
-    public static String androidAppiumMainJSPath_Win;
+    public static String androidNodeJSPath;
+    public static String androidAppiumMainJSPath;
     public static String networkShare_User;
     public static String networkShare_Pass;
     public static String appiumIPAddress;
     public static String appiumPort;
     public static String androidAPKFolder;
-    public static String androidNodeJSPath_Mac;
-    public static String androidAppiumMainJSPath_Mac;
 
+
+    public static String iOSAPKFile;
+    public static String iOSNodeJSPath;
+    public static String iOSAppiumMainJSPath;
+    public static String iOSAPKFolder;
+
+    public static String iOS_DeviceName;
+    public static String iOS_PlatformVersion;
+    public static String iOS_BundleID;
+    public static String iOS_UDID;
 
     public static String testlinkProjectName;
     public static String testlinkTestPlanName;
     public static String testlinkBuildName;
-    public static String androidNodeJSPath;
-    public static String androidAppiumMainJSPath;
+
+
     public static String androidLogPath;
     public static String androidDeviceName;
     public static String androidPlatformVersion;
@@ -134,16 +142,21 @@ public class PropertiesUtils {
         androidAPKFile = getPropertyValue(globalProperties, Android_APKFile_Element);
         androidAppPackage = getPropertyValue(globalProperties, Android_AppPackage_Element);
         androidAppActivities = getPropertyValue(globalProperties, Android_AppActivity_Element);
-        androidNodeJSPath_win = getPropertyValue(globalProperties, Android_NodeJSPath_win_Element);
-        androidAppiumMainJSPath_Win = getPropertyValue(globalProperties, Android_AppiumMainJSPath_Win_Element);
-        androidNodeJSPath_Mac = getPropertyValue(globalProperties, Android_NodeJSPath_Mac_Element);
-        androidAppiumMainJSPath_Mac = getPropertyValue(globalProperties, Android_AppiumMainJSPath_Mac_Element);
+        androidNodeJSPath = getPropertyValue(globalProperties, Android_NodeJSPath_Element);
+        androidAppiumMainJSPath = getPropertyValue(globalProperties, Android_AppiumMainJSPath_Element);
 
         networkShare_User = getPropertyValue(globalProperties, NetworkShare_User_Element);
         networkShare_Pass = getPropertyValue(globalProperties, NetworkShare_Pass_Element);
         appiumIPAddress = getPropertyValue(globalProperties, Appium_IPAddress_Element);
         appiumPort = getPropertyValue(globalProperties, Appium_Port_Element);
         androidAPKFolder = getPropertyValue(globalProperties, Android_APKFolder_Element);
+
+        iOSAPKFile = getPropertyValue(globalProperties, IOS_APKFile_Element);
+        iOSNodeJSPath = getPropertyValue(globalProperties, IOS_NodeJSPath_Element);
+        iOSAppiumMainJSPath = getPropertyValue(globalProperties, IOS_AppiumMainJSPath_Element);
+        iOSAPKFolder = getPropertyValue(globalProperties, IOS_APKFolder_Element);
+
+
     }
 
     public static void getPropertiesOther(String propertiesFile) {
@@ -161,6 +174,11 @@ public class PropertiesUtils {
 
         androidVersion = getPropertyValue(otherProperties, Android_Version_Element);
         androidPlatform = getPropertyValue(otherProperties, Android_Platform_Element);
+
+        iOS_DeviceName = getPropertyValue(otherProperties, IOS_DeviceName_Element);
+        iOS_PlatformVersion = getPropertyValue(otherProperties, IOS_PlatformVersion_Element);
+        iOS_BundleID = getPropertyValue(otherProperties, IOS_BundleID_Element);
+        iOS_UDID = getPropertyValue(otherProperties, IOS_UDID_Element);
 
     }
 

@@ -22,7 +22,8 @@
                         <version>2.18</version>
                         <configuration>
                             <suiteXmlFiles>
-                                <suiteXmlFile>${basedir}/src/test/java/com/beecow/mobile/Market/Market_TestNG.xml</suiteXmlFile>
+                                <suiteXmlFile>${basedir}/src/test/java/com/beecow/mobile/Market/Market_TestNG_AND.xml</suiteXmlFile>
+                                <!--<suiteXmlFile>${basedir}/src/test/java/com/beecow/mobile/BeeCowDemo/BeeCowDemo_TestNG.xml</suiteXmlFile>-->
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>
@@ -130,7 +131,8 @@
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <forkCount>0</forkCount>
                     <suiteXmlFiles>
-                        <file>${basedir}/src/test/java/com/beecow/mobile/Market/Market_TestNG.xml</file>
+                        <file>${basedir}/src/test/java/com/beecow/mobile/Market/Market_TestNG_AND.xml</file>
+                        <!--<file>${basedir}/src/test/java/com/b&lt;!&ndash;&ndash;&gt;eecow/mobile/BeeCowDemo/BeeCowDemo_TestNG.xml</file>-->
                     </suiteXmlFiles>
                     <properties>
                         <property>

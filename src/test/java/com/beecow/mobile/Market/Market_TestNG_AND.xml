@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Market Test Suite" verbose="3" >
+    <parameter name="config_file" value="Market.properties" />
+    <test name="The market test suite" >
+        <classes>
+            <!--<class name="com.beecow.mobile.Market.AND.FirstSecondLaunchingTest"/>-->
+            <class name="com.beecow.mobile.Market.AND.MarketBannerTest"/>
+        </classes>
+    </test>
+</suite>
+
