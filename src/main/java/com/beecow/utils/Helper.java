@@ -148,7 +148,8 @@ public class Helper {
      * @param TCsID Current Test Case ID
      * @return A screenshot locate in path with given param above
      */
-    public File takeScreenshot(String Project, String ClassNames, String Result, String TCsID) {
+    public static String sScreenShotPath;
+    public void takeScreenshot(String Project, String ClassNames, String Result, String TCsID) {
         String sProjectPath = new File("src/report").getAbsolutePath().concat(File.separator).concat(Project).concat(File.separator);
         DateFormat dateFormat = new SimpleDateFormat("_yyyy_MM_dd_HH_mm_ss");
         //get current date time with Date()
@@ -167,8 +168,7 @@ public class Helper {
             System.err.println(e);
         }
         addLog("Captured a screenshot to: " + fileScrShot);
-        return scrFile;
-
+        sScreenShotPath = fileScrShot;
     }
 
 

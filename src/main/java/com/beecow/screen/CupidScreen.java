@@ -2,6 +2,7 @@ package com.beecow.screen;
 
 import com.beecow.component.CommonScreenObjects;
 import com.beecow.model.CupidElement;
+import com.beecow.utils.Result;
 import com.beecow.utils.Utils;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
@@ -489,20 +490,19 @@ public class CupidScreen extends CommonScreenObjects{
      * @throws Exception
      */
     public void VerifyStatusOfChooseButton(boolean enabled) throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
         try{
             if (enabled){
                 if (getHelper().isElementPresent(CupidElement.btn_ChooseEnabled())){
                     System.out.println("[VerifyStatusOfChooseButton] success: Expected [enabled], Actual [enbaled]");
                 }else{
-                    Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-                    throw new Exception("[VerifyStatusOfChooseButton] FAILED: Expected [enabled], Actual [Not Exist or Disabled]");
+                    Result.Fail(kwName,"Expected [Enable], Actual [Disabled or Not Exist]");
                 }
             }else{
                 if (getHelper().isElementPresent(CupidElement.btn_ChooseDisabled())){
                     System.out.println("VerifyStatusOfChooseButton success: Expected [Disabled], Actual [Disabled]");
                 }else{
-                    Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-                    throw new Exception("[VerifyStatusOfChooseButton] FAILED: Expected [Disabled], Actual [Enabled or Not Exist]");
+                    Result.Fail(kwName,"Expected [Disabled], Actual [Enabled or Not Exist]");
                 }
             }
         }catch (NoSuchElementException noElement){
@@ -510,7 +510,7 @@ public class CupidScreen extends CommonScreenObjects{
             throw new Exception("[VerifyStatusOfChooseButton] Can't find Element: " + noElement.getMessage());
         }catch (Exception ex){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-            throw new Exception("[VerifyStatusOfChooseButton] FAILED: " + ex.getMessage());
+            throw new Exception(ex.getMessage());
         }
     }
 }

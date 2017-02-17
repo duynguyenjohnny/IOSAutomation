@@ -2,6 +2,7 @@ package com.beecow.mobile.Cupid;
 
 import com.beecow.component.BaseTest;
 import com.beecow.screen.*;
+import com.beecow.utils.Helper;
 import com.beecow.utils.TestLink;
 import com.beecow.utils.Utils;
 import io.appium.java_client.AppiumDriver;
@@ -113,7 +114,7 @@ public class CreateProfile extends BaseTest{
     /**
      * DAT_3 - Create new profile
      */
-    public void DAT_3() throws Exception {
+    public void ANDROID_DAT_03() throws Exception {
         String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
         try{
             cupidScreen.clickCupidTab();
@@ -124,7 +125,7 @@ public class CreateProfile extends BaseTest{
             cupidScreen.ClickOnBirthDay();
             cupidScreen.ClickOnButtonCalendarOK();
             cupidScreen.ClickOnBigPhotoUpload();
-            cupidScreen.VerifyStatusOfChooseButton(false);
+            cupidScreen.VerifyStatusOfChooseButton(true);
             cupidScreen.ChooseImageForUpload(2);
             cupidScreen.VerifyStatusOfChooseButton(true);
             cupidScreen.ClickOnChooseButton();
@@ -132,17 +133,14 @@ public class CreateProfile extends BaseTest{
             cupidScreen.Swipe(2, 9, 2, 2, 2000);
             cupidScreen.ClickOnSaveButton();
             cupidScreen.VerifyTextInCurrentScreen("Registration succeeded", 5);
-            //TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "DAT-3", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
+            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-3", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         }catch (TestLinkAPIException ex){
             System.out.print("Can't update result to Testlink for DAT_3");
         }catch (Exception ex){
-            //getHelper().takeScreenshot("Cupid", className, "Failed", sMethodName);
-            //TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "DAT-3", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
-            throw new Exception("[DAT_3] Failed : " + ex.getMessage());
+            getHelper().takeScreenshot("Cupid", className, "Failed", sMethodName);
+            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-3", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+            throw new Exception("[" + sMethodName + "]" + ex.getMessage() + "\n" + "Screenshot path: [" + Helper.sScreenShotPath + "]");
         }
     }
 
-    public static void main (String args[]){
-        //getHelper().VerifyTextInCurrentScreen("A");
-    }
 }
