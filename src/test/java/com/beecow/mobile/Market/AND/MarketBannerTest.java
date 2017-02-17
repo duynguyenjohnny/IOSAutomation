@@ -1,19 +1,12 @@
-package com.beecow.mobile.Market;
+package com.beecow.mobile.Market.AND;
 
 
 import com.beecow.screen.MarketScreen;
-import com.beecow.screen.CupidScreen;
 import com.beecow.screen.HomeScreen;
-import com.beecow.utils.Utils;
-import io.appium.java_client.service.local.AppiumDriverLocalService;
-import io.appium.java_client.service.local.AppiumServiceBuilder;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import com.beecow.screen.*;
 import com.beecow.utils.TestLink;
-import org.testng.annotations.*;
 
 import com.beecow.component.BaseTest;
 
@@ -21,8 +14,6 @@ import testlink.api.java.client.TestLinkAPIException;
 import testlink.api.java.client.TestLinkAPIResults;
 
 import java.io.File;
-
-import java.util.concurrent.TimeUnit;
 
 import static com.beecow.model.CommonElement.marketPropertiesFile;
 import static com.beecow.utils.PropertiesUtils.testlinkBuildName;
@@ -50,6 +41,7 @@ public class MarketBannerTest extends BaseTest {
     String indList[] = {"Accounting & Auditing Services", "Advertising & Public RelationstAds & PR", "Agriculture/Forestry/Fishing", "Airlines & Aviation", "Architecture", "Automotive", "Banking", "Beauty/Cosmetics", "Biotechnology/Pharmaceuticals", "Broadcasting/Music/Film", "Chemical/Petro-chemical", "Clothing & Textile Manufacturing", "Computer/IT", "Construction", "Consulting", "Design", "Distribution/Logistics", "Education", "Energy/Utilities", "Engineering", "Financial Services", "Food/Beverage Production", "Government", "Healthcare Services", "Hotels/Lodging", "Import/Export/Trade", "Insurance", "Internet Services", "Legal Services", "Manufacturing", "Medical/Hospital", "NGO/INGO/Non-profit", "Performing Arts/Fine Arts", "Personal & Household Services", "Printing/Publishing", "Real Estate/Property", "Recruitment Agencies", "Restaurant/Food Services", "Retail", "Security/Surveillance", "Social Services", "Sports/Physical Recreation", "Telecommunications Services", "Tourism/Travel Services", "Transportation & Storage"};
 
 
+
     @BeforeMethod
     public void setUp() throws Exception {
         super.setUp(marketPropertiesFile);
@@ -68,7 +60,7 @@ public class MarketBannerTest extends BaseTest {
         try {
             selectFirstSecondLaunchingAndGoToMarketPage();
             System.out.println("Verify button Got It should be enabled");
-            marketScreen.verifyButtonGotItShouldBeEnabled();
+            marketScreen.verifyButtonGotIt();
 
             TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-13", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         } catch (TestLinkAPIException ex) {

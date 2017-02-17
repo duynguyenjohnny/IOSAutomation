@@ -53,17 +53,17 @@ public class BaseTest {
     @BeforeSuite
     public void GetLastAPKFile() throws Exception{
         PropertiesUtils.getPropertiesGlobal();
-        System.out.println("Start Get APK File from share folder");
+        if(Utils.getInstance().isAndroidDevice()){
+            System.out.println("Start Get APK File from share folder");
         PropertiesUtils.GetLastAPKFile();
-        System.out.println("Done Get APK File from share folder");
+            System.out.println("Done Get APK File from share folder");
+        }
         System.out.println("Appium is starting");
         setAppium();
         service.start();
         System.out.println("Appium is started");
     }
 
-    //    @Parameters({ "config_file"})
-//    @BeforeMethod
     public void setUp(String propertyFile) throws Exception {
         try{
             System.out.println("Before Method: Setup");
@@ -83,9 +83,11 @@ public class BaseTest {
     @AfterSuite
     public void Stop() throws IOException, InterruptedException, Exception {
         if(driver!=null) {
-//            System.out.println("Start Remove App");
-//            driver.removeApp(androidAppPackage);
-//            System.out.println("End Remove App");
+            if(Utils.getInstance().isAndroidDevice()) {
+                System.out.println("Start Remove App");
+                driver.removeApp(androidAppPackage);
+                System.out.println("End Remove App");
+            }
             System.out.println("Stopping Appium");
             service.stop();
             System.out.println("Appium is stopped");
@@ -113,19 +115,19 @@ public class BaseTest {
         }
         if (osName.contains(MobilePlatform.WINDOWS)) {
             service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
-                    .usingDriverExecutable(new File(androidNodeJSPath_win))
+                    .usingDriverExecutable(new File(androidNodeJSPath))
                     .usingPort(Integer.parseInt(appiumPort))
                     .withIPAddress(appiumIPAddress)
-                    .withAppiumJS(new File(androidAppiumMainJSPath_Win))
+                    .withAppiumJS(new File(androidAppiumMainJSPath))
                     .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                     .withLogFile(file)
                     .withStartUpTimeOut(TIMEOUT200, TimeUnit.SECONDS));
         } else if (osName.contains("Mac")) {
             service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
-                    .usingDriverExecutable(new File(androidNodeJSPath_Mac))
+                    .usingDriverExecutable(new File(iOSNodeJSPath))
                     .usingPort(Integer.parseInt(appiumPort))
                     .withIPAddress(appiumIPAddress)
-                    .withAppiumJS(new File(androidAppiumMainJSPath_Mac))
+                    .withAppiumJS(new File(iOSAppiumMainJSPath))
                     .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                     .withLogFile(file)
                     .withStartUpTimeOut(TIMEOUT200, TimeUnit.SECONDS));
@@ -169,7 +171,7 @@ public class BaseTest {
             return getAndroid_capability(propertyFile);
         }
         if (Utils.getInstance().isIosDevice()) {
-            return getiOS_capability();
+            return getiOS_capability(propertyFile);
         }
         if (Utils.getInstance().isWebAndroidDevice()){
             return getWebAndroid_capability();
@@ -201,18 +203,16 @@ public class BaseTest {
         return capabilities;
     }
 
-    private DesiredCapabilities getiOS_capability() {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        //real device
-//        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iphone");
-//        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10.0.2");
-        //simulator
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 6s");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10.2");
+    private DesiredCapabilities getiOS_capability(String projectPropertiesFile) {
+        PropertiesUtils.getPropertiesOther(projectPropertiesFile);
 
-        capabilities.setCapability(MobileCapabilityType.APP, "apppath");
-        capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID,"");
-        capabilities.setCapability(MobileCapabilityType.UDID, "");
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, iOS_DeviceName);
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, iOS_PlatformVersion);
+
+        capabilities.setCapability(MobileCapabilityType.APP, iOSAPKFolder);
+        capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID,iOS_BundleID);
+        capabilities.setCapability(MobileCapabilityType.UDID, iOS_UDID);
 
         capabilities.setCapability(MobileCapabilityType.FULL_RESET,false);
         capabilities.setCapability(MobileCapabilityType.NO_RESET,true);
