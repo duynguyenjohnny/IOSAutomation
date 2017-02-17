@@ -6,7 +6,7 @@
     <test name="The market test suite" >
         <classes>
             <!--<class name="com.beecow.mobile.Market.AND.FirstSecondLaunchingTest"/>-->
-            <class name="com.beecow.mobile.BeeCowDemo.BeeCowDemo"/>
+            <class name="com.beecow.mobile.Market.AND.MarketBannerTest"/>
         </classes>
     </test>
 </suite>

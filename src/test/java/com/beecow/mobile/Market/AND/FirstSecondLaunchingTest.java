@@ -1,4 +1,4 @@
-package com.beecow.mobile.Market;
+package com.beecow.mobile.Market.AND;
 
 import com.beecow.component.BaseTest;
 import com.beecow.screen.ActivityFirstScreen;

@@ -5,8 +5,8 @@
     <parameter name="config_file" value="Market.properties" />
     <test name="The market test suite" >
         <classes>
-            <!--<class name="com.beecow.mobile.Market.FirstSecondLaunchingTest"/>-->
-            <class name="com.beecow.mobile.Market.MarketBannerTest"/>
+            <!--<class name="com.beecow.mobile.Market.AND.FirstSecondLaunchingTest"/>-->
+            <class name="com.beecow.mobile.Market.IOS.CategotiesTest"/>
         </classes>
     </test>
 </suite>
