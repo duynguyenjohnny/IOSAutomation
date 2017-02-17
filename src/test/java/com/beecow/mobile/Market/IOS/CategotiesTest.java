@@ -25,6 +25,8 @@ public class CategotiesTest extends BaseTest{
     public void testIOSDemo() throws InterruptedException {
         System.out.println("click Cupid tab bar");
         driver.findElement(By.xpath("//*[@label='Cupid']")).click();
+
+        
         Thread.sleep(5000);
     }
     @Test
