@@ -101,16 +101,16 @@ public class CupidElement {
         return "ios";
     }
 
-    public static String btn_CupidSelectPhoto(){
+    public static String btn_CupidSelectBigPhoto(){
         if(Utils.getInstance().isAndroidDevice()){
-            return "xpath:://android.widget.ImageView[contains(@resource-id,'fragment_cupid_ib_choose_photo')]";
+            return "xpath:://android.widget.ImageButton[contains(@resource-id,'fragment_cupid_ib_choose_photo')]";
         }
         return "ios";
     }
 
     public static String btn_CupidSaveEnable(){
         if(Utils.getInstance().isAndroidDevice()){
-            return "xpath:://android.widget.TextView[contains(@resource-id,'fragment_cupid_btn_save') and @enabled='true']";
+            return "xpath:://android.widget.TextView[@text='Save' and @enabled='true']";
         }
         return "ios";
     }
@@ -123,5 +123,46 @@ public class CupidElement {
     }
     //endregion
 
+
+    //region Cupid_3.png
+    public static String btn_Calendar_OK(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.Button[contains(@text,'OK')]";
+        }
+        return "ios";
+    }
+    //endregion
+
+    //region Cupid_4.png
+    public static String btn_CupidSelectSmallPhoto(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.ImageButton[contains(@resource-id,'item_cupid_choose_photo_iv_image')";
+        }
+        return "ios";
+    }
+    //endregion
+
+    //region Cupid_5.png
+    public static String btn_ChooseEnabled(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.Button[contains(@resource-id,'fragment_choose_photo_dialog_btn_choose') and @enabled='true']";
+        }
+        return "ios";
+    }
+
+    public static String btn_ChooseDisabled(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.Button[contains(@resource-id,'fragment_choose_photo_dialog_btn_choose') and @enabled='false']";
+        }
+        return "ios";
+    }
+
+    public static String btn_Camera(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.View[contains(@resource-id,'item_choose_photo_dialog_film_layer')]";
+        }
+        return "ios";
+    }
+    //endregion
 }
 

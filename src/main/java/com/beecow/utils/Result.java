@@ -1,5 +1,6 @@
 package com.beecow.utils;
 
+import org.testng.ITestResult;
 import org.testng.Reporter;
 
 import static com.beecow.model.CommonElement.passed;
@@ -12,6 +13,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by HangPham on 12/18/2016.
@@ -123,5 +125,14 @@ public class Result {
         stringToFile(getObservation(), fileReport);
     }
 
+    public static void Fail(String kwName, String Message) throws Exception{
+        try{
+            Date dNow = new Date();
+            SimpleDateFormat ft = new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[" + ft.format(dNow) + "][" + kwName + "] " + Message);
+        }catch (ExecutionException ex){
 
+        }
+    }
 }
