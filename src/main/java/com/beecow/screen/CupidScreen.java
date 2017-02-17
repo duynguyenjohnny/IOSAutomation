@@ -5,32 +5,19 @@ import com.beecow.model.CupidElement;
 import com.beecow.utils.Result;
 import com.beecow.utils.Utils;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import org.apache.commons.io.FileUtils;
 import org.bytedeco.javacpp.BytePointer;
 import org.bytedeco.javacpp.lept;
 import org.bytedeco.javacpp.tesseract;
-import org.jboss.netty.channel.ExceptionEvent;
 import org.openqa.selenium.*;
 import org.testng.ITestResult;
 import org.testng.Reporter;
-import sun.plugin.javascript.navig.Array;
-import testlink.api.java.client.TestLinkAPIException;
-
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.StandardCopyOption;
-import java.util.HashMap;
 import java.util.List;
 
-import static com.beecow.component.Constant.*;
-import static com.beecow.model.CommonElement.failed;
-import static com.beecow.model.CommonElement.screenShot_login;
-import static com.beecow.model.CupidElement.*;
-import static com.beecow.model.CommonElement.*;
-import static org.bytedeco.javacpp.lept.boxaaAddBox;
 import static org.bytedeco.javacpp.lept.pixDestroy;
 import static org.bytedeco.javacpp.lept.pixRead;
 

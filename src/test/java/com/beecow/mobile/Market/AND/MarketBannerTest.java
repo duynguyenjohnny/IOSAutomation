@@ -79,7 +79,7 @@ public class MarketBannerTest extends BaseTest {
         System.out.println("run demo tc14");
         System.out.println("Click Market Tab view to go Market Overview page");
         homeScreen.clickMarketTabView();
-        System.out.println("Click button Got It ");
+        System.out.println("Click button Got It");
         marketScreen.clickButtonGotIt();
     }
 
