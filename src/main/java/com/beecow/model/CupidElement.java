@@ -164,5 +164,75 @@ public class CupidElement {
         return "ios";
     }
     //endregion
+
+    //region Cupid_6.png
+    public static String btn_GiftTab(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.TextView[contains(@resource-id,'fragment_cupid_btn_gift_list']";
+        }
+        return "ios";
+    }
+
+    public static String btn_SavedTab(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.TextView[contains(@resource-id,'fragment_cupid_btn_saved_list']";
+        }
+        return "ios";
+    }
+
+    public static String btn_MatchedTab(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.TextView[contains(@resource-id,'fragment_cupid_btn_matched_list']";
+        }
+        return "ios";
+    }
+
+    public static String txt_UserNameOnCard(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.TextView[contains(@resource-id,'cupid_swipe_card_layout_tv_user_name']";
+        }
+        return "ios";
+    }
+
+    public static String btn_SaveProfile(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.ImageButton[contains(@resource-id,'cupid_swipe_card_layout_btn_save']";
+        }
+        return "ios";
+    }
+
+    public static String btn_DislikeEnabled(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.ImageButton[contains(@resource-id,'fragment_cupid_btn_dislike_enabled']";
+        }
+        return "ios";
+    }
+
+    public static String btn_ChatEnabled(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.ImageButton[contains(@resource-id,'fragment_cupid_btn_stay_hi_enabled']";
+        }
+        return "ios";
+    }
+
+    public static String btn_GiftDisabled(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.ImageButton[contains(@resource-id,'fragment_cupid_btn_gift_enabled']";
+        }
+        return "ios";
+    }
+    public static String btn_LikeDisabled(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.ImageButton[contains(@resource-id,'fragment_cupid_btn_like_enabled']";
+        }
+        return "ios";
+    }
+    public static String txt_YearOldDistanceOnCard(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.TextView[contains(@resource-id,'cupid_swipe_card_layout_tv_old_and_distance']";
+        }
+        return "ios";
+    }
+    //endregionn
 }
 

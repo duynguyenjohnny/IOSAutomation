@@ -485,7 +485,7 @@ public class CupidScreen extends CommonScreenObjects{
     }
 
     /**
-     * Verify status of Choose Button
+     * Verify status Enable or Disable of Choose Button
      * @param enabled true mean enabled, false mean disabled
      * @throws Exception
      */
@@ -508,6 +508,36 @@ public class CupidScreen extends CommonScreenObjects{
         }catch (NoSuchElementException noElement){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
             throw new Exception("[VerifyStatusOfChooseButton] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception(ex.getMessage());
+        }
+    }
+
+    /**
+     * Verify status Enable or Disable of Save Button
+     * @param enabled true mean enabled, false mean disabled
+     * @throws Exception
+     */
+    public void VerifyStatusOfSaveButton(boolean enabled) throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            if (enabled){
+                if (getHelper().isElementPresent(CupidElement.btn_CupidSaveEnable())){
+                    System.out.println("[VerifyStatusOfSaveButton] success: Expected [enabled], Actual [enbaled]");
+                }else{
+                    Result.Fail(kwName,"Expected [Enable], Actual [Disabled or Not Exist]");
+                }
+            }else{
+                if (getHelper().isElementPresent(CupidElement.btn_CupidSaveDisable())){
+                    System.out.println("VerifyStatusOfSaveButton success: Expected [Disabled], Actual [Disabled]");
+                }else{
+                    Result.Fail(kwName,"Expected [Disabled], Actual [Enabled or Not Exist]");
+                }
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[VerifyStatusOfSaveButton] Can't find Element: " + noElement.getMessage());
         }catch (Exception ex){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
             throw new Exception(ex.getMessage());

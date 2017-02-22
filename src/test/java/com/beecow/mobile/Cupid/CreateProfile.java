@@ -142,5 +142,4 @@ public class CreateProfile extends BaseTest{
             throw new Exception("[" + sMethodName + "]" + ex.getMessage() + "\n" + "Screenshot path: [" + Helper.sScreenShotPath + "]");
         }
     }
-
 }
