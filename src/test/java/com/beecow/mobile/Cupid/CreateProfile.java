@@ -54,7 +54,7 @@ public class CreateProfile extends BaseTest{
     /**
      * DAT_1 - Screen is turn off
      */
-    public void DAT_1() throws Exception, TestLinkAPIException {
+    public void ANDROID_DAT_1() throws Exception, TestLinkAPIException {
         String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
         try{
             System.out.println("Begin Select categories for first launching");
@@ -71,7 +71,7 @@ public class CreateProfile extends BaseTest{
 
             //Test passed
             getHelper().takeScreenshot("Cupid", className, "Passed", sMethodName);
-            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "DAT-1", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
+            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-1", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         }catch (TestLinkAPIException ex){
             System.out.print("Can't update result to Testlink for DAT_1");
         }
@@ -79,16 +79,16 @@ public class CreateProfile extends BaseTest{
             //Test failed
             getHelper().takeScreenshot("Cupid", className, "Failed", sMethodName);
             System.out.println("Current working dir: " + new File(CreateProfile.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
-            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "DAT-1", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
-            throw new Exception("Failed: " + ex.getMessage());
+            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "ANDROID_DAT-1", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+            throw new Exception("[" + sMethodName + "]" + ex.getMessage() + "\n" + "Screenshot path: [" + Helper.sScreenShotPath + "]");
         }
     }
 
-    @Test
+    //@Test
     /**
      * DAT_2 - Turn on, turn off Cupid feature and Verify Cupid Hint
      */
-    public void DAT_2() throws Exception {
+    public void ANDROID_DAT_2() throws Exception {
         String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
         try{
 
@@ -99,13 +99,13 @@ public class CreateProfile extends BaseTest{
             cupidScreen.VerifyCupidHint(false);
             cupidScreen.TurnCupidFeatureOnOff(true);
             cupidScreen.InputMyAlias("thai hoang");
-            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "DAT-2", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
+            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-2", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         }catch (TestLinkAPIException ex){
             System.out.print("Can't update result to Testlink for DAT_2");
         }catch (Exception ex){
             getHelper().takeScreenshot("Cupid", className, "Failed", sMethodName);
-            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "DAT-2", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
-            throw new Exception("[DAT_2] Failed : " + ex.getMessage());
+            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-2", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+            throw new Exception("[" + sMethodName + "]" + ex.getMessage() + "\n" + "Screenshot path: [" + Helper.sScreenShotPath + "]");
         }
 
     }
@@ -114,7 +114,7 @@ public class CreateProfile extends BaseTest{
     /**
      * DAT_3 - Create new profile
      */
-    public void ANDROID_DAT_03() throws Exception {
+    public void ANDROID_DAT_3() throws Exception {
         String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
         try{
             cupidScreen.clickCupidTab();
