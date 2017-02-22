@@ -16,7 +16,6 @@ import org.jboss.netty.channel.ExceptionEvent;
 import org.openqa.selenium.*;
 import org.testng.ITestResult;
 import org.testng.Reporter;
-import sun.plugin.javascript.navig.Array;
 import testlink.api.java.client.TestLinkAPIException;
 
 import java.io.File;
