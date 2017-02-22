@@ -50,7 +50,7 @@ public class CreateProfile extends BaseTest{
     }
 
 
-    @Test
+    //@Test
     /**
      * DAT_1 - Screen is turn off
      */

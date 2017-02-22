@@ -215,7 +215,7 @@ public class CupidElement {
         return "ios";
     }
 
-    public static String btn_GiftDisabled(){
+    public static String btn_GiftEnabled(){
         if(Utils.getInstance().isAndroidDevice()){
             return "xpath:://android.widget.ImageButton[contains(@resource-id,'fragment_cupid_btn_gift_enabled']";
         }
