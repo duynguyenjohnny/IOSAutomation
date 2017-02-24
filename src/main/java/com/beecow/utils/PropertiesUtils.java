@@ -45,7 +45,6 @@ public class PropertiesUtils {
     public static String testlinkBuildName;
     public static String testlinkDevKey;
 
-
     public static String androidLogPath;
     public static String androidDeviceName;
     public static String androidPlatformVersion;
@@ -162,11 +161,16 @@ public class PropertiesUtils {
 
     public static void getPropertiesOther(String propertiesFile) {
         otherProperties = initProperties(propertiesFile);
-        testlinkProjectName = getPropertyValue(otherProperties, testlink_ProjectName_Element);
+        if(Utils.getInstance().isAndroidDevice()) {
+            testlinkProjectName = getPropertyValue(otherProperties, testlink_ProjectName_Element);
+            testlinkDevKey = getPropertyValue(otherProperties, testlink_DevKey_Element);
+        } else if (Utils.getInstance().isIosDevice())
+        {
+            testlinkProjectName = getPropertyValue(otherProperties, testlink_ProjectName_Element_IOS);
+            testlinkDevKey = getPropertyValue(otherProperties, testlink_DevKey_Element_Hang);
+        }
         testlinkTestPlanName = getPropertyValue(otherProperties, testlink_TestPlanName_Element);
         testlinkBuildName = getPropertyValue(otherProperties, testlink_BuildName_Element);
-        testlinkDevKey = getPropertyValue(otherProperties,testlink_DevKey_Element);
-
         androidNodeJSPath = getPropertyValue(otherProperties, Android_NodeJSPath_Element);
         androidAppiumMainJSPath = getPropertyValue(otherProperties, Android_AppiumMainJSPath_Element);
         androidLogPath = getPropertyValue(otherProperties, Android_LogPath_Element);
