@@ -43,6 +43,7 @@ public class PropertiesUtils {
     public static String testlinkProjectName;
     public static String testlinkTestPlanName;
     public static String testlinkBuildName;
+    public static String testlinkDevKey;
 
 
     public static String androidLogPath;
@@ -164,6 +165,7 @@ public class PropertiesUtils {
         testlinkProjectName = getPropertyValue(otherProperties, testlink_ProjectName_Element);
         testlinkTestPlanName = getPropertyValue(otherProperties, testlink_TestPlanName_Element);
         testlinkBuildName = getPropertyValue(otherProperties, testlink_BuildName_Element);
+        testlinkDevKey = getPropertyValue(otherProperties,testlink_DevKey_Element);
 
         androidNodeJSPath = getPropertyValue(otherProperties, Android_NodeJSPath_Element);
         androidAppiumMainJSPath = getPropertyValue(otherProperties, Android_AppiumMainJSPath_Element);

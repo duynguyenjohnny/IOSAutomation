@@ -83,7 +83,7 @@ public class MarketBannerTest extends BaseTest {
         marketScreen.clickButtonGotIt();
     }
 
-    public void selectFirstSecondLaunchingAndGoToMarketPage() {
+    public void selectFirstSecondLaunchingAndGoToMarketPage() throws Exception {
         System.out.println("Begin Select categories for first launching");
         firstScreen.selectCategories(cats);
         System.out.println("Click button Next to go second launching");

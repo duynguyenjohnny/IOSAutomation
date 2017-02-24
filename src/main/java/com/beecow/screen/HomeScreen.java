@@ -21,7 +21,7 @@ public class HomeScreen extends CommonScreenObjects
         footerComponent.clickHomeTabView();
     }
 
-    public void clickMarketTabView() {
+    public void clickMarketTabView() throws Exception {
         footerComponent.clickMarketTabView();
     }
 

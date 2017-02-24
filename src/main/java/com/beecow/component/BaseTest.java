@@ -38,6 +38,7 @@ public class BaseTest {
     AppiumDriverLocalService service;
     private int TIMEOUT200 = 200;
     private int TIMEOUT10 = 10;
+    public static boolean isAndroid = Utils.getInstance().isAndroidDevice();
 
     public static final String ROOT_PATH = System.getProperty("user.dir");
     public static final String LOG_PATH_FOLDER = ROOT_PATH + "/log";
