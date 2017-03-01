@@ -334,6 +334,46 @@ public class CupidScreen extends CommonScreenObjects{
     }
 
     /**
+     * Deselect number of photo in the screen choose photo (Cupid_Function12.png)
+     * @param number
+     * @throws Exception
+     */
+    public void DeselectImageForUpload(int number) throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            //Verify input parameter
+            if (number <= 0){
+                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+                throw new Exception("[DeselectImageForUpload] Input parameter failed, number must be > 0, your input is [" + number + "]");
+            }
+            //Get number of photo able to deselect in the system
+            int photo_count = driver.findElements(By.xpath("//android.widget.ImageView[contains(@resource-id,'item_cupid_picked_photo_iv_delete')]")).size();
+            System.out.println("[DeselectImageForUpload] Number of selected photos [" + photo_count + "]");
+            if (photo_count == 0){
+                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+                throw new Exception("[DeselectImageForUpload] There is no Photo for deselect");
+            }else{
+                System.out.print("Number of photo able to deselect is [" + photo_count + "]");
+            }
+
+            if (number > photo_count){
+                Result.Fail(kwName,"[DeselectImageForUpload] Input parameter failed: Number of photo need to DeSelect is greater than Selected photo");
+            }
+
+            //deslect photo
+            List<WebElement> lstDeletePhoto = driver.findElements(By.xpath("//android.widget.ImageView[contains(@resource-id,'item_cupid_picked_photo_iv_delete')]"));
+            for (int i = 0; i < number; i++) {
+                lstDeletePhoto.get(0).click();
+                Thread.sleep(1000);
+            }
+        }catch (NoSuchElementException noElement){
+            Result.Fail(kwName,"[DeselectImageForUpload] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Result.Fail(kwName,"[DeselectImageForUpload] FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
      * Click on Choose button in the screen Choose image, verify it enable first before select
      * @throws Exception
      */
