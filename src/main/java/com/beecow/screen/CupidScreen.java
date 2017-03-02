@@ -676,6 +676,121 @@ public class CupidScreen extends CommonScreenObjects{
     }
 
     /**
+     * This function will take screenshot of current screen, then use OCR to parse into Text, then verify with input text
+     * @param sVerifyText1 Text need to verify in current screen, case sensitive, must input
+     * @param sVerifyText2 Text need to verify in current screen, case sensitive, null: for by pass verify
+     * @param sVerifyText3 Text need to verify in current screen, case sensitive, null: for by pass verify
+     * @param timeOut how many second need to verify (second)
+     */
+    public void VerifyTextInCurrentScreen(String sVerifyText1, String sVerifyText2, String sVerifyText3, int timeOut) throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        String sProjectPath = new File("src/report").getAbsolutePath().concat(File.separator).concat("Cupid").concat(File.separator);
+        String fileScrShot = "";
+        String sDevice = "Android";
+        Boolean bResult = false;
+        try{
+            String sMessage = "";
+            //Check input parameter
+            if(sVerifyText1.isEmpty() || sVerifyText1 == null){
+                Result.Fail(kwName,"[VerifyTextInCurrentScreen] Input parameter FAILED: sVerifyText1 can't be null or empty");
+            }
+
+            //Check type of running device
+            if(Utils.getInstance().isIosDevice()){
+                sDevice = "IOS";
+            }
+
+            //Take Screenshot
+            for (int i = 1; i <= timeOut; i++) {
+                File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                fileScrShot = sProjectPath.concat(sDevice) + File.separator + "TempScreenShot_" + i + ".png";
+                try {
+                    FileUtils.copyFile(scrFile, new File(fileScrShot), true);
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    System.err.println(e);
+                }
+            }
+
+            //Parse OCR and Verify with input parameter
+            for (int j = 1; j <= timeOut; j++) {
+                sMessage = "";
+                System.out.println("Start - Parse OCR file [" + sProjectPath.concat(sDevice) + File.separator + "TempScreenShot_" + j + ".png]");
+                BytePointer outText;
+
+                tesseract.TessBaseAPI api = new tesseract.TessBaseAPI();
+                // Initialize tesseract-ocr with English, without specifying tessdata path
+                if (api.Init(null, "eng") != 0) {
+                    System.err.println("Could not initialize tesseract.");
+                    System.exit(1);
+                }
+                // Open input image with leptonica library
+                lept.PIX image = pixRead(sProjectPath.concat(sDevice) + File.separator + "TempScreenShot_" + j + ".png");
+                api.SetImage(image);
+                // Get OCR result
+                outText = api.GetUTF8Text();
+                System.out.println("OCR output:\n" + outText.getString());
+
+                // Destroy used object and release memory
+                api.End();
+                outText.deallocate();
+                pixDestroy(image);
+                System.out.println("End - Parse OCR");
+                //Verify with Input parameter 1
+                if (outText.getString().contains(sVerifyText1)){
+                    bResult = true;
+                    sMessage += "Verify text [" + sVerifyText1 +"] PASSED";
+                }else{
+                    sMessage += "Verify text [" + sVerifyText1 +"] FAILED";
+                    bResult = false;
+                }
+                //Verify with Input parameter 2
+                if (sVerifyText2 != null){
+                    if (outText.getString().contains(sVerifyText2)){
+                        bResult = true;
+                        sMessage += " - Verify text [" + sVerifyText2 +"] PASSED";
+                    }else{
+                        sMessage += " - Verify text [" + sVerifyText2 +"] FAILED";
+                        bResult = false;
+                    }
+                }else{
+                    System.out.print("[VerifyTextInCurrentScreen] By pass verify sVerifyText2");
+                }
+
+                //Verify with Input parameter 3
+                if (sVerifyText3 != null){
+                    if (outText.getString().contains(sVerifyText3)){
+                        bResult = true;
+                        sMessage += " - Verify text [" + sVerifyText3 +"] PASSED";
+                    }else{
+                        sMessage += " - Verify text [" + sVerifyText3 +"] FAILED";
+                        bResult = false;
+                    }
+                }else{
+                    System.out.print("[VerifyTextInCurrentScreen] By pass verify sVerifyText3");
+                }
+
+                //Show message
+                System.out.print("[VerifyTextInCurrentScreen] Message for [" + j + "] verify: " + sMessage);
+
+                //if pass --> exit the loop, failed continue loop
+                if(bResult){
+                    break;
+                }
+            }
+            //Verify result
+            if (bResult){
+                System.out.println("[VerifyTextInCurrentScreen] PASSED " + sMessage);
+            }else {
+                Result.Fail(kwName,"[VerifyTextInCurrentScreen] FAILED " + sMessage);
+            }
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[VerifyTextInCurrentScreen] - FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
      * Verify hint Cupid: Would you like to make new friends? Turn on Cupid feature exist or not exist
      * @param exist true mean exist, false mean not exist
      * @throws Exception

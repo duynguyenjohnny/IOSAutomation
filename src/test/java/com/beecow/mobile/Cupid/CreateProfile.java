@@ -211,9 +211,41 @@ public class CreateProfile extends BaseTest{
     @Test
     /**
      * DAT_7 - Create new profile
-     * Choose 1 photo for upload
+     * Alias name lower than 6 characters
      */
     public void ANDROID_DAT_7() throws Exception {
+        String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            cupidScreen.clickCupidTab();
+            cupidScreen.TurnCupidFeatureOnOff(true);
+            cupidScreen.SelectGender("Woman");
+            cupidScreen.InputMyAlias("lower");
+            cupidScreen.SelectLookingFor("Man");
+            cupidScreen.ClickOnBirthDay();
+            cupidScreen.ClickOnButtonCalendarOK();
+            cupidScreen.ClickOnBigPhotoUpload();
+            cupidScreen.ChooseImageForUpload(6);
+            cupidScreen.ClickOnChooseButton();
+            cupidScreen.Swipe(2, 9, 2, 2, 2000);
+            cupidScreen.VerifyStatusOfSaveButton(true);
+            cupidScreen.ClickOnSaveButton();
+            cupidScreen.VerifyTextInCurrentScreen("Alias must be between 6", "20 characters", "failed nè" ,5);
+            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-7", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
+        }catch (TestLinkAPIException ex){
+            System.out.print("Can't update result to Testlink for ANDROID_DAT_7");
+        }catch (Exception ex){
+            getHelper().takeScreenshot("Cupid", className, "Failed", sMethodName);
+            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-7", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+            throw new Exception("[" + sMethodName + "]" + ex.getMessage() + "\n" + "Screenshot path: [" + Helper.sScreenShotPath + "]");
+        }
+    }
+
+    @Test
+    /**
+     * DAT_8 - Create new profile
+     * Choose 1 photo for upload
+     */
+    public void ANDROID_DAT_8() throws Exception {
         String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
         try{
             cupidScreen.clickCupidTab();
@@ -232,12 +264,12 @@ public class CreateProfile extends BaseTest{
             cupidScreen.Swipe(2, 9, 2, 2, 2000);
             cupidScreen.ClickOnSaveButton();
             cupidScreen.VerifyTextInCurrentScreen("Registration succeeded", 5);
-            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-7", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
+            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-8", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         }catch (TestLinkAPIException ex){
-            System.out.print("Can't update result to Testlink for ANDROID_DAT_7");
+            System.out.print("Can't update result to Testlink for ANDROID_DAT_8");
         }catch (Exception ex){
             getHelper().takeScreenshot("Cupid", className, "Failed", sMethodName);
-            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-7", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-8", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
             throw new Exception("[" + sMethodName + "]" + ex.getMessage() + "\n" + "Screenshot path: [" + Helper.sScreenShotPath + "]");
         }
     }
@@ -246,10 +278,10 @@ public class CreateProfile extends BaseTest{
 
     @Test
     /**
-     * DAT_8 - Create new profile
+     * DAT_9 - Create new profile
      * Choose 6 photos
      */
-    public void ANDROID_DAT_8() throws Exception {
+    public void ANDROID_DAT_9() throws Exception {
         String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
         try{
             cupidScreen.clickCupidTab();
@@ -267,12 +299,12 @@ public class CreateProfile extends BaseTest{
             cupidScreen.Swipe(2, 9, 2, 2, 2000);
             cupidScreen.ClickOnSaveButton();
             cupidScreen.VerifyTextInCurrentScreen("Registration succeeded", 5);
-            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-8", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
+            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-9", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         }catch (TestLinkAPIException ex){
-            System.out.print("Can't update result to Testlink for ANDROID_DAT_8");
+            System.out.print("Can't update result to Testlink for ANDROID_DAT_9");
         }catch (Exception ex){
             getHelper().takeScreenshot("Cupid", className, "Failed", sMethodName);
-            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-8", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-9", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
             throw new Exception("[" + sMethodName + "]" + ex.getMessage() + "\n" + "Screenshot path: [" + Helper.sScreenShotPath + "]");
         }
     }
