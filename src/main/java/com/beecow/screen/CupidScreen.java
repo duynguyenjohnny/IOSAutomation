@@ -944,4 +944,26 @@ public class CupidScreen extends CommonScreenObjects{
             throw new Exception(ex.getMessage());
         }
     }
+
+    /**
+     * close APP
+     */
+    public void closeApp() {
+        try {
+            driver.closeApp();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * open APP
+     */
+    public void openApp() {
+        try {
+            driver.launchApp();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

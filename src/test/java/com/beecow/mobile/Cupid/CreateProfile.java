@@ -308,4 +308,27 @@ public class CreateProfile extends BaseTest{
             throw new Exception("[" + sMethodName + "]" + ex.getMessage() + "\n" + "Screenshot path: [" + Helper.sScreenShotPath + "]");
         }
     }
+
+    @Test
+    /**
+     * DAT_10 - Create new profile
+     * Choose 6 photos
+     */
+    public void ANDROID_DAT_10() throws Exception {
+        String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            cupidScreen.clickCupidTab();
+            cupidScreen.closeApp();
+
+            cupidScreen.openApp();
+            System.out.print("AAAAAAAAAAAAAAAA");
+        }catch (TestLinkAPIException ex){
+            System.out.print("Can't update result to Testlink for ANDROID_DAT_9");
+        }catch (Exception ex){
+            System.out.println("Error" + ex.getMessage());
+//            getHelper().takeScreenshot("Cupid", className, "Failed", sMethodName);
+//            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-9", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+//            throw new Exception("[" + sMethodName + "]" + ex.getMessage() + "\n" + "Screenshot path: [" + Helper.sScreenShotPath + "]");
+        }
+    }
 }

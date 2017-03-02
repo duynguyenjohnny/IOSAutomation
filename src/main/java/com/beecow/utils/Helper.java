@@ -411,17 +411,19 @@ public class Helper {
     /**
      * clearDataApp
      */
-    public void clearDataApp() {
+    public static void clearDataApp() {
         try {
             // clearing app data
             Runtime runtime = Runtime.getRuntime();
 //            runtime.exec("pm clear YOUR_APP_PACKAGE_GOES HERE");
-            runtime.exec("adb shell pm clear com.mydriver.driver.v2.alpha");
+            runtime.exec("adb shell pm clear com.mediastep.beecow");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
 
     /**
      * This function will take screenshot of current screen, then use OCR to parse into Text, then verify with input text
