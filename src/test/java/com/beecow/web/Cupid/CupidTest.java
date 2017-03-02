@@ -19,7 +19,6 @@ public class CupidTest extends BaseTestWeb{
     }
     @Test
     public void Test()throws Exception{
-        System.out.print("AAAAAAAAAAAAAAA");
         home.GoToURL("http://tindecken.com");
     }
 

@@ -109,7 +109,7 @@ public class CreateProfile extends BaseTest{
 
     @Test
     /**
-     * DAT_3 - Verify save button is disable while there is no input for Alias Name
+     * DAT_3 - Verify save button is disabled while there is no input for Alias Name
      */
     public void ANDROID_DAT_3() throws Exception {
         String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
