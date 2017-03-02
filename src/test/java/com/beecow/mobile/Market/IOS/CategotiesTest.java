@@ -27,25 +27,24 @@ public class CategotiesTest extends BaseTest{
 
     private FooterComponent footerComponent;
     private MarketScreen marketScreen;
+    private MarketCategoriesScreen marketCategoriesScreen;
 
     @BeforeMethod
     public void setUp() throws Exception {
         super.setUp(marketPropertiesFile);
         footerComponent = new FooterComponent(driver);
-        marketScreen=new MarketScreen(driver);
+        marketScreen = new MarketScreen(driver);
+        marketCategoriesScreen = new MarketCategoriesScreen(driver);
     }
 
-    Dimension size;
-//    @Test
-    public void testIOSDemo() throws InterruptedException {
-        try {
-            footerComponent.clickMarketTabView();
-//            marketScreen.swipeToElement();
-            Thread.sleep(5000);
+    @Test
+    public void testSwipe() throws Exception {
+        footerComponent.clickMarketTabView();
+        System.out.println("swipe from left to right");
+        WebElement el = getHelper().findElement("resourceID::item_banner_img_banner");
+        Thread.sleep(3000);
 
-            } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Thread.sleep(3000);
     }
     public void swipeFromElementToTopMarket(){
         WebElement marketTable = driver.findElement(By.xpath("//XCUIElementTypeTable"));
@@ -59,13 +58,13 @@ public class CategotiesTest extends BaseTest{
         ((IOSDriver)driver).swipe(middleX,bottomY,middleX,topY,3000);
 
     }
-//    @Test
+    @Test
     public void testIOSDemo1() throws InterruptedException {
         System.out.println("click Cupid tab bar");
-        getHelper().findElement("label::Mua bán").click();
+        getHelper().findElement("label::Market").click();
         Thread.sleep(5000);
         System.out.println("Swipe from top to bottom");
-        ((IOSDriver)driver).swipe(100,150,100,900,3000);
+        ((IOSDriver)driver).swipe(100,100,100,900,3000);
         Thread.sleep(3000);
     }
     @Test
