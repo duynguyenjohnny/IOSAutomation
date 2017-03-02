@@ -1,5 +1,6 @@
 package com.beecow.utils;
 
+import io.appium.java_client.AppiumDriver;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
@@ -19,6 +20,7 @@ import java.util.concurrent.ExecutionException;
  * Created by HangPham on 12/18/2016.
  */
 public class Result {
+    AppiumDriver driver;
     private String result;
     private String observation;
     private String expectation;
@@ -29,7 +31,8 @@ public class Result {
     private ArrayList<String> sObservation = new ArrayList<String>();
 
 
-    public Result() {
+    public Result(AppiumDriver driver) {
+        this.driver = driver;
         this.result = passed;
         this.observation = "";
         this.expectation = "";

@@ -43,7 +43,7 @@ public class CategotiesTest extends BaseTest{
         System.out.println("swipe from left to right");
         WebElement el = getHelper().findElement("resourceID::item_banner_img_banner");
         Thread.sleep(3000);
-
+        marketCategoriesScreen.testswipe();
         Thread.sleep(3000);
     }
     public void swipeFromElementToTopMarket(){

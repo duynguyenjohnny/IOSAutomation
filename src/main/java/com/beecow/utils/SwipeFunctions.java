@@ -15,6 +15,10 @@ public class SwipeFunctions {
     private AppiumDriver driver;
     private Dimension size;
 
+    public SwipeFunctions(AppiumDriver driver){
+        this.driver=driver;
+    }
+
     public void swipeLeftToRightElement(WebElement el) {
         size = driver.manage().window().getSize();
         // get the X coordinate of the upper left corner of the element, then add the element's width to get the rightmost X value of the element
