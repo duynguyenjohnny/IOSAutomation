@@ -42,8 +42,13 @@ public class CommonElement {
 
     //element for each properties
     public static String testlink_ProjectName_Element = "Testlink_ProjectName";
+    public static String testlink_DevKey_Element = "TestLink_DevKey";
     public static String testlink_TestPlanName_Element = "Testlink_TestPlanName";
     public static String testlink_BuildName_Element = "Testlink_BuildName";
+
+    public static String testlink_ProjectName_Element_IOS = "Testlink_ProjectName_IOS";
+    public static String testlink_DevKey_Element_Hang = "TestLink_DevKey_Hang";
+
     public static String Android_LogPath_Element = "Android_LogPath";
     public static String Android_DeviceName_Element = "Android_DeviceName";
     public static String Android_PlatformVersion_Element = "Android_PlatformVersion";

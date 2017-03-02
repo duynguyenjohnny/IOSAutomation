@@ -12,7 +12,9 @@ public enum UISelectorType {
     CLASS_NAME("className"),
     XPATH("xpath"),
     ANDROID_PACKAGE("android"),
-    VALUE("value")
+    VALUE("value"),
+    LABLE("label"),
+    NAME("name")
     ;
 
     private String UISelectorCode;

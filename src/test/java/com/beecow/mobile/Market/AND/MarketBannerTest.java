@@ -79,11 +79,11 @@ public class MarketBannerTest extends BaseTest {
         System.out.println("run demo tc14");
         System.out.println("Click Market Tab view to go Market Overview page");
         homeScreen.clickMarketTabView();
-        System.out.println("Click button Got It ");
+        System.out.println("Click button Got It");
         marketScreen.clickButtonGotIt();
     }
 
-    public void selectFirstSecondLaunchingAndGoToMarketPage() {
+    public void selectFirstSecondLaunchingAndGoToMarketPage() throws Exception {
         System.out.println("Begin Select categories for first launching");
         firstScreen.selectCategories(cats);
         System.out.println("Click button Next to go second launching");

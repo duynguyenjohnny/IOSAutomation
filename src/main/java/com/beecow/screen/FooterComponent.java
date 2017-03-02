@@ -2,7 +2,11 @@ package com.beecow.screen;
 
 import com.beecow.component.CommonScreenObjects;
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.NoSuchElementException;
+import org.testng.ITestResult;
+import org.testng.Reporter;
 
+import static com.beecow.model.CommonElement.failed;
 import static com.beecow.model.FooterElement.*;
 
 /**
@@ -21,8 +25,18 @@ public class FooterComponent extends CommonScreenObjects {
         getHelper().findElement(getTabHomeLocator()).click();
     }
 
-    public void clickMarketTabView() {
-        getHelper().findElement(getTabMarketLocator()).click();
+    public void clickMarketTabView() throws Exception {
+        try {
+            getHelper().findElement(getTabMarketLocator()).click();
+
+        } catch (NoSuchElementException noElement) {
+            result.setResult(failed);
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[VerifyStatusOfChooseButton] Can't find Element: " + noElement.getMessage());
+        } catch (Exception ex) {
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception(ex.getMessage());
+        }
     }
 
     public void clickMessagesTabView() {

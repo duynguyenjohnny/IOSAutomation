@@ -156,7 +156,7 @@ public class BeeCowDemo extends BaseTest {
         }
     }
 
-    private void selectFirstSecondLaunchingAndGoToMarketPage() {
+    private void selectFirstSecondLaunchingAndGoToMarketPage() throws Exception {
         System.out.println("Begin Select categories for first launching");
         firstScreen.selectCategories(cats);
         System.out.println("Click button Next to go second launching");

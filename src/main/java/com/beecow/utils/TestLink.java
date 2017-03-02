@@ -21,6 +21,7 @@ import java.util.*;
 import java.util.NoSuchElementException;
 
 import static com.beecow.component.Constant.*;
+import static com.beecow.utils.PropertiesUtils.testlinkDevKey;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 import static java.util.concurrent.TimeUnit.MINUTES;
 
@@ -40,7 +41,7 @@ public class TestLink {
      */
     public static void updateResult(String testProject, String testPlan, String testCaseName,String build, String ExcutionNote, String result) throws TestLinkAPIException {
         System.out.println("Start update result to Testlink");
-        TestLinkAPIClient testlinkAPIClient = new TestLinkAPIClient(DEVKEY,URL);
+        TestLinkAPIClient testlinkAPIClient = new TestLinkAPIClient(testlinkDevKey,URL);
         testlinkAPIClient.reportTestCaseResult(testProject, testPlan, testCaseName, build, ExcutionNote, result);
         System.out.println("End update result to Testlink");
     }
