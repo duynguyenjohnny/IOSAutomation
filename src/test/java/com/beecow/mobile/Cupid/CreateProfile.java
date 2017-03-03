@@ -11,6 +11,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import org.omg.CORBA.TIMEOUT;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 import java.io.File;
@@ -22,6 +23,7 @@ import testlink.api.java.client.TestLinkAPIException;
 import testlink.api.java.client.TestLinkAPIResults;
 
 import static com.beecow.model.CommonElement.cupidPropertiesFile;
+import static com.beecow.model.CommonElement.screenShot_login;
 import static com.beecow.utils.PropertiesUtils.testlinkBuildName;
 import static com.beecow.utils.PropertiesUtils.testlinkProjectName;
 import static com.beecow.utils.PropertiesUtils.testlinkTestPlanName;
@@ -52,7 +54,6 @@ public class CreateProfile extends BaseTest {
 
 
     //@Test
-
     /**
      * DAT_1 - Screen is turn off
      */
@@ -110,18 +111,17 @@ public class CreateProfile extends BaseTest {
 
     }
 
-    @Test
+    //@Test
     /**
      * DAT_3 - Verify save button is disabled while there is no input for Alias Name
      */
     public void ANDROID_DAT_3() throws Exception {
-        String sMethodName = new Object() {
-        }.getClass().getEnclosingMethod().getName();
+        String sMethodName = new Object() {}.getClass().getEnclosingMethod().getName();
         try {
             cupidScreen.clickCupidTab();
             cupidScreen.TurnCupidFeatureOnOff(true);
             System.out.println("Swipe to button Save");
-            getSwipe().Swipe(2, 9, 2, 2, 2000);
+            getSwipe().Swipe(4, 9, 4, 2, 2000);
             cupidScreen.VerifyStatusOfSaveButton(false);
             TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "ANDROID_DAT-3", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         } catch (TestLinkAPIException ex) {
@@ -133,19 +133,18 @@ public class CreateProfile extends BaseTest {
         }
     }
 
-    @Test
+    //@Test
     /**
      * DAT_4 - Verify save button is disable while there is no input for Birthday
      */
     public void ANDROID_DAT_4() throws Exception {
-        String sMethodName = new Object() {
-        }.getClass().getEnclosingMethod().getName();
+        String sMethodName = new Object() {}.getClass().getEnclosingMethod().getName();
         try {
             cupidScreen.clickCupidTab();
             cupidScreen.TurnCupidFeatureOnOff(true);
             cupidScreen.InputMyAlias("thai hoang");
             System.out.println("Swipe to button Save");
-            getSwipe().Swipe(2, 9, 2, 2, 2000);
+            getSwipe().Swipe(4, 9, 4, 2, 2000);
             cupidScreen.VerifyStatusOfSaveButton(false);
             TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "ANDROID_DAT-4", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         } catch (TestLinkAPIException ex) {
@@ -157,13 +156,12 @@ public class CreateProfile extends BaseTest {
         }
     }
 
-    @Test
+    //@Test
     /**
      * DAT_5 - Verify save button is disable while there is no photo is upload
      */
     public void ANDROID_DAT_5() throws Exception {
-        String sMethodName = new Object() {
-        }.getClass().getEnclosingMethod().getName();
+        String sMethodName = new Object() {}.getClass().getEnclosingMethod().getName();
         try {
             cupidScreen.clickCupidTab();
             cupidScreen.TurnCupidFeatureOnOff(true);
@@ -171,7 +169,7 @@ public class CreateProfile extends BaseTest {
             System.out.println("Swipe to button Save");
             cupidScreen.ClickOnBirthDay();
             cupidScreen.ClickOnButtonCalendarOK();
-            getSwipe().Swipe(2, 9, 2, 2, 2000);
+            getSwipe().Swipe(4, 9, 4, 2, 2000);
             cupidScreen.VerifyStatusOfSaveButton(false);
             TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "ANDROID_DAT-5", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         } catch (TestLinkAPIException ex) {
@@ -183,14 +181,13 @@ public class CreateProfile extends BaseTest {
         }
     }
 
-    @Test
+    //@Test
     /**
      * DAT_6 - Create new profile
      * Choose 6 photos, then deselect that photo, verify status button save is disabled
      */
     public void ANDROID_DAT_6() throws Exception {
-        String sMethodName = new Object() {
-        }.getClass().getEnclosingMethod().getName();
+        String sMethodName = new Object() {}.getClass().getEnclosingMethod().getName();
         try {
             cupidScreen.clickCupidTab();
             cupidScreen.TurnCupidFeatureOnOff(true);
@@ -203,7 +200,7 @@ public class CreateProfile extends BaseTest {
             cupidScreen.ChooseImageForUpload(6);
             cupidScreen.ClickOnChooseButton();
             cupidScreen.DeselectImageForUpload(6);
-            getSwipe().Swipe(2, 9, 2, 2, 2000);
+            getSwipe().Swipe(4, 9, 4, 2, 2000);
             cupidScreen.VerifyStatusOfSaveButton(false);
             TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "ANDROID_DAT-6", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         } catch (TestLinkAPIException ex) {
@@ -215,14 +212,13 @@ public class CreateProfile extends BaseTest {
         }
     }
 
-    @Test
+    //@Test
     /**
      * DAT_7 - Create new profile
      * Alias name lower than 6 characters
      */
     public void ANDROID_DAT_7() throws Exception {
-        String sMethodName = new Object() {
-        }.getClass().getEnclosingMethod().getName();
+        String sMethodName = new Object() {}.getClass().getEnclosingMethod().getName();
         try {
             cupidScreen.clickCupidTab();
             cupidScreen.TurnCupidFeatureOnOff(true);
@@ -234,7 +230,7 @@ public class CreateProfile extends BaseTest {
             cupidScreen.ClickOnBigPhotoUpload();
             cupidScreen.ChooseImageForUpload(6);
             cupidScreen.ClickOnChooseButton();
-            getSwipe().Swipe(2, 9, 2, 2, 2000);
+            getSwipe().Swipe(4, 9, 4, 2, 2000);
             cupidScreen.VerifyStatusOfSaveButton(true);
             cupidScreen.ClickOnSaveButton();
             cupidScreen.VerifyTextInCurrentScreen("Alias must be between 6", "20 characters", "failed nè", 5);
@@ -248,14 +244,13 @@ public class CreateProfile extends BaseTest {
         }
     }
 
-    @Test
+    //@Test
     /**
      * DAT_8 - Create new profile
      * Choose 1 photo for upload
      */
     public void ANDROID_DAT_8() throws Exception {
-        String sMethodName = new Object() {
-        }.getClass().getEnclosingMethod().getName();
+        String sMethodName = new Object() {}.getClass().getEnclosingMethod().getName();
         try {
             cupidScreen.clickCupidTab();
             cupidScreen.TurnCupidFeatureOnOff(true);
@@ -270,7 +265,7 @@ public class CreateProfile extends BaseTest {
             cupidScreen.VerifyStatusOfChooseButton(true);
             cupidScreen.ClickOnChooseButton();
             System.out.println("Swipe");
-            getSwipe().Swipe(2, 9, 2, 2, 2000);
+            getSwipe().Swipe(4, 9, 4, 2, 2000);
             cupidScreen.ClickOnSaveButton();
             cupidScreen.VerifyTextInCurrentScreen("Registration succeeded", 5);
             TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "ANDROID_DAT-8", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
@@ -284,14 +279,13 @@ public class CreateProfile extends BaseTest {
     }
 
 
-    @Test
+    //@Test
     /**
      * DAT_9 - Create new profile
      * Choose 6 photos
      */
     public void ANDROID_DAT_9() throws Exception {
-        String sMethodName = new Object() {
-        }.getClass().getEnclosingMethod().getName();
+        String sMethodName = new Object() {}.getClass().getEnclosingMethod().getName();
         try {
             cupidScreen.clickCupidTab();
             cupidScreen.TurnCupidFeatureOnOff(true);
@@ -305,7 +299,7 @@ public class CreateProfile extends BaseTest {
             cupidScreen.VerifyStatusOfChooseButton(true);
             cupidScreen.ClickOnChooseButton();
             System.out.println("Swipe");
-            getSwipe().Swipe(2, 9, 2, 2, 2000);
+            getSwipe().Swipe(4, 9, 4, 2, 2000);
             cupidScreen.ClickOnSaveButton();
             cupidScreen.VerifyTextInCurrentScreen("Registration succeeded", 5);
             TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "ANDROID_DAT-9", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
@@ -318,26 +312,29 @@ public class CreateProfile extends BaseTest {
         }
     }
 
-    @Test
+
+
+    //@Test
     /**
-     * DAT_10 - Create new profile
-     * Choose 6 photos
+     * This is for testing
      */
-    public void ANDROID_DAT_10() throws Exception {
-        String sMethodName = new Object() {
-        }.getClass().getEnclosingMethod().getName();
+    public void This_is_for_testing() throws Exception {
+        String sMethodName = new Object() {}.getClass().getEnclosingMethod().getName();
         try {
             cupidScreen.clickCupidTab();
-            cupidScreen.closeApp();
-            cupidScreen.openApp();
-            System.out.print("AAAAAAAAAAAAAAAA");
+            Thread.sleep(2000);
+            cupidScreen.SwipeProfile(1, 10);
+            cupidScreen.SwipeProfile(2, 10);
+            cupidScreen.SwipeProfile(1, 5);
+            cupidScreen.VerifyScreenUpgradeToPremium(true);
+//            cupidScreen.SwipeProfile(2);
         } catch (TestLinkAPIException ex) {
             System.out.print("Can't update result to Testlink for ANDROID_DAT_9");
         } catch (Exception ex) {
             System.out.println("Error" + ex.getMessage());
-//            getHelper().takeScreenshot("Cupid", className, "Failed", sMethodName);
+            getHelper().takeScreenshot("Cupid", className, "Failed", sMethodName);
 //            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-9", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
-//            throw new Exception("[" + sMethodName + "]" + ex.getMessage() + "\n" + "Screenshot path: [" + Helper.sScreenShotPath + "]");
+            throw new Exception("[" + sMethodName + "]" + ex.getMessage() + "\n" + "Screenshot path: [" + Helper.sScreenShotPath + "]");
         }
     }
 }
