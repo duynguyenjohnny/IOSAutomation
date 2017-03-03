@@ -51,10 +51,10 @@ public class MarketCategoriesScreen extends CommonScreenObjects {
 
     public void checkCategoriesSectionExpand(){
         //wipe to see all
-//        swipingToElemntThenStop(getHelper().findElement(getSeeAllBtnCateLevel0()));
+        swipingToElemntThenStop(getHelper().findElement(getSeeAllBtnCateLevel0()));
 
         result.setExpectation("Categories expand full item product when user clicks [See all]");
-        if(!getHelper().findElement("resourceID::fragment_market_tv_see_more").getText().equals("See less")){
+        if(getHelper().findElement("resourceID::fragment_market_tv_see_more").getText().equals("See less")){
             result.setResult(failed);
             result.setObservation("[See less] text does not exist!!!");
             result.setExpectation("[See less] should be shown when users click [See all]");
