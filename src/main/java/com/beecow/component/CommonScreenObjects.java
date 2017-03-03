@@ -24,9 +24,11 @@ public class CommonScreenObjects {
     public Helper getHelper() {
         return new Helper(driver);
     }
+    public SwipeFunctions getSwipe(){
+        return new SwipeFunctions(driver);
+    }
 
     public void elementShouldBeEnable(String locator) {
         getHelper().isElementEnabled(locator);
-
     }
 }

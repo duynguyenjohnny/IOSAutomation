@@ -1,6 +1,6 @@
 package com.beecow.component;
 
-import com.beecow.utils.PropertiesUtils;
+import com.beecow.utils.*;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.ios.IOSDriver;
@@ -15,10 +15,6 @@ import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.junit.Assert;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
-
-import com.beecow.utils.Helper;
-import com.beecow.utils.Result;
-import com.beecow.utils.Utils;
 
 import static com.beecow.utils.PropertiesUtils.*;
 
@@ -50,6 +46,7 @@ public class BaseTest {
     public Result getResult(){
         return new Result(driver);
     }
+    public SwipeFunctions getSwipe(){return new SwipeFunctions(driver);}
     
 
     @BeforeSuite
