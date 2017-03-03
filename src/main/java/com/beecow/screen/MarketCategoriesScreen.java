@@ -44,8 +44,8 @@ public class MarketCategoriesScreen extends CommonScreenObjects {
             getHelper().findElement(getSeeAllBtnCateLevel0()).click();
 //            getHelper().findElement("resourceID::124").click();
         } catch (Exception ex) {
-            checkFail(ex.getMessage());
-            throw new Exception("Can not find element - " + ex.getMessage());
+            checkFail(" - " + ex.getMessage());
+//            throw new Exception("Can not find element - " + ex.getMessage());
         }
     }
 
