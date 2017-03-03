@@ -71,20 +71,20 @@ public class CategotiesTest extends BaseTest {
     }
 
 
-    public static void main(String[] args) {
-        String a = "AND_MAR_TC_7";
-//        StringBuilder b = new StringBuilder(a);
-//        b.replace(a.lastIndexOf("_"), a.lastIndexOf("_") + 1, "-");
-//        a = b.toString();
-
-        String b = a.split("_")[3];
-        a = a.substring(0, a.lastIndexOf("_")) + "-".concat(b);
-//get error
-        //            FileUtils.write(new File("error-message"), "\n" + line + "\n" + sNameMethod + "\n" + ex.getMessage(), StandardCharsets.UTF_8, true);
-
-
-        System.out.println(a);
-    }
+//    public static void main(String[] args) {
+//        String a = "AND_MAR_TC_7";
+////        StringBuilder b = new StringBuilder(a);
+////        b.replace(a.lastIndexOf("_"), a.lastIndexOf("_") + 1, "-");
+////        a = b.toString();
+//
+//        String b = a.split("_")[3];
+//        a = a.substring(0, a.lastIndexOf("_")) + "-".concat(b);
+////get error
+//        //            FileUtils.write(new File("error-message"), "\n" + line + "\n" + sNameMethod + "\n" + ex.getMessage(), StandardCharsets.UTF_8, true);
+//
+//
+//        System.out.println(a);
+//    }
 
 
 }
