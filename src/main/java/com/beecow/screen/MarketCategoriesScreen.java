@@ -62,6 +62,8 @@ public class MarketCategoriesScreen extends CommonScreenObjects {
         result.check();
     }
 
+    
+
     public void swipingToElemntThenStop(WebElement element){
         WebElement element1 = getHelper().findElement(getMainViewWithSearchAndFooter());
 
