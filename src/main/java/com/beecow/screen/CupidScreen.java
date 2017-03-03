@@ -265,24 +265,36 @@ public class CupidScreen extends CommonScreenObjects{
     }
 
     /**
-     * Swipte
+     * Swipe Profile to left or right, left means: disklie, right means: like
      * @param SwipeDirection: 1 means swipe left, 2 mean swipe right
+     * @param numberSwipe: how many time Swipe
      * @throws Exception
      */
-    public void SwipeProfile(int SwipeDirection) throws Exception{
+    public void SwipeProfile(int SwipeDirection, int numberSwipe) throws Exception{
         try{
             switch(SwipeDirection){
-                case 0: {
-                    getSwipe().Swipe();
+                case 1: {
+                    for(int i=1; i<=numberSwipe; i++){
+                        getSwipe().Swipe(6,4, 1, 4, 500);
+                        Thread.sleep(1000);
+                    }
+                    break;
+                }
+                case 2:{
+                    for(int j=1; j<=numberSwipe; j++){
+                        getSwipe().Swipe(6,4, 9, 4, 500);
+                        Thread.sleep(1000);
+                    }
+                    break;
+                }
+                default:{
+                    Result.Fail("SwipeProfile", "Input Parameter Failed: SwipeDirection must be 1 or 2, your input is [" + SwipeDirection + "]");
+                    break;
                 }
             }
-
-        }catch (NoSuchElementException noElement){
-            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-            throw new Exception("[ChooseImageForUpload] Can't find Element: " + noElement.getMessage());
         }catch (Exception ex){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-            throw new Exception("[ChooseImageForUpload] FAILED: " + ex.getMessage());
+            throw new Exception("[SwipeProfile] FAILED: " + ex.getMessage());
         }
     }
 
@@ -898,6 +910,36 @@ public class CupidScreen extends CommonScreenObjects{
         }catch (NoSuchElementException noElement){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
             throw new Exception("[VerifyCupidDistance] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception(ex.getMessage());
+        }
+    }
+
+    /**
+     * Verify screen upgrade to premium is displayed or not - Cupid_Function13.png
+     * @param bDisplay true means is displayed, false means is not displayed
+     * @throws Exception
+     */
+    public void VerifyScreenUpgradeToPremium(boolean bDisplay) throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            if (bDisplay){
+                if (getHelper().isElementPresent(CupidElement.txt_LimitReached())){
+                    System.out.println("[VerifyScreenUpgradeToPremium] success: Expected [display], Actual [display]");
+                }else{
+                    Result.Fail(kwName,"Expected [display], Actual [Not display]");
+                }
+            }else{
+                if (getHelper().isElementPresent(CupidElement.txt_LimitReached())){
+                    Result.Fail(kwName,"[VerifyScreenUpgradeToPremium] failed : Expected [not display], Actual [display]");
+                }else{
+                    System.out.println("[VerifyScreenUpgradeToPremium] success: Expected [not display], Actual [not display]");
+                }
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[VerifyScreenUpgradeToPremium] Can't find Element: " + noElement.getMessage());
         }catch (Exception ex){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
             throw new Exception(ex.getMessage());

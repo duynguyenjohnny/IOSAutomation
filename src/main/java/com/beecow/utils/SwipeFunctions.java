@@ -31,7 +31,7 @@ public class SwipeFunctions {
         try{
 
             //Verify input parameters
-            if (startX < 0 || startX > 5){
+            if (startX < 0 || startX > 10){
                 Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
                 throw new Exception("[SwipeDown] Input parameter failed: startX must be in range 1 -> 5, your input is [" + startX + "]");
             }
@@ -39,7 +39,7 @@ public class SwipeFunctions {
                 Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
                 throw new Exception("[SwipeDown] Input parameter failed: startY must be in range 1 -> 10, your input is [" + startY + "]");
             }
-            if (endX < 0 || endX > 5){
+            if (endX < 0 || endX > 10){
                 Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
                 throw new Exception("[SwipeDown] Input parameter failed: endX must be in range 1 -> 5, your input is [" + endX + "]");
             }
@@ -52,9 +52,9 @@ public class SwipeFunctions {
             int screenWidth = dimensions.getWidth();
             int screenHeight = dimensions.getHeight();
 
-            int actualStartX = screenWidth/5*startX;
+            int actualStartX = screenWidth/10*startX;
             int actualStartY = screenHeight/10*startY;
-            int actualEndX = screenWidth/5*endX;
+            int actualEndX = screenWidth/10*endX;
             int actualEndY = screenHeight/10*endY;
             System.out.println("Screen Width x Height (" + screenWidth + "," + screenHeight + ")");
             System.out.println("Start coordinate: [" + actualStartX + "," + actualStartY + "], End coordinate: [" + actualEndX + "," + actualEndY + "]");
