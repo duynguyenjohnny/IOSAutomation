@@ -17,8 +17,8 @@ public class CommonScreenObjects {
 
     public CommonScreenObjects(AppiumDriver driver) {
         this.driver = driver;
-        result = new Result();
-        swipe = new SwipeFunctions();
+        result = new Result(driver);
+        swipe = new SwipeFunctions(driver);
     }
 
     public Helper getHelper() {

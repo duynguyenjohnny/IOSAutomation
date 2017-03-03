@@ -48,8 +48,9 @@ public class BaseTest {
         return new Helper(driver);
     }
     public Result getResult(){
-        return new Result();
+        return new Result(driver);
     }
+    
 
     @BeforeSuite
     public void GetLastAPKFile() throws Exception{
