@@ -13,12 +13,10 @@ package com.beecow.component;
 public class CommonScreenObjects {
     public AppiumDriver driver;
     public Result result;
-    public SwipeFunctions swipe;
 
     public CommonScreenObjects(AppiumDriver driver) {
         this.driver = driver;
         result = new Result(driver);
-        swipe = new SwipeFunctions(driver);
     }
 
     public Helper getHelper() {

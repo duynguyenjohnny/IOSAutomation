@@ -9,6 +9,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testlink.api.java.client.TestLinkAPIException;
@@ -19,6 +20,7 @@ import java.io.File;
 import java.nio.charset.StandardCharsets;
 
 import static com.beecow.model.CommonElement.marketPropertiesFile;
+import static com.beecow.model.CommonElement.passed;
 import static com.beecow.utils.PropertiesUtils.testlinkBuildName;
 import static com.beecow.utils.PropertiesUtils.testlinkProjectName;
 import static com.beecow.utils.PropertiesUtils.testlinkTestPlanName;
@@ -26,8 +28,11 @@ import static com.beecow.utils.PropertiesUtils.testlinkTestPlanName;
 /**
  * Created by hangpham on 2017-02-07.
  */
-public class CategotiesTest extends BaseTest{
+public class CategotiesTest extends BaseTest {
     String line = "--------------------------------------------------";
+    String sNameTestCaseMethod;
+    String className = this.getClass().getSimpleName();
+    String sMarket = "Market";
 
     private FooterComponent footerComponent;
     private MarketScreen marketScreen;
@@ -41,22 +46,47 @@ public class CategotiesTest extends BaseTest{
         marketCategoriesScreen = new MarketCategoriesScreen(driver);
     }
 
+    @AfterMethod
+    public void checkTakeScreenShotAndPassFailTestLink() throws TestLinkAPIException {
+        String b = sNameTestCaseMethod.split("_")[3];
+        sNameTestCaseMethod = sNameTestCaseMethod.substring(0, sNameTestCaseMethod.lastIndexOf("_")) + "-".concat(b);
+        if (result().getResult().equals(passed)) {
+            getHelper().takeScreenshot(sMarket, className, "Passed_", sNameTestCaseMethod);
+            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, sNameTestCaseMethod, testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
+        } else {
+            getHelper().takeScreenshot(sMarket, className, "Failed_", sNameTestCaseMethod);
+            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, sNameTestCaseMethod, testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+        }
+    }
+
     @Test
     public void AND_MAR_TC_7() throws Exception {
-        String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
-        try{
+        sNameTestCaseMethod = new Object() {
+        }.getClass().getEnclosingMethod().getName();
+        System.out.println("Run testcases: " + sNameTestCaseMethod);
+        try {
+            footerComponent.clickMarketTabView();
             marketCategoriesScreen.clickSeeAllBtnAtCate();
             marketCategoriesScreen.checkCategoriesSectionExpand();
-
-        }
-        catch (Exception ex){
-            FileUtils.write(new File("error-message"), "\n"+line + "\n"+sMethodName + "\n" + ex.getMessage(), StandardCharsets.UTF_8, true);
-            throw new Exception("Can not find element - "+ex.getMessage());
+        } catch (Exception ex) {
+            FileUtils.write(new File("error-message"), "\n" + line + "\n" + sNameTestCaseMethod + "\n" + ex.getMessage(), StandardCharsets.UTF_8, true);
+            throw new Exception("Can not find element - " + ex.getMessage());
 
         }
 
     }
 
+    public static void main(String[] args) {
+        String a = "AND_MAR_TC_7";
+//        StringBuilder b = new StringBuilder(a);
+//        b.replace(a.lastIndexOf("_"), a.lastIndexOf("_") + 1, "-");
+//        a = b.toString();
+
+        String b = a.split("_")[3];
+        a = a.substring(0, a.lastIndexOf("_")) + "-".concat(b);
+
+        System.out.println(a);
+    }
 
 
 }
