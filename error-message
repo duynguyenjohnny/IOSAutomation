@@ -1,0 +1,21 @@
+clickSeeAllBtnAtCate
+An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 10.59 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.0.1', revision: '1969d75', time: '2016-10-18 09:49:13 -0700'
+System info: host: 'Admins-MacBook-Pro-2.local', ip: '192.168.1.79', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.2', java.version: '1.8.0_111'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities [{app=/Users/hangpham/Documents/company/qa-auto-mobile/Beecow.apk, appPackage=com.mediastep.beecow, networkConnectionEnabled=true, noReset=true, warnings={}, databaseEnabled=false, version=6.0, deviceName=K153XB1X6B051207, fullReset=false, platform=ANDROID, deviceUDID=K153XB1X6B051207, appActivity=com.mediastep.beecow.general.activity.SplashScreenActivity, desired={app=/Users/hangpham/Documents/company/qa-auto-mobile/Beecow.apk, appPackage=com.mediastep.beecow, appActivity=com.mediastep.beecow.general.activity.SplashScreenActivity, noReset=true, newCommandTimeout=200, platformVersion=6.0, browserName=appWaitActivity, platformName=Android, version=6.0, deviceName=K153XB1X6B250744, fullReset=false, platform=ANDROID}, newCommandTimeout=200, platformVersion=6.0, webStorageEnabled=false, locationContextEnabled=false, takesScreenshot=true, browserName=appWaitActivity, javascriptEnabled=true, platformName=Android}]
+Session ID: 278b67d3-6f8e-4261-855d-1001202c8422
+*** Element info: {Using=id, value=com.mediastep.beecow:id/124}
+--------------------------------------------------
+clickSeeAllBtnAtCate
+An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 10.74 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.0.1', revision: '1969d75', time: '2016-10-18 09:49:13 -0700'
+System info: host: 'Admins-MacBook-Pro-2.local', ip: '192.168.1.79', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.2', java.version: '1.8.0_111'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities [{app=/Users/hangpham/Documents/company/qa-auto-mobile/Beecow.apk, appPackage=com.mediastep.beecow, networkConnectionEnabled=true, noReset=true, warnings={}, databaseEnabled=false, version=6.0, deviceName=K153XB1X6B051207, fullReset=false, platform=ANDROID, deviceUDID=K153XB1X6B051207, appActivity=com.mediastep.beecow.general.activity.SplashScreenActivity, desired={app=/Users/hangpham/Documents/company/qa-auto-mobile/Beecow.apk, appPackage=com.mediastep.beecow, appActivity=com.mediastep.beecow.general.activity.SplashScreenActivity, noReset=true, newCommandTimeout=200, platformVersion=6.0, browserName=appWaitActivity, platformName=Android, version=6.0, deviceName=K153XB1X6B250744, fullReset=false, platform=ANDROID}, newCommandTimeout=200, platformVersion=6.0, webStorageEnabled=false, locationContextEnabled=false, takesScreenshot=true, browserName=appWaitActivity, javascriptEnabled=true, platformName=Android}]
+Session ID: 27607dd6-a8a1-4947-9a2f-cbeac7e7ebb5
+*** Element info: {Using=id, value=com.mediastep.beecow:id/124}

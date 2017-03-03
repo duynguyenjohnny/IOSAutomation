@@ -1,6 +1,7 @@
 package com.beecow.utils;
 
 import io.appium.java_client.AppiumDriver;
+import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
@@ -87,7 +88,8 @@ public class Result {
 
 
     public void check(){
-        if(getResult().equals(passed)){
+        String getResult = getResult();
+        if(getResult.equals(passed)){
             addLog("Observation: " + getExpectation());
             addLog("Result: " + getResult());
         }
@@ -96,6 +98,7 @@ public class Result {
             addLog("Expectation: " + getExpectation());
             addLog("Result: " + getResult());
         }
+        Assert.assertEquals(getResult, passed);
     }
 
     public void stringToFile(String logmsg, String fileName) {
