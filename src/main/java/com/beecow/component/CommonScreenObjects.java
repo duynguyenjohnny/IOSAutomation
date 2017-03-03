@@ -24,9 +24,4 @@ public class CommonScreenObjects {
     public Helper getHelper() {
         return new Helper(driver);
     }
-
-    public void elementShouldBeEnable(String locator) {
-        getHelper().isElementEnabled(locator);
-
-    }
 }

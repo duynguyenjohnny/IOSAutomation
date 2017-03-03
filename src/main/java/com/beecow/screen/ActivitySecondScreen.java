@@ -24,6 +24,10 @@ public class ActivitySecondScreen extends CommonScreenObjects {
             selectIndustry(indus[i]);
     }
 
+    public void clickButtonLater(){
+        getHelper().findElement(getBtnLater()).click();
+    }
+
     public void clickButtonDone(){
         getHelper().findElement(getBtnDone()).click();
     }
