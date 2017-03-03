@@ -22,12 +22,12 @@ public class MarketBannerScreen extends CommonScreenObjects{
 
     public void swipeBannerLeft(){
         getHelper().findElement(getImageBannerID());
-        swipe.swipeRightToLeftElement(getHelper().findElement(getImageBannerID()));
+        getSwipe().swipeRightToLeftElement(getHelper().findElement(getImageBannerID()));
     }
 
     public void swipeBannerRight(){
         getHelper().findElement(getImageBannerID());
-        swipe.swipeLeftToRightElement(getHelper().findElement(getImageBannerID()));
+        getSwipe().swipeLeftToRightElement(getHelper().findElement(getImageBannerID()));
     }
 
 }
