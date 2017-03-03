@@ -43,20 +43,18 @@ public class BaseTest {
     public Helper getHelper(){
         return new Helper(driver);
     }
-    public Result getResult(){
-        return new Result(driver);
-    }
+
     public SwipeFunctions getSwipe(){return new SwipeFunctions(driver);}
     
 
     @BeforeSuite
     public void GetLastAPKFile() throws Exception{
         PropertiesUtils.getPropertiesGlobal();
-//        if(Utils.getInstance().isAndroidDevice()){
-//            System.out.println("Start Get APK File from share folder");
+        if(Utils.getInstance().isAndroidDevice()){
+            System.out.println("Start Get APK File from share folder");
 //            PropertiesUtils.GetLastAPKFile();
-//            System.out.println("Done Get APK File from share folder");
-//        }
+            System.out.println("Done Get APK File from share folder");
+        }
         System.out.println("Appium is starting");
         setAppium();
         service.start();
@@ -83,9 +81,9 @@ public class BaseTest {
     public void Stop() throws IOException, InterruptedException, Exception {
         if(driver!=null) {
             if(Utils.getInstance().isAndroidDevice()) {
-//                System.out.println("Start Remove App");
+                System.out.println("Start Remove App");
 //                driver.removeApp(androidAppPackage);
-//                System.out.println("End Remove App");
+                System.out.println("End Remove App");
             }
             System.out.println("Stopping Appium");
             service.stop();

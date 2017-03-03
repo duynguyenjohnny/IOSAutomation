@@ -79,17 +79,33 @@ public class SwipeFunctions {
     public void swipeLeftToRightElement(WebElement el) {
         size = driver.manage().window().getSize();
         // get the X coordinate of the upper left corner of the element, then add the element's width to get the rightmost X value of the element
-        int leftX = el.getLocation().getX() + 50;
-        int rightX = leftX + el.getSize().getWidth() - 70;
+        int leftX = el.getLocation().getX() + el.getSize().getWidth()/10;
+        int rightX = leftX + el.getSize().getWidth() - el.getSize().getWidth()/5;
 
         // get the Y coordinate of the upper left corner of the element, then subtract the height to get the lowest Y value of the element
         int upperY = el.getLocation().getY();
         int middleY = upperY + (el.getSize().getHeight()) / 2;
         System.out.println("size: " + size + " - leftX: " + leftX + " - rightX: " + rightX + " - middleY: " + middleY);
         if (Utils.getInstance().isAndroidDevice()) {
-            ((AndroidDriver) driver).swipe(leftX, middleY, rightX, middleY, 3000);
+            ((AndroidDriver) driver).swipe(leftX, middleY, rightX, middleY, 1500);
 
-        } else ((IOSDriver) driver).swipe(leftX, middleY, rightX, middleY, 3000);
+        } else ((IOSDriver) driver).swipe(leftX, middleY, rightX, middleY, 1500);
+    }
+
+    public void swipeRightToLeftElement(WebElement el) {
+        size = driver.manage().window().getSize();
+        // get the X coordinate of the upper left corner of the element, then add the element's width to get the rightmost X value of the element
+        int leftX = el.getLocation().getX() + el.getSize().getWidth()/10;
+        int rightX = leftX + el.getSize().getWidth() - el.getSize().getWidth()/5;
+
+        // get the Y coordinate of the upper left corner of the element, then subtract the height to get the lowest Y value of the element
+        int upperY = el.getLocation().getY();
+        int middleY = upperY + (el.getSize().getHeight()) / 2;
+        System.out.println("size: " + size + " - leftX: " + leftX + " - rightX: " + rightX + " - middleY: " + middleY);
+        if (Utils.getInstance().isAndroidDevice()) {
+            ((AndroidDriver) driver).swipe(rightX, middleY, leftX, middleY, 1500);
+
+        } else ((IOSDriver) driver).swipe(rightX, middleY, leftX, middleY, 1500);
     }
 
     public void swipingUpFromBottomToTop(WebElement el) {
@@ -145,5 +161,4 @@ public class SwipeFunctions {
         } else ((IOSDriver) driver).swipe(centerX, elementTopY, centerX, bottomY, 3000);
 
     }
-
 }

@@ -1,6 +1,7 @@
 package com.beecow.utils;
 
 import io.appium.java_client.AppiumDriver;
+import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
@@ -21,7 +22,7 @@ import java.util.concurrent.ExecutionException;
  */
 public class Result {
     AppiumDriver driver;
-    private String result;
+    public static String result;
     private String observation;
     private String expectation;
     private String fileReport;
@@ -87,15 +88,18 @@ public class Result {
 
 
     public void check(){
-        if(getResult().equals(passed)){
+        String getResult = getResult();
+        if(getResult.equals(passed)){
             addLog("Observation: " + getExpectation());
-            addLog("Result: " + getResult());
+            addLog("Result: " + getResult);
         }
         else {
             addLog("Observation: " + getObservation());
             addLog("Expectation: " + getExpectation());
-            addLog("Result: " + getResult());
+            addLog("Result: " + getResult);
         }
+//        Assert.assertEquals(getResult, passed);
+        Assert.assertEquals(getObservation(),getExpectation());
     }
 
     public void stringToFile(String logmsg, String fileName) {

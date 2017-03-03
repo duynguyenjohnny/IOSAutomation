@@ -17,5 +17,10 @@ public class ActivitySecondElement {
         if(Utils.getInstance().isAndroidDevice()) return "resourceID::bottom_bar_tvPositive";
         return "ios";
     }
+
+    public static String getBtnLater(){
+        if(Utils.getInstance().isAndroidDevice()) return "resourceID::bottom_bar_tvNegative";
+        return "ios";
+    }
 }
 

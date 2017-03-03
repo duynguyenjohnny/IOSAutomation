@@ -1,17 +1,11 @@
 package web.beecow.component;
-import org.aspectj.lang.annotation.After;
-import org.jcp.xml.dsig.internal.dom.Utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import web.beecow.screen.Cupid.Home;
 
 import java.io.File;
-import java.net.URL;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashMap;
