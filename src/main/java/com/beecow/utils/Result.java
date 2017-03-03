@@ -92,7 +92,7 @@ public class Result {
         String getResult = getResult();
         String getExpectation = getExpectation();
         String getObservation = getObservation();
-        String line = ANSI_YELLOW + "\n>>>>>>>>>>>>>>>>>>>>>RESULT<<<<<<<<<<<<<<<<<<<<<<\n"+ANSI_RESET;
+        String line = "\n>>>>>>>>>>>>>>>>>>>>>RESULT<<<<<<<<<<<<<<<<<<<<<<\n";
         if (getResult.equals(passed)) {
             addLog("Observation: " + getExpectation);
             addLog("Result: " + getResult);
@@ -102,7 +102,7 @@ public class Result {
             addLog("Result: " + getResult);
         }
 //        Assert.assertEquals(getResult, passed);
-        Assert.assertEquals(line + ANSI_RED + getObservation + ANSI_RESET, ANSI_GREEN + getExpectation + ANSI_RESET);
+        Assert.assertEquals(line+getObservation,  getExpectation);
     }
 
 
