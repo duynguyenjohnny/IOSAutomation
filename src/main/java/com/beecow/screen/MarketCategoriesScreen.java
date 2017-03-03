@@ -7,9 +7,13 @@ import com.beecow.utils.Utils;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+
+import java.io.File;
+import java.nio.charset.StandardCharsets;
 
 import static com.beecow.model.CommonElement.failed;
 import static com.beecow.model.MarketCategoriesElement.*;
@@ -20,24 +24,33 @@ import static com.beecow.model.MarketCategoriesElement.*;
 public class MarketCategoriesScreen extends CommonScreenObjects {
 
 
+    String line = "--------------------------------------------------";
     public MarketCategoriesScreen(AppiumDriver driver) {
         super(driver);
     }
 
     public void clickSeeAllBtnAtCate() throws Exception {
+        String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
         try{
-            getHelper().findElement(getSeeAllBtnCateLevel0()).click();
+//            getHelper().findElement(getSeeAllBtnCateLevel0()).click();
+            getHelper().findElement("resourceID::124").click();
         }
         catch (Exception ex){
             result.setResult(failed);
+            FileUtils.write(new File("error-message"), "\n"+line + "\n"+sMethodName + "\n" + ex.getMessage(), StandardCharsets.UTF_8, true);
             throw new Exception("Can not find element - "+ex.getMessage());
         }
     }
 
+
     public void checkCategoriesSectionExpand(){
-        result.setExpectation("");
-
-
+        swipingToElemntThenStop(getHelper().findElement(getSeeAllBtnCateLevel0()));
+        result.setExpectation("Categories expand full item product when user clicks [See all]");
+        if(!getHelper().findElement("resourceID::fragment_market_tv_see_more").getText().equals("See more")){
+            result.setResult(failed);
+            result.setObservation("[See less] text does not exist!!!");
+            result.setExpectation("[See less] should be shown when users click [See all]");
+        }
         result.check();
     }
     public void VerifyStatusOfChooseButton(boolean enabled) throws Exception {
@@ -66,7 +79,19 @@ public class MarketCategoriesScreen extends CommonScreenObjects {
         }
     }
 
-    public void swipeToElementThenStop() {
+    public void swipingToElemntThenStop(WebElement element){
+        WebElement element1 = getHelper().findElement(getMainViewWithSearchAndFooter());
+
+        for (int i = 0; i < 10; i++) {
+            if (getHelper().isElementPresent("text::See all")) {
+                System.out.println("Found element!!!");
+                break;
+            } else {
+                swipe.swipingUpFromBottomToTop(element);
+            }
+        }
+    }
+    public void swipeToElementAndScrollElementToTopThenStopDemo() {
         WebElement element = getHelper().findElement(getMainViewWithSearchAndFooter());
 
         for (int i = 0; i < 10; i++) {

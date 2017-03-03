@@ -5,6 +5,7 @@ import com.beecow.model.FooterElement;
 import com.beecow.screen.*;
 import com.beecow.utils.TestLink;
 import io.appium.java_client.ios.IOSDriver;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +15,8 @@ import testlink.api.java.client.TestLinkAPIException;
 import testlink.api.java.client.TestLinkAPIResults;
 
 import java.awt.*;
+import java.io.File;
+import java.nio.charset.StandardCharsets;
 
 import static com.beecow.model.CommonElement.marketPropertiesFile;
 import static com.beecow.utils.PropertiesUtils.testlinkBuildName;
@@ -24,6 +27,7 @@ import static com.beecow.utils.PropertiesUtils.testlinkTestPlanName;
  * Created by hangpham on 2017-02-07.
  */
 public class CategotiesTest extends BaseTest{
+    String line = "--------------------------------------------------";
 
     private FooterComponent footerComponent;
     private MarketScreen marketScreen;
@@ -38,43 +42,21 @@ public class CategotiesTest extends BaseTest{
     }
 
     @Test
-    public void testSwipe() throws Exception {
-        footerComponent.clickMarketTabView();
-        System.out.println("swipe from left to right");
-        WebElement el = getHelper().findElement("resourceID::item_banner_img_banner");
-        Thread.sleep(3000);
-        marketCategoriesScreen.testswipe();
-        Thread.sleep(3000);
-    }
-    public void swipeFromElementToTopMarket(){
-        WebElement marketTable = driver.findElement(By.xpath("//XCUIElementTypeTable"));
-        //swipe from bottom to top
+    public void AND_MAR_TC_7() throws Exception {
+        String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            marketCategoriesScreen.clickSeeAllBtnAtCate();
+            marketCategoriesScreen.checkCategoriesSectionExpand();
 
-        int topY =marketTable.getLocation().getY();
-        int bottomY = topY +marketTable.getSize().getHeight()-1;
+        }
+        catch (Exception ex){
+            FileUtils.write(new File("error-message"), "\n"+line + "\n"+sMethodName + "\n" + ex.getMessage(), StandardCharsets.UTF_8, true);
+            throw new Exception("Can not find element - "+ex.getMessage());
 
-        int middleX =marketTable.getSize().getWidth()/2;
-
-        ((IOSDriver)driver).swipe(middleX,bottomY,middleX,topY,3000);
-
-    }
-    @Test
-    public void testIOSDemo1() throws InterruptedException {
-        System.out.println("click Cupid tab bar");
-        getHelper().findElement("label::Market").click();
-        Thread.sleep(5000);
-        System.out.println("Swipe from top to bottom");
-        ((IOSDriver)driver).swipe(100,100,100,900,3000);
-        Thread.sleep(3000);
-    }
-    @Test
-    public void testPassOnTestLink() throws TestLinkAPIException {
-        for(int i=1;i<102;i++) {
-            System.out.println("testcases: "+i);
-            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-"+i, testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         }
 
     }
+
 
 
 }
