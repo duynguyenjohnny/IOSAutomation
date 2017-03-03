@@ -26,63 +26,9 @@ import static org.bytedeco.javacpp.lept.pixRead;
 
 public class CupidScreen extends CommonScreenObjects{
 
-    public CupidScreen(AppiumDriver driver){
+    public CupidScreen(AppiumDriver driver) {
         super(driver);
 
-    }
-
-    /**
-     * Swipe on the screen base on start coordinate and end coordinate
-     * @param startX Start X coordinate - range 1-> 5
-     * @param startY Start X coordinate - range 1-> 10
-     * @param endX End X coordinate - range 1-> 5
-     * @param endY End Y coordinate - range 1-> 10
-     * @param duration how fast it swipe, in mili-seconds
-     * @throws Exception
-     */
-    public void Swipe(int startX, int startY, int endX, int endY, int duration) throws Exception{
-        try{
-
-            //Verify input parameters
-            if (startX < 0 || startX > 5){
-                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-                throw new Exception("[SwipeDown] Input parameter failed: startX must be in range 1 -> 5, your input is [" + startX + "]");
-            }
-            if (startY < 0 || startY > 10){
-                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-                throw new Exception("[SwipeDown] Input parameter failed: startY must be in range 1 -> 10, your input is [" + startY + "]");
-            }
-            if (endX < 0 || endX > 5){
-                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-                throw new Exception("[SwipeDown] Input parameter failed: endX must be in range 1 -> 5, your input is [" + endX + "]");
-            }
-            if (endY < 0 || endY > 5){
-                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-                throw new Exception("[SwipeDown] Input parameter failed: endY must be in range 1 -> 10, your input is [" + endY + "]");
-            }
-            Dimension dimensions = driver.manage().window().getSize();
-
-            int screenWidth = dimensions.getWidth();
-            int screenHeight = dimensions.getHeight();
-
-            int actualStartX = screenWidth/5*startX;
-            int actualStartY = screenHeight/10*startY;
-            int actualEndX = screenWidth/5*endX;
-            int actualEndY = screenHeight/10*endY;
-            System.out.println("Screen Width x Height (" + screenWidth + "," + screenHeight + ")");
-            System.out.println("Start coordinate: [" + actualStartX + "," + actualStartY + "], End coordinate: [" + actualEndX + "," + actualEndY + "]");
-            if (Utils.getInstance().isAndroidDevice()){
-                ((AndroidDriver)driver).swipe(actualStartX,actualStartY,actualEndX,actualEndY,duration);
-            }else if(Utils.getInstance().isIosDevice()){
-                ((IOSDriver)driver).swipe(actualStartX,actualStartY,actualEndX,actualEndY,duration);
-            }
-        }catch (NoSuchElementException noElement){
-            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-            throw new Exception("[SwipeDown] Can't find Element: " + noElement.getMessage());
-        }catch (Exception ex){
-            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-            throw new Exception("[SwipeDown] FAILED: " + ex.getMessage());
-        }
     }
 
     /**
@@ -350,7 +296,7 @@ public class CupidScreen extends CommonScreenObjects{
                 Result.Fail(kwName,"[DeselectImageForUpload] Input parameter failed: Number of photo need to DeSelect is greater than Selected photo");
             }
 
-            //deslect photo
+            //deselect photo
             List<WebElement> lstDeletePhoto = driver.findElements(By.xpath("//android.widget.ImageView[contains(@resource-id,'item_cupid_picked_photo_iv_delete')]"));
             for (int i = 0; i < number; i++) {
                 lstDeletePhoto.get(0).click();

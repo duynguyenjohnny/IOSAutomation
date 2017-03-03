@@ -3,6 +3,7 @@ package com.beecow.mobile.Cupid;
 import com.beecow.component.BaseTest;
 import com.beecow.screen.*;
 import com.beecow.utils.Helper;
+import com.beecow.utils.SwipeFunctions;
 import com.beecow.utils.TestLink;
 import com.beecow.utils.Utils;
 import io.appium.java_client.AppiumDriver;
@@ -117,7 +118,7 @@ public class CreateProfile extends BaseTest{
             cupidScreen.clickCupidTab();
             cupidScreen.TurnCupidFeatureOnOff(true);
             System.out.println("Swipe to button Save");
-            cupidScreen.Swipe(2, 9, 2, 2, 2000);
+            SwipeFunctions.Swipe(2, 9, 2, 2, 2000);
             cupidScreen.VerifyStatusOfSaveButton(false);
             TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-3", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         }catch (TestLinkAPIException ex){
@@ -196,7 +197,7 @@ public class CreateProfile extends BaseTest{
             cupidScreen.ChooseImageForUpload(6);
             cupidScreen.ClickOnChooseButton();
             cupidScreen.DeselectImageForUpload(6);
-            cupidScreen.Swipe(2, 9, 2, 2, 2000);
+            SwipeFunctions.(2, 9, 2, 2, 2000);
             cupidScreen.VerifyStatusOfSaveButton(false);
             TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "ANDROID_DAT-6", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         }catch (TestLinkAPIException ex){
