@@ -101,6 +101,7 @@ public class Result {
 //        Assert.assertEquals(getResult, passed);
         Assert.assertEquals(getObservation(),getExpectation());
     }
+    
 
     public void stringToFile(String logmsg, String fileName) {
         try {
