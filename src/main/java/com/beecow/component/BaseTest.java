@@ -83,9 +83,9 @@ public class BaseTest {
     public void Stop() throws IOException, InterruptedException, Exception {
         if(driver!=null) {
             if(Utils.getInstance().isAndroidDevice()) {
-//                System.out.println("Start Remove App");
-//                driver.removeApp(androidAppPackage);
-//                System.out.println("End Remove App");
+                System.out.println("Start Remove App");
+                driver.removeApp(androidAppPackage);
+                System.out.println("End Remove App");
             }
             System.out.println("Stopping Appium");
             service.stop();
