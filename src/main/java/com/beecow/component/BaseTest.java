@@ -84,7 +84,7 @@ public class BaseTest {
         if(driver!=null) {
             if(Utils.getInstance().isAndroidDevice()) {
                 System.out.println("Start Remove App");
-                driver.removeApp(androidAppPackage);
+//                driver.removeApp(androidAppPackage);
                 System.out.println("End Remove App");
             }
             System.out.println("Stopping Appium");
