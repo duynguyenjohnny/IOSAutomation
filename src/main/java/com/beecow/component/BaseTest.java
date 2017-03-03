@@ -57,7 +57,7 @@ public class BaseTest {
         PropertiesUtils.getPropertiesGlobal();
         if(Utils.getInstance().isAndroidDevice()){
             System.out.println("Start Get APK File from share folder");
-            PropertiesUtils.GetLastAPKFile();
+//            PropertiesUtils.GetLastAPKFile();
             System.out.println("Done Get APK File from share folder");
         }
         System.out.println("Appium is starting");

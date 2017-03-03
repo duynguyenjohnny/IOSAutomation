@@ -5,6 +5,7 @@ import io.appium.java_client.AppiumDriver;
 
 import static com.beecow.model.CommonElement.failed;
 import static com.beecow.model.MarketBannerElement.*;
+import org.testng.Assert;
 
 /**
  * Created by hangpham on 2017-02-07.
@@ -15,12 +16,18 @@ public class MarketBannerScreen extends CommonScreenObjects{
         super(driver);
     }
 
-    public void checkExistIndicatorBanner(){
-        result.setExpectation("The indicator is shown correctly!");
-        if(getHelper().isElementEnabled(getIndicatorBanner())){
-            result.setResult(failed);
-            result.setObservation("The indicator does not show at banner");
-        }
-        result.check();
+    public void verifyBannerDisplayed(){
+        getHelper().isElementEnabled(getImageBannerID());
     }
+
+    public void swipeBannerLeft(){
+        getHelper().findElement(getImageBannerID());
+        swipe.swipeRightToLeftElement(getHelper().findElement(getImageBannerID()));
+    }
+
+    public void swipeBannerRight(){
+        getHelper().findElement(getImageBannerID());
+        swipe.swipeLeftToRightElement(getHelper().findElement(getImageBannerID()));
+    }
+
 }
