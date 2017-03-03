@@ -43,9 +43,7 @@ public class BaseTest {
     public Helper getHelper(){
         return new Helper(driver);
     }
-    public Result result(){
-        return new Result(driver);
-    }
+
     public SwipeFunctions getSwipe(){return new SwipeFunctions(driver);}
     
 

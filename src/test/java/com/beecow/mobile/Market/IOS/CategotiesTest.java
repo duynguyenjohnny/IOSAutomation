@@ -24,6 +24,7 @@ import static com.beecow.model.CommonElement.passed;
 import static com.beecow.utils.PropertiesUtils.testlinkBuildName;
 import static com.beecow.utils.PropertiesUtils.testlinkProjectName;
 import static com.beecow.utils.PropertiesUtils.testlinkTestPlanName;
+import static com.beecow.utils.Result.result;
 
 /**
  * Created by hangpham on 2017-02-07.
@@ -50,7 +51,7 @@ public class CategotiesTest extends BaseTest {
     public void checkTakeScreenShotAndPassFailTestLink() throws TestLinkAPIException {
         String b = sNameTestCaseMethod.split("_")[3];
         sNameTestCaseMethod = sNameTestCaseMethod.substring(0, sNameTestCaseMethod.lastIndexOf("_")) + "-".concat(b);
-        if (result().getResult().equals(passed)) {
+        if (result.equals(passed)) {
             getHelper().takeScreenshot(sMarket, className, "Passed_", sNameTestCaseMethod);
             TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, sNameTestCaseMethod, testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         } else {
@@ -64,15 +65,9 @@ public class CategotiesTest extends BaseTest {
         sNameTestCaseMethod = new Object() {
         }.getClass().getEnclosingMethod().getName();
         System.out.println("Run testcases: " + sNameTestCaseMethod);
-        try {
-            footerComponent.clickMarketTabView();
-            marketCategoriesScreen.clickSeeAllBtnAtCate();
-            marketCategoriesScreen.checkCategoriesSectionExpand();
-        } catch (Exception ex) {
-            FileUtils.write(new File("error-message"), "\n" + line + "\n" + sNameTestCaseMethod + "\n" + ex.getMessage(), StandardCharsets.UTF_8, true);
-            throw new Exception("Can not find element - " + ex.getMessage());
-
-        }
+        footerComponent.clickMarketTabView();
+        marketCategoriesScreen.clickSeeAllBtnAtCate();
+        marketCategoriesScreen.checkCategoriesSectionExpand();
 
     }
 

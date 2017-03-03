@@ -23,13 +23,24 @@ import static com.beecow.model.MarketCategoriesElement.*;
  */
 public class MarketCategoriesScreen extends CommonScreenObjects {
 
+    String line = "--------------------------------------------------";
+    String sNameMethod;
+
     public MarketCategoriesScreen(AppiumDriver driver) {
         super(driver);
     }
 
-    public void clickSeeAllBtnAtCate() {
-        getHelper().findElement(getSeeAllBtnCateLevel0()).click();
-//        getHelper().findElement("resourceID::124").click();
+    public void clickSeeAllBtnAtCate() throws Exception {
+        sNameMethod = new Object() {
+        }.getClass().getEnclosingMethod().getName();
+        try {
+            getHelper().findElement(getSeeAllBtnCateLevel0()).click();
+//            getHelper().findElement("resourceID::124").click();
+        } catch (Exception ex) {
+            result.setResult(failed);
+            FileUtils.write(new File("error-message"), "\n" + line + "\n" + sNameMethod + "\n" + ex.getMessage(), StandardCharsets.UTF_8, true);
+            throw new Exception("Can not find element - " + ex.getMessage());
+        }
     }
 
     public void checkCategoriesSectionExpand(){
@@ -37,7 +48,7 @@ public class MarketCategoriesScreen extends CommonScreenObjects {
         swipingToElemntThenStop(getHelper().findElement(getSeeAllBtnCateLevel0()));
 
         result.setExpectation("Categories expand full item product when user clicks [See all]");
-        if(!getHelper().findElement("resourceID::fragment_market_tv_see_more").getText().equals("See less")){
+        if(getHelper().findElement("resourceID::fragment_market_tv_see_more").getText().equals("See less")){
             result.setResult(failed);
             result.setObservation("[See less] text does not exist!!!");
             result.setExpectation("[See less] should be shown when users click [See all]");
