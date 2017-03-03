@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
+import static com.beecow.component.Constant.*;
 import static com.beecow.model.CommonElement.passed;
 
 import java.io.BufferedWriter;
@@ -87,21 +88,23 @@ public class Result {
 //    }
 
 
-    public void check(){
+    public void check() {
         String getResult = getResult();
-        if(getResult.equals(passed)){
-            addLog("Observation: " + getExpectation());
+        String getExpectation = getExpectation();
+        String getObservation = getObservation();
+        String line = ANSI_YELLOW + "\n>>>>>>>>>>>>>>>>>>>>>RESULT<<<<<<<<<<<<<<<<<<<<<<\n"+ANSI_RESET;
+        if (getResult.equals(passed)) {
+            addLog("Observation: " + getExpectation);
             addLog("Result: " + getResult);
-        }
-        else {
-            addLog("Observation: " + getObservation());
-            addLog("Expectation: " + getExpectation());
+        } else {
+            addLog("Observation: " + getObservation);
+            addLog("Expectation: " + getExpectation);
             addLog("Result: " + getResult);
         }
 //        Assert.assertEquals(getResult, passed);
-        Assert.assertEquals(getObservation(),getExpectation());
+        Assert.assertEquals(line + ANSI_RED + getObservation + ANSI_RESET, ANSI_GREEN + getExpectation + ANSI_RESET);
     }
-    
+
 
     public void stringToFile(String logmsg, String fileName) {
         try {
@@ -133,13 +136,13 @@ public class Result {
         stringToFile(getObservation(), fileReport);
     }
 
-    public static void Fail(String kwName, String Message) throws Exception{
-        try{
+    public static void Fail(String kwName, String Message) throws Exception {
+        try {
             Date dNow = new Date();
-            SimpleDateFormat ft = new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
+            SimpleDateFormat ft = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
             throw new Exception("[" + ft.format(dNow) + "][" + kwName + "] " + Message);
-        }catch (ExecutionException ex){
+        } catch (ExecutionException ex) {
 
         }
     }
