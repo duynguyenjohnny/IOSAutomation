@@ -5,8 +5,6 @@ import com.beecow.model.CupidElement;
 import com.beecow.utils.Result;
 import com.beecow.utils.Utils;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
 import org.apache.commons.io.FileUtils;
 import org.bytedeco.javacpp.BytePointer;
 import org.bytedeco.javacpp.lept;
@@ -14,12 +12,9 @@ import org.bytedeco.javacpp.tesseract;
 import org.openqa.selenium.*;
 import org.testng.ITestResult;
 import org.testng.Reporter;
-import testlink.api.java.client.TestLinkAPIException;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-
 import static org.bytedeco.javacpp.lept.pixDestroy;
 import static org.bytedeco.javacpp.lept.pixRead;
 
@@ -270,6 +265,40 @@ public class CupidScreen extends CommonScreenObjects{
     }
 
     /**
+     * Swipe Profile to left or right, left means: disklie, right means: like
+     * @param SwipeDirection: 1 means swipe left, 2 mean swipe right
+     * @param numberSwipe: how many time Swipe
+     * @throws Exception
+     */
+    public void SwipeProfile(int SwipeDirection, int numberSwipe) throws Exception{
+        try{
+            switch(SwipeDirection){
+                case 1: {
+                    for(int i=1; i<=numberSwipe; i++){
+                        getSwipe().Swipe(6,4, 1, 4, 500);
+                        Thread.sleep(1000);
+                    }
+                    break;
+                }
+                case 2:{
+                    for(int j=1; j<=numberSwipe; j++){
+                        getSwipe().Swipe(6,4, 9, 4, 500);
+                        Thread.sleep(1000);
+                    }
+                    break;
+                }
+                default:{
+                    Result.Fail("SwipeProfile", "Input Parameter Failed: SwipeDirection must be 1 or 2, your input is [" + SwipeDirection + "]");
+                    break;
+                }
+            }
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[SwipeProfile] FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
      * Deselect number of photo in the screen choose photo (Cupid_Function12.png)
      * @param number
      * @throws Exception
@@ -331,7 +360,6 @@ public class CupidScreen extends CommonScreenObjects{
             throw new Exception("[ClickOnChooseButton] FAILED: " + ex.getMessage());
         }
     }
-
 
     /**
      * Verify button Save is enabled or not, then click on it
@@ -556,7 +584,6 @@ public class CupidScreen extends CommonScreenObjects{
             if(Utils.getInstance().isIosDevice()){
                 sDevice = "IOS";
             }
-
             //Take Screenshot
             for (int i = 1; i <= timeOut; i++) {
                 File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -569,12 +596,10 @@ public class CupidScreen extends CommonScreenObjects{
                 }
 //                Thread.sleep(100);
             }
-
             //Parse OCR and Verify with input parameter
             for (int j = 1; j <= timeOut; j++) {
                 System.out.println("Start - Parse OCR file [" + sProjectPath.concat(sDevice) + File.separator + "TempScreenShot_" + j + ".png]");
                 BytePointer outText;
-
                 tesseract.TessBaseAPI api = new tesseract.TessBaseAPI();
                 // Initialize tesseract-ocr with English, without specifying tessdata path
                 if (api.Init(null, "eng") != 0) {
@@ -885,6 +910,36 @@ public class CupidScreen extends CommonScreenObjects{
         }catch (NoSuchElementException noElement){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
             throw new Exception("[VerifyCupidDistance] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception(ex.getMessage());
+        }
+    }
+
+    /**
+     * Verify screen upgrade to premium is displayed or not - Cupid_Function13.png
+     * @param bDisplay true means is displayed, false means is not displayed
+     * @throws Exception
+     */
+    public void VerifyScreenUpgradeToPremium(boolean bDisplay) throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            if (bDisplay){
+                if (getHelper().isElementPresent(CupidElement.txt_LimitReached())){
+                    System.out.println("[VerifyScreenUpgradeToPremium] success: Expected [display], Actual [display]");
+                }else{
+                    Result.Fail(kwName,"Expected [display], Actual [Not display]");
+                }
+            }else{
+                if (getHelper().isElementPresent(CupidElement.txt_LimitReached())){
+                    Result.Fail(kwName,"[VerifyScreenUpgradeToPremium] failed : Expected [not display], Actual [display]");
+                }else{
+                    System.out.println("[VerifyScreenUpgradeToPremium] success: Expected [not display], Actual [not display]");
+                }
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[VerifyScreenUpgradeToPremium] Can't find Element: " + noElement.getMessage());
         }catch (Exception ex){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
             throw new Exception(ex.getMessage());

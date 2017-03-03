@@ -234,5 +234,14 @@ public class CupidElement {
         return "ios";
     }
     //endregionn
+
+    //region Cupid_7.png
+    public static String txt_LimitReached(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "xpath:://android.widget.TextView[contains(@resource-id,'cupid_swipe_card_oops_limit_reached_tv_opps') and @text='Oops! Limit reached!']";
+        }
+        return "ios";
+    }
+    //endregion
 }
 
