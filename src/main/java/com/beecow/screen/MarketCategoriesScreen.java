@@ -30,15 +30,21 @@ public class MarketCategoriesScreen extends CommonScreenObjects {
         super(driver);
     }
 
+    //check fail when not found element
+    public void checkFail(String observation){
+        result.setResult(failed);
+        result.setObservation(observation);
+        result.check();
+    }
+
     public void clickSeeAllBtnAtCate() throws Exception {
         sNameMethod = new Object() {
         }.getClass().getEnclosingMethod().getName();
         try {
-            getHelper().findElement(getSeeAllBtnCateLevel0()).click();
-//            getHelper().findElement("resourceID::124").click();
+//            getHelper().findElement(getSeeAllBtnCateLevel0()).click();
+            getHelper().findElement("resourceID::124").click();
         } catch (Exception ex) {
-            result.setResult(failed);
-            FileUtils.write(new File("error-message"), "\n" + line + "\n" + sNameMethod + "\n" + ex.getMessage(), StandardCharsets.UTF_8, true);
+            checkFail(ex.getMessage());
             throw new Exception("Can not find element - " + ex.getMessage());
         }
     }
