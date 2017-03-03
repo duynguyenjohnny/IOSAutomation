@@ -14,6 +14,8 @@ import org.bytedeco.javacpp.tesseract;
 import org.openqa.selenium.*;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import testlink.api.java.client.TestLinkAPIException;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -24,28 +26,8 @@ import static org.bytedeco.javacpp.lept.pixRead;
 
 public class CupidScreen extends CommonScreenObjects{
 
-    public CupidScreen(AppiumDriver driver){
+    public CupidScreen(AppiumDriver driver) {
         super(driver);
-
-    }
-
-    /**
-     * Click on Cupid Tab in the Footer
-     * @throws Exception
-     */
-    public void clickCupidTab() throws Exception{
-        try{
-            System.out.println("Start - Click on Cupid Tab");
-            WebElement WEcupidTab = getHelper().findElement(CupidElement.tab_Cupid());
-            WEcupidTab.click();
-            System.out.println("End - Click on Cupid Tab successfully");
-        }catch (NoSuchElementException noElement){
-            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-            throw new Exception("[clickCupidTab] - Can't find Element: " + CupidElement.tab_Cupid() + noElement.getMessage());
-        }catch (Exception ex){
-            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-            throw new Exception("[clickCupidTab] - FAILED: " + ex.getMessage());
-        }
 
     }
 
@@ -81,8 +63,6 @@ public class CupidScreen extends CommonScreenObjects{
             throw new Exception("[TurnCupidFeatureOnOff] FAILED: " + ex.getMessage());
         }
     }
-
-
 
     /**
      * Input My Alias  in screen Create Cupid Profile
@@ -166,6 +146,26 @@ public class CupidScreen extends CommonScreenObjects{
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
             throw new Exception("[SelectLookingFor] FAILED: " + ex.getMessage());
         }
+    }
+
+    /**
+     * Click on Cupid Tab in the Footer
+     * @throws Exception
+     */
+    public void clickCupidTab() throws Exception{
+        try{
+            System.out.println("Start - Click on Cupid Tab");
+            WebElement WEcupidTab = getHelper().findElement(CupidElement.tab_Cupid());
+            WEcupidTab.click();
+            System.out.println("End - Click on Cupid Tab successfully");
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[clickCupidTab] - Can't find Element: " + CupidElement.tab_Cupid() + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[clickCupidTab] - FAILED: " + ex.getMessage());
+        }
+
     }
 
     /**
@@ -270,18 +270,58 @@ public class CupidScreen extends CommonScreenObjects{
     }
 
     /**
+     * Deselect number of photo in the screen choose photo (Cupid_Function12.png)
+     * @param number
+     * @throws Exception
+     */
+    public void DeselectImageForUpload(int number) throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            //Verify input parameter
+            if (number <= 0){
+                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+                throw new Exception("[DeselectImageForUpload] Input parameter failed, number must be > 0, your input is [" + number + "]");
+            }
+            //Get number of photo able to deselect in the system
+            int photo_count = driver.findElements(By.xpath("//android.widget.ImageView[contains(@resource-id,'item_cupid_picked_photo_iv_delete')]")).size();
+            System.out.println("[DeselectImageForUpload] Number of selected photos [" + photo_count + "]");
+            if (photo_count == 0){
+                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+                throw new Exception("[DeselectImageForUpload] There is no Photo for deselect");
+            }else{
+                System.out.print("Number of photo able to deselect is [" + photo_count + "]");
+            }
+
+            if (number > photo_count){
+                Result.Fail(kwName,"[DeselectImageForUpload] Input parameter failed: Number of photo need to DeSelect is greater than Selected photo");
+            }
+
+            //deselect photo
+            List<WebElement> lstDeletePhoto = driver.findElements(By.xpath("//android.widget.ImageView[contains(@resource-id,'item_cupid_picked_photo_iv_delete')]"));
+            for (int i = 0; i < number; i++) {
+                lstDeletePhoto.get(0).click();
+                Thread.sleep(1000);
+            }
+        }catch (NoSuchElementException noElement){
+            Result.Fail(kwName,"[DeselectImageForUpload] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Result.Fail(kwName,"[DeselectImageForUpload] FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
      * Click on Choose button in the screen Choose image, verify it enable first before select
      * @throws Exception
      */
     public void ClickOnChooseButton() throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
         try{
             //select choose button
             if (getHelper().isElementPresent(CupidElement.btn_ChooseEnabled())){
                 WebElement WEbtn_ChooseEnabled = getHelper().findElement(CupidElement.btn_ChooseEnabled());
                 WEbtn_ChooseEnabled.click();
             }else{
-                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-                throw new Exception("[ClickOnChooseButton] Button choose is not enable or not found");
+                Result.Fail(kwName,"[ClickOnChooseButton] Button choose is not enable or not found");
             }
         }catch (NoSuchElementException noElement){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
@@ -292,74 +332,21 @@ public class CupidScreen extends CommonScreenObjects{
         }
     }
 
-    /**
-     * Swipe on the screen base on start coordinate and end coordinate
-     * @param startX Start X coordinate - range 1-> 5
-     * @param startY Start X coordinate - range 1-> 10
-     * @param endX End X coordinate - range 1-> 5
-     * @param endY End Y coordinate - range 1-> 10
-     * @param duration how fast it swipe, in mili-seconds
-     * @throws Exception
-     */
-    public void Swipe(int startX, int startY, int endX, int endY, int duration) throws Exception{
-        try{
 
-            //Verify input parameters
-            if (startX < 0 || startX > 5){
-                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-                throw new Exception("[SwipeDown] Input parameter failed: startX must be in range 1 -> 5, your input is [" + startX + "]");
-            }
-            if (startY < 0 || startY > 10){
-                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-                throw new Exception("[SwipeDown] Input parameter failed: startY must be in range 1 -> 10, your input is [" + startY + "]");
-            }
-            if (endX < 0 || endX > 5){
-                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-                throw new Exception("[SwipeDown] Input parameter failed: endX must be in range 1 -> 5, your input is [" + endX + "]");
-            }
-            if (endY < 0 || endY > 5){
-                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-                throw new Exception("[SwipeDown] Input parameter failed: endY must be in range 1 -> 10, your input is [" + endY + "]");
-            }
-            Dimension dimensions = driver.manage().window().getSize();
-
-            int screenWidth = dimensions.getWidth();
-            int screenHeight = dimensions.getHeight();
-
-            int actualStartX = screenWidth/5*startX;
-            int actualStartY = screenHeight/10*startY;
-            int actualEndX = screenWidth/5*endX;
-            int actualEndY = screenHeight/10*endY;
-            System.out.println("Screen Width x Height (" + screenWidth + "," + screenHeight + ")");
-            System.out.println("Start coordinate: [" + actualStartX + "," + actualStartY + "], End coordinate: [" + actualEndX + "," + actualEndY + "]");
-            if (Utils.getInstance().isAndroidDevice()){
-                ((AndroidDriver)driver).swipe(actualStartX,actualStartY,actualEndX,actualEndY,duration);
-            }else if(Utils.getInstance().isIosDevice()){
-                ((IOSDriver)driver).swipe(actualStartX,actualStartY,actualEndX,actualEndY,duration);
-            }
-        }catch (NoSuchElementException noElement){
-            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-            throw new Exception("[SwipeDown] Can't find Element: " + noElement.getMessage());
-        }catch (Exception ex){
-            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-            throw new Exception("[SwipeDown] FAILED: " + ex.getMessage());
-        }
-    }
     /**
      * Verify button Save is enabled or not, then click on it
      * @throws Exception
      */
     public void ClickOnSaveButton() throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
         try{
             //select choose button
             if (getHelper().isElementPresent(CupidElement.btn_CupidSaveEnable())){
                 WebElement WEbtn_CupidSaveEnable = getHelper().findElement(CupidElement.btn_CupidSaveEnable());
                 WEbtn_CupidSaveEnable.click();
             }else{
-                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-                throw new Exception("[ClickOnSaveButton] Button SAVE is not enable or not found");
+                Result.Fail(kwName,"[ClickOnSaveButton] Button SAVE is not enable or not found");
             }
-
         }catch (NoSuchElementException noElement){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
             throw new Exception("[ClickOnSaveButton] Can't find Element: " + noElement.getMessage());
@@ -370,11 +357,196 @@ public class CupidScreen extends CommonScreenObjects{
     }
 
     /**
+     * Verify button Matched Tab on the Swipe Screen, then click on it - Cupid_Function1.png
+     * @throws Exception
+     */
+    public void ClickMatchedTab() throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            //Click on Matched Tab
+            if (getHelper().isElementPresent(CupidElement.btn_MatchedTab())){
+                WebElement WEbtn_MatchedTab = getHelper().findElement(CupidElement.btn_MatchedTab());
+                WEbtn_MatchedTab.click();
+            }else{
+                Result.Fail(kwName,"[ClickMatchedTab] Matched Tab not found");
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickMatchedTab] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickMatchedTab] FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
+     * Verify button Saved Tab on the Swipe Screen, then click on it - Cupid_Function2.png
+     * @throws Exception
+     */
+    public void ClickSavedTab() throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            //Click on Saved Tab
+            if (getHelper().isElementPresent(CupidElement.btn_SavedTab())){
+                WebElement WEbtn_SavedTab = getHelper().findElement(CupidElement.btn_SavedTab());
+                WEbtn_SavedTab.click();
+            }else{
+                Result.Fail(kwName,"[ClickSavedTab] Saved Tab not found");
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickSavedTab] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickSavedTab] FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
+     * Verify button Gift Tab on the Swipe Screen, then click on it - Cupid_Function3.png
+     * @throws Exception
+     */
+    public void ClickGiftTab() throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            //Click on Gift Tab
+            if (getHelper().isElementPresent(CupidElement.btn_GiftTab())){
+                WebElement WEbtn_GiftTab = getHelper().findElement(CupidElement.btn_GiftTab());
+                WEbtn_GiftTab.click();
+            }else{
+                Result.Fail(kwName,"[ClickGiftTab] Gift Tab not found");
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickGiftTab] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickGiftTab] FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
+     * Verify button Save Profile on the Swipe Screen, then click on it - Cupid_Function4.png
+     * @throws Exception
+     */
+    public void ClickSaveProfile() throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            //Click on Save Profile
+            if (getHelper().isElementPresent(CupidElement.btn_SaveProfile())){
+                WebElement WEbtn_SaveProfile = getHelper().findElement(CupidElement.btn_SaveProfile());
+                WEbtn_SaveProfile.click();
+            }else{
+                Result.Fail(kwName,"[ClickSaveProfile] Gift Tab not found");
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickSaveProfile] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickSaveProfile] FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
+     * Verify button Dislike on the Swipe Screen, then click on it - Cupid_Function5.png
+     * @throws Exception
+     */
+    public void ClickDislikeButton() throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            //Click on Dislike button
+            if (getHelper().isElementPresent(CupidElement.btn_DislikeEnabled())){
+                WebElement WEbtn_DislikeEnabled = getHelper().findElement(CupidElement.btn_DislikeEnabled());
+                WEbtn_DislikeEnabled.click();
+            }else{
+                Result.Fail(kwName,"[ClickDislikeButton] Dislike Button is not enable or not found");
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickDislikeButton] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickDislikeButton] FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
+     * Verify button Chat on the Swipe Screen, then click on it - Cupid_Function6.png
+     * @throws Exception
+     */
+    public void ClickChatButton() throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            //Click on Chat button
+            if (getHelper().isElementPresent(CupidElement.btn_ChatEnabled())){
+                WebElement WEbtn_ChatEnabled = getHelper().findElement(CupidElement.btn_ChatEnabled());
+                WEbtn_ChatEnabled.click();
+            }else{
+                Result.Fail(kwName,"[ClickChatButton] Chat Button is not enable or not found");
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickChatButton] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickChatButton] FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
+     * Verify button Gift on the Swipe Screen, then click on it - Cupid_Function7.png
+     * @throws Exception
+     */
+    public void ClickGiftButton() throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            //Click on Gift button
+            if (getHelper().isElementPresent(CupidElement.btn_GiftEnabled())){
+                WebElement WEbtn_GiftEnabled = getHelper().findElement(CupidElement.btn_GiftEnabled());
+                WEbtn_GiftEnabled.click();
+            }else{
+                Result.Fail(kwName,"[ClickGiftButton] Gift Button is not enable or not found");
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickGiftButton] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickGiftButton] FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
+     * Verify button Like on the Swipe Screen, then click on it - Cupid_Function8.png
+     * @throws Exception
+     */
+    public void ClickLikeButton() throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            //Click on Like button
+            if (getHelper().isElementPresent(CupidElement.btn_LikeDisabled())){
+                WebElement WEbtn_LikeDisabled = getHelper().findElement(CupidElement.btn_LikeDisabled());
+                WEbtn_LikeDisabled.click();
+            }else{
+                Result.Fail(kwName,"[ClickLikeButton] Like Button is not enable or not found");
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickLikeButton] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[ClickLikeButton] FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
      * This function will take screenshot of current screen, then use OCR to parse into Text, then verify with input text
      * @param sVerifyText Text need to verify in current screen, case sensitive
      * @param timeOut how many second need to verify (second)
      */
     public void VerifyTextInCurrentScreen(String sVerifyText, int timeOut) throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
         String sProjectPath = new File("src/report").getAbsolutePath().concat(File.separator).concat("Cupid").concat(File.separator);
         String fileScrShot = "";
         String sDevice = "Android";
@@ -431,8 +603,122 @@ public class CupidScreen extends CommonScreenObjects{
             if (bResult){
                 System.out.println("[VerifyTextInCurrentScreen] Passed - Expected [" + sVerifyText + "] in the current screen, Actual [Found]");
             }else {
-                Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-                throw new Exception("[VerifyTextInCurrentScreen] FAILED: Expected [" + sVerifyText + "] in the current screen, Actual [Not Found in " + timeOut + " seconds]");
+                Result.Fail(kwName,"[VerifyTextInCurrentScreen] FAILED: Expected [" + sVerifyText + "] in the current screen, Actual [Not Found in " + timeOut + " seconds]");
+            }
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[VerifyTextInCurrentScreen] - FAILED: " + ex.getMessage());
+        }
+    }
+
+    /**
+     * This function will take screenshot of current screen, then use OCR to parse into Text, then verify with input text
+     * @param sVerifyText1 Text need to verify in current screen, case sensitive, must input
+     * @param sVerifyText2 Text need to verify in current screen, case sensitive, null: for by pass verify
+     * @param sVerifyText3 Text need to verify in current screen, case sensitive, null: for by pass verify
+     * @param timeOut how many second need to verify (second)
+     */
+    public void VerifyTextInCurrentScreen(String sVerifyText1, String sVerifyText2, String sVerifyText3, int timeOut) throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        String sProjectPath = new File("src/report").getAbsolutePath().concat(File.separator).concat("Cupid").concat(File.separator);
+        String fileScrShot = "";
+        String sDevice = "Android";
+        Boolean bResult = false;
+        try{
+            String sMessage = "";
+            //Check input parameter
+            if(sVerifyText1.isEmpty() || sVerifyText1 == null){
+                Result.Fail(kwName,"[VerifyTextInCurrentScreen] Input parameter FAILED: sVerifyText1 can't be null or empty");
+            }
+
+            //Check type of running device
+            if(Utils.getInstance().isIosDevice()){
+                sDevice = "IOS";
+            }
+
+            //Take Screenshot
+            for (int i = 1; i <= timeOut; i++) {
+                File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                fileScrShot = sProjectPath.concat(sDevice) + File.separator + "TempScreenShot_" + i + ".png";
+                try {
+                    FileUtils.copyFile(scrFile, new File(fileScrShot), true);
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    System.err.println(e);
+                }
+            }
+
+            //Parse OCR and Verify with input parameter
+            for (int j = 1; j <= timeOut; j++) {
+                sMessage = "";
+                System.out.println("Start - Parse OCR file [" + sProjectPath.concat(sDevice) + File.separator + "TempScreenShot_" + j + ".png]");
+                BytePointer outText;
+
+                tesseract.TessBaseAPI api = new tesseract.TessBaseAPI();
+                // Initialize tesseract-ocr with English, without specifying tessdata path
+                if (api.Init(null, "eng") != 0) {
+                    System.err.println("Could not initialize tesseract.");
+                    System.exit(1);
+                }
+                // Open input image with leptonica library
+                lept.PIX image = pixRead(sProjectPath.concat(sDevice) + File.separator + "TempScreenShot_" + j + ".png");
+                api.SetImage(image);
+                // Get OCR result
+                outText = api.GetUTF8Text();
+                System.out.println("OCR output:\n" + outText.getString());
+
+                // Destroy used object and release memory
+                api.End();
+                outText.deallocate();
+                pixDestroy(image);
+                System.out.println("End - Parse OCR");
+                //Verify with Input parameter 1
+                if (outText.getString().contains(sVerifyText1)){
+                    bResult = true;
+                    sMessage += "Verify text [" + sVerifyText1 +"] PASSED";
+                }else{
+                    sMessage += "Verify text [" + sVerifyText1 +"] FAILED";
+                    bResult = false;
+                }
+                //Verify with Input parameter 2
+                if (sVerifyText2 != null){
+                    if (outText.getString().contains(sVerifyText2)){
+                        bResult = true;
+                        sMessage += " - Verify text [" + sVerifyText2 +"] PASSED";
+                    }else{
+                        sMessage += " - Verify text [" + sVerifyText2 +"] FAILED";
+                        bResult = false;
+                    }
+                }else{
+                    System.out.print("[VerifyTextInCurrentScreen] By pass verify sVerifyText2");
+                }
+
+                //Verify with Input parameter 3
+                if (sVerifyText3 != null){
+                    if (outText.getString().contains(sVerifyText3)){
+                        bResult = true;
+                        sMessage += " - Verify text [" + sVerifyText3 +"] PASSED";
+                    }else{
+                        sMessage += " - Verify text [" + sVerifyText3 +"] FAILED";
+                        bResult = false;
+                    }
+                }else{
+                    System.out.print("[VerifyTextInCurrentScreen] By pass verify sVerifyText3");
+                }
+
+                //Show message
+                System.out.print("[VerifyTextInCurrentScreen] Message for [" + j + "] verify: " + sMessage);
+
+                //if pass --> exit the loop, failed continue loop
+                if(bResult){
+                    break;
+                }
+            }
+            //Verify result
+            if (bResult){
+                System.out.println("[VerifyTextInCurrentScreen] PASSED " + sMessage);
+            }else {
+                Result.Fail(kwName,"[VerifyTextInCurrentScreen] FAILED " + sMessage);
             }
         }catch (Exception ex){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
@@ -472,7 +758,7 @@ public class CupidScreen extends CommonScreenObjects{
     }
 
     /**
-     * Verify status of Choose Button
+     * Verify status Enable or Disable of Choose Button
      * @param enabled true mean enabled, false mean disabled
      * @throws Exception
      */
@@ -498,6 +784,132 @@ public class CupidScreen extends CommonScreenObjects{
         }catch (Exception ex){
             Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
             throw new Exception(ex.getMessage());
+        }
+    }
+
+    /**
+     * Verify status Enable or Disable of Save Button
+     * @param enabled true mean enabled, false mean disabled
+     * @throws Exception
+     */
+    public void VerifyStatusOfSaveButton(boolean enabled) throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            if (enabled){
+                if (getHelper().isElementPresent(CupidElement.btn_CupidSaveEnable())){
+                    System.out.println("[VerifyStatusOfSaveButton] success: Expected [enabled], Actual [enbaled]");
+                }else{
+                    Result.Fail(kwName,"Expected [Enable], Actual [Disabled or Not Exist]");
+                }
+            }else{
+                if (getHelper().isElementPresent(CupidElement.btn_CupidSaveDisable())){
+                    System.out.println("VerifyStatusOfSaveButton success: Expected [Disabled], Actual [Disabled]");
+                }else{
+                    Result.Fail(kwName,"Expected [Disabled], Actual [Enabled or Not Exist]");
+                }
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[VerifyStatusOfSaveButton] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception(ex.getMessage());
+        }
+    }
+
+    /**
+     * Verify Cupid Alias name on Swipe screen - Cupid_Function9.png
+     * @param sAliasName Alias Name need to verify
+     * @throws Exception
+     */
+    public void VerifyAliasName(String sAliasName) throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            //Get actual Alias Name
+            String actualAliasName = getHelper().findElement(CupidElement.txt_UserNameOnCard()).getText();
+            //Compare with Inputted Alias name
+            if (sAliasName.equals(actualAliasName)){
+                System.out.println("[VerifyAliasName] success: Expected [" + sAliasName + "], Actual [" + actualAliasName + "]");
+            }else{
+                Result.Fail(kwName,"[VerifyAliasName] Failed: Expected [" + sAliasName + "], Actual [" + actualAliasName + "]");
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[VerifyAliasName] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception(ex.getMessage());
+        }
+    }
+
+    /**
+     * Verify Cupid Year Old, Age on Swipe screen - Cupid_Function10.png
+     * @param sAge Alias Name need to verify
+     * @throws Exception
+     */
+    public void VerifyCupidYearOld(int sAge) throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            //Get actual Age
+            String actualAge = getHelper().findElement(CupidElement.txt_YearOldDistanceOnCard()).getText().trim().split(" ")[0];
+            //Compare with Inputted Alias name
+            if(sAge == Integer.parseInt(actualAge)){
+                System.out.println("[VerifyCupidYearOld] success: Expected [" + sAge + " years old], Actual [" + actualAge + " years old]");
+            }
+        }catch (NumberFormatException nfe) {
+            Result.Fail(kwName, "Error on Parsing Actual Age to Integer");
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[VerifyCupidYearOld] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception(ex.getMessage());
+        }
+    }
+
+    /**
+     * Verify Cupid Distance on Swipe screen - Cupid_Function11.png
+     * @param sDistance Distance need to verify, example: 3km
+     * @throws Exception
+     */
+    public void VerifyCupidDistance(String sDistance) throws Exception{
+        String kwName = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            //Get actual Distance
+            String temp = getHelper().findElement(CupidElement.txt_YearOldDistanceOnCard()).getText().trim();
+            String actualDistance = temp.substring(temp.lastIndexOf(" ") + 1);
+            //Compare with Inputted Alias name
+            if(sDistance.toLowerCase().equals(actualDistance.toLowerCase())){
+                System.out.println("[VerifyCupidDistance] success: Expected [" + sDistance + "], Actual [" + actualDistance + "]");
+            }
+        }catch (NoSuchElementException noElement){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[VerifyCupidDistance] Can't find Element: " + noElement.getMessage());
+        }catch (Exception ex){
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception(ex.getMessage());
+        }
+    }
+
+    /**
+     * close APP
+     */
+    public void closeApp() {
+        try {
+            driver.closeApp();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * open APP
+     */
+    public void openApp() {
+        try {
+            driver.launchApp();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

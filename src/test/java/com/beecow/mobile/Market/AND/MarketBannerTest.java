@@ -31,6 +31,7 @@ public class MarketBannerTest extends BaseTest {
     private ActivitySecondScreen secondScreen;
     private HomeScreen homeScreen;
     private MarketScreen marketScreen;
+    private MarketBannerScreen marketBannerScreen;
 
 
 
@@ -45,54 +46,99 @@ public class MarketBannerTest extends BaseTest {
     @BeforeMethod
     public void setUp() throws Exception {
         super.setUp(marketPropertiesFile);
-
         firstScreen = new ActivityFirstScreen(driver);
         secondScreen = new ActivitySecondScreen(driver);
         homeScreen = new HomeScreen(driver);
         marketScreen = new MarketScreen(driver);
-
+        marketBannerScreen = new MarketBannerScreen(driver);
     }
 
     @Test
-    public void AND_MAR_TC_13() throws Exception {
+    /**
+     * AND_MAR_TC_1 - Banner section should be displayed
+     */
+    public void AND_MAR_TC_1() throws Exception {
         String sMethodName = new Object() {
         }.getClass().getEnclosingMethod().getName();
         try {
             selectFirstSecondLaunchingAndGoToMarketPage();
-            System.out.println("Verify button Got It should be enabled");
-            marketScreen.verifyButtonGotIt();
-
-            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-13", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
+            System.out.println("Verify Banner image should be enabled");
+            marketBannerScreen.verifyBannerDisplayed();
+            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-1", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
         } catch (TestLinkAPIException ex) {
-            System.out.print("Can't update result to Testlink for AND_MAR_TC_13");
+            System.out.print("Can't update result to Testlink for AND_MAR_TC_1");
         } catch (Exception ex) {
-            //Test failed
             getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
             System.out.println("Current working dir: " + new File(MarketBannerTest.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
-            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-13", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-1", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
             throw new Exception("Failed: " + ex.getMessage());
         }
     }
 
     @Test
-    public void AND_MAR_TC_14() throws Exception, TestLinkAPIException {
-        System.out.println("run demo tc14");
-        System.out.println("Click Market Tab view to go Market Overview page");
-        homeScreen.clickMarketTabView();
-        System.out.println("Click button Got It");
-        marketScreen.clickButtonGotIt();
+    /**
+     * AND_MAR_TC_2 - Banner image can be swipe left
+     */
+    public void AND_MAR_TC_2() throws Exception, TestLinkAPIException {
+        String sMethodName = new Object() {
+        }.getClass().getEnclosingMethod().getName();
+        try {
+            homeScreen.clickMarketTabView();
+            System.out.println("Verify Banner image can be swipe left");
+            marketBannerScreen.swipeBannerLeft();
+            marketBannerScreen.swipeBannerLeft();
+            marketBannerScreen.swipeBannerLeft();
+            marketBannerScreen.swipeBannerLeft();
+            marketBannerScreen.swipeBannerLeft();
+
+            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-2", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
+        } catch (TestLinkAPIException ex) {
+            System.out.print("Can't update result to Testlink for AND_MAR_TC_2");
+        } catch (Exception ex) {
+            getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
+            System.out.println("Current working dir: " + new File(MarketBannerTest.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
+            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-2", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+            throw new Exception("Failed: " + ex.getMessage());
+        }
     }
 
-    public void selectFirstSecondLaunchingAndGoToMarketPage() {
+    @Test
+    /**
+     * AND_MAR_TC_3 - Banner image can be swipe right
+     */
+    public void AND_MAR_TC_3() throws Exception, TestLinkAPIException {
+        String sMethodName = new Object() {
+        }.getClass().getEnclosingMethod().getName();
+        try {
+            homeScreen.clickMarketTabView();
+            System.out.println("Verify Banner image can be swipe right");
+            marketBannerScreen.swipeBannerRight();
+            marketBannerScreen.swipeBannerRight();
+            marketBannerScreen.swipeBannerRight();
+            marketBannerScreen.swipeBannerRight();
+            marketBannerScreen.swipeBannerRight();
+
+            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-3", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
+        } catch (TestLinkAPIException ex) {
+            System.out.print("Can't update result to Testlink for AND_MAR_TC_3");
+        } catch (Exception ex) {
+            getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
+            System.out.println("Current working dir: " + new File(MarketBannerTest.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
+            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-3", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+            throw new Exception("Failed: " + ex.getMessage());
+        }
+    }
+
+    public void selectFirstSecondLaunchingAndGoToMarketPage() throws Exception {
         System.out.println("Begin Select categories for first launching");
         firstScreen.selectCategories(cats);
-        System.out.println("Click button Next to go second launching");
+        System.out.println("Click button [Next] to go second launching");
         firstScreen.clickButtonNext();
-        System.out.println("Next select industries");
-        secondScreen.selectIndustries(inds);
-        System.out.println("Then click button Done");
-        secondScreen.clickButtonDone();
-        System.out.println("Click Market Tab view to go Market Overview page");
+        System.out.println("Then click button [Later] to skip select");
+        secondScreen.clickButtonLater();
+        System.out.println("Click Tab view [Market] to go Market Overview page");
         homeScreen.clickMarketTabView();
+        System.out.println("Click Button [Got it]");
+        marketScreen.clickButtonGotIt();
     }
 }

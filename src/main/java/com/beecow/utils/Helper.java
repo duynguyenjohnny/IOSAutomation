@@ -1,5 +1,9 @@
 package com.beecow.utils;
 
+import com.beecow.textLanguage.BeeCow_Language;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonReader;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
@@ -16,6 +20,7 @@ import testlink.api.java.client.TestLinkAPIClient;
 import testlink.api.java.client.TestLinkAPIException;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.text.DateFormat;
@@ -81,6 +86,12 @@ public class Helper {
                     break;
                 case VALUE:
                     e = By.xpath("//*[@value = '" + value + "']");
+                    break;
+                case LABLE:
+                    e = By.xpath("//*[@label = '" + value + "']");
+                    break;
+                case NAME:
+                    e = By.xpath("//*[@name = '" + value + "']");
                     break;
             }
         }
@@ -294,18 +305,19 @@ public class Helper {
      * @param
      * @return
      */
-//    public MyDriver_Customer_Language getTextByLanguage(String languageKey) {
-//        String fileName = "resources/" + languageKey + ".json";
-//        try {
-//            Gson gson = new GsonBuilder().create();
-//            JsonReader jsonReader = new JsonReader(new FileReader(new File(fileName)));
-//            MyDriver_Customer_Language textTranslate = gson.fromJson(jsonReader, MyDriver_Customer_Language.class);
-//            return textTranslate;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
+    public BeeCow_Language getTextByLanguage(String languageKey) {
+        String fileName = "resources/" + languageKey + ".json";
+        try {
+            Gson gson = new GsonBuilder().create();
+            JsonReader jsonReader = new JsonReader(new FileReader(new File(fileName)));
+            BeeCow_Language textTranslate = gson.fromJson(jsonReader, BeeCow_Language.class);
+            return textTranslate;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
     public String changeFormatDate (String date, String read, String write){
         String formattedDate = "";
@@ -399,17 +411,19 @@ public class Helper {
     /**
      * clearDataApp
      */
-    public void clearDataApp() {
+    public static void clearDataApp() {
         try {
             // clearing app data
             Runtime runtime = Runtime.getRuntime();
 //            runtime.exec("pm clear YOUR_APP_PACKAGE_GOES HERE");
-            runtime.exec("adb shell pm clear com.mydriver.driver.v2.alpha");
+            runtime.exec("adb shell pm clear com.mediastep.beecow");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
 
     /**
      * This function will take screenshot of current screen, then use OCR to parse into Text, then verify with input text
@@ -494,7 +508,7 @@ public class Helper {
         // get the Y coordinate of the upper left corner of the element, then subtract the height to get the lowest Y value of the element
 //        int middleX = (el.getSize().getWidth()) / 2;
         int middleX = (int) (size.width * 0.5);
-        driver.swipe(middleX, lowerY, middleX, upperY, 3000);
+        ((IOSDriver)driver).swipe(middleX, lowerY, middleX, upperY, 3000);
     }
     public void swipeTopToBottomElement(WebElement el){
         Dimension size = driver.manage().window().getSize();

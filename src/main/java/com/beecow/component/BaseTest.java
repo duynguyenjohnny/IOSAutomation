@@ -1,6 +1,6 @@
 package com.beecow.component;
 
-import com.beecow.utils.PropertiesUtils;
+import com.beecow.utils.*;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.ios.IOSDriver;
@@ -15,10 +15,6 @@ import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.junit.Assert;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
-
-import com.beecow.utils.Helper;
-import com.beecow.utils.Result;
-import com.beecow.utils.Utils;
 
 import static com.beecow.utils.PropertiesUtils.*;
 
@@ -38,6 +34,7 @@ public class BaseTest {
     AppiumDriverLocalService service;
     private int TIMEOUT200 = 200;
     private int TIMEOUT10 = 10;
+    public static boolean isAndroid = Utils.getInstance().isAndroidDevice();
 
     public static final String ROOT_PATH = System.getProperty("user.dir");
     public static final String LOG_PATH_FOLDER = ROOT_PATH + "/log";
@@ -47,8 +44,10 @@ public class BaseTest {
         return new Helper(driver);
     }
     public Result getResult(){
-        return new Result();
+        return new Result(driver);
     }
+    public SwipeFunctions getSwipe(){return new SwipeFunctions(driver);}
+    
 
     @BeforeSuite
     public void GetLastAPKFile() throws Exception{
@@ -84,9 +83,9 @@ public class BaseTest {
     public void Stop() throws IOException, InterruptedException, Exception {
         if(driver!=null) {
             if(Utils.getInstance().isAndroidDevice()) {
-                System.out.println("Start Remove App");
-                driver.removeApp(androidAppPackage);
-                System.out.println("End Remove App");
+//                System.out.println("Start Remove App");
+//                driver.removeApp(androidAppPackage);
+//                System.out.println("End Remove App");
             }
             System.out.println("Stopping Appium");
             service.stop();

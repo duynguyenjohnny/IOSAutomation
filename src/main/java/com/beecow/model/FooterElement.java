@@ -1,6 +1,9 @@
 package com.beecow.model;
 
 import com.beecow.utils.Utils;
+import io.appium.java_client.AppiumDriver;
+
+import static com.beecow.component.BaseTest.isAndroid;
 
 /**
  * Created by PhuocHa on 01/10/2017.
@@ -20,9 +23,14 @@ public class FooterElement {
         if(Utils.getInstance().isAndroidDevice()){
             return "resourceID::bottom_navigation_tab_market";
         }
-        return "ios";
+        return "xpath:://XCUIElementTypeButton[@label='Market']";
     }
-
+    public static String getTabMarketLocatorIsSelect(){
+        if (isAndroid){
+            return "";
+        }
+        return "xpath:://XCUIElementTypeButton[@label='Cupid' and @value='true']";
+    }
     public static String getTabMessagesLocator(){
         if(Utils.getInstance().isAndroidDevice()){
             return "resourceID::bottom_navigation_tab_message";
