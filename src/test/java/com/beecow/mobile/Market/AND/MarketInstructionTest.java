@@ -90,7 +90,7 @@ public class MarketInstructionTest extends BaseTest {
         marketScreen.verifyInstructionTextInvisible();
         marketScreen.verifyButtonGotItInvisible();
         marketScreen.verifyBannerIsVisible();
-        // POST CONDITION: remove app to check tc AND_MAR_TC_12
+        // POST CONDITION: remove app to check tc AND_MAR_TC_12 
         driver.closeApp();
         driver.removeApp(androidAppPackage);
     }
