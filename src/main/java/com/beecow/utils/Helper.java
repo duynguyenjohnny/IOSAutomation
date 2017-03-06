@@ -20,8 +20,10 @@ import testlink.api.java.client.TestLinkAPIClient;
 import testlink.api.java.client.TestLinkAPIException;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -111,7 +113,7 @@ public class Helper {
         return e;
     }
 
-    private List<WebElement> findElements(String locator){
+    public List<WebElement> findElements(String locator){
         List<WebElement> e = driver.findElements(byLocator(locator));
         return e;
     }
@@ -280,23 +282,20 @@ public class Helper {
         if(Utils.getInstance().isAndroidDevice()) {
 
             //check language united state
-            language.put("en", "english");
+            language.put("en", "Hello, what interests you most?");
 
 
         }
         if (Utils.getInstance().isIosDevice()){
             //check language united state
-            language.put("en", "Where can we take you?");
+            language.put("en", "Hello, what interests you most?");
         }
         for(String key:language.keySet()) {
             String value = language.get(key);
             if (value.equalsIgnoreCase(text)) {
-                System.out.println("key: " + key);
                 languageKey = key;
             }
         }
-        System.out.println("k1: " + languageKey);
-
         return languageKey;
     }
 
@@ -305,8 +304,8 @@ public class Helper {
      * @param
      * @return
      */
-    public BeeCow_Language getTextByLanguage(String languageKey) {
-        String fileName = "resources/" + languageKey + ".json";
+    public BeeCow_Language getTextByLanguage(String languageKey) throws URISyntaxException {
+        String fileName = new File(this.getClass().getClassLoader().getResource(languageKey + ".json").toURI()).getAbsolutePath();
         try {
             Gson gson = new GsonBuilder().create();
             JsonReader jsonReader = new JsonReader(new FileReader(new File(fileName)));

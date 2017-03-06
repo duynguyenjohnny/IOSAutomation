@@ -1,7 +1,20 @@
 {
+  "first_launching_tvTitle":"Hello, what interests you most?",
   "home_tab_bar_txt":"Homes",
   "market_tab_bar_txt":"Market",
   "message_tab_bar_txt":"Message",
   "cupid_tab_bar_txt":"Cupid",
-  "more_tab_bar_txt":"More"
+  "more_tab_bar_txt":"More",
+
+  //categories
+  "categories_text":"Categories",
+  "seeAll_text":"See all",
+  "seeLess_text":"See less",
+
+  //hot deal
+  "hotDeal_text":"Hot Deals",
+  "hotPromotion_text":"Hot Promotion",
+  "spotlights_text":"Spotlights",
+  "newOpenings_text":"New Openings",
+  "bac":"djhskjf"
 }

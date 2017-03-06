@@ -1,5 +1,6 @@
 package com.beecow.component;
 
+import com.beecow.textLanguage.BeeCow_Language;
 import com.beecow.utils.*;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.AppiumDriver;
@@ -16,6 +17,7 @@ import org.junit.Assert;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 
+import static com.beecow.model.MarketCategoriesElement.getTitleFirstLaunch_tv;
 import static com.beecow.utils.PropertiesUtils.*;
 
 import java.io.File;
@@ -45,7 +47,16 @@ public class BaseTest {
     }
 
     public SwipeFunctions getSwipe(){return new SwipeFunctions(driver);}
-    
+
+    public static BeeCow_Language beeCow_language;
+
+    public String getLanguageKey() {
+        String keyLanguage = "en";
+        if (getHelper().isElementPresent(getTitleFirstLaunch_tv())) {
+            keyLanguage = getHelper().getLanguageDevice(getHelper().findElement(getTitleFirstLaunch_tv()).getText());
+        }
+        return keyLanguage;
+    }
 
     @BeforeSuite
     public void GetLastAPKFile() throws Exception{
@@ -59,12 +70,16 @@ public class BaseTest {
         setAppium();
         service.start();
         System.out.println("Appium is started");
+
     }
 
     public void setUp(String propertyFile) throws Exception {
         try{
             System.out.println("Before Method: Setup");
             initDriver(propertyFile);
+
+            //get language
+            beeCow_language=getHelper().getTextByLanguage(getLanguageKey());
         }catch (Exception ex){
             System.out.println("Error Before Method: Setup:" + ex.getMessage());
         }

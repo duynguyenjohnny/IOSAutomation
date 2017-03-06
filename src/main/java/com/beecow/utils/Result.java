@@ -31,6 +31,7 @@ public class Result {
 
     private ArrayList<String> sResult = new ArrayList<String>();
     private ArrayList<String> sObservation = new ArrayList<String>();
+    private ArrayList<String> sExpectation = new ArrayList<String>();
 
 
     public Result(AppiumDriver driver) {
@@ -43,16 +44,17 @@ public class Result {
     //data setter method
     public void setResult(String result) {
         this.result = result;
-//        sResult.add(result);
+        sResult.add(result);
     }
 
     public void setObservation(String observation) {
         this.observation = observation;
-//        sObservation.add(observation);
+        sObservation.add(observation);
     }
 
     public void setExpectation(String expectation) {
         this.expectation = expectation;
+        sExpectation.add(expectation);
     }
 
     //data getter method
@@ -97,6 +99,25 @@ public class Result {
             addLog("Observation: " + getExpectation);
             addLog("Result: " + getResult);
         } else {
+            for (int i=0;i<sResult.size();i++) {
+                addLog("Observation: " + sObservation.get(i));
+                addLog("Expectation: " + sExpectation.get(i));
+                addLog("Result: " + sResult.get(i));
+            }
+        }
+//        Assert.assertEquals(getResult, passed);
+        Assert.assertEquals(line+getObservation,  getExpectation);
+    }
+
+    public void checkDemo() {
+        String getResult = getResult();
+        String getExpectation = getExpectation();
+        String getObservation = getObservation();
+        String line = "\n>>>>>>>>>>>>>>>>>>>>>RESULT<<<<<<<<<<<<<<<<<<<<<<\n";
+        if (getResult.equals(passed)) {
+            addLog("Observation: " + getExpectation);
+            addLog("Result: " + getResult);
+        } else {
             addLog("Observation: " + getObservation);
             addLog("Expectation: " + getExpectation);
             addLog("Result: " + getResult);
@@ -104,7 +125,6 @@ public class Result {
 //        Assert.assertEquals(getResult, passed);
         Assert.assertEquals(line+getObservation,  getExpectation);
     }
-
 
     public void stringToFile(String logmsg, String fileName) {
         try {

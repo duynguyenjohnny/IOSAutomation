@@ -3,7 +3,9 @@ package com.beecow.mobile.Market.IOS;
 import com.beecow.component.BaseTest;
 import com.beecow.model.FooterElement;
 import com.beecow.screen.*;
+import com.beecow.textLanguage.BeeCow_Language;
 import com.beecow.utils.TestLink;
+import com.beecow.utils.Utils;
 import io.appium.java_client.ios.IOSDriver;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -14,10 +16,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testlink.api.java.client.TestLinkAPIException;
 import testlink.api.java.client.TestLinkAPIResults;
-
-import java.awt.*;
-import java.io.File;
-import java.nio.charset.StandardCharsets;
 
 import static com.beecow.model.CommonElement.marketPropertiesFile;
 import static com.beecow.model.CommonElement.passed;
@@ -62,13 +60,18 @@ public class CategotiesTest extends BaseTest {
 
     @Test
     public void AND_MAR_TC_7() throws Exception {
+        Thread.sleep(5000);
         sNameTestCaseMethod = new Object() {
         }.getClass().getEnclosingMethod().getName();
+
         System.out.println("Run testcases: " + sNameTestCaseMethod);
+        marketCategoriesScreen.swipeToElementAndScrollElementToTopThenStopDemo();
         footerComponent.clickMarketTabView();
-        marketCategoriesScreen.clickSeeAllBtnAtCate();
-        marketCategoriesScreen.checkCategoriesSectionExpand();
+        marketCategoriesScreen.swipeToSeeLessAtCate();
+        marketCategoriesScreen.clickSeeLessBtnCate();
+        marketCategoriesScreen.checkCategoriesSectionCollapse();
     }
+
 
 
 //    public static void main(String[] args) {
