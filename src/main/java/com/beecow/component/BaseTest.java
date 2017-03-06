@@ -42,11 +42,13 @@ public class BaseTest {
     public static final String LOG_PATH_FOLDER = ROOT_PATH + "/log";
     public static final String LOG_FILE_PATH = LOG_PATH_FOLDER + "/androidLog.txt";
 
-    public Helper getHelper(){
+    public Helper getHelper() {
         return new Helper(driver);
     }
 
-    public SwipeFunctions getSwipe(){return new SwipeFunctions(driver);}
+    public SwipeFunctions getSwipe() {
+        return new SwipeFunctions(driver);
+    }
 
     public static BeeCow_Language beeCow_language;
 
@@ -59,9 +61,9 @@ public class BaseTest {
     }
 
     @BeforeSuite
-    public void GetLastAPKFile() throws Exception{
+    public void GetLastAPKFile() throws Exception {
         PropertiesUtils.getPropertiesGlobal();
-        if(Utils.getInstance().isAndroidDevice()){
+        if (Utils.getInstance().isAndroidDevice()) {
             System.out.println("Start Get APK File from share folder");
 //            PropertiesUtils.GetLastAPKFile();
             System.out.println("Done Get APK File from share folder");
@@ -74,28 +76,29 @@ public class BaseTest {
     }
 
     public void setUp(String propertyFile) throws Exception {
-        try{
+        try {
             System.out.println("Before Method: Setup");
             initDriver(propertyFile);
 
             //get language
-            beeCow_language=getHelper().getTextByLanguage(getLanguageKey());
-        }catch (Exception ex){
+            beeCow_language = getHelper().getTextByLanguage(getLanguageKey());
+        } catch (Exception ex) {
             System.out.println("Error Before Method: Setup:" + ex.getMessage());
         }
 
     }
+
     @AfterMethod
     public void teardown() {
-        if(driver!=null){
+        if (driver != null) {
             driver.closeApp();
         }
     }
 
     @AfterSuite
     public void Stop() throws IOException, InterruptedException, Exception {
-        if(driver!=null) {
-            if(Utils.getInstance().isAndroidDevice()) {
+        if (driver != null) {
+            if (Utils.getInstance().isAndroidDevice()) {
                 System.out.println("Start Remove App");
 //                driver.removeApp(androidAppPackage);
                 System.out.println("End Remove App");
@@ -115,14 +118,14 @@ public class BaseTest {
             dir.mkdir();
         }
         File file = new File(LOG_FILE_PATH);
-        if (!file.exists()){
+        if (!file.exists()) {
             try {
                 file.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             System.out.println("File log path is created!");
-        }else{
+        } else {
             System.out.println("File log path already exists.");
         }
         if (osName.contains(MobilePlatform.WINDOWS)) {
@@ -151,12 +154,12 @@ public class BaseTest {
     }
 
     private void initDriver(String propertyFile) throws Exception {
-        try{
+        try {
             DesiredCapabilities capabilities = getPlatform_capabilities(propertyFile);
             URL url = new URL(serverTest);
             driver = buildDriver(url, capabilities);
             driver.manage().timeouts().implicitlyWait(TIMEOUT10, TimeUnit.SECONDS);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("[Error] : " + ex.getMessage());
         }
 
@@ -169,11 +172,11 @@ public class BaseTest {
         if (Utils.getInstance().isIosDevice()) {
             return new IOSDriver(url, capabilities);
         }
-        if (Utils.getInstance().isWebAndroidDevice()){
-            return new AndroidDriver(url,capabilities);
+        if (Utils.getInstance().isWebAndroidDevice()) {
+            return new AndroidDriver(url, capabilities);
         }
-        if (Utils.getInstance().isWebIOSDevice()){
-            return new IOSDriver(url,capabilities);
+        if (Utils.getInstance().isWebIOSDevice()) {
+            return new IOSDriver(url, capabilities);
         }
         throw new Exception("the driver does not find");
     }
@@ -185,10 +188,10 @@ public class BaseTest {
         if (Utils.getInstance().isIosDevice()) {
             return getiOS_capability(propertyFile);
         }
-        if (Utils.getInstance().isWebAndroidDevice()){
+        if (Utils.getInstance().isWebAndroidDevice()) {
             return getWebAndroid_capability();
         }
-        if (Utils.getInstance().isWebIOSDevice()){
+        if (Utils.getInstance().isWebIOSDevice()) {
             return getWebIOS_capability();
         }
         throw new Exception("does not find the platform correspon");
@@ -223,24 +226,26 @@ public class BaseTest {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, iOS_PlatformVersion);
 
         capabilities.setCapability(MobileCapabilityType.APP, iOSAPKFolder);
-        capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID,iOS_BundleID);
+        capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, iOS_BundleID);
         capabilities.setCapability(MobileCapabilityType.UDID, iOS_UDID);
 
-        capabilities.setCapability(MobileCapabilityType.FULL_RESET,false);
-        capabilities.setCapability(MobileCapabilityType.NO_RESET,true);
+        capabilities.setCapability(MobileCapabilityType.FULL_RESET, false);
+        capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
         return capabilities;
     }
-    private DesiredCapabilities getWebAndroid_capability(){
-        DesiredCapabilities capabilities=DesiredCapabilities.chrome();
+
+    private DesiredCapabilities getWebAndroid_capability() {
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
         capabilities.setBrowserName("Chrome");
         return capabilities;
     }
-    private DesiredCapabilities getWebIOS_capability(){
-        DesiredCapabilities capabilities=DesiredCapabilities.safari();
+
+    private DesiredCapabilities getWebIOS_capability() {
+        DesiredCapabilities capabilities = DesiredCapabilities.safari();
         capabilities.setBrowserName("Safari");
-        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME,"");
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"");
-        capabilities.setCapability(MobileCapabilityType.UDID,"");
+        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "");
+        capabilities.setCapability(MobileCapabilityType.UDID, "");
         return capabilities;
     }
 }

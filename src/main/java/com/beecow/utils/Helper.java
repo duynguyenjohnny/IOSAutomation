@@ -211,8 +211,6 @@ public class Helper {
         Reporter.log(text+ "</br>", true);
     }
 
-
-
     public Boolean isElementEnabled(String locator) {
         WebElement element = findElement(locator);
         return element.isEnabled();

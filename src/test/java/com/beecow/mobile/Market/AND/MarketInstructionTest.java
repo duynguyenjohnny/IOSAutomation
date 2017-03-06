@@ -6,6 +6,7 @@ import com.beecow.screen.ActivitySecondScreen;
 import com.beecow.screen.HomeScreen;
 import com.beecow.screen.MarketScreen;
 import com.beecow.utils.TestLink;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testlink.api.java.client.TestLinkAPIException;
@@ -14,7 +15,9 @@ import testlink.api.java.client.TestLinkAPIResults;
 import java.io.File;
 
 import static com.beecow.model.CommonElement.marketPropertiesFile;
+import static com.beecow.model.CommonElement.passed;
 import static com.beecow.utils.PropertiesUtils.*;
+import static com.beecow.utils.Result.result;
 
 /**
  * Created by HangPham on 12/18/2016.
@@ -22,7 +25,8 @@ import static com.beecow.utils.PropertiesUtils.*;
 
 public class MarketInstructionTest extends BaseTest {
 
-
+    String sNameTestCaseMethod;
+    String sMarket = "Market";
     String className = this.getClass().getSimpleName();
 
     private ActivityFirstScreen firstScreen;
@@ -42,29 +46,31 @@ public class MarketInstructionTest extends BaseTest {
         marketScreen = new MarketScreen(driver);
     }
 
-    @Test(priority = 0)
+    @AfterMethod
+    public void checkTakeScreenShotAndPassFailTestLink() throws TestLinkAPIException {
+        String b = sNameTestCaseMethod.split("_")[3];
+        sNameTestCaseMethod = sNameTestCaseMethod.substring(0, sNameTestCaseMethod.lastIndexOf("_")) + "-".concat(b);
+        if (result.equals(passed)) {
+            getHelper().takeScreenshot(sMarket, className, "Passed_", sNameTestCaseMethod);
+            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, sNameTestCaseMethod, testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
+        } else {
+            getHelper().takeScreenshot(sMarket, className, "Failed_", sNameTestCaseMethod);
+            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, sNameTestCaseMethod, testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
+        }
+    }
+
+//    @Test(priority = 0)
     /**
      * AND_MAR_TC_10 - Verify quick instruction is shown when user launches app for first time
      */
     public void AND_MAR_TC_10() throws Exception, TestLinkAPIException {
-        String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
-        try{
-            selectFirstSecondLaunchingAndGoToMarketPage();
-            System.out.println("Verify market [Instruction]");
-            marketScreen.verifyInstructionText();
-            marketScreen.verifyButtonGotIt();
-
-            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "AND_MAR_TC-10", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
-        }catch (TestLinkAPIException ex){
-            System.out.print("Can't update result to Testlink for AND_MAR_TC_10");
-        }
-        catch (Exception ex) {
-            //Test failed
-            getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
-            System.out.println("Current working dir: " + new File(MarketInstructionTest.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
-            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-10", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
-            throw new Exception("Failed: " + ex.getMessage());
-        }
+        sNameTestCaseMethod = new Object() {
+        }.getClass().getEnclosingMethod().getName();
+        System.out.println("Run testcases: " + sNameTestCaseMethod);
+        selectFirstSecondLaunchingAndGoToMarketPage();
+        System.out.println("Verify market [Instruction]");
+        marketScreen.verifyInstructionText();
+        marketScreen.verifyButtonGotIt();
     }
 
     @Test(priority = 1)
@@ -72,29 +78,20 @@ public class MarketInstructionTest extends BaseTest {
      * AND_MAR_TC_11 - Verify instruction is closed when user taps [Got it] button
      */
     public void AND_MAR_TC_11() throws Exception, TestLinkAPIException {
-        String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
-        try{
-            homeScreen.clickMarketTabView();
-//            selectFirstSecondLaunchingAndGoToMarketPage();
-            System.out.println("Click button [Got it]");
-            marketScreen.clickButtonGotIt();
-            System.out.println("Verify the [Instruction] screen is hidden");
-            marketScreen.verifyInstructionTextInvisible();
-            marketScreen.verifyButtonGotItInvisible();
-            marketScreen.verifyBannerIsVisible();
-
-            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "AND_MAR_TC-11", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
-        }catch (TestLinkAPIException ex){
-            System.out.print("Can't update result to Testlink for AND_MAR_TC_11");
-        }
-        catch (Exception ex) {
-            //Test failed
-            getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
-            System.out.println("Current working dir: " + new File(MarketInstructionTest.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
-            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-11", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
-            throw new Exception("Failed: " + ex.getMessage());
-        }
+        sNameTestCaseMethod = new Object() {
+        }.getClass().getEnclosingMethod().getName();
+        System.out.println("Run testcases: " + sNameTestCaseMethod);
+//        homeScreen.clickMarketTabView();
+      selectFirstSecondLaunchingAndGoToMarketPage();
+        System.out.println("Click button [Got it]");
+        marketScreen.clickButtonGotIt();
+        System.out.println("Verify the [Instruction] screen is hidden");
+        getSwipe().Swipe(4, 4, 4, 8, 2000);
+        marketScreen.verifyInstructionTextInvisible();
+        marketScreen.verifyButtonGotItInvisible();
+        marketScreen.verifyBannerIsVisible();
         // POST CONDITION: remove app to check tc AND_MAR_TC_12
+        driver.closeApp();
         driver.removeApp(androidAppPackage);
     }
 
@@ -103,28 +100,18 @@ public class MarketInstructionTest extends BaseTest {
      * AND_MAR_TC_12 - Verify instruction is closed when user taps anywhere at instruction
      */
     public void AND_MAR_TC_12() throws Exception, TestLinkAPIException {
-        String sMethodName = new Object(){}.getClass().getEnclosingMethod().getName();
-        try{
-//            homeScreen.clickMarketTabView();
-            selectFirstSecondLaunchingAndGoToMarketPage();
-            System.out.println("Click anywhere in the instruction");
-            marketScreen.clickAnywhereOnInstructon();
-            System.out.println("Verify the [Instruction] screen is hidden");
-            marketScreen.verifyInstructionTextInvisible();
-            marketScreen.verifyButtonGotItInvisible();
-            marketScreen.verifyBannerIsVisible();
-
-            TestLink.updateResult(testlinkProjectName,testlinkTestPlanName, "AND_MAR_TC-12", testlinkBuildName, null, TestLinkAPIResults.TEST_PASSED);
-        }catch (TestLinkAPIException ex){
-            System.out.print("Can't update result to Testlink for AND_MAR_TC_12");
-        }
-        catch (Exception ex) {
-            //Test failed
-            getHelper().takeScreenshot("Market", className, "Failed_", sMethodName);
-            System.out.println("Current working dir: " + new File(MarketInstructionTest.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
-            TestLink.updateResult(testlinkProjectName, testlinkTestPlanName, "AND_MAR_TC-12", testlinkBuildName, null, TestLinkAPIResults.TEST_FAILED);
-            throw new Exception("Failed: " + ex.getMessage());
-        }
+        sNameTestCaseMethod = new Object() {
+        }.getClass().getEnclosingMethod().getName();
+        System.out.println("Run testcases: " + sNameTestCaseMethod);
+//      homeScreen.clickMarketTabView();
+        selectFirstSecondLaunchingAndGoToMarketPage();
+        System.out.println("Click anywhere in the instruction");
+        marketScreen.clickAnywhereOnInstructon();
+        System.out.println("Verify the [Instruction] screen is hidden");
+        getSwipe().Swipe(4, 4, 4, 8, 2000);
+        marketScreen.verifyInstructionTextInvisible();
+        marketScreen.verifyButtonGotItInvisible();
+        marketScreen.verifyBannerIsVisible();
     }
 
     public void selectFirstSecondLaunchingAndGoToMarketPage() throws Exception {
