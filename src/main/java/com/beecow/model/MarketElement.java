@@ -8,23 +8,23 @@ import com.beecow.utils.Utils;
 
 public class MarketElement {
 
-    public static String getBannerLocator(){
+    public static String getButtonGotIt(){
         if(Utils.getInstance().isAndroidDevice()){
-            return "resourceID::fragment_market_banner_pager";
+            return "resourceID::fragment_market_btn_tutorial";
         }
         return "ios";
     }
 
-    public static String getCurrentBannerLocator(){
+    public static String getTextInstruction(){
         if(Utils.getInstance().isAndroidDevice()){
-            return "xpath::.//*[@id='fragment_market_banner_pager']/android.support.v4.view.ViewPager/android.widget.ImageView";
+            return "text::Touch, hold and drag a category to reorder your favorite list";
         }
         return "ios";
     }
 
-    public static String getCurrentBannerHighlightLocator(){
+    public static String getImageBannerLocator(){
         if(Utils.getInstance().isAndroidDevice()){
-            return "xpath::.//*[@id='pointLayout']/android.widget.ImageView[1]";
+            return "resourceID::item_banner_img_banner";
         }
         return "ios";
     }

@@ -1,7 +1,11 @@
 package com.beecow.utils;
 
+import io.appium.java_client.AppiumDriver;
+import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.Reporter;
 
+import static com.beecow.component.Constant.*;
 import static com.beecow.model.CommonElement.passed;
 
 import java.io.BufferedWriter;
@@ -12,12 +16,14 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by HangPham on 12/18/2016.
  */
 public class Result {
-    private String result;
+    AppiumDriver driver;
+    public static String result;
     private String observation;
     private String expectation;
     private String fileReport;
@@ -25,9 +31,11 @@ public class Result {
 
     private ArrayList<String> sResult = new ArrayList<String>();
     private ArrayList<String> sObservation = new ArrayList<String>();
+    private ArrayList<String> sExpectation = new ArrayList<String>();
 
 
-    public Result() {
+    public Result(AppiumDriver driver) {
+        this.driver = driver;
         this.result = passed;
         this.observation = "";
         this.expectation = "";
@@ -36,16 +44,17 @@ public class Result {
     //data setter method
     public void setResult(String result) {
         this.result = result;
-//        sResult.add(result);
+        sResult.add(result);
     }
 
     public void setObservation(String observation) {
         this.observation = observation;
-//        sObservation.add(observation);
+        sObservation.add(observation);
     }
 
     public void setExpectation(String expectation) {
         this.expectation = expectation;
+        sExpectation.add(expectation);
     }
 
     //data getter method
@@ -81,16 +90,40 @@ public class Result {
 //    }
 
 
-    public void check(){
-        if(getResult().equals(passed)){
-            addLog("Observation: " + getExpectation());
-            addLog("Result: " + getResult());
+    public void check() {
+        String getResult = getResult();
+        String getExpectation = getExpectation();
+        String getObservation = getObservation();
+        String line = "\n>>>>>>>>>>>>>>>>>>>>>RESULT<<<<<<<<<<<<<<<<<<<<<<\n";
+        if (getResult.equals(passed)) {
+            addLog("Observation: " + getExpectation);
+            addLog("Result: " + getResult);
+        } else {
+            for (int i=0;i<sResult.size();i++) {
+                addLog("Observation: " + sObservation.get(i));
+                addLog("Expectation: " + sExpectation.get(i));
+                addLog("Result: " + sResult.get(i));
+            }
         }
-        else {
-            addLog("Observation: " + getObservation());
-            addLog("Expectation: " + getExpectation());
-            addLog("Result: " + getResult());
+//        Assert.assertEquals(getResult, passed);
+        Assert.assertEquals(line+getObservation,  getExpectation);
+    }
+
+    public void checkDemo() {
+        String getResult = getResult();
+        String getExpectation = getExpectation();
+        String getObservation = getObservation();
+        String line = "\n>>>>>>>>>>>>>>>>>>>>>RESULT<<<<<<<<<<<<<<<<<<<<<<\n";
+        if (getResult.equals(passed)) {
+            addLog("Observation: " + getExpectation);
+            addLog("Result: " + getResult);
+        } else {
+            addLog("Observation: " + getObservation);
+            addLog("Expectation: " + getExpectation);
+            addLog("Result: " + getResult);
         }
+//        Assert.assertEquals(getResult, passed);
+        Assert.assertEquals(line+getObservation,  getExpectation);
     }
 
     public void stringToFile(String logmsg, String fileName) {
@@ -121,5 +154,16 @@ public class Result {
         Date date = new Date();
         fileReport = "Report//Error" + dateFormat.format(date).toString() + ".txt";
         stringToFile(getObservation(), fileReport);
+    }
+
+    public static void Fail(String kwName, String Message) throws Exception {
+        try {
+            Date dNow = new Date();
+            SimpleDateFormat ft = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
+            throw new Exception("[" + ft.format(dNow) + "][" + kwName + "] " + Message);
+        } catch (ExecutionException ex) {
+
+        }
     }
 }

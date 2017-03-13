@@ -1,2 +1,10 @@
 .idea
 /target/
+BeeCowProjectMobile.iml
+BeeCowProject.iml
+*.apk
+/src/report/Cupid/
+log/androidLog\.txt
+/log/
+
+

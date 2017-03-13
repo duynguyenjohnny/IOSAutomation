@@ -9,6 +9,7 @@
             <!--For Non login users-->
             <class name="testSuites.LoginPage"/>
 
+
         </classes>
     </test>
 </suite>

@@ -1,116 +1,98 @@
 package com.beecow.screen;
 
 import static com.beecow.model.CommonElement.failed;
-import static com.beecow.model.CommonElement.screenShot_login;
 import static com.beecow.model.MarketElement.*;
 
 import com.beecow.component.CommonScreenObjects;
-
 import io.appium.java_client.AppiumDriver;
-import static com.beecow.component.Constant.*;
-import testlink.api.java.client.TestLinkAPIException;
 
 /**
  * Created by HangPham on 12/18/2016.
  */
 
-public class MarketScreen extends BeeCowLayoutScreen {
+public class MarketScreen extends CommonScreenObjects {
+    String sNameMethod;
     public MarketScreen(AppiumDriver driver){
         super(driver);
     }
 
-    public void swipeBannerLeft() {
-        getHelper().swipeRightToLeftElement(getHelper().findElement(getCurrentBannerLocator()));
+    //check fail when not found element
+    public void checkFail(String observation){
+        result.setResult(failed);
+        result.setObservation(observation);
+        result.check();
     }
 
-    public void swipeBannerRight() {
-        getHelper().swipeLeftToRightElement(getHelper().findElement(getBannerLocator()));
+    public void verifyInstructionText() {
+        result.setExpectation("The [Instruction text] should be visible");
+        sNameMethod = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            getHelper().waitElementIsDisplayed(getHelper().byLocator(getTextInstruction()));
+        }catch (Exception ex){
+            checkFail("The [Instruction text] not show "+ex.getMessage());
+        }
     }
 
-    public void verifyBannerIsVisible() {
-        getHelper().waitElementIsDisplayed(getHelper().byLocator(getBannerLocator()));
-        System.out.println("Market Page show with banner is passed");
-    }
-
-    public void verifyMarketPage(){
-        int a=1;
-        int b=2;
-        if(a==b){
+    public void verifyInstructionTextInvisible() throws InterruptedException {
+        result.setExpectation("The [Instruction text] should be invisible");
+        System.out.println("Is instruction text existed == " + getHelper().isElementPresent(getTextInstruction()));
+        if (getHelper().isElementPresent(getTextInstruction()))
+        {
             result.setResult(failed);
-            result.setObservation("a should !=b");
+            result.setObservation("Text instruction still visible");
         }
         result.check();
     }
 
+    public void verifyButtonGotIt(){
+        result.setExpectation("The button [Got it] should be visible");
+        System.out.println("Is button [Got it] existed == " + getHelper().isElementEnabled(getButtonGotIt()));
+        if (!getHelper().isElementEnabled(getButtonGotIt()))
+        {
+            result.setResult(failed);
+            result.setObservation("Text button [Got it] NOT EXIST");
+        }
+        result.check();
+    }
 
-    /**
-     * report pass/fail for each screen
-     * @param testCaseID
-     */
-    public void checkReportTestLinkLogin(String testCaseID) {
-        String sResult = result.getResult();
-        if (sResult.equals("p")) {
-            try {
-                System.out.println("Result: " + sResult);
-                getHelper().takeScreenshot(screenShot_login,"Market_passed\\", testCaseID);
-                getHelper().updateTestLinkResult(TEST_PROJECT, TEST_PLAN, testCaseID, TEST_BUILD, null, sResult);
-            } catch (TestLinkAPIException e) {
-                e.printStackTrace();
-            }
+    public void verifyButtonGotItInvisible() throws InterruptedException {
+        result.setExpectation("The button [Got it] should be invisible");
+        System.out.println("Is button [Got it] existed == " + getHelper().isElementPresent(getButtonGotIt()));
+        if (getHelper().isElementPresent(getButtonGotIt()))
+        {
+            result.setResult(failed);
+            result.setObservation("Text button [Got it] still visible");
+        }
+        result.check();
+    }
 
-        } else {
-            try {
-                System.out.println("Result: " + sResult);
-                getHelper().takeScreenshot(screenShot_login,"Market_failed\\", testCaseID);
-                getHelper().updateTestLinkResult(TEST_PROJECT, TEST_PLAN, testCaseID, TEST_BUILD, null, sResult);
-            } catch (TestLinkAPIException e) {
-                e.printStackTrace();
-            } catch (Exception e) {
-                e.getMessage();
-            }
+    public void clickButtonGotIt(){
+        result.setExpectation("Click the button [Got it]");
+        sNameMethod = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            getHelper().findElement(getButtonGotIt()).click();
+        }catch (Exception ex){
+            checkFail("Button [Got it] NOT EXIST or NOT clickable "+ ex.getMessage());
         }
     }
-//
-//
-//
-//    public void testdemo() {
-//
-//        getHelper().findElement(getClickLanguageTwo()).click();
-////        getHelper().findElement(getClickLanguageOne()).click();
-//        getHelper().findElement(getClickNextButton()).click();
-////        driver.findElement(By.id("com.foody.vn.activity.demo:id/vTwo")).click();
-////        driver.findElement(By.id("com.foody.vn.activity.demo:id/vOne")).click();
-////        driver.findElement(By.id("com.foody.vn.activity.demo:id/btnDone")).click();
-//    }
-//    public void checkTestLinkTC04() throws TestLinkAPIException {
-//        String str1="a";
-//        String str2="a";
-//        if(str1.equals(str2)){
-//            result.setResult(failed);
-//            result.setObservation("should be passed");
-//        }
-////        result.check();
-//    }
-//    public void checkTestLinkTC05() throws TestLinkAPIException {
-//        String str1="a";
-//        String str2="b";
-//        if(str1.equals(str2)){
-//            result.setResult(failed);
-//            result.setObservation("should be passed");
-//        }
-////        result.check();
-//    }
-//    public void checkTestLinkTC07(){
-//        System.out.println("check fail");
-//        getHelper().findElement("abc").click();
-//    }
-//    public void clickIndonesiaLanguage(){
-//        System.out.println("click indonesia language");
-//        getHelper().findElement(getClickLanguageTwo()).click();
-//    }
-//    public void clickNextButton(){
-//        System.out.println("click next button");
-//        getHelper().findElement(getClickNextButton()).click();
-//    }
 
+    public void clickAnywhereOnInstructon(){
+        result.setExpectation("Click on [Instruction text]");
+        sNameMethod = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            getHelper().findElement(getTextInstruction()).click();
+        }catch (Exception ex){
+            checkFail("The [Instruction text] NOT EXIST or NOT clickable "+ ex.getMessage());
+        }
+    }
+
+    public void verifyBannerIsVisible() {
+        result.setExpectation("Check the [Banner] is visible");
+        sNameMethod = new Object(){}.getClass().getEnclosingMethod().getName();
+        try{
+            getHelper().waitElementIsDisplayed(getHelper().byLocator(getImageBannerLocator()));
+        }catch (Exception ex){
+            checkFail("The [Banner IMG] NOT EXIST "+ ex.getMessage());
+        }
+    }
 }

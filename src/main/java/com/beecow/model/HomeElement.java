@@ -1,11 +1,18 @@
 package com.beecow.model;
 
+import com.beecow.utils.Utils;
+
 /**
- * Created by PhuocHa on 01/10/2017.
+ * Created by PhuocHa on 02/15/2017.
  */
 
 public class HomeElement {
 
-    // TO DO
+    public static String getActivityMainLocator(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "resourceID::activity_main_pager";
+        }
+        return "ios";
+    }
 }
 
