@@ -1,0 +1,113 @@
+
+/* Class = "UILabel"; text = "Would you like to make new"; ObjectID = "2dn-tl-j1A"; */
+"2dn-tl-j1A.text" = "Would you like to make new";
+
+/* Class = "UILabel"; text = "The 1st one is your main photo."; ObjectID = "3My-0u-tTT"; */
+"3My-0u-tTT.text" = "The 1st one is your main photo.";
+
+/* Class = "UITextField"; placeholder = "Enter 6-20 characters"; ObjectID = "48J-Ey-FEq"; */
+"48J-Ey-FEq.placeholder" = "Enter 6-20 characters";
+
+/* Class = "UIButton"; normalTitle = "Choose"; ObjectID = "AYL-mN-wyZ"; */
+"AYL-mN-wyZ.normalTitle" = "Choose";
+
+/* Class = "UILabel"; text = "Expired date: Jan 27, 2017"; ObjectID = "AkN-B2-AIr"; */
+"AkN-B2-AIr.text" = "Expired date: Jan 27, 2017";
+
+/* Class = "UILabel"; text = "friends? Turn on Cupid feature"; ObjectID = "Cr4-n7-kun"; */
+"Cr4-n7-kun.text" = "friends? Turn on Cupid feature";
+
+/* Class = "UITextField"; placeholder = "Add your birthday"; ObjectID = "EXe-mB-25x"; */
+"EXe-mB-25x.placeholder" = "Add your birthday";
+
+/* Class = "UIButton"; normalTitle = "Matched"; ObjectID = "Fwo-AK-bKc"; */
+"Fwo-AK-bKc.normalTitle" = "Matched";
+
+/* Class = "UIButton"; normalTitle = "Change"; ObjectID = "Jam-bH-NF4"; */
+"Jam-bH-NF4.normalTitle" = "Change";
+
+/* Class = "UIButton"; normalTitle = "Saved"; ObjectID = "Jmj-MZ-A9A"; */
+"Jmj-MZ-A9A.normalTitle" = "Saved";
+
+/* Class = "UILabel"; text = "Select up to 5 photos for your Cupid profile. "; ObjectID = "JsA-ts-vxd"; */
+"JsA-ts-vxd.text" = "Select up to 5 photos for your Cupid profile. ";
+
+/* Class = "UILabel"; text = "3 km"; ObjectID = "Kxj-ya-sfO"; */
+"Kxj-ya-sfO.text" = "3 km";
+
+/* Class = "UILabel"; text = "0/0"; ObjectID = "LCZ-3r-jsR"; */
+"LCZ-3r-jsR.text" = "0/0";
+
+/* Class = "UILabel"; text = "Gender"; ObjectID = "MRl-WR-78F"; */
+"MRl-WR-78F.text" = "Gender";
+
+/* Class = "UILabel"; text = "Height 173cm"; ObjectID = "NqT-DA-CmH"; */
+"NqT-DA-CmH.text" = "Height 173cm";
+
+/* Class = "UILabel"; text = "Hobbies"; ObjectID = "Qil-tO-5gy"; */
+"Qil-tO-5gy.text" = "Hobbies";
+
+/* Class = "UILabel"; text = "Camera roll"; ObjectID = "S0U-EV-YqK"; */
+"S0U-EV-YqK.text" = "Camera roll";
+
+/* Class = "UILabel"; text = "My alias"; ObjectID = "Vu7-mO-ioX"; */
+"Vu7-mO-ioX.text" = "My alias";
+
+/* Class = "UIButton"; normalTitle = "Gift"; ObjectID = "Z9D-SF-wJy"; */
+"Z9D-SF-wJy.normalTitle" = "Gift";
+
+/* Class = "UILabel"; text = "25 yrs old"; ObjectID = "Z9S-xJ-mzI"; */
+"Z9S-xJ-mzI.text" = "25 yrs old";
+
+/* Class = "UINavigationItem"; title = "Cupid"; ObjectID = "ZUL-3r-HVe"; */
+"ZUL-3r-HVe.title" = "Cupid";
+
+/* Class = "UISegmentedControl"; iW2-3E-uFz.segmentTitles[0] = "Man"; ObjectID = "iW2-3E-uFz"; */
+"iW2-3E-uFz.segmentTitles[0]" = "Man";
+
+/* Class = "UISegmentedControl"; iW2-3E-uFz.segmentTitles[1] = "Woman"; ObjectID = "iW2-3E-uFz"; */
+"iW2-3E-uFz.segmentTitles[1]" = "Woman";
+
+/* Class = "UISegmentedControl"; iW2-3E-uFz.segmentTitles[2] = "Both"; ObjectID = "iW2-3E-uFz"; */
+"iW2-3E-uFz.segmentTitles[2]" = "Both";
+
+/* Class = "UISegmentedControl"; jdP-AX-7tz.segmentTitles[0] = "Man"; ObjectID = "jdP-AX-7tz"; */
+"jdP-AX-7tz.segmentTitles[0]" = "Man";
+
+/* Class = "UISegmentedControl"; jdP-AX-7tz.segmentTitles[1] = "Woman"; ObjectID = "jdP-AX-7tz"; */
+"jdP-AX-7tz.segmentTitles[1]" = "Woman";
+
+/* Class = "UILabel"; text = "Graduated from College"; ObjectID = "kDO-F9-W9P"; */
+"kDO-F9-W9P.text" = "Graduated from College";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "kpd-LN-T0L"; */
+"kpd-LN-T0L.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "Main photo"; ObjectID = "lh2-EM-nId"; */
+"lh2-EM-nId.text" = "Main photo";
+
+/* Class = "UILabel"; text = "Francessca Lilley"; ObjectID = "tW7-L6-DCp"; */
+"tW7-L6-DCp.text" = "Francessca Lilley";
+
+/* Class = "UILabel"; text = "Birthday"; ObjectID = "w8W-Ae-rrC"; */
+"w8W-Ae-rrC.text" = "Birthday";
+
+/* Class = "UILabel"; text = "Working in Human Resources"; ObjectID = "wAp-OF-b48"; */
+"wAp-OF-b48.text" = "Working in Human Resources";
+
+/* Class = "UILabel"; text = "Looking For"; ObjectID = "wxI-bt-3b0"; */
+"wxI-bt-3b0.text" = "Looking For";
+
+/* Class = "UILabel"; text = "Information"; ObjectID = "xcg-TZ-O7l"; */
+"xcg-TZ-O7l.text" = "Information";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "y0w-T4-fih"; */
+"y0w-T4-fih.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Cupid"; ObjectID = "y6Q-NL-EgG"; */
+"y6Q-NL-EgG.title" = "Cupid";
+
+/* Class = "UILabel"; text = "I’m a smoker and socially drinker"; ObjectID = "yf1-XY-nk1"; */
+"yf1-XY-nk1.text" = "I’m a smoker and socially drinker";
+
+

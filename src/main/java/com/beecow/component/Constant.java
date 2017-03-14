@@ -6,7 +6,7 @@ package com.beecow.component;
 public class Constant {
 
 //"C:\Program Files (x86)\Appium\node.exe" "C:\Program Files (x86)\Appium\node_modules\appium\lib\server\main.js" --address 127.0.0.1 --port 4723 --avd Nexus4
-    public static final MOBILE_PLATFORM TYPE_PLATFORM = MOBILE_PLATFORM.ANDROID;
+    public static final MOBILE_PLATFORM TYPE_PLATFORM = MOBILE_PLATFORM.IOS;
     public enum MOBILE_PLATFORM{
         ANDROID,
         IOS,
@@ -15,7 +15,7 @@ public class Constant {
     }
 
     // TEST LINK
-    public static final String DEVKEY ="3cc28a5f276693c9386eaeecf401b1d1";
+    public static final String DEVKEY ="bed1de6a318ab11678ee0b96272eefba";
     public static final String URL ="http://192.168.1.124/testlink/lib/api/xmlrpc/v1/xmlrpc.php";
 
     //Constant

@@ -41,7 +41,7 @@ public class TestLink {
      */
     public static void updateResult(String testProject, String testPlan, String testCaseName,String build, String ExcutionNote, String result) throws TestLinkAPIException {
         System.out.println("Start update result to Testlink");
-        TestLinkAPIClient testlinkAPIClient = new TestLinkAPIClient(testlinkDevKey,URL);
+        TestLinkAPIClient testlinkAPIClient = new TestLinkAPIClient("bed1de6a318ab11678ee0b96272eefba",URL);
         testlinkAPIClient.reportTestCaseResult(testProject, testPlan, testCaseName, build, ExcutionNote, result);
         System.out.println("End update result to Testlink");
     }

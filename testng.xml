@@ -1,43 +1,43 @@
-<?xml version="1.0"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!--<?xml version="1.0"?>-->
+<!--<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">-->
 
-<!--<!–  Specify the test suite name –>-->
+<!--&lt;!&ndash;<!–  Specify the test suite name –>&ndash;&gt;-->
 
-<suite name="Test Suite Demo" verbose="1" >
-    <test name="The Internet Site Demo" >
-        <classes>
-            <!--For Non login users-->
-            <class name="testSuites.LoginPage"/>
+<!--<suite name="Test Suite Demo" verbose="1" >-->
+    <!--<test name="The Internet Site Demo" >-->
+        <!--<classes>-->
+            <!--&lt;!&ndash;For Non login users&ndash;&gt;-->
+            <!--<class name="testSuites.LoginPage"/>-->
 
 
-        </classes>
-    </test>
-</suite>
-<!--<!–  Specify the test suite name –>-->
-
-<!--<suite name="DeviceSuite" annotations="JDK" parallel="tests">-->
-        <!--<test name="Device 1">-->
-                <!--<parameter name="port" value="4723"></parameter>-->
-                <!--<parameter name="device" value="192.168.16.103:5656"></parameter>-->
-                <!--<classes>-->
-                        <!--<class name="testSuites.LoginPage">-->
-                                <!--<methods>-->
-                                    <!--<include name="testDemo" />-->
-                                <!--</methods>-->
-                        <!--</class>-->
-                <!--</classes>-->
-        <!--</test>-->
-        <!--<test name="Device 2 Sony">-->
-
-                <!--<parameter name="port" value="4724"></parameter>-->
-                <!--<parameter name="device" value="192.168.16.106:5657"></parameter>-->
-                <!--<classes>-->
-                        <!--<class name="testSuites.LoginPage">-->
-                                <!--<methods>-->
-                                    <!--<include name="testDemo" />-->
-                                <!--</methods>-->
-                        <!--</class>-->
-                <!--</classes>-->
-        <!--</test>-->
+        <!--</classes>-->
+    <!--</test>-->
 <!--</suite>-->
+<!--&lt;!&ndash;<!–  Specify the test suite name –>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<suite name="DeviceSuite" annotations="JDK" parallel="tests">&ndash;&gt;-->
+        <!--&lt;!&ndash;<test name="Device 1">&ndash;&gt;-->
+                <!--&lt;!&ndash;<parameter name="port" value="4723"></parameter>&ndash;&gt;-->
+                <!--&lt;!&ndash;<parameter name="device" value="192.168.16.103:5656"></parameter>&ndash;&gt;-->
+                <!--&lt;!&ndash;<classes>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<class name="testSuites.LoginPage">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<methods>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<include name="testDemo" />&ndash;&gt;-->
+                                <!--&lt;!&ndash;</methods>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</class>&ndash;&gt;-->
+                <!--&lt;!&ndash;</classes>&ndash;&gt;-->
+        <!--&lt;!&ndash;</test>&ndash;&gt;-->
+        <!--&lt;!&ndash;<test name="Device 2 Sony">&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<parameter name="port" value="4724"></parameter>&ndash;&gt;-->
+                <!--&lt;!&ndash;<parameter name="device" value="192.168.16.106:5657"></parameter>&ndash;&gt;-->
+                <!--&lt;!&ndash;<classes>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<class name="testSuites.LoginPage">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<methods>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<include name="testDemo" />&ndash;&gt;-->
+                                <!--&lt;!&ndash;</methods>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</class>&ndash;&gt;-->
+                <!--&lt;!&ndash;</classes>&ndash;&gt;-->
+        <!--&lt;!&ndash;</test>&ndash;&gt;-->
+<!--&lt;!&ndash;</suite>&ndash;&gt;-->
 

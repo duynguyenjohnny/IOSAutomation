@@ -1,0 +1,957 @@
+[
+  {
+    "order": 1,
+    "type": 1,
+    "name": "Last minutes",
+    "metadate": [{
+        "vi.display":"A",
+        "en.display":"B"}
+      ],
+    "data": [
+      {
+        "id": 4,
+        "name": "Combo double buffet vouchers for weekend",
+        "currency": "Ks",
+        "unitPrice": 15000,
+        "description": "6-course meal includes one shared appetizer, two main dishes and one shared dessert\nChoice of appetizers include: crispy calamari with smoked lemon tartar sauce, trio's sliders featuring beef, chicken & salmon sliders or artichoke spinach dip with crab meat & pita chips\nChoice of any two main dishes include: striploin steak featuring smashed potatoes and seasonal vegetables; cornish hen featuring garlic mash, baby carrots and rosemary jus; or salmon with quinoa salad and citrus beurre blanc\nFinish the meal with 1 shared dessert, with choice of creme brulee, cheesecake or chocolate cake\nIncludes wine or beer with your meal and Char 631 Modern Steakhouse offers a wide range of vintage wines and creative cocktails to further enhance your dining experience",
+        "cateID": 1463,
+        "sellerID": "1001",
+        "totalLike": 300,
+        "totalComment": 200,
+        "itemType": "DEAL",
+        "discount": 40,
+        "createdDate": "2017-02-15T00:00:00Z",
+        "updatedDate": null,
+        "totalItem": 500,
+        "soldItem": 30,
+        "expiredDate": "2017-03-15T00:00:00Z",
+        "images": [
+          {
+            "id": 4,
+            "path": "feed/images/1159",
+            "rank": 1,
+            "mediaFileId": 4,
+            "width": 650,
+            "height": 650,
+            "itemId": 4
+          }
+        ],
+        "remainTime": 1265967818
+      },
+      {
+        "id": 3,
+        "name": "Buffet Royal City Restaurant 2 - Dining",
+        "currency": "Ks",
+        "unitPrice": 25000,
+        "description": "5-course meal includes one shared appetizer, two main dishes and one shared dessert\nChoice of appetizers include: crispy calamari with smoked lemon tartar sauce, trio's sliders featuring beef, chicken & salmon sliders or artichoke spinach dip with crab meat & pita chips\nChoice of any two main dishes include: striploin steak featuring smashed potatoes and seasonal vegetables; cornish hen featuring garlic mash, baby carrots and rosemary jus; or salmon with quinoa salad and citrus beurre blanc\nFinish the meal with 1 shared dessert, with choice of creme brulee, cheesecake or chocolate cake\nIncludes wine or beer with your meal and Char 631 Modern Steakhouse offers a wide range of vintage wines and creative cocktails to further enhance your dining experience",
+        "cateID": 1463,
+        "sellerID": "1001",
+        "totalLike": 300,
+        "totalComment": 200,
+        "itemType": "DEAL",
+        "discount": 40,
+        "createdDate": "2017-02-17T00:00:00Z",
+        "updatedDate": null,
+        "totalItem": 500,
+        "soldItem": 20,
+        "expiredDate": null,
+        "images": [
+          {
+            "id": 3,
+            "path": "feed/images/1157",
+            "rank": 1,
+            "mediaFileId": 3,
+            "width": 650,
+            "height": 650,
+            "itemId": 3
+          }
+        ],
+        "remainTime": null
+      },
+      {
+        "id": 2,
+        "name": "New Opening Restaurant - Families best suiteItem 2",
+        "currency": "Ks",
+        "unitPrice": 25000,
+        "description": "4-course meal includes one shared appetizer, two main dishes and one shared dessert\nChoice of appetizers include: crispy calamari with smoked lemon tartar sauce, trio's sliders featuring beef, chicken & salmon sliders or artichoke spinach dip with crab meat & pita chips\nChoice of any two main dishes include: striploin steak featuring smashed potatoes and seasonal vegetables; cornish hen featuring garlic mash, baby carrots and rosemary jus; or salmon with quinoa salad and citrus beurre blanc\nFinish the meal with 1 shared dessert, with choice of creme brulee, cheesecake or chocolate cake\nIncludes wine or beer with your meal and Char 631 Modern Steakhouse offers a wide range of vintage wines and creative cocktails to further enhance your dining experience",
+        "cateID": 1463,
+        "sellerID": "1001",
+        "totalLike": 300,
+        "totalComment": 200,
+        "itemType": "DEAL",
+        "discount": 40,
+        "createdDate": "2017-02-15T00:00:00Z",
+        "updatedDate": null,
+        "totalItem": 500,
+        "soldItem": 400,
+        "expiredDate": null,
+        "images": [
+          {
+            "id": 2,
+            "path": "feed/images/1166",
+            "rank": 1,
+            "mediaFileId": 2,
+            "width": 960,
+            "height": 809,
+            "itemId": 2
+          }
+        ],
+        "remainTime": null
+      },
+      {
+        "id": 1,
+        "name": "Buffet Chooki Restaurant - Combo super delicious hotpot",
+        "currency": "Ks",
+        "unitPrice": 20000,
+        "description": "3-course meal includes one shared appetizer, two main dishes and one shared dessert\nChoice of appetizers include: crispy calamari with smoked lemon tartar sauce, trio's sliders featuring beef, chicken & salmon sliders or artichoke spinach dip with crab meat & pita chips\nChoice of any two main dishes include: striploin steak featuring smashed potatoes and seasonal vegetables; cornish hen featuring garlic mash, baby carrots and rosemary jus; or salmon with quinoa salad and citrus beurre blanc\nFinish the meal with 1 shared dessert, with choice of creme brulee, cheesecake or chocolate cake\nIncludes wine or beer with your meal and Char 631 Modern Steakhouse offers a wide range of vintage wines and creative cocktails to further enhance your dining experience",
+        "cateID": 1463,
+        "sellerID": "1001",
+        "totalLike": 300,
+        "totalComment": 200,
+        "itemType": "DEAL",
+        "discount": 30,
+        "createdDate": "2017-02-12T00:00:00Z",
+        "updatedDate": null,
+        "totalItem": 500,
+        "soldItem": 100,
+        "expiredDate": null,
+        "images": [
+          {
+            "id": 1,
+            "path": "feed/images/1172",
+            "rank": 1,
+            "mediaFileId": 1,
+            "width": 800,
+            "height": 800,
+            "itemId": 1
+          }
+        ],
+        "remainTime": null
+      }
+    ]
+  },
+  {
+    "order": 2,
+    "type": 2,
+    "name": "Last vouchers",
+    "metadate": [{
+        "vi.display":"A",
+        "en.display":"B"}
+      ],
+    "data": [
+      {
+        "id": 4,
+        "name": "Combo double buffet vouchers for weekend",
+        "currency": "Ks",
+        "unitPrice": 15000,
+        "description": "6-course meal includes one shared appetizer, two main dishes and one shared dessert\nChoice of appetizers include: crispy calamari with smoked lemon tartar sauce, trio's sliders featuring beef, chicken & salmon sliders or artichoke spinach dip with crab meat & pita chips\nChoice of any two main dishes include: striploin steak featuring smashed potatoes and seasonal vegetables; cornish hen featuring garlic mash, baby carrots and rosemary jus; or salmon with quinoa salad and citrus beurre blanc\nFinish the meal with 1 shared dessert, with choice of creme brulee, cheesecake or chocolate cake\nIncludes wine or beer with your meal and Char 631 Modern Steakhouse offers a wide range of vintage wines and creative cocktails to further enhance your dining experience",
+        "cateID": 1463,
+        "sellerID": "1001",
+        "totalLike": 300,
+        "totalComment": 200,
+        "itemType": "DEAL",
+        "discount": 40,
+        "createdDate": "2017-02-15T00:00:00Z",
+        "updatedDate": null,
+        "totalItem": 500,
+        "soldItem": 30,
+        "expiredDate": "2017-03-15T00:00:00Z",
+        "images": [
+          {
+            "id": 4,
+            "path": "feed/images/1159",
+            "rank": 1,
+            "mediaFileId": 4,
+            "width": 650,
+            "height": 650,
+            "itemId": 4
+          }
+        ],
+        "remainTime": 1265967818
+      },
+      {
+        "id": 3,
+        "name": "Buffet Royal City Restaurant 2 - Dining",
+        "currency": "Ks",
+        "unitPrice": 25000,
+        "description": "5-course meal includes one shared appetizer, two main dishes and one shared dessert\nChoice of appetizers include: crispy calamari with smoked lemon tartar sauce, trio's sliders featuring beef, chicken & salmon sliders or artichoke spinach dip with crab meat & pita chips\nChoice of any two main dishes include: striploin steak featuring smashed potatoes and seasonal vegetables; cornish hen featuring garlic mash, baby carrots and rosemary jus; or salmon with quinoa salad and citrus beurre blanc\nFinish the meal with 1 shared dessert, with choice of creme brulee, cheesecake or chocolate cake\nIncludes wine or beer with your meal and Char 631 Modern Steakhouse offers a wide range of vintage wines and creative cocktails to further enhance your dining experience",
+        "cateID": 1463,
+        "sellerID": "1001",
+        "totalLike": 300,
+        "totalComment": 200,
+        "itemType": "DEAL",
+        "discount": 40,
+        "createdDate": "2017-02-17T00:00:00Z",
+        "updatedDate": null,
+        "totalItem": 500,
+        "soldItem": 20,
+        "expiredDate": null,
+        "images": [
+          {
+            "id": 3,
+            "path": "feed/images/1157",
+            "rank": 1,
+            "mediaFileId": 3,
+            "width": 650,
+            "height": 650,
+            "itemId": 3
+          }
+        ],
+        "remainTime": null
+      },
+      {
+        "id": 2,
+        "name": "New Opening Restaurant - Families best suiteItem 2",
+        "currency": "Ks",
+        "unitPrice": 25000,
+        "description": "4-course meal includes one shared appetizer, two main dishes and one shared dessert\nChoice of appetizers include: crispy calamari with smoked lemon tartar sauce, trio's sliders featuring beef, chicken & salmon sliders or artichoke spinach dip with crab meat & pita chips\nChoice of any two main dishes include: striploin steak featuring smashed potatoes and seasonal vegetables; cornish hen featuring garlic mash, baby carrots and rosemary jus; or salmon with quinoa salad and citrus beurre blanc\nFinish the meal with 1 shared dessert, with choice of creme brulee, cheesecake or chocolate cake\nIncludes wine or beer with your meal and Char 631 Modern Steakhouse offers a wide range of vintage wines and creative cocktails to further enhance your dining experience",
+        "cateID": 1463,
+        "sellerID": "1001",
+        "totalLike": 300,
+        "totalComment": 200,
+        "itemType": "DEAL",
+        "discount": 40,
+        "createdDate": "2017-02-15T00:00:00Z",
+        "updatedDate": null,
+        "totalItem": 500,
+        "soldItem": 400,
+        "expiredDate": null,
+        "images": [
+          {
+            "id": 2,
+            "path": "feed/images/1166",
+            "rank": 1,
+            "mediaFileId": 2,
+            "width": 960,
+            "height": 809,
+            "itemId": 2
+          }
+        ],
+        "remainTime": null
+      },
+      {
+        "id": 1,
+        "name": "Buffet Chooki Restaurant - Combo super delicious hotpot",
+        "currency": "Ks",
+        "unitPrice": 20000,
+        "description": "3-course meal includes one shared appetizer, two main dishes and one shared dessert\nChoice of appetizers include: crispy calamari with smoked lemon tartar sauce, trio's sliders featuring beef, chicken & salmon sliders or artichoke spinach dip with crab meat & pita chips\nChoice of any two main dishes include: striploin steak featuring smashed potatoes and seasonal vegetables; cornish hen featuring garlic mash, baby carrots and rosemary jus; or salmon with quinoa salad and citrus beurre blanc\nFinish the meal with 1 shared dessert, with choice of creme brulee, cheesecake or chocolate cake\nIncludes wine or beer with your meal and Char 631 Modern Steakhouse offers a wide range of vintage wines and creative cocktails to further enhance your dining experience",
+        "cateID": 1463,
+        "sellerID": "1001",
+        "totalLike": 300,
+        "totalComment": 200,
+        "itemType": "DEAL",
+        "discount": 30,
+        "createdDate": "2017-02-12T00:00:00Z",
+        "updatedDate": null,
+        "totalItem": 500,
+        "soldItem": 100,
+        "expiredDate": null,
+        "images": [
+          {
+            "id": 1,
+            "path": "feed/images/1172",
+            "rank": 1,
+            "mediaFileId": 1,
+            "width": 800,
+            "height": 800,
+            "itemId": 1
+          }
+        ],
+        "remainTime": null
+      }
+    ]
+  },
+  {
+    "order": 3,
+    "type": 2,
+    "name": "Meals",
+    "categoryId": 2,
+    "data": [
+      {
+        "id": 5,
+        "name": "Slim fit long sleeve T Shirt men trend casual",
+        "currency": "Ks",
+        "unitPrice": 75000,
+        "description": "Linen T-shirt with thin stripes. Model with round neck and short sleeves MODEL HEIGHT: 189 CM SIZE L. A 100% cotton t-shirt with a professionally applied print, celebrating the incredible Whyman family! Designed and printed just for you by your friends at the Ann Arbor T-shirt Company in Ann Arbor, Michigan. It says: Whyman: English. Attractive, charming, strong, kind, intelligent, and modest. Respected by elders, beloved by children, and admired by peers. The colour-contrasting cuffs on sleeves and neck turn this T-shirt into a sporty companion that can be combined with a host of styles. Relaxed and comfy, high round neck\nSleeve cuffs and neck in contrasting colour. High-quality, pre-shrunk single jersey fabric 175 g/m². Material: 100% cotton",
+        "cateID": 1063,
+        "sellerID": "1001",
+        "totalLike": 999,
+        "totalComment": 320,
+        "itemType": "BUSINESS_PRODUCT",
+        "discount": 20,
+        "createdDate": "2017-02-23T09:00:00Z",
+        "updatedDate": null,
+        "totalItem": 900,
+        "soldItem": 500,
+        "expiredDate": null,
+        "images": [
+          {
+            "id": 5,
+            "path": "feed/images/1146",
+            "rank": 1,
+            "mediaFileId": 5,
+            "width": 800,
+            "height": 800,
+            "itemId": 5
+          },
+          {
+            "id": 6,
+            "path": "feed/images/1145",
+            "rank": 2,
+            "mediaFileId": 6,
+            "width": 800,
+            "height": 800,
+            "itemId": 5
+          },
+          {
+            "id": 7,
+            "path": "feed/images/1143",
+            "rank": 3,
+            "mediaFileId": 7,
+            "width": 800,
+            "height": 800,
+            "itemId": 5
+          },
+          {
+            "id": 8,
+            "path": "feed/images/1142",
+            "rank": 4,
+            "mediaFileId": 8,
+            "width": 800,
+            "height": 1100,
+            "itemId": 5
+          },
+          {
+            "id": 9,
+            "path": "feed/images/1140",
+            "rank": 5,
+            "mediaFileId": 9,
+            "width": 1100,
+            "height": 800,
+            "itemId": 5
+          },
+          {
+            "id": 10,
+            "path": "feed/images/1147",
+            "rank": 6,
+            "mediaFileId": 10,
+            "width": 1100,
+            "height": 800,
+            "itemId": 5
+          }
+        ],
+        "remainTime": null
+      },
+      {
+        "id": 6,
+        "name": "Casual brand T-shirt trend casual for men",
+        "currency": "Ks",
+        "unitPrice": 50000,
+        "description": "Model with round neck and short sleeves MODEL HEIGHT: 189 CM SIZE L. A 100% cotton t-shirt with a professionally applied print.",
+        "cateID": 1063,
+        "sellerID": "1001",
+        "totalLike": 800,
+        "totalComment": 200,
+        "itemType": "BUSINESS_PRODUCT",
+        "discount": 10,
+        "createdDate": "2017-02-18T10:00:00Z",
+        "updatedDate": null,
+        "totalItem": 500,
+        "soldItem": 300,
+        "expiredDate": null,
+        "images": [
+          {
+            "id": 11,
+            "path": "feed/images/1144",
+            "rank": 1,
+            "mediaFileId": 11,
+            "width": 800,
+            "height": 800,
+            "itemId": 6
+          }
+        ],
+        "remainTime": null
+      },
+      {
+        "id": 7,
+        "name": "2017 Spring and Autumn warm T-Shirt for men",
+        "currency": "Ks",
+        "unitPrice": 90000,
+        "description": " A 100% cotton t-shirt with a professionally applied print, celebrating the incredible Whyman family! Designed and printed just for you by your friends at the Ann Arbor T-shirt Company in Ann Arbor, Michigan",
+        "cateID": 1063,
+        "sellerID": "1001",
+        "totalLike": 540,
+        "totalComment": 200,
+        "itemType": "BUSINESS_PRODUCT",
+        "discount": 10,
+        "createdDate": "2017-02-20T09:00:00Z",
+        "updatedDate": null,
+        "totalItem": 500,
+        "soldItem": 300,
+        "expiredDate": null,
+        "images": [
+          {
+            "id": 12,
+            "path": "feed/images/1134",
+            "rank": 1,
+            "mediaFileId": 12,
+            "width": 800,
+            "height": 800,
+            "itemId": 7
+          }
+        ],
+        "remainTime": null
+      },
+      {
+        "id": 8,
+        "name": "Brand new fashion men clothes solid long sleeve slim fit",
+        "currency": "Ks",
+        "unitPrice": 100000,
+        "description": "Designed and printed just for you by your friends at the Ann Arbor T-shirt Company in Ann Arbor, Michigan. It says: Whyman: English. Attractive, charming, strong, kind, intelligent, and modest. Respected by elders, beloved by children, and admired by peers.",
+        "cateID": 1063,
+        "sellerID": "1001",
+        "totalLike": 435,
+        "totalComment": 200,
+        "itemType": "BUSINESS_PRODUCT",
+        "discount": 50,
+        "createdDate": "2017-02-21T09:00:00Z",
+        "updatedDate": null,
+        "totalItem": 500,
+        "soldItem": 300,
+        "expiredDate": null,
+        "images": [
+          {
+            "id": 13,
+            "path": "feed/images/1138",
+            "rank": 1,
+            "mediaFileId": 13,
+            "width": 800,
+            "height": 800,
+            "itemId": 8
+          }
+        ],
+        "remainTime": null
+      }
+    ]
+  },
+ {
+ "order": 4,
+ "type": 2,
+ "name": "Spa Deals",
+ "categoryId": 2,
+ "data": [
+          {
+          "id": 5,
+          "name": "Slim fit long sleeve T Shirt men trend casual",
+          "currency": "Ks",
+          "unitPrice": 75000,
+          "description": "Linen T-shirt with thin stripes. Model with round neck and short sleeves MODEL HEIGHT: 189 CM SIZE L. A 100% cotton t-shirt with a professionally applied print, celebrating the incredible Whyman family! Designed and printed just for you by your friends at the Ann Arbor T-shirt Company in Ann Arbor, Michigan. It says: Whyman: English. Attractive, charming, strong, kind, intelligent, and modest. Respected by elders, beloved by children, and admired by peers. The colour-contrasting cuffs on sleeves and neck turn this T-shirt into a sporty companion that can be combined with a host of styles. Relaxed and comfy, high round neck\nSleeve cuffs and neck in contrasting colour. High-quality, pre-shrunk single jersey fabric 175 g/m². Material: 100% cotton",
+          "cateID": 1063,
+          "sellerID": "1001",
+          "totalLike": 999,
+          "totalComment": 320,
+          "itemType": "BUSINESS_PRODUCT",
+          "discount": 20,
+          "createdDate": "2017-02-23T09:00:00Z",
+          "updatedDate": null,
+          "totalItem": 900,
+          "soldItem": 500,
+          "expiredDate": null,
+          "images": [
+                     {
+                     "id": 5,
+                     "path": "feed/images/1146",
+                     "rank": 1,
+                     "mediaFileId": 5,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 5
+                     },
+                     {
+                     "id": 6,
+                     "path": "feed/images/1145",
+                     "rank": 2,
+                     "mediaFileId": 6,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 5
+                     },
+                     {
+                     "id": 7,
+                     "path": "feed/images/1143",
+                     "rank": 3,
+                     "mediaFileId": 7,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 5
+                     },
+                     {
+                     "id": 8,
+                     "path": "feed/images/1142",
+                     "rank": 4,
+                     "mediaFileId": 8,
+                     "width": 800,
+                     "height": 1100,
+                     "itemId": 5
+                     },
+                     {
+                     "id": 9,
+                     "path": "feed/images/1140",
+                     "rank": 5,
+                     "mediaFileId": 9,
+                     "width": 1100,
+                     "height": 800,
+                     "itemId": 5
+                     },
+                     {
+                     "id": 10,
+                     "path": "feed/images/1147",
+                     "rank": 6,
+                     "mediaFileId": 10,
+                     "width": 1100,
+                     "height": 800,
+                     "itemId": 5
+                     }
+                     ],
+          "remainTime": null
+          },
+          {
+          "id": 6,
+          "name": "Casual brand T-shirt trend casual for men",
+          "currency": "Ks",
+          "unitPrice": 50000,
+          "description": "Model with round neck and short sleeves MODEL HEIGHT: 189 CM SIZE L. A 100% cotton t-shirt with a professionally applied print.",
+          "cateID": 1063,
+          "sellerID": "1001",
+          "totalLike": 800,
+          "totalComment": 200,
+          "itemType": "BUSINESS_PRODUCT",
+          "discount": 10,
+          "createdDate": "2017-02-18T10:00:00Z",
+          "updatedDate": null,
+          "totalItem": 500,
+          "soldItem": 300,
+          "expiredDate": null,
+          "images": [
+                     {
+                     "id": 11,
+                     "path": "feed/images/1144",
+                     "rank": 1,
+                     "mediaFileId": 11,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 6
+                     }
+                     ],
+          "remainTime": null
+          },
+          {
+          "id": 7,
+          "name": "2017 Spring and Autumn warm T-Shirt for men",
+          "currency": "Ks",
+          "unitPrice": 90000,
+          "description": " A 100% cotton t-shirt with a professionally applied print, celebrating the incredible Whyman family! Designed and printed just for you by your friends at the Ann Arbor T-shirt Company in Ann Arbor, Michigan",
+          "cateID": 1063,
+          "sellerID": "1001",
+          "totalLike": 540,
+          "totalComment": 200,
+          "itemType": "BUSINESS_PRODUCT",
+          "discount": 10,
+          "createdDate": "2017-02-20T09:00:00Z",
+          "updatedDate": null,
+          "totalItem": 500,
+          "soldItem": 300,
+          "expiredDate": null,
+          "images": [
+                     {
+                     "id": 12,
+                     "path": "feed/images/1134",
+                     "rank": 1,
+                     "mediaFileId": 12,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 7
+                     }
+                     ],
+          "remainTime": null
+          },
+          {
+          "id": 8,
+          "name": "Brand new fashion men clothes solid long sleeve slim fit",
+          "currency": "Ks",
+          "unitPrice": 100000,
+          "description": "Designed and printed just for you by your friends at the Ann Arbor T-shirt Company in Ann Arbor, Michigan. It says: Whyman: English. Attractive, charming, strong, kind, intelligent, and modest. Respected by elders, beloved by children, and admired by peers.",
+          "cateID": 1063,
+          "sellerID": "1001",
+          "totalLike": 435,
+          "totalComment": 200,
+          "itemType": "BUSINESS_PRODUCT",
+          "discount": 50,
+          "createdDate": "2017-02-21T09:00:00Z",
+          "updatedDate": null,
+          "totalItem": 500,
+          "soldItem": 300,
+          "expiredDate": null,
+          "images": [
+                     {
+                     "id": 13,
+                     "path": "feed/images/1138",
+                     "rank": 1,
+                     "mediaFileId": 13,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 8
+                     }
+                     ],
+          "remainTime": null
+          }
+          ]
+ },
+ {
+ "order": 5,
+ "type": 2,
+ "name": "Entertainment Deals",
+ "categoryId": 2,
+ "data": [
+          {
+          "id": 5,
+          "name": "Slim fit long sleeve T Shirt men trend casual",
+          "currency": "Ks",
+          "unitPrice": 75000,
+          "description": "Linen T-shirt with thin stripes. Model with round neck and short sleeves MODEL HEIGHT: 189 CM SIZE L. A 100% cotton t-shirt with a professionally applied print, celebrating the incredible Whyman family! Designed and printed just for you by your friends at the Ann Arbor T-shirt Company in Ann Arbor, Michigan. It says: Whyman: English. Attractive, charming, strong, kind, intelligent, and modest. Respected by elders, beloved by children, and admired by peers. The colour-contrasting cuffs on sleeves and neck turn this T-shirt into a sporty companion that can be combined with a host of styles. Relaxed and comfy, high round neck\nSleeve cuffs and neck in contrasting colour. High-quality, pre-shrunk single jersey fabric 175 g/m². Material: 100% cotton",
+          "cateID": 1063,
+          "sellerID": "1001",
+          "totalLike": 999,
+          "totalComment": 320,
+          "itemType": "BUSINESS_PRODUCT",
+          "discount": 20,
+          "createdDate": "2017-02-23T09:00:00Z",
+          "updatedDate": null,
+          "totalItem": 900,
+          "soldItem": 500,
+          "expiredDate": null,
+          "images": [
+                     {
+                     "id": 5,
+                     "path": "feed/images/1146",
+                     "rank": 1,
+                     "mediaFileId": 5,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 5
+                     },
+                     {
+                     "id": 6,
+                     "path": "feed/images/1145",
+                     "rank": 2,
+                     "mediaFileId": 6,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 5
+                     },
+                     {
+                     "id": 7,
+                     "path": "feed/images/1143",
+                     "rank": 3,
+                     "mediaFileId": 7,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 5
+                     },
+                     {
+                     "id": 8,
+                     "path": "feed/images/1142",
+                     "rank": 4,
+                     "mediaFileId": 8,
+                     "width": 800,
+                     "height": 1100,
+                     "itemId": 5
+                     },
+                     {
+                     "id": 9,
+                     "path": "feed/images/1140",
+                     "rank": 5,
+                     "mediaFileId": 9,
+                     "width": 1100,
+                     "height": 800,
+                     "itemId": 5
+                     },
+                     {
+                     "id": 10,
+                     "path": "feed/images/1147",
+                     "rank": 6,
+                     "mediaFileId": 10,
+                     "width": 1100,
+                     "height": 800,
+                     "itemId": 5
+                     }
+                     ],
+          "remainTime": null
+          },
+          {
+          "id": 6,
+          "name": "Casual brand T-shirt trend casual for men",
+          "currency": "Ks",
+          "unitPrice": 50000,
+          "description": "Model with round neck and short sleeves MODEL HEIGHT: 189 CM SIZE L. A 100% cotton t-shirt with a professionally applied print.",
+          "cateID": 1063,
+          "sellerID": "1001",
+          "totalLike": 800,
+          "totalComment": 200,
+          "itemType": "BUSINESS_PRODUCT",
+          "discount": 10,
+          "createdDate": "2017-02-18T10:00:00Z",
+          "updatedDate": null,
+          "totalItem": 500,
+          "soldItem": 300,
+          "expiredDate": null,
+          "images": [
+                     {
+                     "id": 11,
+                     "path": "feed/images/1144",
+                     "rank": 1,
+                     "mediaFileId": 11,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 6
+                     }
+                     ],
+          "remainTime": null
+          },
+          {
+          "id": 7,
+          "name": "2017 Spring and Autumn warm T-Shirt for men",
+          "currency": "Ks",
+          "unitPrice": 90000,
+          "description": " A 100% cotton t-shirt with a professionally applied print, celebrating the incredible Whyman family! Designed and printed just for you by your friends at the Ann Arbor T-shirt Company in Ann Arbor, Michigan",
+          "cateID": 1063,
+          "sellerID": "1001",
+          "totalLike": 540,
+          "totalComment": 200,
+          "itemType": "BUSINESS_PRODUCT",
+          "discount": 10,
+          "createdDate": "2017-02-20T09:00:00Z",
+          "updatedDate": null,
+          "totalItem": 500,
+          "soldItem": 300,
+          "expiredDate": null,
+          "images": [
+                     {
+                     "id": 12,
+                     "path": "feed/images/1134",
+                     "rank": 1,
+                     "mediaFileId": 12,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 7
+                     }
+                     ],
+          "remainTime": null
+          },
+          {
+          "id": 8,
+          "name": "Brand new fashion men clothes solid long sleeve slim fit",
+          "currency": "Ks",
+          "unitPrice": 100000,
+          "description": "Designed and printed just for you by your friends at the Ann Arbor T-shirt Company in Ann Arbor, Michigan. It says: Whyman: English. Attractive, charming, strong, kind, intelligent, and modest. Respected by elders, beloved by children, and admired by peers.",
+          "cateID": 1063,
+          "sellerID": "1001",
+          "totalLike": 435,
+          "totalComment": 200,
+          "itemType": "BUSINESS_PRODUCT",
+          "discount": 50,
+          "createdDate": "2017-02-21T09:00:00Z",
+          "updatedDate": null,
+          "totalItem": 500,
+          "soldItem": 300,
+          "expiredDate": null,
+          "images": [
+                     {
+                     "id": 13,
+                     "path": "feed/images/1138",
+                     "rank": 1,
+                     "mediaFileId": 13,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 8
+                     }
+                     ],
+          "remainTime": null
+          }
+          ]
+ },
+ {
+ "order": 6,
+ "type": 2,
+ "name": "Travel Deals",
+ "categoryId": 2,
+ "data": [
+          {
+          "id": 5,
+          "name": "Slim fit long sleeve T Shirt men trend casual",
+          "currency": "Ks",
+          "unitPrice": 75000,
+          "description": "Linen T-shirt with thin stripes. Model with round neck and short sleeves MODEL HEIGHT: 189 CM SIZE L. A 100% cotton t-shirt with a professionally applied print, celebrating the incredible Whyman family! Designed and printed just for you by your friends at the Ann Arbor T-shirt Company in Ann Arbor, Michigan. It says: Whyman: English. Attractive, charming, strong, kind, intelligent, and modest. Respected by elders, beloved by children, and admired by peers. The colour-contrasting cuffs on sleeves and neck turn this T-shirt into a sporty companion that can be combined with a host of styles. Relaxed and comfy, high round neck\nSleeve cuffs and neck in contrasting colour. High-quality, pre-shrunk single jersey fabric 175 g/m². Material: 100% cotton",
+          "cateID": 1063,
+          "sellerID": "1001",
+          "totalLike": 999,
+          "totalComment": 320,
+          "itemType": "BUSINESS_PRODUCT",
+          "discount": 20,
+          "createdDate": "2017-02-23T09:00:00Z",
+          "updatedDate": null,
+          "totalItem": 900,
+          "soldItem": 500,
+          "expiredDate": null,
+          "images": [
+                     {
+                     "id": 5,
+                     "path": "feed/images/1146",
+                     "rank": 1,
+                     "mediaFileId": 5,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 5
+                     },
+                     {
+                     "id": 6,
+                     "path": "feed/images/1145",
+                     "rank": 2,
+                     "mediaFileId": 6,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 5
+                     },
+                     {
+                     "id": 7,
+                     "path": "feed/images/1143",
+                     "rank": 3,
+                     "mediaFileId": 7,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 5
+                     },
+                     {
+                     "id": 8,
+                     "path": "feed/images/1142",
+                     "rank": 4,
+                     "mediaFileId": 8,
+                     "width": 800,
+                     "height": 1100,
+                     "itemId": 5
+                     },
+                     {
+                     "id": 9,
+                     "path": "feed/images/1140",
+                     "rank": 5,
+                     "mediaFileId": 9,
+                     "width": 1100,
+                     "height": 800,
+                     "itemId": 5
+                     },
+                     {
+                     "id": 10,
+                     "path": "feed/images/1147",
+                     "rank": 6,
+                     "mediaFileId": 10,
+                     "width": 1100,
+                     "height": 800,
+                     "itemId": 5
+                     }
+                     ],
+          "remainTime": null
+          },
+          {
+          "id": 6,
+          "name": "Casual brand T-shirt trend casual for men",
+          "currency": "Ks",
+          "unitPrice": 50000,
+          "description": "Model with round neck and short sleeves MODEL HEIGHT: 189 CM SIZE L. A 100% cotton t-shirt with a professionally applied print.",
+          "cateID": 1063,
+          "sellerID": "1001",
+          "totalLike": 800,
+          "totalComment": 200,
+          "itemType": "BUSINESS_PRODUCT",
+          "discount": 10,
+          "createdDate": "2017-02-18T10:00:00Z",
+          "updatedDate": null,
+          "totalItem": 500,
+          "soldItem": 300,
+          "expiredDate": null,
+          "images": [
+                     {
+                     "id": 11,
+                     "path": "feed/images/1144",
+                     "rank": 1,
+                     "mediaFileId": 11,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 6
+                     }
+                     ],
+          "remainTime": null
+          },
+          {
+          "id": 7,
+          "name": "2017 Spring and Autumn warm T-Shirt for men",
+          "currency": "Ks",
+          "unitPrice": 90000,
+          "description": " A 100% cotton t-shirt with a professionally applied print, celebrating the incredible Whyman family! Designed and printed just for you by your friends at the Ann Arbor T-shirt Company in Ann Arbor, Michigan",
+          "cateID": 1063,
+          "sellerID": "1001",
+          "totalLike": 540,
+          "totalComment": 200,
+          "itemType": "BUSINESS_PRODUCT",
+          "discount": 10,
+          "createdDate": "2017-02-20T09:00:00Z",
+          "updatedDate": null,
+          "totalItem": 500,
+          "soldItem": 300,
+          "expiredDate": null,
+          "images": [
+                     {
+                     "id": 12,
+                     "path": "feed/images/1134",
+                     "rank": 1,
+                     "mediaFileId": 12,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 7
+                     }
+                     ],
+          "remainTime": null
+          },
+          {
+          "id": 8,
+          "name": "Brand new fashion men clothes solid long sleeve slim fit",
+          "currency": "Ks",
+          "unitPrice": 100000,
+          "description": "Designed and printed just for you by your friends at the Ann Arbor T-shirt Company in Ann Arbor, Michigan. It says: Whyman: English. Attractive, charming, strong, kind, intelligent, and modest. Respected by elders, beloved by children, and admired by peers.",
+          "cateID": 1063,
+          "sellerID": "1001",
+          "totalLike": 435,
+          "totalComment": 200,
+          "itemType": "BUSINESS_PRODUCT",
+          "discount": 50,
+          "createdDate": "2017-02-21T09:00:00Z",
+          "updatedDate": null,
+          "totalItem": 500,
+          "soldItem": 300,
+          "expiredDate": null,
+          "images": [
+                     {
+                     "id": 13,
+                     "path": "feed/images/1138",
+                     "rank": 1,
+                     "mediaFileId": 13,
+                     "width": 800,
+                     "height": 800,
+                     "itemId": 8
+                     }
+                     ],
+          "remainTime": null
+          }
+          ]
+ }
+
+]

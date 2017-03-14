@@ -1,0 +1,2107 @@
+ [
+  {
+  "id": 1000,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-03-02T10:31:54.260+0000",
+  "detailInfo": {
+  "id": 1000,
+  "name": "Sold 10 item",
+  "currency": "Ks",
+  "unitPrice": 423000,
+  "description": "Thỏa Cơn Thèm Hương Vị Burger Mỹ Với Hệ Thống Carl's Jr. Burger Khổng Lồ - Combo Ưu Đãi Sốc Cho 1 Người. Voucher 69,000 VNĐ, Còn 35,000 VNĐ, Giảm 49%. Chỉ Có Tại Hotdeal.vn!",
+  "cateId": 10,
+  "author": {
+  "userId": null,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 10,
+  "totalComment": 31,
+  "itemType": "DEAL",
+  "discount": 0,
+  "createdDate": null,
+  "updatedDate": "2017-02-22T12:16:49.082Z",
+  "totalItem": 230,
+  "soldItem": 10,
+  "startDate": null,
+  "expiredDate": "2017-03-22T12:16:49.082Z",
+  "images": [],
+  "remainTime": 1734294845
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1038,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-03-02T10:31:54.259+0000",
+  "detailInfo": {
+  "id": 1038,
+  "name": "string",
+  "currency": "Ks",
+  "unitPrice": 1200,
+  "description": "Test discount > 0 1",
+  "cateId": 0,
+  "author": {
+  "userId": null,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 0,
+  "totalComment": 0,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 50,
+  "createdDate": null,
+  "updatedDate": null,
+  "totalItem": 100,
+  "soldItem": 10,
+  "startDate": "2017-03-02T08:07:40.779Z",
+  "expiredDate": null,
+  "images": [],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1039,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-03-02T10:31:54.258+0000",
+  "detailInfo": {
+  "id": 1039,
+  "name": "string",
+  "currency": "Ks",
+  "unitPrice": 1200,
+  "description": "Test discount > 0 2",
+  "cateId": 0,
+  "author": {
+  "userId": null,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 0,
+  "totalComment": 0,
+  "itemType": "DEAL",
+  "discount": 50,
+  "createdDate": null,
+  "updatedDate": null,
+  "totalItem": 100,
+  "soldItem": 10,
+  "startDate": "2017-03-02T08:07:40.779Z",
+  "expiredDate": null,
+  "images": [],
+  "remainTime": 48234
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1040,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-03-02T10:31:54.258+0000",
+  "detailInfo": {
+  "id": 1040,
+  "name": "Test discount > 0 2",
+  "currency": "Ks",
+  "unitPrice": 1200,
+  "description": "Test discount > 0 2",
+  "cateId": 0,
+  "author": {
+  "userId": null,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 0,
+  "totalComment": 0,
+  "itemType": "DEAL",
+  "discount": 50,
+  "createdDate": null,
+  "updatedDate": null,
+  "totalItem": 100,
+  "soldItem": 10,
+  "startDate": "2017-03-02T08:07:40.779Z",
+  "expiredDate": "2017-03-02T22:51:31.63Z",
+  "images": [],
+  "remainTime": 44377392
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1044,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-03-02T10:31:54.257+0000",
+  "detailInfo": {
+  "id": 1044,
+  "name": "Test voucher left = 0",
+  "currency": "Ks",
+  "unitPrice": 1200,
+  "description": "Test remain time1 = 0",
+  "cateId": 0,
+  "author": {
+  "userId": null,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 0,
+  "totalComment": 0,
+  "itemType": "DEAL",
+  "discount": 60,
+  "createdDate": null,
+  "updatedDate": null,
+  "totalItem": 100,
+  "soldItem": 100,
+  "startDate": "2017-03-02T08:07:40.779Z",
+  "expiredDate": null,
+  "images": [],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1042,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-03-02T10:31:54.257+0000",
+  "detailInfo": {
+  "id": 1042,
+  "name": "Test remain time = 0",
+  "currency": "Ks",
+  "unitPrice": 1200,
+  "description": "Test remain time1 = 0",
+  "cateId": 0,
+  "author": {
+  "userId": null,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 0,
+  "totalComment": 0,
+  "itemType": "DEAL",
+  "discount": 50,
+  "createdDate": null,
+  "updatedDate": null,
+  "totalItem": 100,
+  "soldItem": 10,
+  "startDate": "2017-03-02T08:07:40.779Z",
+  "expiredDate": null,
+  "images": [],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1043,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-03-02T10:31:54.257+0000",
+  "detailInfo": {
+  "id": 1043,
+  "name": "Test remain time1 = 0",
+  "currency": "Ks",
+  "unitPrice": 1200,
+  "description": "Test remain time1 = 0",
+  "cateId": 0,
+  "author": {
+  "userId": null,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 0,
+  "totalComment": 0,
+  "itemType": "DEAL",
+  "discount": 50,
+  "createdDate": null,
+  "updatedDate": null,
+  "totalItem": 100,
+  "soldItem": 10,
+  "startDate": "2017-03-02T08:07:40.779Z",
+  "expiredDate": null,
+  "images": [],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1041,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-03-02T10:31:54.256+0000",
+  "detailInfo": {
+  "id": 1041,
+  "name": "Test remain time = 0",
+  "currency": "Ks",
+  "unitPrice": 1200,
+  "description": "Test remain time = 0",
+  "cateId": 0,
+  "author": {
+  "userId": null,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 0,
+  "totalComment": 0,
+  "itemType": "DEAL",
+  "discount": 50,
+  "createdDate": null,
+  "updatedDate": null,
+  "totalItem": 100,
+  "soldItem": 10,
+  "startDate": "2017-03-02T08:07:40.779Z",
+  "expiredDate": null,
+  "images": [],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1001,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-03-02T08:07:40.777+0000",
+  "detailInfo": {
+  "id": 1001,
+  "name": "string",
+  "currency": "Ks",
+  "unitPrice": 0,
+  "description": "string",
+  "cateId": 0,
+  "author": {
+  "userId": null,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "USER",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 0,
+  "totalComment": 0,
+  "itemType": "NORMAL_PRODUCT",
+  "discount": 0,
+  "createdDate": "2017-03-02T08:07:40.777Z",
+  "updatedDate": "2017-03-02T08:07:40.779Z",
+  "totalItem": 0,
+  "soldItem": 0,
+  "startDate": "2017-03-02T08:07:40.779Z",
+  "expiredDate": "2017-03-02T08:07:40.779Z",
+  "images": [],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1035,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-03-02T08:07:40.777+0000",
+  "detailInfo": {
+  "id": 1035,
+  "name": "string",
+  "currency": "Ks",
+  "unitPrice": 0,
+  "description": "Test discount > 0",
+  "cateId": 0,
+  "author": {
+  "userId": null,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 0,
+  "totalComment": 0,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 50,
+  "createdDate": "2017-03-02T08:07:40.777Z",
+  "updatedDate": null,
+  "totalItem": 100,
+  "soldItem": 10,
+  "startDate": "2017-03-02T08:07:40.779Z",
+  "expiredDate": null,
+  "images": [],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1036,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-03-02T08:07:40.777+0000",
+  "detailInfo": {
+  "id": 1036,
+  "name": "string",
+  "currency": "Ks",
+  "unitPrice": 1200,
+  "description": "Test discount > 0",
+  "cateId": 0,
+  "author": {
+  "userId": null,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 0,
+  "totalComment": 0,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 50,
+  "createdDate": "2017-03-02T08:07:40.777Z",
+  "updatedDate": null,
+  "totalItem": 100,
+  "soldItem": 10,
+  "startDate": "2017-03-02T08:07:40.779Z",
+  "expiredDate": null,
+  "images": [],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1034,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-03-02T08:07:40.777+0000",
+  "detailInfo": {
+  "id": 1034,
+  "name": "string",
+  "currency": "Ks",
+  "unitPrice": 0,
+  "description": "Test discount > 0",
+  "cateId": 0,
+  "author": {
+  "userId": null,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "USER",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 0,
+  "totalComment": 0,
+  "itemType": "NORMAL_PRODUCT",
+  "discount": 50,
+  "createdDate": "2017-03-02T08:07:40.777Z",
+  "updatedDate": null,
+  "totalItem": 0,
+  "soldItem": 0,
+  "startDate": "2017-03-02T08:07:40.779Z",
+  "expiredDate": null,
+  "images": [],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1002,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-03-02T08:07:40.777+0000",
+  "detailInfo": {
+  "id": 1002,
+  "name": "string",
+  "currency": "Ks",
+  "unitPrice": 0,
+  "description": "string",
+  "cateId": 0,
+  "author": {
+  "userId": null,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "USER",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 0,
+  "totalComment": 0,
+  "itemType": "NORMAL_PRODUCT",
+  "discount": 0,
+  "createdDate": "2017-03-02T08:07:40.777Z",
+  "updatedDate": "2017-03-02T08:07:40.779Z",
+  "totalItem": 0,
+  "soldItem": 0,
+  "startDate": "2017-03-02T08:07:40.779Z",
+  "expiredDate": "2017-03-02T08:07:40.779Z",
+  "images": [],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1037,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-03-02T08:07:40.777+0000",
+  "detailInfo": {
+  "id": 1037,
+  "name": "string",
+  "currency": "Ks",
+  "unitPrice": 1200,
+  "description": "Test discount > 0 1",
+  "cateId": 0,
+  "author": {
+  "userId": null,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 0,
+  "totalComment": 0,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 50,
+  "createdDate": "2017-03-02T08:07:40.777Z",
+  "updatedDate": null,
+  "totalItem": 100,
+  "soldItem": 10,
+  "startDate": "2017-03-02T08:07:40.779Z",
+  "expiredDate": null,
+  "images": [],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1105,
+  "title": null,
+  "content": "@1111 http://news.zing.vn/nu-tan-binh-tai-tphcm-trong-ngay-nhap-ngu-post721134.html Amazon is price-gouging Pixel XL buyers to the tune of over $1,500, \n  Amazon is price-gouging Pixel XL buyers to the tune of over $1,500, Amazon is price-gouging Pixel XL buyers to the tune of over $1,500",
+  "createdDate": "2017-03-01T06:59:28.620+0000",
+  "detailInfo": {
+  "id": 1105,
+  "title": "string",
+  "content": "@1111 http://news.zing.vn/nu-tan-binh-tai-tphcm-trong-ngay-nhap-ngu-post721134.html Amazon is price-gouging Pixel XL buyers to the tune of over $1,500, \n  Amazon is price-gouging Pixel XL buyers to the tune of over $1,500, Amazon is price-gouging Pixel XL buyers to the tune of over $1,500",
+  "modifiedDate": "2017-03-01T06:59:28.62Z",
+  "author": {
+  "userId": 0,
+  "displayName": "Duy Nguyen",
+  "avatarUrl": "http://i.imgur.com/jU8nytI.png"
+  },
+  "linkPreview": null,
+  "mentionedUser": [
+                    {
+                    "userId": 1111,
+                    "displayName": "Long Nguyen",
+                    "avatarUrl": "http://i.imgur.com/jU8nytI.png",
+                    "mentioned": true
+                    }
+                    ],
+  "mediaFiles": [
+                 {
+                 "mediaId": 0,
+                 "width": 1365,
+                 "height": 2048,
+                 "imageUrl": "feed/images/1117"
+                 }
+                 ],
+  "type": "STATUS",
+  "createdTimestamp": 1488351568620,
+  "modifiedTimestamp": 1488351568620
+  },
+  "type": "STATUS"
+  },
+  {
+  "id": 1104,
+  "title": null,
+  "content": "@1111, @1112 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23",
+  "createdDate": "2017-02-27T04:28:15.693+0000",
+  "detailInfo": {
+  "id": 1104,
+  "title": "string",
+  "content": "@1111, @1112 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23 Samsung will announce results of Note7 investigation on January 23",
+  "modifiedDate": "2017-02-27T04:28:15.693Z",
+  "author": {
+  "userId": 1,
+  "displayName": "Duy Nguyen",
+  "avatarUrl": "http://i.imgur.com/jU8nytI.png"
+  },
+  "linkPreview": null,
+  "mentionedUser": [
+                    {
+                    "userId": 1112,
+                    "displayName": "Duy Nguyen",
+                    "avatarUrl": "http://i.imgur.com/jU8nytI.png",
+                    "mentioned": true
+                    },
+                    {
+                    "userId": 1111,
+                    "displayName": "Long Nguyen",
+                    "avatarUrl": "http://i.imgur.com/jU8nytI.png",
+                    "mentioned": true
+                    }
+                    ],
+  "mediaFiles": [],
+  "type": "STATUS",
+  "createdTimestamp": 1488169695693,
+  "modifiedTimestamp": 1488169695693
+  },
+  "type": "STATUS"
+  },
+  {
+  "id": 1103,
+  "title": null,
+  "content": "",
+  "createdDate": "2017-02-24T11:02:36.095+0000",
+  "detailInfo": {
+  "id": 1103,
+  "title": "string",
+  "content": "",
+  "modifiedDate": "2017-02-24T11:02:36.095Z",
+  "author": {
+  "userId": 0,
+  "displayName": "HKT Band",
+  "avatarUrl": "http://i.imgur.com/jU8nytI.png"
+  },
+  "linkPreview": null,
+  "mentionedUser": [],
+  "mediaFiles": [
+                 {
+                 "mediaId": 0,
+                 "width": 800,
+                 "height": 800,
+                 "imageUrl": null
+                 }
+                 ],
+  "type": "STATUS",
+  "createdTimestamp": 1487934156095,
+  "modifiedTimestamp": 1487934156095
+  },
+  "type": "STATUS"
+  },
+  {
+  "id": 1102,
+  "title": null,
+  "content": "While messaging apps like WhatsApp, Messenger, Snapchat and WeChat rake in ever more users, features and relationships with key brands, and Apple’s iMessage continues to play strong with iPhone users, Android and search giant Google today announced a big step forward in its own strategy to bring its own native, enhanced, native messaging service to more Android devices",
+  "createdDate": "2017-02-24T07:16:00.472+0000",
+  "detailInfo": {
+  "id": 1102,
+  "title": "string",
+  "content": "While messaging apps like WhatsApp, Messenger, Snapchat and WeChat rake in ever more users, features and relationships with key brands, and Apple’s iMessage continues to play strong with iPhone users, Android and search giant Google today announced a big step forward in its own strategy to bring its own native, enhanced, native messaging service to more Android devices",
+  "modifiedDate": "2017-02-24T07:16:00.473Z",
+  "author": {
+  "userId": 0,
+  "displayName": "HKT Band",
+  "avatarUrl": "http://i.imgur.com/jU8nytI.png"
+  },
+  "linkPreview": {
+  "id": 1102,
+  "url": "http://tv.zing.vn/ghien-mi-go",
+  "title": "Ghiền Mì Gõ | Xem Hài Hước Full HD",
+  "description": "Ghiền Mì Gõ Chanel chính thức hoạt động vào đầu tháng 7/2015. Tập hợp những con người trẻ, năng động, đam mê sáng tạo nghệ thuật, kết hợp với các ...",
+  "thumnail": {
+  "mediaId": 1000,
+  "width": 445,
+  "height": 445,
+  "imageUrl": "http://image.mp3.zdn.vn/tv_program_445_445/3/a/3aefd89768c8e03abb251080f11fd7bb_1441262898.jpg"
+  }
+  },
+  "mentionedUser": [],
+  "mediaFiles": [],
+  "type": "STATUS",
+  "createdTimestamp": 1487920560472,
+  "modifiedTimestamp": 1487920560473
+  },
+  "type": "STATUS"
+  },
+  {
+  "id": 1101,
+  "title": null,
+  "content": "I don't think they want to retreat, just a trap",
+  "createdDate": "2017-02-24T07:14:05.798+0000",
+  "detailInfo": {
+  "id": 1101,
+  "title": "string",
+  "content": "I don't think they want to retreat, just a trap",
+  "modifiedDate": "2017-02-24T07:14:05.798Z",
+  "author": {
+  "userId": 0,
+  "displayName": "HKT Band",
+  "avatarUrl": "http://i.imgur.com/jU8nytI.png"
+  },
+  "linkPreview": {
+  "id": 1101,
+  "url": "https://techcrunch.com/2017/02/23/zalora-continues-asia-retreat/",
+  "title": "Rocket Internet’s Zalora is retreating from two more countries in Asia",
+  "description": "Zalora, the Rocket Internet-backed online fashion store, is continuing its retreat from Asia. The firm sold off its businesses in Vietnam and Thailand last..",
+  "thumnail": {
+  "mediaId": 1000,
+  "width": 612,
+  "height": 400,
+  "imageUrl": "https://tctechcrunch2011.files.wordpress.com/2016/04/zalora.jpg?w=612&h=400&crop=1"
+  }
+  },
+  "mentionedUser": [],
+  "mediaFiles": [],
+  "type": "STATUS",
+  "createdTimestamp": 1487920445798,
+  "modifiedTimestamp": 1487920445798
+  },
+  "type": "STATUS"
+  },
+  {
+  "id": 1003,
+  "title": null,
+  "content": "Notably, the rig appears to employ OptiTrack Prime 17W cameras to sense the gloves’ position, rather than an Oculus-built sensor system. This could allow Oculus to more rapidly test the gloves at a lower cost than if it tried to build the cameras too.",
+  "createdDate": "2017-02-23T23:26:23.461+0000",
+  "detailInfo": {
+  "id": 1003,
+  "title": "string",
+  "content": "Notably, the rig appears to employ OptiTrack Prime 17W cameras to sense the gloves’ position, rather than an Oculus-built sensor system. This could allow Oculus to more rapidly test the gloves at a lower cost than if it tried to build the cameras too.",
+  "modifiedDate": "2017-02-10T07:33:48Z",
+  "author": {
+  "userId": 0,
+  "displayName": "Tom Peng",
+  "avatarUrl": "/feed/images/1017"
+  },
+  "linkPreview": null,
+  "mentionedUser": [
+                    {
+                    "userId": 1111,
+                    "displayName": "Long Nguyen",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    },
+                    {
+                    "userId": 1112,
+                    "displayName": "Tho Tran",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    }
+                    ],
+  "mediaFiles": [
+                 {
+                 "mediaId": 0,
+                 "width": 1292,
+                 "height": 1938,
+                 "imageUrl": "/feed/images/1044"
+                 }
+                 ],
+  "type": "STATUS",
+  "createdTimestamp": 1487892383461,
+  "modifiedTimestamp": 1486712028000
+  },
+  "type": "STATUS"
+  },
+  {
+  "id": 5,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-02-23T09:00:00.000+0000",
+  "detailInfo": {
+  "id": 5,
+  "name": "Slim fit long sleeve T Shirt men trend casual",
+  "currency": "Ks",
+  "unitPrice": 75000,
+  "description": "Linen T-shirt with thin stripes. Model with round neck and short sleeves MODEL HEIGHT: 189 CM SIZE L. A 100% cotton t-shirt with a professionally applied print, celebrating the incredible Whyman family! Designed and printed just for you by your friends at the Ann Arbor T-shirt Company in Ann Arbor, Michigan. It says: Whyman: English. Attractive, charming, strong, kind, intelligent, and modest. Respected by elders, beloved by children, and admired by peers. The colour-contrasting cuffs on sleeves and neck turn this T-shirt into a sporty companion that can be combined with a host of styles. Relaxed and comfy, high round neck\nSleeve cuffs and neck in contrasting colour. High-quality, pre-shrunk single jersey fabric 175 g/m². Material: 100% cotton",
+  "cateId": 1063,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 999,
+  "totalComment": 320,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 20,
+  "createdDate": "2017-02-23T09:00:00Z",
+  "updatedDate": null,
+  "totalItem": 900,
+  "soldItem": 500,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [
+             {
+             "id": 5,
+             "path": "feed/images/1146",
+             "rank": 1,
+             "mediaFileId": 5,
+             "width": 800,
+             "height": 800,
+             "itemId": 5
+             },
+             {
+             "id": 6,
+             "path": "feed/images/1145",
+             "rank": 2,
+             "mediaFileId": 6,
+             "width": 800,
+             "height": 800,
+             "itemId": 5
+             },
+             {
+             "id": 7,
+             "path": "feed/images/1143",
+             "rank": 3,
+             "mediaFileId": 7,
+             "width": 800,
+             "height": 800,
+             "itemId": 5
+             },
+             {
+             "id": 8,
+             "path": "feed/images/1142",
+             "rank": 4,
+             "mediaFileId": 8,
+             "width": 800,
+             "height": 1100,
+             "itemId": 5
+             },
+             {
+             "id": 9,
+             "path": "feed/images/1140",
+             "rank": 5,
+             "mediaFileId": 9,
+             "width": 1100,
+             "height": 800,
+             "itemId": 5
+             },
+             {
+             "id": 10,
+             "path": "feed/images/1147",
+             "rank": 6,
+             "mediaFileId": 10,
+             "width": 1100,
+             "height": 800,
+             "itemId": 5
+             }
+             ],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 9,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-02-22T09:00:00.000+0000",
+  "detailInfo": {
+  "id": 9,
+  "name": "Men's vest fashion 1 for wedding occasion",
+  "currency": "Ks",
+  "unitPrice": 20000,
+  "description": "The contrasting odd vest has been a long standing staple in menswear since the 1800s. Gentleman at the time would carefully select their contrasting vests with artistic buttons made of intricately woven fabrics and combine them with their outfits. Sometimes, they would even wear two contrasting vests on top of each other, like Bernard Wolf in the painting below. Subsequently, vest slips became en vogue and today you can still see them worn by gentlemen, especially with formal daywear. As you can see, the odd vest is even older than the lounge suit, nevertheless an odd waistcoat looks great with a suit particularly when the color is lighter than the suit itself.",
+  "cateId": 1065,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 200,
+  "totalComment": 54,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 10,
+  "createdDate": "2017-02-22T09:00:00Z",
+  "updatedDate": null,
+  "totalItem": 500,
+  "soldItem": 301,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [
+             {
+             "id": 14,
+             "path": "feed/images/1133",
+             "rank": 1,
+             "mediaFileId": 14,
+             "width": 474,
+             "height": 474,
+             "itemId": 9
+             }
+             ],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 15,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-02-22T09:00:00.000+0000",
+  "detailInfo": {
+  "id": 15,
+  "name": "Men's shoe 2 - The men’s style destination",
+  "currency": "Ks",
+  "unitPrice": 35000,
+  "description": "Midnight-blue suede and white leather. Leather and looped terry linings, rubber soles. Lace-up. Made in Italy. Golden Goose Deluxe Brand's 'Starter' sneakers have been made in Italy from supple suede in a near-black shade of midnight-blue. Perforated for breathability, they are finished with white leather heel tabs that are stamped with the label's recognisable star motif. Wear yours with rolled chinos. Fits true to size. Take your normal size. Only available in full sizes, go up to the nearest whole size if you take a half size",
+  "cateId": 1076,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 54,
+  "totalComment": 22,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 10,
+  "createdDate": "2017-02-22T09:00:00Z",
+  "updatedDate": null,
+  "totalItem": 500,
+  "soldItem": 306,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [
+             {
+             "id": 20,
+             "path": "feed/images/1135",
+             "rank": 1,
+             "mediaFileId": 20,
+             "width": 320,
+             "height": 320,
+             "itemId": 15
+             }
+             ],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1004,
+  "title": null,
+  "content": "Airbnb may have been founded on the premise of renting out spare sofa or bed space as a cheap alternative to hotels, but the company has moved upmarket in a big way, and is about to take that up another notch. The company is in the late stages of acquiring Luxury Retreats, an Airbnb-style service that focuses on high-end homes, for a price believed to be around $200 million, our sources say",
+  "createdDate": "2017-02-22T00:26:23.461+0000",
+  "detailInfo": {
+  "id": 1004,
+  "title": "string",
+  "content": "Airbnb may have been founded on the premise of renting out spare sofa or bed space as a cheap alternative to hotels, but the company has moved upmarket in a big way, and is about to take that up another notch. The company is in the late stages of acquiring Luxury Retreats, an Airbnb-style service that focuses on high-end homes, for a price believed to be around $200 million, our sources say",
+  "modifiedDate": "2017-02-10T07:39:39Z",
+  "author": {
+  "userId": 0,
+  "displayName": "Daniel Pointer",
+  "avatarUrl": "/feed/images/1017"
+  },
+  "linkPreview": null,
+  "mentionedUser": [
+                    {
+                    "userId": 1112,
+                    "displayName": "Tho Tran",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    },
+                    {
+                    "userId": 1111,
+                    "displayName": "Long Nguyen",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    }
+                    ],
+  "mediaFiles": [
+                 {
+                 "mediaId": 0,
+                 "width": 1024,
+                 "height": 640,
+                 "imageUrl": "/feed/images/1032"
+                 },
+                 {
+                 "mediaId": 1,
+                 "width": 1680,
+                 "height": 1050,
+                 "imageUrl": "/feed/images/1025"
+                 }
+                 ],
+  "type": "STATUS",
+  "createdTimestamp": 1487723183461,
+  "modifiedTimestamp": 1486712379000
+  },
+  "type": "STATUS"
+  },
+  {
+  "id": 8,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-02-21T09:00:00.000+0000",
+  "detailInfo": {
+  "id": 8,
+  "name": "Brand new fashion men clothes solid long sleeve slim fit",
+  "currency": "Ks",
+  "unitPrice": 100000,
+  "description": "Designed and printed just for you by your friends at the Ann Arbor T-shirt Company in Ann Arbor, Michigan. It says: Whyman: English. Attractive, charming, strong, kind, intelligent, and modest. Respected by elders, beloved by children, and admired by peers.",
+  "cateId": 1063,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 435,
+  "totalComment": 200,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 50,
+  "createdDate": "2017-02-21T09:00:00Z",
+  "updatedDate": null,
+  "totalItem": 500,
+  "soldItem": 300,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [
+             {
+             "id": 13,
+             "path": "feed/images/1138",
+             "rank": 1,
+             "mediaFileId": 13,
+             "width": 800,
+             "height": 800,
+             "itemId": 8
+             }
+             ],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 7,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-02-20T09:00:00.000+0000",
+  "detailInfo": {
+  "id": 7,
+  "name": "2017 Spring and Autumn warm T-Shirt for men",
+  "currency": "Ks",
+  "unitPrice": 90000,
+  "description": " A 100% cotton t-shirt with a professionally applied print, celebrating the incredible Whyman family! Designed and printed just for you by your friends at the Ann Arbor T-shirt Company in Ann Arbor, Michigan",
+  "cateId": 1063,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 540,
+  "totalComment": 200,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 10,
+  "createdDate": "2017-02-20T09:00:00Z",
+  "updatedDate": null,
+  "totalItem": 500,
+  "soldItem": 300,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [
+             {
+             "id": 12,
+             "path": "feed/images/1134",
+             "rank": 1,
+             "mediaFileId": 12,
+             "width": 800,
+             "height": 800,
+             "itemId": 7
+             }
+             ],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 6,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-02-18T10:00:00.000+0000",
+  "detailInfo": {
+  "id": 6,
+  "name": "Casual brand T-shirt trend casual for men",
+  "currency": "Ks",
+  "unitPrice": 50000,
+  "description": "Model with round neck and short sleeves MODEL HEIGHT: 189 CM SIZE L. A 100% cotton t-shirt with a professionally applied print.",
+  "cateId": 1063,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 800,
+  "totalComment": 200,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 10,
+  "createdDate": "2017-02-18T10:00:00Z",
+  "updatedDate": null,
+  "totalItem": 500,
+  "soldItem": 300,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [
+             {
+             "id": 11,
+             "path": "feed/images/1144",
+             "rank": 1,
+             "mediaFileId": 11,
+             "width": 800,
+             "height": 800,
+             "itemId": 6
+             }
+             ],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 3,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-02-17T00:00:00.000+0000",
+  "detailInfo": {
+  "id": 3,
+  "name": "Buffet Royal City Restaurant 2 - Dining",
+  "currency": "Ks",
+  "unitPrice": 25000,
+  "description": "5-course meal includes one shared appetizer, two main dishes and one shared dessert\nChoice of appetizers include: crispy calamari with smoked lemon tartar sauce, trio's sliders featuring beef, chicken & salmon sliders or artichoke spinach dip with crab meat & pita chips\nChoice of any two main dishes include: striploin steak featuring smashed potatoes and seasonal vegetables; cornish hen featuring garlic mash, baby carrots and rosemary jus; or salmon with quinoa salad and citrus beurre blanc\nFinish the meal with 1 shared dessert, with choice of creme brulee, cheesecake or chocolate cake\nIncludes wine or beer with your meal and Char 631 Modern Steakhouse offers a wide range of vintage wines and creative cocktails to further enhance your dining experience",
+  "cateId": 1463,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 300,
+  "totalComment": 200,
+  "itemType": "DEAL",
+  "discount": 40,
+  "createdDate": "2017-02-17T00:00:00Z",
+  "updatedDate": null,
+  "totalItem": 500,
+  "soldItem": 20,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [
+             {
+             "id": 3,
+             "path": "feed/images/1157",
+             "rank": 1,
+             "mediaFileId": 3,
+             "width": 650,
+             "height": 650,
+             "itemId": 3
+             }
+             ],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1005,
+  "title": null,
+  "content": "The potential deal for Luxury Retreats was first reported by Bloomberg, at a price of under $300 million.",
+  "createdDate": "2017-02-16T06:26:23.461+0000",
+  "detailInfo": {
+  "id": 1005,
+  "title": "string",
+  "content": "The potential deal for Luxury Retreats was first reported by Bloomberg, at a price of under $300 million.",
+  "modifiedDate": "2017-02-10T07:43:55Z",
+  "author": {
+  "userId": 0,
+  "displayName": "Steve Jobs",
+  "avatarUrl": "/feed/images/1017"
+  },
+  "linkPreview": null,
+  "mentionedUser": [
+                    {
+                    "userId": 1112,
+                    "displayName": "Tho Tran",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    },
+                    {
+                    "userId": 1111,
+                    "displayName": "Long Nguyen",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    }
+                    ],
+  "mediaFiles": [
+                 {
+                 "mediaId": 0,
+                 "width": 750,
+                 "height": 1125,
+                 "imageUrl": "/feed/images/1038"
+                 },
+                 {
+                 "mediaId": 1,
+                 "width": 320,
+                 "height": 480,
+                 "imageUrl": "/feed/images/1024"
+                 }
+                 ],
+  "type": "STATUS",
+  "createdTimestamp": 1487226383461,
+  "modifiedTimestamp": 1486712635000
+  },
+  "type": "STATUS"
+  },
+  {
+  "id": 12,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-02-15T09:00:00.000+0000",
+  "detailInfo": {
+  "id": 12,
+  "name": "Men's vest fashion 4 for wedding occasion",
+  "currency": "Ks",
+  "unitPrice": 30000,
+  "description": "Terylene+Cotton Imported\nDry Clean /Hand Wash\nFake pockets, 3 Button Vest, Adjustable Back Buckle, Slim fit Style, Please refer to the size info on the left and check your waist ,weight and height before order",
+  "cateId": 1065,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 4324,
+  "totalComment": 45,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 10,
+  "createdDate": "2017-02-15T09:00:00Z",
+  "updatedDate": null,
+  "totalItem": 500,
+  "soldItem": 304,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [
+             {
+             "id": 17,
+             "path": "feed/images/1137",
+             "rank": 1,
+             "mediaFileId": 17,
+             "width": 800,
+             "height": 800,
+             "itemId": 12
+             }
+             ],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 2,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-02-15T00:00:00.000+0000",
+  "detailInfo": {
+  "id": 2,
+  "name": "New Opening Restaurant - Families best suiteItem 2",
+  "currency": "Ks",
+  "unitPrice": 25000,
+  "description": "4-course meal includes one shared appetizer, two main dishes and one shared dessert\nChoice of appetizers include: crispy calamari with smoked lemon tartar sauce, trio's sliders featuring beef, chicken & salmon sliders or artichoke spinach dip with crab meat & pita chips\nChoice of any two main dishes include: striploin steak featuring smashed potatoes and seasonal vegetables; cornish hen featuring garlic mash, baby carrots and rosemary jus; or salmon with quinoa salad and citrus beurre blanc\nFinish the meal with 1 shared dessert, with choice of creme brulee, cheesecake or chocolate cake\nIncludes wine or beer with your meal and Char 631 Modern Steakhouse offers a wide range of vintage wines and creative cocktails to further enhance your dining experience",
+  "cateId": 1463,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 300,
+  "totalComment": 200,
+  "itemType": "DEAL",
+  "discount": 40,
+  "createdDate": "2017-02-15T00:00:00Z",
+  "updatedDate": null,
+  "totalItem": 500,
+  "soldItem": 400,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [
+             {
+             "id": 2,
+             "path": "feed/images/1166",
+             "rank": 1,
+             "mediaFileId": 2,
+             "width": 960,
+             "height": 809,
+             "itemId": 2
+             }
+             ],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 4,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-02-15T00:00:00.000+0000",
+  "detailInfo": {
+  "id": 4,
+  "name": "Combo double buffet vouchers for weekend",
+  "currency": "Ks",
+  "unitPrice": 15000,
+  "description": "6-course meal includes one shared appetizer, two main dishes and one shared dessert\nChoice of appetizers include: crispy calamari with smoked lemon tartar sauce, trio's sliders featuring beef, chicken & salmon sliders or artichoke spinach dip with crab meat & pita chips\nChoice of any two main dishes include: striploin steak featuring smashed potatoes and seasonal vegetables; cornish hen featuring garlic mash, baby carrots and rosemary jus; or salmon with quinoa salad and citrus beurre blanc\nFinish the meal with 1 shared dessert, with choice of creme brulee, cheesecake or chocolate cake\nIncludes wine or beer with your meal and Char 631 Modern Steakhouse offers a wide range of vintage wines and creative cocktails to further enhance your dining experience",
+  "cateId": 1463,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 300,
+  "totalComment": 200,
+  "itemType": "DEAL",
+  "discount": 40,
+  "createdDate": "2017-02-15T00:00:00Z",
+  "updatedDate": null,
+  "totalItem": 500,
+  "soldItem": 30,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": "2017-03-15T00:00:00Z",
+  "images": [
+             {
+             "id": 4,
+             "path": "feed/images/1159",
+             "rank": 1,
+             "mediaFileId": 4,
+             "width": 650,
+             "height": 650,
+             "itemId": 4
+             }
+             ],
+  "remainTime": 1085285764
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 13,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-02-12T09:00:00.000+0000",
+  "detailInfo": {
+  "id": 13,
+  "name": "Men's vest fashion 5 for wedding occasion",
+  "currency": "Ks",
+  "unitPrice": 25000,
+  "description": "Solid Pattern, Besom Pockets, Polyester Material, Five Button Vest and Full Back Vest with Adjustable Belt. This Three Piece Set Includes: Tuxedo Vest- Neck Tie and Matching Handkerchief",
+  "cateId": 1065,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 23,
+  "totalComment": 80,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 10,
+  "createdDate": "2017-02-12T09:00:00Z",
+  "updatedDate": null,
+  "totalItem": 500,
+  "soldItem": 305,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [
+             {
+             "id": 18,
+             "path": "feed/images/1141",
+             "rank": 1,
+             "mediaFileId": 18,
+             "width": 500,
+             "height": 500,
+             "itemId": 13
+             }
+             ],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-02-12T00:00:00.000+0000",
+  "detailInfo": {
+  "id": 1,
+  "name": "Buffet Chooki Restaurant - Combo super delicious hotpot",
+  "currency": "Ks",
+  "unitPrice": 20000,
+  "description": "3-course meal includes one shared appetizer, two main dishes and one shared dessert\nChoice of appetizers include: crispy calamari with smoked lemon tartar sauce, trio's sliders featuring beef, chicken & salmon sliders or artichoke spinach dip with crab meat & pita chips\nChoice of any two main dishes include: striploin steak featuring smashed potatoes and seasonal vegetables; cornish hen featuring garlic mash, baby carrots and rosemary jus; or salmon with quinoa salad and citrus beurre blanc\nFinish the meal with 1 shared dessert, with choice of creme brulee, cheesecake or chocolate cake\nIncludes wine or beer with your meal and Char 631 Modern Steakhouse offers a wide range of vintage wines and creative cocktails to further enhance your dining experience",
+  "cateId": 1463,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 300,
+  "totalComment": 200,
+  "itemType": "DEAL",
+  "discount": 30,
+  "createdDate": "2017-02-12T00:00:00Z",
+  "updatedDate": null,
+  "totalItem": 500,
+  "soldItem": 100,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [
+             {
+             "id": 1,
+             "path": "feed/images/1172",
+             "rank": 1,
+             "mediaFileId": 1,
+             "width": 800,
+             "height": 800,
+             "itemId": 1
+             }
+             ],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 10,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-02-11T09:00:00.000+0000",
+  "detailInfo": {
+  "id": 10,
+  "name": "Men's vest fashion 2 for wedding occasion",
+  "currency": "Ks",
+  "unitPrice": 10000,
+  "description": "Fall is a great time to wear a down vest. The weather is just starting to get cooler, but not cold enough where you will need more protection from the elements. The down vest is great for layering, and can really complete a look. Enjoy our collection of down vest outfits for your inspiration.",
+  "cateId": 1065,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 456,
+  "totalComment": 44,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 10,
+  "createdDate": "2017-02-11T09:00:00Z",
+  "updatedDate": null,
+  "totalItem": 500,
+  "soldItem": 302,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [
+             {
+             "id": 15,
+             "path": "feed/images/1136",
+             "rank": 1,
+             "mediaFileId": 15,
+             "width": 474,
+             "height": 711,
+             "itemId": 10
+             }
+             ],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1013,
+  "title": null,
+  "content": "“You can’t just load a property and go,” said Poulin. “Our peel off is that we have a little more control. It’s not fully peer to peer because we certify all properties. There is a need for driving business on the high end. Luxury is not sold, it’s delivered.”\n\nThe company works on a 20 percent commission “and in some instances a bit more,” depending on the needs of their high-end clientele. That works out to be not much more than the aggregate commission Airbnb and others makes when a property is listed there. Airbnb charges five percent or so to the homeowner, and then a further six – 12 percent on the guest side, and that’s before cleaning fees.\n\nThis is in addition to a deal in the works at Airbnb, for crowdfunding platform Tilt, for north of $50 million.\n\nInterestingly, the Luxury Retreats acquisition comes after Airbnb had met with the Canadian ambassador to the U.S. late last year where he pitched Airbnb, on behalf of the Trudeau government, to invest more heavily job-wise in Canada.",
+  "createdDate": "2017-02-10T08:12:21.000+0000",
+  "detailInfo": {
+  "id": 1013,
+  "title": "string",
+  "content": "“You can’t just load a property and go,” said Poulin. “Our peel off is that we have a little more control. It’s not fully peer to peer because we certify all properties. There is a need for driving business on the high end. Luxury is not sold, it’s delivered.”\n\nThe company works on a 20 percent commission “and in some instances a bit more,” depending on the needs of their high-end clientele. That works out to be not much more than the aggregate commission Airbnb and others makes when a property is listed there. Airbnb charges five percent or so to the homeowner, and then a further six – 12 percent on the guest side, and that’s before cleaning fees.\n\nThis is in addition to a deal in the works at Airbnb, for crowdfunding platform Tilt, for north of $50 million.\n\nInterestingly, the Luxury Retreats acquisition comes after Airbnb had met with the Canadian ambassador to the U.S. late last year where he pitched Airbnb, on behalf of the Trudeau government, to invest more heavily job-wise in Canada.",
+  "modifiedDate": "2017-02-10T08:12:21Z",
+  "author": {
+  "userId": 0,
+  "displayName": "Pede",
+  "avatarUrl": "/feed/images/1017"
+  },
+  "linkPreview": null,
+  "mentionedUser": [
+                    {
+                    "userId": 1111,
+                    "displayName": "Long Nguyen",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    },
+                    {
+                    "userId": 1112,
+                    "displayName": "Tho Tran",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    }
+                    ],
+  "mediaFiles": [],
+  "type": "STATUS",
+  "createdTimestamp": 1486714341000,
+  "modifiedTimestamp": 1486714341000
+  },
+  "type": "STATUS"
+  },
+  {
+  "id": 1012,
+  "title": null,
+  "content": "Others in the same market include OneFineStay, which was recently acquired; and HomeAway has its own sub-brand, the similarly named Luxury Rentals. Luxury Retreats is a bit different from these because of its attention to vetting sites — or “curation” as Poulin calls it — and generally making the walls of its sharing sandbox just that much higher. This is also consistent with how Airbnb has been trying to develop attention to the quality of its service.",
+  "createdDate": "2017-02-10T08:10:29.000+0000",
+  "detailInfo": {
+  "id": 1012,
+  "title": "string",
+  "content": "Others in the same market include OneFineStay, which was recently acquired; and HomeAway has its own sub-brand, the similarly named Luxury Rentals. Luxury Retreats is a bit different from these because of its attention to vetting sites — or “curation” as Poulin calls it — and generally making the walls of its sharing sandbox just that much higher. This is also consistent with how Airbnb has been trying to develop attention to the quality of its service.",
+  "modifiedDate": "2017-02-10T08:10:29Z",
+  "author": {
+  "userId": 0,
+  "displayName": "Pede",
+  "avatarUrl": "/feed/images/1017"
+  },
+  "linkPreview": null,
+  "mentionedUser": [
+                    {
+                    "userId": 1111,
+                    "displayName": "Long Nguyen",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    },
+                    {
+                    "userId": 1112,
+                    "displayName": "Tho Tran",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    }
+                    ],
+  "mediaFiles": [
+                 {
+                 "mediaId": 0,
+                 "width": 600,
+                 "height": 1067,
+                 "imageUrl": "/feed/images/1027"
+                 },
+                 {
+                 "mediaId": 1,
+                 "width": 360,
+                 "height": 640,
+                 "imageUrl": "/feed/images/1046"
+                 },
+                 {
+                 "mediaId": 2,
+                 "width": 360,
+                 "height": 640,
+                 "imageUrl": "/feed/images/1050"
+                 },
+                 {
+                 "mediaId": 3,
+                 "width": 576,
+                 "height": 1024,
+                 "imageUrl": "/feed/images/1034"
+                 }
+                 ],
+  "type": "STATUS",
+  "createdTimestamp": 1486714229000,
+  "modifiedTimestamp": 1486714229000
+  },
+  "type": "STATUS"
+  },
+  {
+  "id": 1011,
+  "title": null,
+  "content": "Luxury Retreats — based out of Montreal, Canada — has raised $16 million in funding. As we noted when we covered their last round in 2015, of $11 million, the company had been already profitable for years.\nThe company has tapped into an explosion of interest in the Airbnb-style of finding and renting homes, which has touched even the high end of the market.",
+  "createdDate": "2017-02-10T08:06:33.000+0000",
+  "detailInfo": {
+  "id": 1011,
+  "title": "string",
+  "content": "Luxury Retreats — based out of Montreal, Canada — has raised $16 million in funding. As we noted when we covered their last round in 2015, of $11 million, the company had been already profitable for years.\nThe company has tapped into an explosion of interest in the Airbnb-style of finding and renting homes, which has touched even the high end of the market.",
+  "modifiedDate": "2017-02-10T08:06:33Z",
+  "author": {
+  "userId": 0,
+  "displayName": "Pede",
+  "avatarUrl": "/feed/images/1017"
+  },
+  "linkPreview": null,
+  "mentionedUser": [
+                    {
+                    "userId": 1112,
+                    "displayName": "Tho Tran",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    },
+                    {
+                    "userId": 1111,
+                    "displayName": "Long Nguyen",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    }
+                    ],
+  "mediaFiles": [
+                 {
+                 "mediaId": 0,
+                 "width": 576,
+                 "height": 1024,
+                 "imageUrl": "/feed/images/1033"
+                 },
+                 {
+                 "mediaId": 1,
+                 "width": 360,
+                 "height": 640,
+                 "imageUrl": "/feed/images/1046"
+                 },
+                 {
+                 "mediaId": 2,
+                 "width": 360,
+                 "height": 640,
+                 "imageUrl": "/feed/images/1050"
+                 },
+                 {
+                 "mediaId": 3,
+                 "width": 576,
+                 "height": 1024,
+                 "imageUrl": "/feed/images/1034"
+                 },
+                 {
+                 "mediaId": 4,
+                 "width": 400,
+                 "height": 400,
+                 "imageUrl": "/feed/images/1042"
+                 },
+                 {
+                 "mediaId": 5,
+                 "width": 1920,
+                 "height": 1220,
+                 "imageUrl": "/feed/images/1031"
+                 },
+                 {
+                 "mediaId": 6,
+                 "width": 1920,
+                 "height": 1220,
+                 "imageUrl": "/feed/images/1031"
+                 },
+                 {
+                 "mediaId": 7,
+                 "width": 1920,
+                 "height": 1220,
+                 "imageUrl": "/feed/images/1031"
+                 }
+                 ],
+  "type": "STATUS",
+  "createdTimestamp": 1486713993000,
+  "modifiedTimestamp": 1486713993000
+  },
+  "type": "STATUS"
+  },
+  {
+  "id": 1009,
+  "title": null,
+  "content": "He provided the following comment: “We are always looking to provide our community with access to new and different options, but we have no announcements to make",
+  "createdDate": "2017-02-10T08:03:01.000+0000",
+  "detailInfo": {
+  "id": 1009,
+  "title": "string",
+  "content": "He provided the following comment: “We are always looking to provide our community with access to new and different options, but we have no announcements to make",
+  "modifiedDate": "2017-02-10T08:03:01Z",
+  "author": {
+  "userId": 0,
+  "displayName": "Long Hacker",
+  "avatarUrl": "/feed/images/1017"
+  },
+  "linkPreview": null,
+  "mentionedUser": [
+                    {
+                    "userId": 1111,
+                    "displayName": "Long Nguyen",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    },
+                    {
+                    "userId": 1112,
+                    "displayName": "Tho Tran",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    }
+                    ],
+  "mediaFiles": [
+                 {
+                 "mediaId": 0,
+                 "width": 500,
+                 "height": 375,
+                 "imageUrl": "/feed/images/1045"
+                 },
+                 {
+                 "mediaId": 1,
+                 "width": 1920,
+                 "height": 1080,
+                 "imageUrl": "/feed/images/1040"
+                 },
+                 {
+                 "mediaId": 2,
+                 "width": 960,
+                 "height": 854,
+                 "imageUrl": "/feed/images/1043"
+                 },
+                 {
+                 "mediaId": 3,
+                 "width": 720,
+                 "height": 450,
+                 "imageUrl": "/feed/images/1051"
+                 },
+                 {
+                 "mediaId": 4,
+                 "width": 400,
+                 "height": 400,
+                 "imageUrl": "/feed/images/1042"
+                 },
+                 {
+                 "mediaId": 5,
+                 "width": 1920,
+                 "height": 1220,
+                 "imageUrl": "/feed/images/1031"
+                 },
+                 {
+                 "mediaId": 6,
+                 "width": 1920,
+                 "height": 1220,
+                 "imageUrl": "/feed/images/1031"
+                 },
+                 {
+                 "mediaId": 7,
+                 "width": 1920,
+                 "height": 1220,
+                 "imageUrl": "/feed/images/1031"
+                 }
+                 ],
+  "type": "STATUS",
+  "createdTimestamp": 1486713781000,
+  "modifiedTimestamp": 1486713781000
+  },
+  "type": "STATUS"
+  },
+  {
+  "id": 1010,
+  "title": null,
+  "content": "Love u 4ever.",
+  "createdDate": "2017-02-10T07:57:38.000+0000",
+  "detailInfo": {
+  "id": 1010,
+  "title": "string",
+  "content": "Love u 4ever.",
+  "modifiedDate": "2017-02-10T07:57:38Z",
+  "author": {
+  "userId": 0,
+  "displayName": "Long Hacker",
+  "avatarUrl": "/feed/images/1017"
+  },
+  "linkPreview": null,
+  "mentionedUser": [
+                    {
+                    "userId": 1111,
+                    "displayName": "Long Nguyen",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    },
+                    {
+                    "userId": 1112,
+                    "displayName": "Tho Tran",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    }
+                    ],
+  "mediaFiles": [
+                 {
+                 "mediaId": 0,
+                 "width": 1280,
+                 "height": 800,
+                 "imageUrl": "/feed/images/1039"
+                 },
+                 {
+                 "mediaId": 1,
+                 "width": 720,
+                 "height": 576,
+                 "imageUrl": "/feed/images/1052"
+                 },
+                 {
+                 "mediaId": 2,
+                 "width": 750,
+                 "height": 1334,
+                 "imageUrl": "/feed/images/1030"
+                 },
+                 {
+                 "mediaId": 3,
+                 "width": 1920,
+                 "height": 1220,
+                 "imageUrl": "/feed/images/1031"
+                 }
+                 ],
+  "type": "STATUS",
+  "createdTimestamp": 1486713458000,
+  "modifiedTimestamp": 1486713458000
+  },
+  "type": "STATUS"
+  },
+  {
+  "id": 1008,
+  "title": null,
+  "content": "",
+  "createdDate": "2017-02-10T07:51:27.000+0000",
+  "detailInfo": {
+  "id": 1008,
+  "title": "string",
+  "content": "",
+  "modifiedDate": "2017-02-10T07:51:27Z",
+  "author": {
+  "userId": 0,
+  "displayName": "Long Kaniel",
+  "avatarUrl": "/feed/images/1017"
+  },
+  "linkPreview": null,
+  "mentionedUser": [
+                    {
+                    "userId": 1111,
+                    "displayName": "Long Nguyen",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    },
+                    {
+                    "userId": 1112,
+                    "displayName": "Tho Tran",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    }
+                    ],
+  "mediaFiles": [
+                 {
+                 "mediaId": 0,
+                 "width": 550,
+                 "height": 977,
+                 "imageUrl": "/feed/images/1035"
+                 },
+                 {
+                 "mediaId": 1,
+                 "width": 600,
+                 "height": 378,
+                 "imageUrl": "/feed/images/1028"
+                 },
+                 {
+                 "mediaId": 2,
+                 "width": 338,
+                 "height": 600,
+                 "imageUrl": "/feed/images/1029"
+                 }
+                 ],
+  "type": "STATUS",
+  "createdTimestamp": 1486713087000,
+  "modifiedTimestamp": 1486713087000
+  },
+  "type": "STATUS"
+  },
+  {
+  "id": 14,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-02-09T09:00:00.000+0000",
+  "detailInfo": {
+  "id": 14,
+  "name": "Men's shoe 1 - The men’s style destination",
+  "currency": "Ks",
+  "unitPrice": 70000,
+  "description": "Suede upper. Side zip. Round toe. Smooth sole. Protect with a suede cleaner. 100% Real Leather Upper. Perfect for you. Fits true to size. Take your normal size. Only available in full sizes, go up to the nearest whole size if you take a half size",
+  "cateId": 1076,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 600,
+  "totalComment": 12,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 10,
+  "createdDate": "2017-02-09T09:00:00Z",
+  "updatedDate": null,
+  "totalItem": 500,
+  "soldItem": 306,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [
+             {
+             "id": 19,
+             "path": "feed/images/1148",
+             "rank": 1,
+             "mediaFileId": 19,
+             "width": 800,
+             "height": 800,
+             "itemId": 14
+             }
+             ],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1006,
+  "title": null,
+  "content": "Airbnb, one source notes, “is deeply interested in the company because of their extremely talented team with deep experience in the luxury segment. Their capability in the luxury is unrivalled and complimentary to the capabilities at Airbnb.” Homes on the platform include a villa owned by Francis Ford-Coppola in Puglia, Italy; and Richard Branson’s Necker Island.",
+  "createdDate": "2017-02-07T06:26:23.461+0000",
+  "detailInfo": {
+  "id": 1006,
+  "title": "string",
+  "content": "Airbnb, one source notes, “is deeply interested in the company because of their extremely talented team with deep experience in the luxury segment. Their capability in the luxury is unrivalled and complimentary to the capabilities at Airbnb.” Homes on the platform include a villa owned by Francis Ford-Coppola in Puglia, Italy; and Richard Branson’s Necker Island.",
+  "modifiedDate": "2017-02-10T07:47:12Z",
+  "author": {
+  "userId": 0,
+  "displayName": "Steve Jobs",
+  "avatarUrl": "/feed/images/1017"
+  },
+  "linkPreview": null,
+  "mentionedUser": [
+                    {
+                    "userId": 1111,
+                    "displayName": "Long Nguyen",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    },
+                    {
+                    "userId": 1112,
+                    "displayName": "Tho Tran",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    }
+                    ],
+  "mediaFiles": [
+                 {
+                 "mediaId": 0,
+                 "width": 534,
+                 "height": 800,
+                 "imageUrl": "/feed/images/1048"
+                 },
+                 {
+                 "mediaId": 1,
+                 "width": 500,
+                 "height": 323,
+                 "imageUrl": "/feed/images/1026"
+                 }
+                 ],
+  "type": "STATUS",
+  "createdTimestamp": 1486448783461,
+  "modifiedTimestamp": 1486712832000
+  },
+  "type": "STATUS"
+  },
+  {
+  "id": 11,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-01-24T09:00:00.000+0000",
+  "detailInfo": {
+  "id": 11,
+  "name": "Men's vest fashion 3 for wedding occasion",
+  "currency": "Ks",
+  "unitPrice": 20000,
+  "description": "The down vest is great for layering, and can really complete a look. Enjoy our collection of down vest outfits for your inspiration",
+  "cateId": 1065,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 343,
+  "totalComment": 234,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 10,
+  "createdDate": "2017-01-24T09:00:00Z",
+  "updatedDate": null,
+  "totalItem": 500,
+  "soldItem": 303,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [
+             {
+             "id": 16,
+             "path": "feed/images/1132",
+             "rank": 1,
+             "mediaFileId": 16,
+             "width": 225,
+             "height": 225,
+             "itemId": 11
+             }
+             ],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 17,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-01-02T09:00:01.000+0000",
+  "detailInfo": {
+  "id": 17,
+  "name": "Men's shoe 4 - The men’s style destination",
+  "currency": "Ks",
+  "unitPrice": 35001,
+  "description": "Fits true to size. Take your normal size. Only available in full sizes, go up to the nearest whole size if you take a half size",
+  "cateId": 1076,
+  "author": {
+  "userId": 1002,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 61,
+  "totalComment": 51,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 10,
+  "createdDate": "2017-01-02T09:00:01Z",
+  "updatedDate": null,
+  "totalItem": 501,
+  "soldItem": 307,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 16,
+  "title": null,
+  "content": "null",
+  "createdDate": "2017-01-02T09:00:00.000+0000",
+  "detailInfo": {
+  "id": 16,
+  "name": "Men's shoe 3 - The men’s style destination",
+  "currency": "Ks",
+  "unitPrice": 35000,
+  "description": "Fits true to size. Take your normal size. Only available in full sizes, go up to the nearest whole size if you take a half size",
+  "cateId": 1076,
+  "author": {
+  "userId": 1001,
+  "displayName": "Test user",
+  "avatarUrl": "/feed/images/1017",
+  "type": "STORE",
+  "city": "HCM",
+  "rate": 3.5
+  },
+  "totalLike": 60,
+  "totalComment": 50,
+  "itemType": "BUSINESS_PRODUCT",
+  "discount": 10,
+  "createdDate": "2017-01-02T09:00:00Z",
+  "updatedDate": null,
+  "totalItem": 500,
+  "soldItem": 306,
+  "startDate": "2017-03-02T07:31:25.450271Z",
+  "expiredDate": null,
+  "images": [
+             {
+             "id": 21,
+             "path": "feed/images/1139",
+             "rank": 1,
+             "mediaFileId": 21,
+             "width": 800,
+             "height": 800,
+             "itemId": 16
+             }
+             ],
+  "remainTime": 0
+  },
+  "type": "SELLING"
+  },
+  {
+  "id": 1007,
+  "title": null,
+  "content": "This would fit in with Airbnb’s wider remit, too, to continue diversifying its user base and income, potentially ahead of a public listing",
+  "createdDate": "2016-02-11T06:26:23.461+0000",
+  "detailInfo": {
+  "id": 1007,
+  "title": "string",
+  "content": "This would fit in with Airbnb’s wider remit, too, to continue diversifying its user base and income, potentially ahead of a public listing",
+  "modifiedDate": "2017-02-10T07:49:47Z",
+  "author": {
+  "userId": 0,
+  "displayName": "Long Kaniel",
+  "avatarUrl": "/feed/images/1017"
+  },
+  "linkPreview": null,
+  "mentionedUser": [
+                    {
+                    "userId": 1112,
+                    "displayName": "Tho Tran",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    },
+                    {
+                    "userId": 1111,
+                    "displayName": "Long Nguyen",
+                    "avatarUrl": "/feed/images/1017",
+                    "mentioned": true
+                    }
+                    ],
+  "mediaFiles": [
+                 {
+                 "mediaId": 0,
+                 "width": 1440,
+                 "height": 1280,
+                 "imageUrl": "/feed/images/1037"
+                 },
+                 {
+                 "mediaId": 1,
+                 "width": 1920,
+                 "height": 1220,
+                 "imageUrl": "/feed/images/1036"
+                 },
+                 {
+                 "mediaId": 2,
+                 "width": 1200,
+                 "height": 750,
+                 "imageUrl": "/feed/images/1026"
+                 }
+                 ],
+  "type": "STATUS",
+  "createdTimestamp": 1455171983461,
+  "modifiedTimestamp": 1486712987000
+  },
+  "type": "STATUS"
+  }
+  ]

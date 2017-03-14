@@ -23,6 +23,7 @@ import static com.beecow.utils.PropertiesUtils.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -33,10 +34,18 @@ public class BaseTest {
 
     // GENERAL
     protected static AppiumDriver driver;
+    public String GLOBALPROPERTIESFile = "Global.properties";
+    public static Properties GLOBALPROPERTIES;
     AppiumDriverLocalService service;
     private int TIMEOUT200 = 200;
     private int TIMEOUT10 = 10;
     public static boolean isAndroid = Utils.getInstance().isAndroidDevice();
+
+    public static Properties PROJECTPROPERTIES;
+    public String Testlink_ProjectName;
+    public String Testlink_TestPlanName;
+    public String Testlink_BuildName;
+
 
     public static final String ROOT_PATH = System.getProperty("user.dir");
     public static final String LOG_PATH_FOLDER = ROOT_PATH + "/log";
@@ -68,6 +77,7 @@ public class BaseTest {
 //            PropertiesUtils.GetLastAPKFile();
             System.out.println("Done Get APK File from share folder");
         }
+        GLOBALPROPERTIES = Utils.initProperties (GLOBALPROPERTIESFile);
         System.out.println("Appium is starting");
         setAppium();
         service.start();
@@ -91,7 +101,8 @@ public class BaseTest {
     @AfterMethod
     public void teardown() {
         if (driver != null) {
-            driver.closeApp();
+            //driver.closeApp();
+            driver.quit();
         }
     }
 
@@ -219,17 +230,19 @@ public class BaseTest {
     }
 
     private DesiredCapabilities getiOS_capability(String projectPropertiesFile) {
-        PropertiesUtils.getPropertiesOther(projectPropertiesFile);
-
+        PROJECTPROPERTIES = Utils.initProperties(projectPropertiesFile);
+        Testlink_ProjectName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_ProjectName");
+        Testlink_TestPlanName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_TestPlanName");
+        Testlink_BuildName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_BuildName");
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, iOS_DeviceName);
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, iOS_PlatformVersion);
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, Utils.getPropertyValue(PROJECTPROPERTIES,"IOS_DeviceName"));
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, Utils.getPropertyValue(PROJECTPROPERTIES,"IOS_PlatformVersion"));
 
-        capabilities.setCapability(MobileCapabilityType.APP, iOSAPKFolder);
-        capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, iOS_BundleID);
-        capabilities.setCapability(MobileCapabilityType.UDID, iOS_UDID);
+        capabilities.setCapability(MobileCapabilityType.APP, Utils.getPropertyValue(PROJECTPROPERTIES,"IOS_FILE"));
+        capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, Utils.getPropertyValue(PROJECTPROPERTIES,"IOS_BundleID"));
+        capabilities.setCapability(MobileCapabilityType.UDID, Utils.getPropertyValue(PROJECTPROPERTIES,"IOS_UDID"));
 
-        capabilities.setCapability(MobileCapabilityType.FULL_RESET, false);
+        capabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
         capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
         return capabilities;
     }
