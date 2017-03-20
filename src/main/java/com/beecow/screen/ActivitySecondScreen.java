@@ -3,7 +3,7 @@ package com.beecow.screen;
 import com.beecow.component.CommonScreenObjects;
 import io.appium.java_client.AppiumDriver;
 
-import static com.beecow.model.ActivityFristElement.getCategoryLocatorByText;
+import static com.beecow.model.ActivityFirstElement.getCategoryLocatorByText;
 import static com.beecow.model.ActivitySecondElement.*;
 
 /**

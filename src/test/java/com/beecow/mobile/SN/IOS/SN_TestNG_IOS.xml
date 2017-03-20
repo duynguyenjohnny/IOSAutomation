@@ -6,7 +6,7 @@
     <test name="The market test suite" >
         <classes>
             <!--<class name="com.beecow.mobile.Market.AND.FirstSecondLaunchingTest"/>-->
-            <class name="com.beecow.mobile.SN.IOS.CategotiesTest"/>
+            <class name="com.beecow.mobile.SN.IOS.IOS_Sprint_01"/>
         </classes>
     </test>
 </suite>

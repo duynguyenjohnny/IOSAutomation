@@ -14,40 +14,65 @@ import static com.beecow.model.FooterElement.*;
  */
 
 public class FooterComponent extends CommonScreenObjects {
-
+    String sNameMethod;
     public FooterComponent(AppiumDriver driver){
         super(driver);
     }
-
-    // Footer
-
-    public void clickHomeTabView() {
-        getHelper().findElement(getTabHomeLocator()).click();
+    //check fail when not found element
+    public void checkFail(String observation){
+        result.setResult(failed);
+        result.setObservation(observation);
+        result.check();
     }
-
-    public void clickMarketTabView() throws Exception {
+    // Footer
+    public void clickHomeTabView() {
+        result.setExpectation("Click Tab view [Home]");
+        sNameMethod = new Object() {
+        }.getClass().getEnclosingMethod().getName();
         try {
-            getHelper().findElement(getTabMarketLocator()).click();
-
-        } catch (NoSuchElementException noElement) {
-            result.setResult(failed);
-            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-            throw new Exception("[VerifyStatusOfChooseButton] Can't find Element: " + noElement.getMessage());
+            getHelper().findElement(getTabHomeLocator()).click();
         } catch (Exception ex) {
-            Reporter.getCurrentTestResult().setStatus(ITestResult.FAILURE);
-            throw new Exception(ex.getMessage());
+            checkFail("Tab view [Home] not found " + ex.getMessage());
         }
     }
-
+    public void clickMarketTabView() throws Exception {
+        result.setExpectation("Click Tab view [Market]");
+        sNameMethod = new Object() {
+        }.getClass().getEnclosingMethod().getName();
+        try {
+            getHelper().findElement(getTabMarketLocator()).click();
+        } catch (Exception ex) {
+            checkFail("Tab view [Market] not found " + ex.getMessage());
+        }
+    }
     public void clickMessagesTabView() {
-        getHelper().findElement(getTabMessagesLocator()).click();
+        result.setExpectation("Click Tab view [Messages]");
+        sNameMethod = new Object() {
+        }.getClass().getEnclosingMethod().getName();
+        try {
+            getHelper().findElement(getTabMessagesLocator()).click();
+        } catch (Exception ex) {
+            checkFail("Tab view [Messages] not found " + ex.getMessage());
+        }
     }
-
     public void clickCupidTabView() {
-        getHelper().findElement(getTabCupidLocator()).click();
+        result.setExpectation("Click Tab view [Cupid]");
+        sNameMethod = new Object() {
+        }.getClass().getEnclosingMethod().getName();
+        try {
+            getHelper().findElement(getTabCupidLocator()).click();
+        } catch (Exception ex) {
+            checkFail("Tab view [Cupid] not found " + ex.getMessage());
+        }
     }
-
-    public void clickProfileTabView() {
-        getHelper().findElement(getTabProfileLocator()).click();
+    public void clickMoreTabView() {
+        result.setExpectation("Click Tab view [More]");
+        sNameMethod = new Object() {
+        }.getClass().getEnclosingMethod().getName();
+        try {
+            getHelper().findElement(getTabMoreLocator()).click();
+        } catch (Exception ex) {
+            checkFail("Tab view [More] not found " + ex.getMessage());
+        }
     }
 }

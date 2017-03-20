@@ -135,6 +135,16 @@ public class SwipeFunctions {
         } else ((IOSDriver) driver).swipe(centerX, topY, centerX, bottomY, 3000);
     }
 
+    public void swipingUpElementFromTopToBottom(WebElement el) {
+        int topY = el.getLocation().getY() + el.getSize().getHeight() / 20;
+        int bottomY = topY + el.getSize().getHeight() - el.getSize().getHeight() / 20;
+        int centerX = el.getLocation().getX() + el.getSize().getWidth() / 2;
+        System.out.println(" ===== SWIPE =====> topY " + topY + " - bottomY " + bottomY + " - centerX " + centerX);
+        if (Utils.getInstance().isAndroidDevice()) {
+            ((AndroidDriver) driver).swipe(centerX, topY, centerX, bottomY, 500);
+        } else ((IOSDriver) driver).swipe(centerX, topY, centerX, bottomY, 500);
+    }
+
     public void swipingUpFromElementToOtherElement(WebElement thisElement, WebElement elementTop) {
         //get
         int topY = elementTop.getLocation().getY();

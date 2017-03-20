@@ -3,6 +3,7 @@ package com.beecow.screen;
 import com.beecow.component.CommonScreenObjects;
 import io.appium.java_client.AppiumDriver;
 
+import static com.beecow.model.CommonElement.failed;
 import static com.beecow.model.HomeElement.getActivityMainLocator;
 
 /**
@@ -12,6 +13,14 @@ import static com.beecow.model.HomeElement.getActivityMainLocator;
 public class HomeScreen extends CommonScreenObjects
 {
     public FooterComponent footerComponent;
+
+    //check fail when not found element
+    public void checkFail(String observation){
+        result.setResult(failed);
+        result.setObservation(observation);
+        result.check();
+    }
+
     public HomeScreen(AppiumDriver driver){
         super(driver);
         footerComponent = new FooterComponent(driver);
@@ -31,6 +40,10 @@ public class HomeScreen extends CommonScreenObjects
 
     public void clickMessagesTabView() {
         footerComponent.clickMessagesTabView();
+    }
+
+    public void clickMoreTabView() {
+        footerComponent.clickMoreTabView();
     }
 
     public void verifyHomePageDisplayed() {

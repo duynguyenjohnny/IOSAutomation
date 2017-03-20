@@ -3,6 +3,7 @@ package com.beecow.model;
 import com.beecow.utils.Utils;
 import io.appium.java_client.AppiumDriver;
 
+import static com.beecow.component.BaseTest.beeCow_language;
 import static com.beecow.component.BaseTest.isAndroid;
 
 /**
@@ -10,9 +11,7 @@ import static com.beecow.component.BaseTest.isAndroid;
  */
 
 public class FooterElement {
-
     // Footer
-
     public static String getTabHomeLocator(){
         if(Utils.getInstance().isAndroidDevice()){
             return "resourceID::bottom_navigation_tab_home";
@@ -23,7 +22,7 @@ public class FooterElement {
         if(Utils.getInstance().isAndroidDevice()){
             return "resourceID::bottom_navigation_tab_market";
         }
-        return "xpath:://XCUIElementTypeButton[@label='Market']";
+        return "xpath:://XCUIElementTypeButton[@label='".concat(beeCow_language.market_tab_bar_txt).concat("']");
     }
     public static String getTabMarketLocatorIsSelect(){
         if (isAndroid){
@@ -37,17 +36,17 @@ public class FooterElement {
         }
         return "ios";
     }
-    public static String getTabCupidLocator(){
-        if(Utils.getInstance().isAndroidDevice()){
+    public static String getTabCupidLocator() {
+        if (Utils.getInstance().isAndroidDevice()) {
             return "resourceID::bottom_navigation_tab_cupid";
         }
         return "ios";
     }
-    public static String getTabProfileLocator(){
+    public static String getTabMoreLocator(){
         if(Utils.getInstance().isAndroidDevice()){
-            return "resourceID::bottom_navigation_tab_profile";
+            return "resourceID::bottom_navigation_tab_more";
         }
-        return "ios";
+        return "xpath:://XCUIElementTypeButton[@label='More']";
     }
 }
 

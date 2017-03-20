@@ -68,6 +68,14 @@ public class MarketCategoriesElement {
         return "";
     }
 
+    //get locator computer
+    public static String getItemCategories_tv(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "resourceID::item_category_tv_name";
+        }
+        return "xpath:://*[@name='Categories']/parent::XCUIElementTypeCell/following::XCUIElementTypeCell[1]/XCUIElementTypeStaticText";
+    }
+
     // get text: see all & down icon --> id
     //fragment_market_tv_see_more, fragment_market_img_see_more
     // categories section: fragment_market_ln_category

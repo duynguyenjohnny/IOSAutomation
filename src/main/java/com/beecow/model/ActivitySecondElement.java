@@ -13,14 +13,20 @@ public class ActivitySecondElement {
         return "ios";
     }
 
-    public static String getBtnDone(){
-        if(Utils.getInstance().isAndroidDevice()) return "resourceID::bottom_bar_tvPositive";
-        return "ios";
+    public static String getIndustryByText(String value){
+        if(Utils.getInstance().isAndroidDevice()) return "text::" + value + "";
+        //return "label::"+value;
+        return "xpath:://XCUIElementTypeButton[@name='" + value + "']";
+    }
+
+    public static String getBtnDone() {
+        if (Utils.getInstance().isAndroidDevice()) return "resourceID::bottom_bar_tvPositive";
+        return "xpath:://XCUIElementTypeButton[@name='Done']";
     }
 
     public static String getBtnLater(){
         if(Utils.getInstance().isAndroidDevice()) return "resourceID::bottom_bar_tvNegative";
-        return "ios";
+        return "xpath:://XCUIElementTypeButton[@name='Later']";
     }
 }
 

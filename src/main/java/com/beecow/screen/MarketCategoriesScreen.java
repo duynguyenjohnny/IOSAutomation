@@ -1,8 +1,11 @@
 package com.beecow.screen;
 
 import com.beecow.component.CommonScreenObjects;
+import com.beecow.utils.Utils;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.*;
+
+import java.util.List;
 
 import static com.beecow.component.BaseTest.beeCow_language;
 import static com.beecow.model.CommonElement.failed;
@@ -77,6 +80,16 @@ public class MarketCategoriesScreen extends CommonScreenObjects {
         }
         result.check();
     }
+    public void clickRandomItemCategoriesToGoDetail() {
+        try {
+//            int i = getHelper().getRandomIndexWithRange(0,7);
+            List<WebElement> list = getHelper().findElements(getItemCategories_tv());
+            System.out.println(list.get(1).getText());
+            list.get(1).click();
+        } catch (Exception ex) {
+            checkFail(" - " + ex.getMessage());
+        }
+    }
 
 
     public void checkCategoriesSectionExpand(){
@@ -129,6 +142,45 @@ public class MarketCategoriesScreen extends CommonScreenObjects {
     public void testswipe(){
         getSwipe().swipeLeftToRightElement(getHelper().findElement("resourceID::item_banner_img_banner"));
     }
+
+    public void swipeUpAtMarket() {
+        try {
+            WebElement el = getHelper().findElement(getMainViewWithSearchAndFooter());
+            for (int i = 0; i < 3; i++) {
+                System.out.println("Swipe up market page");
+                getSwipe().swipingUpElementFromTopToBottom(el);
+            }
+        } catch (Exception ex) {
+            checkFail(" - " + ex.getMessage());
+        }
+    }
+    public void swipeDownAtMarket() {
+        try {
+            WebElement el = getHelper().findElement(getMainViewWithSearchAndFooter());
+            for (int i = 0; i < 3; i++) {
+                System.out.println("Swipe down market page");
+                getSwipe().swipingDownElementFromBottomToTop(el);
+            }
+        } catch (Exception ex) {
+            checkFail(" - " + ex.getMessage());
+        }
+    }
+    public void clearAndStartAppAndroid() throws InterruptedException {
+        getHelper().clearDataApp();
+        Thread.sleep(3000);
+        driver.closeApp();
+        Thread.sleep(3000);
+        driver.launchApp();
+    }
+    public void clearIOS(){
+        if(Utils.getInstance().isIosDevice()) {
+//            capabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
+//            capabilities.setCapability(MobileCapabilityType.NO_RESET, false);
+            System.out.println("abc");
+        }
+    }
+
+
 }
 
 

@@ -5,10 +5,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
-import io.appium.java_client.ios.IOSDriver;
 
+import io.appium.java_client.ios.IOSElement;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -105,7 +106,7 @@ public class Helper {
         return e;
     }
     private String[] split(String str){
-        String[] parts = str.split("::");
+        String[] parts = str.split("::",2);
         return parts;
     }
     public WebElement findElement(String locator){
@@ -184,6 +185,11 @@ public class Helper {
         sScreenShotPath = fileScrShot;
     }
 
+
+    public void waitForElement(By id, int time) {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.elementToBeClickable((id)));
+    }
 
     // Return a random number in a range
     public int getRandomIndexWithRange(int Min, int Max){
@@ -519,6 +525,6 @@ public class Helper {
         if(Utils.getInstance().isAndroidDevice()){
             ((AndroidDriver)driver).swipe(middleX, upperY, middleX, lowerY, 3000);
         }else         driver.swipe(middleX, upperY, middleX, lowerY, 3000);
-
     }
+
 }

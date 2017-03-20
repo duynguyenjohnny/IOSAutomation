@@ -10,6 +10,12 @@ public class CommonElement {
     public static String passed = TestLinkAPIResults.TEST_PASSED;
     public static String failed = TestLinkAPIResults.TEST_FAILED;
 
+    public static String getNotificationPopup(){
+        if(Utils.getInstance().isAndroidDevice()){
+            return "";
+        } return "xpath:://XCUIElementTypeButton[@name='Allow']";
+    }
+
     public static String GLOBALPROPERTIESFile = "Global.properties";
     public static String marketPropertiesFile = "Market.properties";
 
@@ -57,5 +63,6 @@ public class CommonElement {
 
 
     public static String screenShot_login = "src\\report\\screenshot\\market\\";
+
 
 }

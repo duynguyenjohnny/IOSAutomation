@@ -1,0 +1,397 @@
+[
+  {
+    "id": 1,
+    "name": "Ngoc Anh",
+    "rating": 5,
+    "city": "Ho Chi Minh",
+    "storeImagePath": "feed/images/feed3046",
+    "follower": 10,
+    "categories":[
+        {
+        "name": "clothing",
+        "displayName": "Clothing",
+        "metaData": {
+          "displayName.zh-tw": "Clothing",
+          "displayName.my": "Clothing",
+          "displayName.my-zawgyi": "Clothing",
+          "disstplayName.zh-cn": "Clothing",
+          "displayName.vi": "Clothing"
+        }
+      }
+    ],
+    "imgProduct": [
+      {
+        "id": 1,
+        "path": "feed/images/1172",
+        "width": 800,
+        "height": 800,
+        "itemId": 1
+      },
+      {
+        "id": 2,
+        "path": "feed/images/1173",
+        "width": 800,
+        "height": 800,
+        "itemId": 2
+      }
+    ]
+    
+    
+  },
+ {
+ "id": 1,
+ "name": "Ngoc Anh",
+ "rating": 5,
+ "city": "Ho Chi Minh",
+ "storeImagePath": "feed/images/feed3046",
+ "follower": 10,
+ "categories":[
+               {
+               "name": "clothing",
+               "displayName": "Clothing",
+               "metaData": {
+               "displayName.zh-tw": "Clothing",
+               "displayName.my": "Clothing",
+               "displayName.my-zawgyi": "Clothing",
+               "disstplayName.zh-cn": "Clothing",
+               "displayName.vi": "Clothing"
+               }
+               }
+               ],
+ "imgProduct": [
+                {
+                "id": 1,
+                "path": "feed/images/1172",
+                "width": 800,
+                "height": 800,
+                "itemId": 1
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                }
+                ]
+ 
+ 
+ },
+ {
+ "id": 1,
+ "name": "Ngoc Anh",
+ "rating": 5,
+ "city": "Ho Chi Minh",
+ "storeImagePath": "feed/images/feed3046",
+ "follower": 10,
+ "categories":[
+               {
+               "name": "clothing",
+               "displayName": "Clothing",
+               "metaData": {
+               "displayName.zh-tw": "Clothing",
+               "displayName.my": "Clothing",
+               "displayName.my-zawgyi": "Clothing",
+               "disstplayName.zh-cn": "Clothing",
+               "displayName.vi": "Clothing"
+               }
+               }
+               ],
+ "imgProduct": [
+                {
+                "id": 1,
+                "path": "feed/images/1172",
+                "width": 800,
+                "height": 800,
+                "itemId": 1
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                }
+                ]
+ 
+ 
+ },
+ {
+ "id": 1,
+ "name": "Ngoc Anh",
+ "rating": 5,
+ "city": "Ho Chi Minh",
+ "storeImagePath": "feed/images/feed3046",
+ "follower": 10,
+ "categories":[
+               {
+               "name": "clothing",
+               "displayName": "Clothing",
+               "metaData": {
+               "displayName.zh-tw": "Clothing",
+               "displayName.my": "Clothing",
+               "displayName.my-zawgyi": "Clothing",
+               "disstplayName.zh-cn": "Clothing",
+               "displayName.vi": "Clothing"
+               }
+               }
+               ],
+ "imgProduct": [
+                {
+                "id": 1,
+                "path": "feed/images/1172",
+                "width": 800,
+                "height": 800,
+                "itemId": 1
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                }
+                ]
+ 
+ 
+ },{
+ "id": 1,
+ "name": "Ngoc Anh",
+ "rating": 5,
+ "city": "Ho Chi Minh",
+ "storeImagePath": "feed/images/feed3046",
+ "follower": 10,
+ "categories":[
+               {
+               "name": "clothing",
+               "displayName": "Clothing",
+               "metaData": {
+               "displayName.zh-tw": "Clothing",
+               "displayName.my": "Clothing",
+               "displayName.my-zawgyi": "Clothing",
+               "disstplayName.zh-cn": "Clothing",
+               "displayName.vi": "Clothing"
+               }
+               }
+               ],
+ "imgProduct": [
+                {
+                "id": 1,
+                "path": "feed/images/1172",
+                "width": 800,
+                "height": 800,
+                "itemId": 1
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                }
+                ]
+ 
+ 
+ },
+ {
+ "id": 1,
+ "name": "Ngoc Anh",
+ "rating": 5,
+ "city": "Ho Chi Minh",
+ "storeImagePath": "feed/images/feed3046",
+ "follower": 10,
+ "categories":[
+               {
+               "name": "clothing",
+               "displayName": "Clothing",
+               "metaData": {
+               "displayName.zh-tw": "Clothing",
+               "displayName.my": "Clothing",
+               "displayName.my-zawgyi": "Clothing",
+               "disstplayName.zh-cn": "Clothing",
+               "displayName.vi": "Clothing"
+               }
+               }
+               ],
+ "imgProduct": [
+                {
+                "id": 1,
+                "path": "feed/images/1172",
+                "width": 800,
+                "height": 800,
+                "itemId": 1
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                }
+                ]
+ 
+ 
+ },
+ {
+ "id": 1,
+ "name": "Ngoc Anh",
+ "rating": 5,
+ "city": "Ho Chi Minh",
+ "storeImagePath": "feed/images/feed3046",
+ "follower": 10,
+ "categories":[
+               {
+               "name": "clothing",
+               "displayName": "Clothing",
+               "metaData": {
+               "displayName.zh-tw": "Clothing",
+               "displayName.my": "Clothing",
+               "displayName.my-zawgyi": "Clothing",
+               "disstplayName.zh-cn": "Clothing",
+               "displayName.vi": "Clothing"
+               }
+               }
+               ],
+ "imgProduct": [
+                {
+                "id": 1,
+                "path": "feed/images/1172",
+                "width": 800,
+                "height": 800,
+                "itemId": 1
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                }
+                ]
+ 
+ 
+ },
+ {
+ "id": 1,
+ "name": "Ngoc Anh",
+ "rating": 5,
+ "city": "Ho Chi Minh",
+ "storeImagePath": "feed/images/feed3046",
+ "follower": 10,
+ "categories":[
+               {
+               "name": "clothing",
+               "displayName": "Clothing",
+               "metaData": {
+               "displayName.zh-tw": "Clothing",
+               "displayName.my": "Clothing",
+               "displayName.my-zawgyi": "Clothing",
+               "disstplayName.zh-cn": "Clothing",
+               "displayName.vi": "Clothing"
+               }
+               }
+               ],
+ "imgProduct": [
+                {
+                "id": 1,
+                "path": "feed/images/1172",
+                "width": 800,
+                "height": 800,
+                "itemId": 1
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                },
+                {
+                "id": 2,
+                "path": "feed/images/1173",
+                "width": 800,
+                "height": 800,
+                "itemId": 2
+                }
+                ]
+ 
+ 
+ }
+]
