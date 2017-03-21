@@ -26,6 +26,7 @@ import static com.beecow.utils.PropertiesUtils.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -96,12 +97,17 @@ public class BaseTest {
 
     public void setUp(String propertyFile) throws Exception {
         try {
-            System.out.println("Before Method: Setup");
-            initDriver(propertyFile);
-            //closeNotificationPopup();
+//            //remove app if have
+//            if(getDriver().isAppInstalled("ca.mediastep.BeeCow")==true){
+//                getDriver().removeApp("ca.mediastep.BeeCow");
+//            } else if(Objects.equals(getDriver().isAppInstalled("ca.mediastep.BeeCow"), null)){
+                System.out.println("Before Method: Setup");
+                initDriver(propertyFile);
+                //closeNotificationPopup();
 
-            //get language
-            beeCow_language = getHelper().getTextByLanguage(getLanguageKey());
+                //get language
+                beeCow_language = getHelper().getTextByLanguage(getLanguageKey());
+            //}
         } catch (Exception ex) {
             System.out.println("Error Before Method: Setup:" + ex.getMessage());
         }
@@ -158,7 +164,7 @@ public class BaseTest {
 //            getDriver().quit();
             //System.out.println(" ===== STEP =====> Start Remove IOS App");
             //getDriver().removeApp(iOS_BundleID);
-            System.out.println(" ===== STEP =====> End Remove IOS App");
+            //System.out.println(" ===== STEP =====> End Remove IOS App");
             System.out.println(" ===== STEP =====> Stopping Appium");
             service.stop();
             System.out.println(" ===== STEP =====> Appium is stopped");

@@ -3,7 +3,7 @@
 BeeCowProjectMobile.iml
 BeeCowProject.iml
 *.apk
-/src/report/Cupid/
+/src/report/
 log/androidLog\.txt
 /log/
 

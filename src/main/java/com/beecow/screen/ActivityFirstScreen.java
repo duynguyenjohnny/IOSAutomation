@@ -82,15 +82,20 @@ public class ActivityFirstScreen extends CommonScreenObjects {
     public void selectFirstAndSecondLaunching() {
         System.out.println("Begin Select categories for first launching");
         //selectCategories(cats);
+        selectCategory("Sport");
+        selectCategory("Computer");
+        selectCategory("Meal Deals");
         System.out.println("Click button Next to go second launching");
         clickButtonNext();
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println("Next select industries");
         //selectIndustries(inds);
+        selectIndustry("Design");
+        selectIndustry("Construction");
         System.out.println("Then click button Done");
         clickButtonDone();
         //System.out.println("Click Market Tab view to go Market Overview page");

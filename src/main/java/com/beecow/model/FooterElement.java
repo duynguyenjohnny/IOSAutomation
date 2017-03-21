@@ -16,13 +16,13 @@ public class FooterElement {
         if(Utils.getInstance().isAndroidDevice()){
             return "resourceID::bottom_navigation_tab_home";
         }
-        return "ios";
+        return "xpath:://XCUIElementTypeButton[@label='Home']";
     }
     public static String getTabMarketLocator(){
         if(Utils.getInstance().isAndroidDevice()){
             return "resourceID::bottom_navigation_tab_market";
         }
-        return "xpath:://XCUIElementTypeButton[@label='".concat(beeCow_language.market_tab_bar_txt).concat("']");
+        return "xpath:://XCUIElementTypeButton[@label='Market']";
     }
     public static String getTabMarketLocatorIsSelect(){
         if (isAndroid){
@@ -34,13 +34,13 @@ public class FooterElement {
         if(Utils.getInstance().isAndroidDevice()){
             return "resourceID::bottom_navigation_tab_message";
         }
-        return "ios";
+        return "xpath:://XCUIElementTypeButton[@label='Messages']";
     }
     public static String getTabCupidLocator() {
         if (Utils.getInstance().isAndroidDevice()) {
             return "resourceID::bottom_navigation_tab_cupid";
         }
-        return "ios";
+        return "xpath:://XCUIElementTypeButton[@label='Cupid']";
     }
     public static String getTabMoreLocator(){
         if(Utils.getInstance().isAndroidDevice()){
