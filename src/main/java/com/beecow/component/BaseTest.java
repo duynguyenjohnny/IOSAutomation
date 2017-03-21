@@ -76,15 +76,15 @@ public class BaseTest {
     public void GetLastAPKFile() throws Exception {
         PropertiesUtils.getPropertiesGlobal();
         //if (Utils.getInstance().isAndroidDevice()) {
-            System.out.println("Start Get APK File from share folder");
-            PropertiesUtils.GetLastAPKFile();
+            //System.out.println("Start Get APK File from share folder");
+            //PropertiesUtils.GetLastAPKFile();
 //            if(driver.isAppInstalled("ca.mediastep.BeeCow")== true) {
 //                driver.resetApp();
 //            } if (driver.isAppInstalled("ca.mediastep.BeeCow")== false){
 //                driver.installApp("");
 //        }
 
-            System.out.println("Done Get APK File from share folder");
+            //System.out.println("Done Get APK File from share folder");
       //  }
         //GLOBALPROPERTIES = Utils.initProperties (GLOBALPROPERTIESFile);
         System.out.println("Appium is starting");
@@ -156,8 +156,8 @@ public class BaseTest {
 //                System.out.println(" ===== STEP =====> End Remove IOS App");
 //            }
 //            getDriver().quit();
-            System.out.println(" ===== STEP =====> Start Remove IOS App");
-            getDriver().removeApp(iOS_BundleID);
+            //System.out.println(" ===== STEP =====> Start Remove IOS App");
+            //getDriver().removeApp(iOS_BundleID);
             System.out.println(" ===== STEP =====> End Remove IOS App");
             System.out.println(" ===== STEP =====> Stopping Appium");
             service.stop();
@@ -275,42 +275,45 @@ public class BaseTest {
         return capabilities;
     }
 
+//    private DesiredCapabilities getiOS_capability(String projectPropertiesFile) {
+//        PropertiesUtils.getPropertiesOther(projectPropertiesFile);
+//        String iOSAPKFilePath = new File(iOSAPKFile).getAbsolutePath();
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,
+//                AutomationName.IOS_XCUI_TEST);
+//        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, iOS_DeviceName);
+//        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, iOS_PlatformVersion);
+//        capabilities.setCapability(MobileCapabilityType.APP, iOSAPKFilePath);
+//        capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, iOS_BundleID);
+//        capabilities.setCapability(MobileCapabilityType.UDID, iOS_UDID);
+//        //capabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
+//        capabilities.setCapability(MobileCapabilityType.NO_RESET, false);
+//        capabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, "true");
+//        //capabilities.setCapability("waitForAppScript", "if (target.frontMostApp().alert().name()=='\"BeeCow\" Would Like to Send You Notifications') {$.acceptAlert(); true;}");
+//        //capabilities.setCapability("autoDismissAlerts", true);
+//        return capabilities;
+//    }
+
     private DesiredCapabilities getiOS_capability(String projectPropertiesFile) {
-        PropertiesUtils.getPropertiesOther(projectPropertiesFile);
-        String iOSAPKFilePath = new File(iOSAPKFile).getAbsolutePath();
+        PROJECTPROPERTIES = Utils.initProperties(projectPropertiesFile);
+        Testlink_ProjectName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_ProjectName");
+        Testlink_TestPlanName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_TestPlanName");
+        Testlink_BuildName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_BuildName");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,
                 AutomationName.IOS_XCUI_TEST);
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, iOS_DeviceName);
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, iOS_PlatformVersion);
-        capabilities.setCapability(MobileCapabilityType.APP, iOSAPKFilePath);
-        capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, iOS_BundleID);
-        capabilities.setCapability(MobileCapabilityType.UDID, iOS_UDID);
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, Utils.getPropertyValue(PROJECTPROPERTIES,"IOS_DeviceName"));
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, Utils.getPropertyValue(PROJECTPROPERTIES,"IOS_PlatformVersion"));
+
+        capabilities.setCapability(MobileCapabilityType.APP, Utils.getPropertyValue(PROJECTPROPERTIES,"IOS_FILE"));
+        capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, Utils.getPropertyValue(PROJECTPROPERTIES,"IOS_BundleID"));
+        capabilities.setCapability(MobileCapabilityType.UDID, Utils.getPropertyValue(PROJECTPROPERTIES,"IOS_UDID"));
+
         //capabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
         capabilities.setCapability(MobileCapabilityType.NO_RESET, false);
-        capabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, "true");
-        //capabilities.setCapability("waitForAppScript", "if (target.frontMostApp().alert().name()=='\"BeeCow\" Would Like to Send You Notifications') {$.acceptAlert(); true;}");
-        //capabilities.setCapability("autoDismissAlerts", true);
+        capabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, true);
         return capabilities;
     }
-
-//    private DesiredCapabilities getiOS_capability(String projectPropertiesFile) {
-//        PROJECTPROPERTIES = Utils.initProperties(projectPropertiesFile);
-//        Testlink_ProjectName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_ProjectName");
-//        Testlink_TestPlanName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_TestPlanName");
-//        Testlink_BuildName = Utils.getPropertyValue(PROJECTPROPERTIES, "Testlink_BuildName");
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, Utils.getPropertyValue(PROJECTPROPERTIES,"IOS_DeviceName"));
-//        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, Utils.getPropertyValue(PROJECTPROPERTIES,"IOS_PlatformVersion"));
-//
-//        capabilities.setCapability(MobileCapabilityType.APP, Utils.getPropertyValue(PROJECTPROPERTIES,"IOS_FILE"));
-//        capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, Utils.getPropertyValue(PROJECTPROPERTIES,"IOS_BundleID"));
-//        capabilities.setCapability(MobileCapabilityType.UDID, Utils.getPropertyValue(PROJECTPROPERTIES,"IOS_UDID"));
-//
-//        capabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
-//        capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
-//        return capabilities;
-//    }
 
     private DesiredCapabilities getWebAndroid_capability() {
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();

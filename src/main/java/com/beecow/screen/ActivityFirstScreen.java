@@ -18,14 +18,14 @@ import static com.beecow.model.ActivitySecondElement.getIndustryByText;
 public class ActivityFirstScreen extends CommonScreenObjects {
 
     //DATA TEST
-    public static String[] cats = {"Sport", "Computer", "Meal Deals"};
-    public static String[] reverse_cats = {"Meal Deals", "Computer", "Sport"};
-    public static String[] single_cat = {"Meal Deals"};
-    public static String[] double_cats = {"Meal Deals", "Health & Beauty"};
-    public static String[] catList = {"Mobile & Tablet", "Computer", "Camera & TV", "Home & Living", "Mom & Kids", "Health & Beauty", "Sport", "Meal Deals", "Spa Deals", "Entertainment Deals", "Travel Deals"};
-    public static String[] singleinds = {"Education"};
-    public static String[] inds = {"Automotive", "Architecture", "Banking"};
-    public static String[] indList = {"Accounting & Auditing Services", "Advertising & Public RelationstAds & PR", "Agriculture/Forestry/Fishing", "Airlines & Aviation", "Architecture", "Automotive", "Banking", "Beauty/Cosmetics", "Biotechnology/Pharmaceuticals", "Broadcasting/Music/Film", "Chemical/Petro-chemical", "Clothing & Textile Manufacturing", "Computer/IT", "Construction", "Consulting", "Design", "Distribution/Logistics", "Education", "Energy/Utilities", "Engineering", "Financial Services", "Food/Beverage Production", "Government", "Healthcare Services", "Hotels/Lodging", "Import/Export/Trade", "Insurance", "Internet Services", "Legal Services", "Manufacturing", "Medical/Hospital", "NGO/INGO/Non-profit", "Performing Arts/Fine Arts", "Personal & Household Services", "Printing/Publishing", "Real Estate/Property", "Recruitment Agencies", "Restaurant/Food Services", "Retail", "Security/Surveillance", "Social Services", "Sports/Physical Recreation", "Telecommunications Services", "Tourism/Travel Services", "Transportation & Storage"};
+//      public static String[] cats = {"Sport", "Computer", "Meal Deals"};
+//    public static String[] reverse_cats = {"Meal Deals", "Computer", "Sport"};
+//    public static String[] single_cat = {"Meal Deals"};
+//    public static String[] double_cats = {"Meal Deals", "Health & Beauty"};
+//    public static String[] catList = {"Mobile & Tablet", "Computer", "Camera & TV", "Home & Living", "Mom & Kids", "Health & Beauty", "Sport", "Meal Deals", "Spa Deals", "Entertainment Deals", "Travel Deals"};
+//    public static String[] singleinds = {"Education"};
+//    public static String[] inds = {"Automotive", "Architecture", "Banking"};
+//    public static String[] indList = {"Accounting & Auditing Services", "Advertising & Public RelationstAds & PR", "Agriculture/Forestry/Fishing", "Airlines & Aviation", "Architecture", "Automotive", "Banking", "Beauty/Cosmetics", "Biotechnology/Pharmaceuticals", "Broadcasting/Music/Film", "Chemical/Petro-chemical", "Clothing & Textile Manufacturing", "Computer/IT", "Construction", "Consulting", "Design", "Distribution/Logistics", "Education", "Energy/Utilities", "Engineering", "Financial Services", "Food/Beverage Production", "Government", "Healthcare Services", "Hotels/Lodging", "Import/Export/Trade", "Insurance", "Internet Services", "Legal Services", "Manufacturing", "Medical/Hospital", "NGO/INGO/Non-profit", "Performing Arts/Fine Arts", "Personal & Household Services", "Printing/Publishing", "Real Estate/Property", "Recruitment Agencies", "Restaurant/Food Services", "Retail", "Security/Surveillance", "Social Services", "Sports/Physical Recreation", "Telecommunications Services", "Tourism/Travel Services", "Transportation & Storage"};
 
     public ActivityFirstScreen(AppiumDriver driver){
         super(driver);
@@ -81,7 +81,7 @@ public class ActivityFirstScreen extends CommonScreenObjects {
     }
     public void selectFirstAndSecondLaunching() {
         System.out.println("Begin Select categories for first launching");
-        selectCategories(cats);
+        //selectCategories(cats);
         System.out.println("Click button Next to go second launching");
         clickButtonNext();
         try {
@@ -90,7 +90,7 @@ public class ActivityFirstScreen extends CommonScreenObjects {
             e.printStackTrace();
         }
         System.out.println("Next select industries");
-        selectIndustries(inds);
+        //selectIndustries(inds);
         System.out.println("Then click button Done");
         clickButtonDone();
         //System.out.println("Click Market Tab view to go Market Overview page");

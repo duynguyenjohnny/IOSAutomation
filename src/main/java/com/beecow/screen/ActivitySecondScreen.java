@@ -16,7 +16,7 @@ public class ActivitySecondScreen extends CommonScreenObjects {
     }
 
     public void selectIndustry(String indName) {
-        getHelper().findElement(getIndustryLocatorByText(indName)).click();
+        getHelper().findElement(getIndustryByText(indName)).click();
     }
 
     public void selectIndustries(String indus[]) {
