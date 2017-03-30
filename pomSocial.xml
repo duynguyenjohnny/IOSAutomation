@@ -21,6 +21,7 @@
                         <configuration>
                             <suiteXmlFiles>
                                 <suiteXmlFile>${basedir}/src/test/java/com/beecow/mobile/SN/IOS/SN_TestNG_IOS.xml</suiteXmlFile>
+                              <!--  <suiteXmlFile>${basedir}/src/test/java/com/beecow/mobile/SN/IOS/SN2_TestNG_IOS.xml</suiteXmlFile> -->
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>
@@ -43,7 +44,7 @@
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
-            <version>1.1</version>
+            <version>1.1.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -175,6 +176,7 @@
                     <forkCount>0</forkCount>
                     <suiteXmlFiles>
                         <file>${basedir}/src/test/java/com/beecow/mobile/SN/IOS/SN_TestNG_IOS.xml</file>
+                       <!-- <file>${basedir}/src/test/java/com/beecow/mobile/SN/IOS/SN2_TestNG_IOS.xml</file> -->
                     </suiteXmlFiles>
                     <properties>
                         <property>

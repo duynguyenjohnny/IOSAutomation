@@ -10,6 +10,9 @@ import org.openqa.selenium.NoSuchElementException;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import static com.beecow.model.CommonElement.failed;
 import static com.beecow.model.HomeElement.getActivityMainLocator;
 
@@ -19,6 +22,10 @@ import static com.beecow.model.HomeElement.getActivityMainLocator;
 
 public class HomeScreen extends CommonScreenObjects
 {
+    //ID resources
+    //public static String colordot = ;
+    //public static String uploadtime = ;
+
     public FooterComponent footerComponent;
 
     //check fail when not found element
@@ -57,6 +64,16 @@ public class HomeScreen extends CommonScreenObjects
         getHelper().waitElementIsDisplayed(getHelper().byLocator(getActivityMainLocator()));
 //        getHelper().waitElementIsDisplayed(getHelper().byLocator(getActivityMainLocator()));
         System.out.println("Home Page show with activity main page is loaded");
+    }
+
+    public static String getDatefromMili(long milliSeconds, String dateFormat)
+    {
+        // Create a DateFormatter object for displaying date in specified format.
+        SimpleDateFormat formatter =  new SimpleDateFormat(dateFormat);
+        // Create a calendar object that will convert the date and time value in milliseconds to date.
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(milliSeconds);
+        return formatter.format(calendar.getTime());
     }
 
     /** * Swipe on the screen base on start coordinate and end coordinate

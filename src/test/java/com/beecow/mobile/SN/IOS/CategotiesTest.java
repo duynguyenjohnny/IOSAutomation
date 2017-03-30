@@ -191,6 +191,11 @@ public class CategotiesTest extends BaseTest {
         System.out.println(" ===== STEP =====> Click Tab view [Market] to go Market Overview page");
         homeScreen.clickMarketTabView();
     }
+
+    @Override
+    protected void initData() {
+
+    }
 //    public static void main(String[] args) {
 //        String a = "AND_MAR_TC_7";
 ////        StringBuilder b = new StringBuilder(a);

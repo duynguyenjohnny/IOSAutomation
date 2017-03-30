@@ -144,6 +144,18 @@ public class Helper {
             return isPresent;
         }
     }
+
+    public boolean isElementById(String id){
+        // com.mediastep.beecow:id/social_item_status_bar_ivStatus
+        Boolean isPresent = Boolean.FALSE;
+        try {
+            isPresent = driver.findElement(By.id(id)).isDisplayed();
+            return isPresent;
+        } catch (NoSuchElementException ex) {
+            return isPresent;
+        }
+    }
+
     public Boolean isElementPresent(WebElement locator) {
         Boolean isPresent = Boolean.FALSE;
         try {

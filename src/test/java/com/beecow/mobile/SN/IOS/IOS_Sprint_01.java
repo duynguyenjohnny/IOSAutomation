@@ -621,4 +621,9 @@ public class IOS_Sprint_01 extends BaseTest {
     public void installApp(String pathapp){
         driver.installApp(pathapp);
 }
+
+    @Override
+    protected void initData() {
+
+    }
 }

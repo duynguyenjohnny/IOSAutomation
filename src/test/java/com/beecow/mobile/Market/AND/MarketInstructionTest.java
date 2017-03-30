@@ -124,4 +124,9 @@ public class MarketInstructionTest extends BaseTest {
         System.out.println("Click Tab view [Market] to go Market Overview page");
         homeScreen.clickMarketTabView();
     }
+
+    @Override
+    protected void initData() {
+
+    }
 }

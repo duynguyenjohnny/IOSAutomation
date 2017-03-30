@@ -1,0 +1,270 @@
+{"add new status": {
+	"title": "Automation Add New Status",
+	"content": "@1111 Automation Add New Status Pure Text",
+	"author": {
+		"userId": 2,
+		"displayName": "Long Long",
+		"avatarUrl": "feed/images/feed3048"
+	},
+	"statusType": "TEXT",
+	"mentionedUsers": [
+		{
+			"userId": 1111,
+			"displayName": "Long Nguyen",
+			"avatarUrl": "feed/images/feed3048",
+			"mentioned": true
+		}
+	]
+},
+	"add one photo landscape status":{
+		"title": "Automation Verify posting 1 landscape photo and texts",
+		"content": "@1111 Automation Verify posting 1 landscape photo and texts",
+
+		"author": {
+			"userId": 111,
+			"displayName": "Duy Nguyen",
+			"avatarUrl": "feed/images/feed3048"
+		},
+		"statusType": "TEXT",
+		"mentionedUsers": [
+			{
+				"userId": 1111,
+				"displayName": "Long Nguyen",
+				"avatarUrl": "feed/images/feed3048",
+				"mentioned": true
+			}
+		],
+		"images": [
+			{
+				"id": 1111,
+				"width": 2048,
+				"height": 1365,
+				"imageUrl": "feed/images/1052"
+			}
+		]
+	},
+
+	"add four photo landscape status":{
+		"title": "Automation Verify posting 4 landscape photos and texts",
+		"content": "@1111 Automation Verify posting 4 landscape photos and texts",
+
+		"author": {
+			"userId": 111,
+			"displayName": "Duy Nguyen",
+			"avatarUrl": "feed/images/feed3048"
+		},
+		"statusType": "TEXT",
+		"mentionedUsers": [
+			{
+				"userId": 1111,
+				"displayName": "Long Nguyen",
+				"avatarUrl": "feed/images/feed3048",
+				"mentioned": true
+			}
+		],
+		"images": [
+			{
+				"id": 111,
+				"width": 2048,
+				"height": 1365,
+				"imageUrl": "feed/images/1052"
+			},
+			{
+				"id": 112,
+				"width": 2048,
+				"height": 1365,
+				"imageUrl": "feed/images/1052"
+			},
+			{
+				"id": 113,
+				"width": 2048,
+				"height": 1365,
+				"imageUrl": "feed/images/1052"
+			},
+			{
+				"id": 114,
+				"width": 2048,
+				"height": 1365,
+				"imageUrl": "feed/images/1052"
+			}
+		]
+	},
+
+	"add more four photo landscape status":{
+		"title": "Automation Verify posting more than 4 landscape photos and texts",
+		"content": "@1111 Automation Verify posting more than 4 landscape photos and texts",
+
+		"author": {
+			"userId": 111,
+			"displayName": "Duy Nguyen",
+			"avatarUrl": "feed/images/feed3048"
+		},
+		"statusType": "TEXT",
+		"mentionedUsers": [
+			{
+				"userId": 1111,
+				"displayName": "Long Nguyen",
+				"avatarUrl": "feed/images/feed3048",
+				"mentioned": true
+			}
+		],
+		"images": [
+			{
+				"id": 211,
+				"width": 2048,
+				"height": 1365,
+				"imageUrl": "feed/images/1052"
+			},
+			{
+				"id": 212,
+				"width": 2048,
+				"height": 1365,
+				"imageUrl": "feed/images/1052"
+			},
+			{
+				"id": 213,
+				"width": 2048,
+				"height": 1365,
+				"imageUrl": "feed/images/1052"
+			},
+			{
+				"id": 214,
+				"width": 2048,
+				"height": 1365,
+				"imageUrl": "feed/images/1052"
+			},
+			{
+				"id": 215,
+				"width": 2048,
+				"height": 1365,
+				"imageUrl": "feed/images/1052"
+			}
+		]
+	},
+
+	"add one photo portrait status": {
+		"title": "Automation Verify posting 1 portrait photo and texts",
+		"content": "@1111 Automation Verify posting 1 portrait photo and texts",
+
+		"author": {
+			"userId": 1112,
+			"displayName": "Duy Nguyen",
+			"avatarUrl": "feed/images/feed3048"
+		},
+		"statusType": "TEXT",
+		"mentionedUsers": [
+			{
+				"userId": 1111,
+				"displayName": "Long Nguyen",
+				"avatarUrl": "feed/images/feed3048",
+				"mentioned": true
+			}
+		],
+		"images": [
+			{
+				"id": 1113,
+				"width": 1365,
+				"height": 2048,
+				"imageUrl": "feed/images/1152"
+			}
+		]
+	},
+
+	"add four photo portrait status": {
+		"title": "Automation Verify posting 4 portrait photo and texts",
+		"content": "@1111 Automation Verify posting 4 portrait photos and texts",
+
+		"author": {
+			"userId": 1112,
+			"displayName": "Duy Nguyen",
+			"avatarUrl": "feed/images/feed3048"
+		},
+		"statusType": "TEXT",
+		"mentionedUsers": [
+			{
+				"userId": 1111,
+				"displayName": "Long Nguyen",
+				"avatarUrl": "feed/images/feed3048",
+				"mentioned": true
+			}
+		],
+		"images": [
+			{
+				"id": 1113,
+				"width": 1365,
+				"height": 2048,
+				"imageUrl": "feed/images/1152"
+			},
+			{
+				"id": 1114,
+				"width": 1365,
+				"height": 2048,
+				"imageUrl": "feed/images/1152"
+			},
+			{
+				"id": 1115,
+				"width": 1365,
+				"height": 2048,
+				"imageUrl": "feed/images/1152"
+			},
+			{
+				"id": 1116,
+				"width": 1365,
+				"height": 2048,
+				"imageUrl": "feed/images/1152"
+			}
+		]
+	},
+
+	"add more four photo portrait status": {
+		"title": "Automation Verify posting 4 portrait photo and texts",
+		"content": "@1111 Automation Verify posting 4 portrait photos and texts",
+
+		"author": {
+			"userId": 1112,
+			"displayName": "Duy Nguyen",
+			"avatarUrl": "feed/images/feed3048"
+		},
+		"statusType": "TEXT",
+		"mentionedUsers": [
+			{
+				"userId": 1111,
+				"displayName": "Long Nguyen",
+				"avatarUrl": "feed/images/feed3048",
+				"mentioned": true
+			}
+		],
+		"images": [
+			{
+				"id": 3113,
+				"width": 1365,
+				"height": 2048,
+				"imageUrl": "feed/images/1152"
+			},
+			{
+				"id": 3114,
+				"width": 1365,
+				"height": 2048,
+				"imageUrl": "feed/images/1152"
+			},
+			{
+				"id": 3115,
+				"width": 1365,
+				"height": 2048,
+				"imageUrl": "feed/images/1152"
+			},
+			{
+				"id": 3116,
+				"width": 1365,
+				"height": 2048,
+				"imageUrl": "feed/images/1152"
+			},
+			{
+				"id": 3117,
+				"width": 1365,
+				"height": 2048,
+				"imageUrl": "feed/images/1152"
+			}
+		]
+	}
+}

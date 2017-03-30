@@ -72,6 +72,10 @@ public class CategotiesTest extends BaseTest {
         marketCategoriesScreen.checkCategoriesSectionCollapse();
     }
 
+    @Override
+    protected void initData() {
+
+    }
 
 
 //    public static void main(String[] args) {

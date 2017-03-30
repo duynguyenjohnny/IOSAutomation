@@ -128,4 +128,9 @@ public class MarketBannerTest extends BaseTest {
         System.out.println("Click Button [Got it]");
         marketScreen.clickButtonGotIt();
     }
+
+    @Override
+    protected void initData() {
+
+    }
 }

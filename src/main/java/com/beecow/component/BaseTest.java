@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit;
  * Created by HangPham on 12/18/2016.
  */
 
-public class BaseTest {
+public abstract class BaseTest {
 
     // GENERAL
     public static AppiumDriver driver;
@@ -335,4 +335,6 @@ public class BaseTest {
         capabilities.setCapability(MobileCapabilityType.UDID, "");
         return capabilities;
     }
+
+    protected abstract void initData();
 }
