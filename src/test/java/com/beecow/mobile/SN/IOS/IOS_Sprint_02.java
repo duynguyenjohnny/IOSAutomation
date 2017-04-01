@@ -104,10 +104,14 @@ public class IOS_Sprint_02 extends BaseTest {
         String sMethodName = new Object() {
         }.getClass().getEnclosingMethod().getName();
         try {
+            Thread.sleep(2000);
             firstScreen.selectFirstAndSecondLaunching();
             Thread.sleep(1000);
             System.out.println("Create a post as status type");
+            Thread.sleep(2000);
             String requestBodyStatus = jsonData.get(APIData.ADD_NEW_STATUS).toString();
+            //String requestBodyStatus = "{\"title\": \"Automation Add New Status\",\"content\": \"@1111 Automation Add New Status Pure Text\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUsers\": [{\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}]}";
+            Thread.sleep(2000);
             JSONObject poststatus = APIUtil.sendPost(APIData.POST_STATUS_CA, requestBodyStatus);
             //System.out.println(poststatus);
             //api.poststatuspuretext();
@@ -185,6 +189,7 @@ public class IOS_Sprint_02 extends BaseTest {
             //long currentdate = System.currentTimeMillis();
             //long  expectdate = currentdate - 600000;
             //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+            Thread.sleep(2000);
             long current = System.currentTimeMillis();
             long expectdate = current - (600000);
 
@@ -202,8 +207,7 @@ public class IOS_Sprint_02 extends BaseTest {
             1489568979141
             */
 
-            String request = "{\"title\": \"Automation time upload 1 to 59 minutes\",\"content\": \"@1111 Automation time upload 1 to 59 minutes\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\n" +
-                    "\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}],\"createdDate\":";
+            String request = "{\"title\": \"Automation time upload 1 to 59 minutes\",\"content\": \"@1111 Automation time upload 1 to 59 minutes\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUsers\": [{\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}],\"createdDate\":";
             String requestBodyStatus = request + "\"" + ExpectDate10minutes + "\"}";
             System.out.print(requestBodyStatus);
             JSONObject poststatus = APIUtil.sendPost(APIData.POST_STATUS_CA, requestBodyStatus);
@@ -213,7 +217,9 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost.containsValue(id));
+            String getfeeds = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds);
+            Assert.assertTrue(getfeeds.contains("\"feedId\":" +id));
 
             //update if pass to testlink
             TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "IOS_SN_TC-14", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
@@ -243,8 +249,8 @@ public class IOS_Sprint_02 extends BaseTest {
         }.getClass().getEnclosingMethod().getName();
         try {
             //open application , make sure first launching
-            Thread.sleep(2000);
-            firstScreen.selectFirstAndSecondLaunching();
+            //Thread.sleep(2000);
+            //firstScreen.selectFirstAndSecondLaunching();
             Thread.sleep(2000);
             //String swipeto = "We’ve requested more details about the prototype from Oculus. It looks like the gloves have a slim form-factor";
             //androidSwipe("//*[@text=\"Gift Cards\"]");
@@ -263,8 +269,7 @@ public class IOS_Sprint_02 extends BaseTest {
             // Date Expect time with format yyyy-MM-ddTHH:mm:ssZ
             String ExpectDate10minutes = newText.replace("/", "Z");
 
-            String request = "{\"title\": \"Automation time upload 1 hour to 23 hours 59 minutes\",\"content\": \"@1111 Automation time upload 1 hour to 23 hours 59 minutes\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\n" +
-                    "\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}],\"createdDate\":";
+            String request = "{\"title\": \"Automation time upload 1 hour to 23 hours 59 minutes\",\"content\": \"@1111 Automation time upload 1 hour to 23 hours 59 minutes\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUsers\": [{\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}],\"createdDate\":";
             String requestBodyStatus = request + "\"" + ExpectDate10minutes + "\"}";
             System.out.print(requestBodyStatus);
             JSONObject poststatus = APIUtil.sendPost(APIData.POST_STATUS_CA, requestBodyStatus);
@@ -274,7 +279,9 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost.containsValue(id));
+            String getfeeds = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds);
+            Assert.assertTrue(getfeeds.contains("\"feedId\":" +id));
 
             //Verify upload time notification display as "Yesterday" when user posts status on x = 24hours later.
             long current1 = System.currentTimeMillis();
@@ -285,10 +292,9 @@ public class IOS_Sprint_02 extends BaseTest {
             // Date Expect time with format yyyy-MM-ddTHH:mm:ssZ
             String ExpectDate10minutes1 = newText1.replace("/", "Z");
 
-            String request1 = "{\"title\": \"Automation time upload 24 hours and later\",\"content\": \"@1111 Automation time upload 24 hours and later\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\n" +
-                    "\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}],\"createdDate\":";
+            String request1 = "{\"title\": \"Automation time upload 24 hours and later\",\"content\": \"@1111 Automation time upload 24 hours and later\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUsers\": [{\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}],\"createdDate\":";
             String requestBodyStatus1 = request1 + "\"" + ExpectDate10minutes1 + "\"}";
-            System.out.print(requestBodyStatus);
+            System.out.print(requestBodyStatus1);
             JSONObject poststatus1 = APIUtil.sendPost(APIData.POST_STATUS_CA, requestBodyStatus1);
             Thread.sleep(2000);
             String id1 = poststatus1.get("id").toString();
@@ -296,7 +302,9 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost1 = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost1.containsValue(id));
+            String getfeeds1 = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds1);
+            Assert.assertTrue(getfeeds1.contains("\"feedId\":" +id1));
 
 
             //update if pass to testlink
@@ -369,8 +377,7 @@ public class IOS_Sprint_02 extends BaseTest {
             // Date Expect time with format yyyy-MM-ddTHH:mm:ssZ
             String ExpectDate10minutes = newText.replace("/", "Z");
 
-            String request = "{\"title\": \"Automation time upload 2 to 10 days\",\"content\": \"@1111 Automation time upload 2 to 10 days\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\n" +
-                    "\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}],\"createdDate\":";
+            String request = "{\"title\": \"Automation time upload 2 to 10 days\",\"content\": \"@1111 Automation time upload 2 to 10 days\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUsers\": [{\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}],\"createdDate\":";
             String requestBodyStatus = request + "\"" + ExpectDate10minutes + "\"}";
             System.out.print(requestBodyStatus);
             JSONObject poststatus = APIUtil.sendPost(APIData.POST_STATUS_CA, requestBodyStatus);
@@ -380,7 +387,9 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost.containsValue(id));
+            String getfeeds = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds);
+            Assert.assertTrue(getfeeds.contains("\"feedId\":" +id));
 
             //update if pass to testlink
             TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "IOS_SN_TC-17", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
@@ -422,8 +431,7 @@ public class IOS_Sprint_02 extends BaseTest {
             // Date Expect time with format yyyy-MM-ddTHH:mm:ssZ
             String ExpectDate10minutes = newText.replace("/", "Z");
 
-            String request = "{\"title\": \"Automation time upload 11 to 365 days\",\"content\": \"@1111 Automation time upload 11 to 365 days\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\n" +
-                    "\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}],\"createdDate\":";
+            String request = "{\"title\": \"Automation time upload 11 to 365 days\",\"content\": \"@1111 Automation time upload 11 to 365 days\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUsers\": [{\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}],\"createdDate\":";
             String requestBodyStatus = request + "\"" + ExpectDate10minutes + "\"}";
             System.out.print(requestBodyStatus);
             JSONObject poststatus = APIUtil.sendPost(APIData.POST_STATUS_CA, requestBodyStatus);
@@ -433,7 +441,9 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost.containsValue(id));
+            String getfeeds = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds);
+            Assert.assertTrue(getfeeds.contains("\"feedId\":" +id));
 
             //update if pass to testlink
             TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "IOS_SN_TC-18", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
@@ -464,8 +474,8 @@ public class IOS_Sprint_02 extends BaseTest {
         }.getClass().getEnclosingMethod().getName();
         try {
             //open application , make sure first launching
-            Thread.sleep(3000);
-            firstScreen.selectFirstAndSecondLaunching();
+            //Thread.sleep(2000);
+            //firstScreen.selectFirstAndSecondLaunching();
             Thread.sleep(2000);
             long current = System.currentTimeMillis();
             // 3628800000 = 42 days , add L to end of number to reach max long
@@ -476,8 +486,7 @@ public class IOS_Sprint_02 extends BaseTest {
             // Date Expect time with format yyyy-MM-ddTHH:mm:ssZ
             String ExpectDate10minutes = newText.replace("/", "Z");
 
-            String request = "{\"title\": \"Automation time upload more than 365 days\",\"content\": \"@1111 Automation time upload more than 365 days\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\n" +
-                    "\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}],\"createdDate\":";
+            String request = "{\"title\": \"Automation time upload more than 365 days\",\"content\": \"@1111 Automation time upload more than 365 days\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUsers\": [{\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}],\"createdDate\":";
             String requestBodyStatus = request + "\"" + ExpectDate10minutes + "\"}";
             System.out.print(requestBodyStatus);
             JSONObject poststatus = APIUtil.sendPost(APIData.POST_STATUS_CA, requestBodyStatus);
@@ -487,8 +496,9 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost.containsValue(id));
-
+            String getfeeds = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds);
+            Assert.assertTrue(getfeeds.contains("\"feedId\":" +id));
             //update if pass to testlink
             TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "IOS_SN_TC-19", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
         } catch (TestLinkAPIException ex) {
@@ -516,12 +526,11 @@ public class IOS_Sprint_02 extends BaseTest {
         String sMethodName = new Object() {
         }.getClass().getEnclosingMethod().getName();
         try {
+            //Thread.sleep(2000);
+            //firstScreen.selectFirstAndSecondLaunching();
             Thread.sleep(2000);
-            firstScreen.selectFirstAndSecondLaunching();
-            Thread.sleep(2000);
-
-            String request = "{\"title\": \"Automation Verify input texts below 5 rows\",\"content\": \"@1111 Automation Verify input texts below 5 rows\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\n" +
-                    "\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}]}";
+            System.out.print("Inputting texts below 5 rows");
+            String request = "{\"title\": \"Automation Verify input texts below 5 rows\",\"content\": \"@1111 Automation Verify input texts below 5 rows\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}]}";
             JSONObject poststatus = APIUtil.sendPost(APIData.POST_STATUS_CA, request);
             Thread.sleep(2000);
             String id = poststatus.get("id").toString();
@@ -529,7 +538,9 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost.containsValue(id));
+            String getfeeds = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds);
+            Assert.assertTrue(getfeeds.contains("\"feedId\":" +id));
 
 
             //update if pass to testlink
@@ -564,8 +575,7 @@ public class IOS_Sprint_02 extends BaseTest {
             firstScreen.selectFirstAndSecondLaunching();
             Thread.sleep(2000);
 
-            String request = "{\"title\": \"Automation Verify input within 5 to 15 rows texts\",\"content\": \"@1111 Automation Verify input within 5 to 15 rows texts Automation Verify input within 5 to 15 rows texts Automation Verify input within 5 to 15 rows texts Automation Verify input within 5 to 15 rows texts Automation Verify input within 5 to 15 rows texts Automation Verify input within 5 to 15 rows texts\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\n" +
-                    "\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}]}";
+            String request = "{\"title\": \"Automation Verify input within 5 to 15 rows texts\",\"content\": \"@1111 Automation Verify input within 5 to 15 rows texts Automation Verify input within 5 to 15 rows texts Automation Verify input within 5 to 15 rows texts Automation Verify input within 5 to 15 rows texts Automation Verify input within 5 to 15 rows texts Automation Verify input within 5 to 15 rows texts\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}]}";
             JSONObject poststatus = APIUtil.sendPost(APIData.POST_STATUS_CA, request);
             Thread.sleep(2000);
             String id = poststatus.get("id").toString();
@@ -573,7 +583,9 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost.containsValue(id));
+            String getfeeds = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds);
+            Assert.assertTrue(getfeeds.contains("\"feedId\":" +id));
 
 
             //update if pass to testlink
@@ -603,12 +615,11 @@ public class IOS_Sprint_02 extends BaseTest {
         String sMethodName = new Object() {
         }.getClass().getEnclosingMethod().getName();
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             firstScreen.selectFirstAndSecondLaunching();
             Thread.sleep(2000);
 
-            String request = "{\"title\": \"Automation Verify input texts more than 15 rows\",\"content\": \"@1111 Automation Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\n" +
-                    "\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}]}";
+            String request = "{\"title\": \"Automation Verify input texts more than 15 rows\",\"content\": \"@1111 Automation Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows Verify input texts more than 15 rows\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}]}";
             JSONObject poststatus = APIUtil.sendPost(APIData.POST_STATUS_CA, request);
             Thread.sleep(2000);
             String id = poststatus.get("id").toString();
@@ -616,7 +627,9 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost.containsValue(id));
+            String getfeeds = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds);
+            Assert.assertTrue(getfeeds.contains("\"feedId\":" +id));
 
             //update if pass to testlink
             TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "IOS_SN_TC-22", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
@@ -649,8 +662,7 @@ public class IOS_Sprint_02 extends BaseTest {
             firstScreen.selectFirstAndSecondLaunching();
             Thread.sleep(2000);
 
-            String request = "{\"title\": \"Automation Verify mention friend feature on posting status\",\"content\": \"@1111 Automation Verify mention friend feature on posting status\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\n" +
-                    "\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}]}";
+            String request = "{\"title\": \"Automation Verify mention friend feature on posting status\",\"content\": \"@1111 Automation Verify mention friend feature on posting status\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}]}";
             JSONObject poststatus = APIUtil.sendPost(APIData.POST_STATUS_CA, request);
             Thread.sleep(2000);
             String id = poststatus.get("id").toString();
@@ -658,7 +670,9 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost.containsValue(id));
+            String getfeeds = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds);
+            Assert.assertTrue(getfeeds.contains("\"feedId\":" +id));
 
             //update if pass to testlink
             TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "IOS_SN_TC-23", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
@@ -747,12 +761,11 @@ public class IOS_Sprint_02 extends BaseTest {
         String sMethodName = new Object() {
         }.getClass().getEnclosingMethod().getName();
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             firstScreen.selectFirstAndSecondLaunching();
             Thread.sleep(2000);
 
-            String request = "{\"title\": \"Automation Verify Uploader should be shown\",\"content\": \"@1111 Automation Verify Uploader should be shown\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\n" +
-                    "\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}]}";
+            String request = "{\"title\": \"Automation Verify Uploader should be shown\",\"content\": \"@1111 Automation Verify Uploader should be shown\",\"author\": {\"userId\": 2,\"displayName\": \"Long Long\",\"avatarUrl\": \"feed/images/feed3048\"},\"statusType\": \"TEXT\",\"mentionedUser\": [{\"userId\": 1111,\"displayName\": \"Long Nguyen\",\"avatarUrl\": \"feed/images/feed3048\",\"mentioned\": true}]}";
             JSONObject poststatus = APIUtil.sendPost(APIData.POST_STATUS_CA, request);
             Thread.sleep(2000);
             String id = poststatus.get("id").toString();
@@ -760,7 +773,9 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost.containsValue(id));
+            String getfeeds = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds);
+            Assert.assertTrue(getfeeds.contains("\"feedId\":" +id));
 
             //update if pass to testlink
             TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "IOS_SN_TC-26", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
@@ -830,6 +845,7 @@ public class IOS_Sprint_02 extends BaseTest {
         String sMethodName = new Object() {
         }.getClass().getEnclosingMethod().getName();
         try {
+            Thread.sleep(2000);
             firstScreen.selectFirstAndSecondLaunching();
             Thread.sleep(1000);
             System.out.println("Create a post as status type");
@@ -841,9 +857,13 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost1 = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost1.containsValue(id1));
+            String getfeeds = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds);
+            Assert.assertTrue(getfeeds.contains("\"feedId\":" +id1));
+            APIUtil.sendDelete(APIData.DELETE_FEEDS_CA,id1,"TEXT");
 
             // Post one portrait photo
+            Thread.sleep(2000);
             String requestBodyStatus2 = jsonData.get(APIData.ADD_ONE_PHOTO_PORTRAIT_STATUS).toString();
             JSONObject poststatus2 = APIUtil.sendPost(APIData.POST_STATUS_CA, requestBodyStatus2);
             Thread.sleep(2000);
@@ -851,7 +871,10 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost2 = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost2.containsValue(id2));
+            String getfeeds2 = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds2 "+ getfeeds2);
+            Assert.assertTrue(getfeeds2.contains("\"feedId\":" +id2));
+            APIUtil.sendDelete(APIData.DELETE_FEEDS_CA,id2,"TEXT");
 
             //update if pass to testlink
             TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "IOS_SN_TC-28", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
@@ -881,7 +904,35 @@ public class IOS_Sprint_02 extends BaseTest {
         }.getClass().getEnclosingMethod().getName();
         try {
             Thread.sleep(2000);
-            Assert.assertEquals(true,true);
+            firstScreen.selectFirstAndSecondLaunching();
+            Thread.sleep(1000);
+            System.out.println("Create a post as status type");
+            // Post one landscape photo
+            String requestBodyStatus1 = jsonData.get(APIData.ADD_TWO_PHOTO_LANDSCAPE_STATUS).toString();
+            JSONObject poststatus1 = APIUtil.sendPost(APIData.POST_STATUS_CA, requestBodyStatus1);
+            Thread.sleep(2000);
+            String id1 = poststatus1.get("id").toString();
+            Thread.sleep(2000);
+            JSONObject collectpost1 = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
+            Thread.sleep(2000);
+            String getfeeds = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds);
+            Assert.assertTrue(getfeeds.contains("\"feedId\":" +id1));
+            APIUtil.sendDelete(APIData.DELETE_FEEDS_CA,id1,"TEXT");
+
+            // Post one portrait photo
+            Thread.sleep(2000);
+            String requestBodyStatus2 = jsonData.get(APIData.ADD_TWO_PHOTO_PORTRAIT_STATUS).toString();
+            JSONObject poststatus2 = APIUtil.sendPost(APIData.POST_STATUS_CA, requestBodyStatus2);
+            Thread.sleep(2000);
+            String id2 = poststatus2.get("id").toString();
+            Thread.sleep(2000);
+            JSONObject collectpost2 = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
+            Thread.sleep(2000);
+            String getfeeds2 = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds2 "+ getfeeds2);
+            Assert.assertTrue(getfeeds2.contains("\"feedId\":" +id2));
+            APIUtil.sendDelete(APIData.DELETE_FEEDS_CA,id2,"TEXT");
 
             //update if pass to testlink
             TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "IOS_SN_TC-29", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
@@ -911,7 +962,35 @@ public class IOS_Sprint_02 extends BaseTest {
         }.getClass().getEnclosingMethod().getName();
         try {
             Thread.sleep(2000);
-            Assert.assertEquals(true,true);
+            firstScreen.selectFirstAndSecondLaunching();
+            Thread.sleep(1000);
+            System.out.println("Create a post as status type");
+            // Post one landscape photo
+            String requestBodyStatus1 = jsonData.get(APIData.ADD_THREE_PHOTO_LANDSCAPE_STATUS).toString();
+            JSONObject poststatus1 = APIUtil.sendPost(APIData.POST_STATUS_CA, requestBodyStatus1);
+            Thread.sleep(2000);
+            String id1 = poststatus1.get("id").toString();
+            Thread.sleep(2000);
+            JSONObject collectpost1 = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
+            Thread.sleep(2000);
+            String getfeeds = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds);
+            Assert.assertTrue(getfeeds.contains("\"feedId\":" +id1));
+            APIUtil.sendDelete(APIData.DELETE_FEEDS_CA,id1,"TEXT");
+
+            // Post one portrait photo
+            Thread.sleep(2000);
+            String requestBodyStatus2 = jsonData.get(APIData.ADD_THREE_PHOTO_PORTRAIT_STATUS).toString();
+            JSONObject poststatus2 = APIUtil.sendPost(APIData.POST_STATUS_CA, requestBodyStatus2);
+            Thread.sleep(2000);
+            String id2 = poststatus2.get("id").toString();
+            Thread.sleep(2000);
+            JSONObject collectpost2 = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
+            Thread.sleep(2000);
+            String getfeeds2 = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds2 "+ getfeeds2);
+            Assert.assertTrue(getfeeds2.contains("\"feedId\":" +id2));
+            APIUtil.sendDelete(APIData.DELETE_FEEDS_CA,id2,"TEXT");
 
             //update if pass to testlink
             TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "IOS_SN_TC-30", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
@@ -940,6 +1019,7 @@ public class IOS_Sprint_02 extends BaseTest {
         String sMethodName = new Object() {
         }.getClass().getEnclosingMethod().getName();
         try {
+            Thread.sleep(2000);
             firstScreen.selectFirstAndSecondLaunching();
             Thread.sleep(1000);
             System.out.println("Create a post as status type");
@@ -951,7 +1031,10 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost1 = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost1.containsValue(id1));
+            String getfeeds = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds);
+            Assert.assertTrue(getfeeds.contains("\"feedId\":" +id1));
+            APIUtil.sendDelete(APIData.DELETE_FEEDS_CA,id1,"TEXT");
 
             // Post 4 portrait photos
             String requestBodyStatus2 = jsonData.get(APIData.ADD_FOUR_PHOTO_PORTRAIT_STATUS).toString();
@@ -961,7 +1044,10 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost2 = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost2.containsValue(id2));
+            String getfeeds2 = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds2);
+            Assert.assertTrue(getfeeds2.contains("\"feedId\":" +id2));
+            APIUtil.sendDelete(APIData.DELETE_FEEDS_CA,id2,"TEXT");
 
             //update if pass to testlink
             TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "IOS_SN_TC-31", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
@@ -985,11 +1071,12 @@ public class IOS_Sprint_02 extends BaseTest {
     }
 
     @Test
-    public void AND_SN_TC_32() throws Exception, TestLinkAPIException {
-        addLog(" AND_SN_TC_32:Verify posting more than 4 photos and texts");
+    public void IOS_SN_TC_32() throws Exception, TestLinkAPIException {
+        addLog(" IOS_SN_TC_32:Verify posting more than 4 photos and texts");
         String sMethodName = new Object() {
         }.getClass().getEnclosingMethod().getName();
         try {
+            Thread.sleep(2000);
             firstScreen.selectFirstAndSecondLaunching();
             Thread.sleep(1000);
             System.out.println("Create a post as status type");
@@ -1001,7 +1088,11 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost1 = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost1.containsValue(id1));
+            String getfeeds = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds "+ getfeeds);
+            Assert.assertTrue(getfeeds.contains("\"feedId\":" +id1));
+            APIUtil.sendDelete(APIData.DELETE_FEEDS_CA,id1,"TEXT");
+
             // Post more than 4 portrait photos
             String requestBodyStatus2 = jsonData.get(APIData.ADD_MORE_FOUR_PHOTO_PORTRAIT_STATUS).toString();
             JSONObject poststatus2 = APIUtil.sendPost(APIData.POST_STATUS_CA, requestBodyStatus2);
@@ -1010,16 +1101,20 @@ public class IOS_Sprint_02 extends BaseTest {
             Thread.sleep(2000);
             JSONObject collectpost2 = APIUtil.sendPost(APIData.POST_FEEDS_CA, "");
             Thread.sleep(2000);
-            Assert.assertTrue(collectpost2.containsValue(id2));
+            String getfeeds2 = APIUtil.sendGetString(APIData.GET_FEEDS_CA);
+            System.out.println("Getfeeds2 "+ getfeeds2);
+            Assert.assertTrue(getfeeds2.contains("\"feedId\":" +id2));
+            APIUtil.sendDelete(APIData.DELETE_FEEDS_CA,id2,"TEXT");
+
             //update if pass to testlink
-            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "AND_SN_TC-32", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
+            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "IOS_SN_TC-32", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
         } catch (TestLinkAPIException ex) {
             System.out.print("Can't update result to Testlink ");
         } catch (AssertionError ex) {
             //Test failed
             getHelper().takeScreenshot("SN", className, "Failed_", sMethodName);
             System.out.println("Current working dir: " + new File(IOS_Sprint_02.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
-            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "AND_SN_TC-32", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
+            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "IOS_SN_TC-32", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
             ex.printStackTrace();
             throw new AssertionError("Failed: " + ex.getMessage());
         } catch (Exception ex){
@@ -1032,22 +1127,23 @@ public class IOS_Sprint_02 extends BaseTest {
         }
     }
     @Test
-    public void AND_SN_TC_33() throws Exception, TestLinkAPIException {
-        addLog("AND_SN_TC_33:Verify posting cannot over 30 photos");
+    public void IOS_SN_TC_33() throws Exception, TestLinkAPIException {
+        addLog("IOS_SN_TC_33:Verify posting cannot over 30 photos");
         String sMethodName = new Object() {
         }.getClass().getEnclosingMethod().getName();
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             Assert.assertEquals(true,true);
+
             //update if pass to testlink
-            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "AND_SN_TC-33", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
+            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "IOS_SN_TC-33", Testlink_BuildName, null, TestLinkAPIResults.TEST_PASSED);
         } catch (TestLinkAPIException ex) {
             System.out.print("Can't update result to Testlink ");
         } catch (AssertionError ex) {
             //Test failed
             getHelper().takeScreenshot("SN", className, "Failed_", sMethodName);
             System.out.println("Current working dir: " + new File(IOS_Sprint_02.class.getProtectionDomain().getCodeSource().getLocation().getPath()));
-            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "AND_SN_TC-33", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
+            TestLink.updateResult(Testlink_ProjectName, Testlink_TestPlanName, "IOS_SN_TC-33", Testlink_BuildName, null, TestLinkAPIResults.TEST_FAILED);
             ex.printStackTrace();
             throw new AssertionError("Failed: " + ex.getMessage());
         } catch (Exception ex){

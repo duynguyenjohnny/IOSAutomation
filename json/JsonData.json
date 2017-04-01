@@ -36,7 +36,81 @@
 		],
 		"images": [
 			{
-				"id": 1111,
+				"id": 454,
+				"width": 2048,
+				"height": 1365,
+				"imageUrl": "feed/images/1052"
+			}
+		]
+	},
+
+	"add two photo landscape status":{
+		"title": "Automation Verify posting 2 landscape photos and texts",
+		"content": "@1111 Automation Verify posting 2 landscape photos and texts",
+
+		"author": {
+			"userId": 111,
+			"displayName": "Duy Nguyen",
+			"avatarUrl": "feed/images/feed3048"
+		},
+		"statusType": "TEXT",
+		"mentionedUsers": [
+			{
+				"userId": 1111,
+				"displayName": "Long Nguyen",
+				"avatarUrl": "feed/images/feed3048",
+				"mentioned": true
+			}
+		],
+		"images": [
+			{
+				"id": 333,
+				"width": 2048,
+				"height": 1365,
+				"imageUrl": "feed/images/1052"
+			},
+			{
+				"id": 334,
+				"width": 2048,
+				"height": 1365,
+				"imageUrl": "feed/images/1052"
+			}
+		]
+	},
+
+	"add three photo landscape status":{
+		"title": "Automation Verify posting 3 landscape photos and texts",
+		"content": "@1111 Automation Verify posting 3 landscape photos and texts",
+
+		"author": {
+			"userId": 111,
+			"displayName": "Duy Nguyen",
+			"avatarUrl": "feed/images/feed3048"
+		},
+		"statusType": "TEXT",
+		"mentionedUsers": [
+			{
+				"userId": 1111,
+				"displayName": "Long Nguyen",
+				"avatarUrl": "feed/images/feed3048",
+				"mentioned": true
+			}
+		],
+		"images": [
+			{
+				"id": 576,
+				"width": 2048,
+				"height": 1365,
+				"imageUrl": "feed/images/1052"
+			},
+			{
+				"id": 577,
+				"width": 2048,
+				"height": 1365,
+				"imageUrl": "feed/images/1052"
+			},
+			{
+				"id": 578,
 				"width": 2048,
 				"height": 1365,
 				"imageUrl": "feed/images/1052"
@@ -64,25 +138,25 @@
 		],
 		"images": [
 			{
-				"id": 111,
+				"id": 987,
 				"width": 2048,
 				"height": 1365,
 				"imageUrl": "feed/images/1052"
 			},
 			{
-				"id": 112,
+				"id": 988,
 				"width": 2048,
 				"height": 1365,
 				"imageUrl": "feed/images/1052"
 			},
 			{
-				"id": 113,
+				"id": 989,
 				"width": 2048,
 				"height": 1365,
 				"imageUrl": "feed/images/1052"
 			},
 			{
-				"id": 114,
+				"id": 990,
 				"width": 2048,
 				"height": 1365,
 				"imageUrl": "feed/images/1052"
@@ -162,7 +236,81 @@
 		],
 		"images": [
 			{
-				"id": 1113,
+				"id": 767,
+				"width": 1365,
+				"height": 2048,
+				"imageUrl": "feed/images/1152"
+			}
+		]
+	},
+
+	"add two photo portrait status": {
+		"title": "Automation Verify posting 2 portrait photos and texts",
+		"content": "@1111 Automation Verify posting 2 portrait photos and texts",
+
+		"author": {
+			"userId": 1112,
+			"displayName": "Duy Nguyen",
+			"avatarUrl": "feed/images/feed3048"
+		},
+		"statusType": "TEXT",
+		"mentionedUsers": [
+			{
+				"userId": 1111,
+				"displayName": "Long Nguyen",
+				"avatarUrl": "feed/images/feed3048",
+				"mentioned": true
+			}
+		],
+		"images": [
+			{
+				"id": 4535,
+				"width": 1365,
+				"height": 2048,
+				"imageUrl": "feed/images/1152"
+			},
+			{
+				"id": 4536,
+				"width": 1365,
+				"height": 2048,
+				"imageUrl": "feed/images/1152"
+			}
+		]
+	},
+
+	"add three photo portrait status": {
+		"title": "Automation Verify posting 3 portrait photos and texts",
+		"content": "@1111 Automation Verify posting 3 portrait photos and texts",
+
+		"author": {
+			"userId": 1112,
+			"displayName": "Duy Nguyen",
+			"avatarUrl": "feed/images/feed3048"
+		},
+		"statusType": "TEXT",
+		"mentionedUsers": [
+			{
+				"userId": 1111,
+				"displayName": "Long Nguyen",
+				"avatarUrl": "feed/images/feed3048",
+				"mentioned": true
+			}
+		],
+		"images": [
+			{
+				"id": 1323,
+				"width": 1365,
+				"height": 2048,
+				"imageUrl": "feed/images/1152"
+			},
+			{
+				"id": 1324,
+				"width": 1365,
+				"height": 2048,
+				"imageUrl": "feed/images/1152"
+			},
+			{
+				"id": 1325,
 				"width": 1365,
 				"height": 2048,
 				"imageUrl": "feed/images/1152"
@@ -190,25 +338,25 @@
 		],
 		"images": [
 			{
-				"id": 1113,
+				"id": 411,
 				"width": 1365,
 				"height": 2048,
 				"imageUrl": "feed/images/1152"
 			},
 			{
-				"id": 1114,
+				"id": 412,
 				"width": 1365,
 				"height": 2048,
 				"imageUrl": "feed/images/1152"
 			},
 			{
-				"id": 1115,
+				"id": 413,
 				"width": 1365,
 				"height": 2048,
 				"imageUrl": "feed/images/1152"
 			},
 			{
-				"id": 1116,
+				"id": 414,
 				"width": 1365,
 				"height": 2048,
 				"imageUrl": "feed/images/1152"
@@ -217,8 +365,8 @@
 	},
 
 	"add more four photo portrait status": {
-		"title": "Automation Verify posting 4 portrait photo and texts",
-		"content": "@1111 Automation Verify posting 4 portrait photos and texts",
+		"title": "Automation Verify posting more tan 4 portrait photo and texts",
+		"content": "@1111 Automation Verify posting more than 4 portrait photos and texts",
 
 		"author": {
 			"userId": 1112,
@@ -236,31 +384,31 @@
 		],
 		"images": [
 			{
-				"id": 3113,
+				"id": 6113,
 				"width": 1365,
 				"height": 2048,
 				"imageUrl": "feed/images/1152"
 			},
 			{
-				"id": 3114,
+				"id": 6114,
 				"width": 1365,
 				"height": 2048,
 				"imageUrl": "feed/images/1152"
 			},
 			{
-				"id": 3115,
+				"id": 6115,
 				"width": 1365,
 				"height": 2048,
 				"imageUrl": "feed/images/1152"
 			},
 			{
-				"id": 3116,
+				"id": 6116,
 				"width": 1365,
 				"height": 2048,
 				"imageUrl": "feed/images/1152"
 			},
 			{
-				"id": 3117,
+				"id": 6117,
 				"width": 1365,
 				"height": 2048,
 				"imageUrl": "feed/images/1152"

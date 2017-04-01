@@ -79,7 +79,7 @@ public class ActivityFirstScreen extends CommonScreenObjects {
         getHelper().isElementPresent(getCategoryByText(indName));
         return true;
     }
-    public void selectFirstAndSecondLaunching() {
+    public void selectFirstAndSecondLaunching() throws InterruptedException {
         System.out.println("Begin Select categories for first launching");
         //selectCategories(cats);
         selectCategory("Sport");
@@ -88,7 +88,7 @@ public class ActivityFirstScreen extends CommonScreenObjects {
         System.out.println("Click button Next to go second launching");
         clickButtonNext();
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -96,6 +96,7 @@ public class ActivityFirstScreen extends CommonScreenObjects {
         //selectIndustries(inds);
         selectIndustry("Design");
         selectIndustry("Construction");
+        Thread.sleep(1500);
         System.out.println("Then click button Done");
         clickButtonDone();
         //System.out.println("Click Market Tab view to go Market Overview page");
