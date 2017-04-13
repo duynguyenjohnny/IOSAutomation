@@ -17,6 +17,15 @@ import static com.beecow.model.ActivitySecondElement.getIndustryByText;
 
 public class ActivityFirstScreen extends CommonScreenObjects {
 
+    //ID_Resource
+    public static String countryname = "lbNameCountry";//lbNameCountry
+    public static String insidecountry = "Myanmar"; //Myanmar
+    public static String imagecity = "Mandalay"; //Mandalay
+    public static String language = "idLanguage";
+    public static String insidelanguage = "English"; //English
+    public static String startbutton = "idBegin";
+
+
     //DATA TEST
 //      public static String[] cats = {"Sport", "Computer", "Meal Deals"};
 //    public static String[] reverse_cats = {"Meal Deals", "Computer", "Sport"};
@@ -31,6 +40,9 @@ public class ActivityFirstScreen extends CommonScreenObjects {
         super(driver);
     }
 
+    public HomeScreen homeScreen(){
+        return new HomeScreen(driver);
+    }
     public Helper getHelper(){
         return new Helper(driver);
     }
@@ -38,6 +50,15 @@ public class ActivityFirstScreen extends CommonScreenObjects {
     public void selectCategory(String catName) {
         getHelper().findElement(getCategoryByText(catName)).click();
     }
+
+    public void selectLocationByName(String name) {
+        getHelper().findElement(getStaticTextByName(name)).click();
+    }
+
+    public void selectLocationByValue(String name) {
+        getHelper().findElement(getStaticTextByValue(name)).click();
+    }
+
     public void selectIndustry(String indName) {
         getHelper().findElement(getIndustryByText(indName)).click();
     }
@@ -47,9 +68,15 @@ public class ActivityFirstScreen extends CommonScreenObjects {
             selectCategory(cats[i]);
     }
 
+    public String getStaticTextByValue(String value) {
+        return "xpath:://XCUIElementTypeStaticText[@value='" + value + "']";
+    }
+
+    public String getStaticTextByName(String name) {
+        return "xpath:://XCUIElementTypeStaticText[@name='" + name + "']";
+    }
+
     public String getCategoryByText(String value) {
-        if (Utils.getInstance().isAndroidDevice()) return "text::" + value + "";
-        //return "label::"+value;
         return "xpath:://XCUIElementTypeButton[@name='" + value + "']";
     }
 
@@ -80,6 +107,17 @@ public class ActivityFirstScreen extends CommonScreenObjects {
         return true;
     }
     public void selectFirstAndSecondLaunching() throws InterruptedException {
+        Thread.sleep(3000);
+        System.out.println("Begin Select Myanmar Country");
+        selectLocationByName(countryname);
+        selectLocationByValue(insidecountry);
+        System.out.println("Begin Select language English");
+        selectLocationByName(language);
+        selectLocationByValue(insidelanguage);
+        System.out.println("Begin Select city Mandalay");
+        selectLocationByName(imagecity);
+        System.out.println("Click Start");
+        selectLocationByName(startbutton);
         System.out.println("Begin Select categories for first launching");
         //selectCategories(cats);
         selectCategory("Sport");

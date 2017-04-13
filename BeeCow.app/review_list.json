@@ -1,0 +1,262 @@
+[
+  {
+    "createdBy": "admin",
+    "createdDate": "2017-03-29T14:28:18.856+07:00",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": "2017-03-29T14:28:18.856+07:00",
+    "id": 1009,
+    "rating": 2,
+    "content": "string",
+    "type": "STORE_REVIEW",
+    "refId": 0,
+    "author": {
+      "userId": 1,
+      "displayName": "user 1",
+      "avatarUrl": "cupid/images/1162",
+      "type": "USER",
+      "cit.disy": "HCM",
+      "rate": null,
+      "policyTermId": null
+    }
+  },
+  {
+    "createdBy": "admin",
+    "createdDate": "2017-03-29T14:28:23.197+07:00",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": "2017-03-29T14:28:23.197+07:00",
+    "id": 1010,
+    "rating": 2,
+    "content": "string",
+    "type": "STORE_REVIEW",
+    "refId": 0,
+    "author": {
+      "userId": 1,
+      "displayName": "user 1",
+      "avatarUrl": "cupid/images/1162",
+      "type": "USER",
+      "city": "HCM",
+      "rate": null,
+      "policyTermId": null
+    }
+  },
+  {
+    "createdBy": "admin",
+    "createdDate": "2017-03-29T14:28:24.09+07:00",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": "2017-03-29T14:28:24.09+07:00",
+    "id": 1011,
+    "rating": 2,
+    "content": "string",
+    "type": "STORE_REVIEW",
+    "refId": 0,
+    "author": {
+      "userId": 1,
+      "displayName": "user 1",
+      "avatarUrl": "cupid/images/1162",
+      "type": "USER",
+      "city": "HCM",
+      "rate": null,
+      "policyTermId": null
+    }
+  },
+  {
+    "createdBy": "admin",
+    "createdDate": "2017-03-29T10:50:18.118+07:00",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": "2017-03-29T10:50:18.118+07:00",
+    "id": 1,
+    "rating": 2,
+    "content": "Unit works ok most of the time. Will NOT set the correct time/day automatically and there is no manual method. Thinks it is Jan,9, 1970. Pretty bad for a high end router. Speed is ok but still stumbles sometimes when pushing a lot of video. Looking for a replacement that has a little more control in the setup/configuration since this just leaves me thinking there are other problems that aren't known because the manufacturer is hiding them. I'm a long time NetGear user but this maybe my last one.",
+    "type": "STORE_REVIEW",
+    "refId": 0,
+    "author": {
+      "userId": 1,
+      "displayName": "user 1",
+      "avatarUrl": "cupid/images/1162",
+      "type": "USER",
+      "city": "HCM",
+      "rate": null,
+      "policyTermId": null
+    }
+  },
+  {
+    "createdBy": "admin",
+    "createdDate": "2017-03-29T10:50:20.664+07:00",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": "2017-03-29T10:50:20.664+07:00",
+    "id": 2,
+    "rating": 1,
+    "content": "This router solved all my dead signals in my house. I am yet to take advantage of all the capabilities, but I am sure I will. It has a great range and the dual processor makes a difference. I have over 10 devices connected, including an XBOX One, Hulu, three iPhones, Amazon, Fire (two) two iPads, etc. I was having trouble getting a strong signal to the back .... no more!",
+    "type": "STORE_REVIEW",
+    "refId": 0,
+    "author": {
+      "userId": 1,
+      "displayName": "user 1",
+      "avatarUrl": "cupid/images/1162",
+      "type": "USER",
+      "city": "HCM",
+      "rate": null,
+      "policyTermId": null
+    }
+  },
+  {
+    "createdBy": "admin",
+    "createdDate": "2017-03-29T10:50:21.122+07:00",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": "2017-03-29T10:50:21.122+07:00",
+    "id": 3,
+    "rating": 2,
+    "content": "Night and day difference of this router and the standard router your cable or fiber company gives you. This is worth every penny if you ever have slow wifi or poor signal quality in your home...i have a 1950s solid block and full brick exterior home with mud and lathe walls and i get full coverage everywhere in my entire house with no issues now, also still get a great signal while mowing my yard and it is almost an acre in size.",
+    "type": "STORE_REVIEW",
+    "refId": 0,
+    "author": {
+      "userId": 2,
+      "displayName": "Vo Tu Lanh Lanh Vo",
+      "avatarUrl": "cupid/images/1162",
+      "type": "USER",
+      "city": "HCM",
+      "rate": null,
+      "policyTermId": null
+    }
+  },
+  {
+    "createdBy": "admin",
+    "createdDate": "2017-03-29T10:50:21.289+07:00",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": "2017-03-29T10:50:21.289+07:00",
+    "id": 4,
+    "rating": 5,
+    "content": "This router is amazing. I was having trouble with my desktop with the connection and I used the WiFi and my printer and Wala! Works great. Being a Realtor it really makes a difference having such fast wifi. Thank you Net Gear",
+    "type": "STORE_REVIEW",
+    "refId": 0,
+    "author": {
+      "userId": 5,
+      "displayName": "null null",
+      "avatarUrl": "cupid/images/1162",
+      "type": "USER",
+      "city": "HCM",
+      "rate": null,
+      "policyTermId": null
+    }
+  },
+  {
+    "createdBy": "admin",
+    "createdDate": "2017-03-29T10:50:21.459+07:00",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": "2017-03-29T10:50:21.459+07:00",
+    "id": 5,
+    "rating": 2,
+    "content": "Access control function for restriction internet not working , I set 10:30 pm and I am able to still access internet in my computer, Call technical support and they created ticket but no help. Main reason I buy this product to control internet access time for kids but not worth it . Even tech support don't have knowledge and argue with me",
+    "type": "STORE_REVIEW",
+    "refId": 0,
+    "author": {
+      "userId": 3,
+      "displayName": "null null",
+      "avatarUrl": "cupid/images/1162",
+      "type": "USER",
+      "city": "HCM",
+      "rate": null,
+      "policyTermId": null
+    }
+  },
+  {
+    "createdBy": "admin",
+    "createdDate": "2017-03-29T10:50:21.665+07:00",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": "2017-03-29T10:50:21.665+07:00",
+    "id": 6,
+    "rating": 4,
+    "content": "We have tried to get this product to work, but it does not. We have taken awhile switch over to it, b/c we have had sickness in the family that we have had to deal with. To be honest, it hasn't been a priority until now. We tried, and a friend tried to get it to work, but failed. We finally hired a person to come and get it installed, but he couldn't get it to work either. I regret not fixing it earlier, but circumstances got in the way. We are now stuck with a product that doesn't work and out the money we paid for it. Buyer beware:(",
+    "type": "STORE_REVIEW",
+    "refId": 0,
+    "author": {
+      "userId": 6,
+      "displayName": "null null",
+      "avatarUrl": "cupid/images/1162",
+      "type": "USER",
+      "city": "HCM",
+      "rate": null,
+      "policyTermId": null
+    }
+  },
+  {
+    "createdBy": "admin",
+    "createdDate": "2017-03-29T10:50:22.014+07:00",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": "2017-03-29T10:50:22.014+07:00",
+    "id": 7,
+    "rating": 3,
+    "content": "I'm a first time netgear user and all I can say is this is a great product. Strong Internet reception and the netgear genie makes life so easy",
+    "type": "STORE_REVIEW",
+    "refId": 0,
+    "author": {
+      "userId": 2,
+      "displayName": "null null",
+      "avatarUrl": "cupid/images/1162",
+      "type": "USER",
+      "city": "HCM",
+      "rate": null,
+      "policyTermId": null
+    }
+  },
+  {
+    "createdBy": "admin",
+    "createdDate": "2017-03-29T10:50:21.872+07:00",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": "2017-03-29T10:50:21.872+07:00",
+    "id": 8,
+    "rating": 2,
+    "content": "Not only does this router excel in performance but it has the best user interface I have ever used. I'm running two desktop PC's 6 WiFi units, a smart TV and two security cameras without any issues and the easy to use interface made the setup, quick, easy and hassle free. I am sold on NetGear after several years with another famous brand.",
+    "type": "STORE_REVIEW",
+    "refId": 0,
+    "author": {
+      "userId": 4,
+      "displayName": "null null",
+      "avatarUrl": "cupid/images/1162",
+      "type": "USER",
+      "city": "HCM",
+      "rate": null,
+      "policyTermId": null
+    }
+  },
+  {
+    "createdBy": "admin",
+    "createdDate": "2017-03-29T10:50:21.872+07:00",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": "2017-03-29T10:50:21.872+07:00",
+    "id": 9,
+    "rating": 2,
+    "content": "We live in an apartment and have Cox Cable and only got the \"preferred\" internet since its right in the middle of their choices. We have two cellphones, tablet, two computers, two smart tvs, xbox one, and a couple other gaming systems all connected to our internet. The most that we use at once is maybe the Netflix or game streaming, our phones, and our laptops at once, but we've had NO problems with speed or connection. Cox set up our nighthawk for us and he even complimented the simplicity of using Netgear products and showed us quickly how he did it. I would definitely recommend buying this Modem/router! WAY better then renting one from Cox for $9.99/mo when this pays for itself in one year and it WAY better quality according to the person who installed our cable/internet!",
+    "type": "STORE_REVIEW",
+    "refId": 0,
+    "author": {
+      "userId": 4,
+      "displayName": "null null",
+      "avatarUrl": "cupid/images/1162",
+      "type": "USER",
+      "city": "HCM",
+      "rate": null,
+      "policyTermId": null
+    }
+  },
+  {
+    "createdBy": "admin",
+    "createdDate": "2017-03-29T10:50:21.872+07:00",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": "2017-03-29T10:50:21.872+07:00",
+    "id": 10,
+    "rating": 2,
+    "content": "I purchased the router as the number of wireless devices in the house exploded over the past few months. The router works flawlessly with nearly a dozen different types of devices synced to the router. Between the 5Ghz and 2.4Ghz bands, the router seamlessly handles all of them, is easy to set up, and change default passwords for administrative purposes.",
+    "type": "STORE_REVIEW",
+    "refId": 0,
+    "author": {
+      "userId": 4,
+      "displayName": "null null",
+      "avatarUrl": "cupid/images/1162",
+      "type": "USER",
+      "city": "HCM",
+      "rate": null,
+      "policyTermId": null
+    }
+  }
+]

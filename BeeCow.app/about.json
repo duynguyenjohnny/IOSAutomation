@@ -1,0 +1,85 @@
+{
+  "id": 1,
+  "name": "Ngoc Anh",
+  "externalLink": "www.abc.com",
+  "description": "hello from the other side",
+  "companyAddress": "29 Ho Van Hue",
+  "city": "VN-SG",
+  "categories": [
+    {
+      "id": 1001,
+      "name": "mens-fashion",
+      "displayName": "Men's Fashion",
+      "totalItems": 2,
+      "metadata": {
+        "displayName.zh-tw": "男士時尚",
+        "productCatalogType": "PRODUCT",
+        "displayName.my": "အမျိုးသား ဖက်ရှင်",
+        "displayName.my-zawgyi": "အမ်ဳိးသား ဖက္ရွင္",
+        "icon": "category/1.png",
+        "displayName.zh-cn": "男士时尚",
+        "displayName.vi": "Thời Trang Nam"
+      }
+    },
+    {
+      "id": 1002,
+      "name": "womens-fashion",
+      "displayName": "Women's Fashion",
+      "totalItems": 3,
+      "metadata": {
+        "displayName.zh-tw": "女士時尚",
+        "productCatalogType": "PRODUCT",
+        "displayName.my": "အမျိုးသမီး ဖက်ရှင်",
+        "displayName.my-zawgyi": "အမ်ဳိးသမီး ဖက္ရွင္",
+        "icon": "category/2.png",
+        "displayName.zh-cn": "女士时尚",
+        "displayName.vi": "Thời Trang Nữ"
+      }
+    },
+    {
+      "id": 1004,
+      "name": "mobile-tablet",
+      "displayName": "Mobile & Tablet",
+      "totalItems": 8,
+      "metadata": {
+        "displayName.zh-tw": "手機和平板電腦",
+        "productCatalogType": "PRODUCT",
+        "displayName.my": "ဖုန်းနှင့် တက်ဘလက်",
+        "displayName.my-zawgyi": "ဖုန္းႏွင့္ တက္ဘလက္",
+        "icon": "category/3.png",
+        "displayName.zh-cn": "手机和平板电脑",
+        "displayName.vi": "Điện Thoại"
+      }
+    },
+    {
+      "id": 1005,
+      "name": "computer",
+      "displayName": "Computer",
+      "totalItems": 0,
+      "metadata": {
+        "displayName.zh-tw": "電腦",
+        "productCatalogType": "PRODUCT",
+        "displayName.my": "ကွန်ပျူတာ",
+        "displayName.my-zawgyi": "ကြန္ပ်ဴတာ",
+        "icon": "category/4.png",
+        "displayName.zh-cn": "电脑",
+        "displayName.vi": "Máy Tính"
+      }
+    },
+    {
+      "id": 1007,
+      "name": "home-living",
+      "displayName": "Home & Living",
+      "totalItems": 99,
+      "metadata": {
+        "productCatalogType": "PRODUCT",
+        "displayName.zh-tw": "居家生活",
+        "displayName.my": "အိမ်သုံးပစ္စည်းများ",
+        "displayName.my-zawgyi": "အိမ္သုံးပစၥည္းမ်ား",
+        "icon": "category/6.png",
+        "displayName.zh-cn": "居家生活",
+        "displayName.vi": "Nhà Cửa & Đời Sống"
+      }
+    }
+  ]
+}

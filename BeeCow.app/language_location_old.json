@@ -1,0 +1,220 @@
+{
+
+    "language":{
+      "VN": "Tiếng Việt",
+      "MM_ZAGWYI": "မြန်မာဘာသာ (Zawgyi)",
+      "MM_UNICODE": "မြန်မာဘာသာ (Unicode)",
+      "ENG": "English",
+      "TW": "中文 (繁體)",
+      "CN": "中文 (简体)"
+    },
+    "pick_city" : {
+      "VN": "Chọn thành phố",
+      "MM_ZAGWYI": "မြို့ကောက်",
+      "MM_UNICODE": "မြို့ကောက်",
+      "ENG": "Pick you city",
+      "TW": "選擇城市",
+      "CN": "挑你的城市"
+    },
+    "start" : {
+      "VN": "Bắt đầu",
+      "MM_ZAGWYI": "စတင်",
+      "MM_UNICODE": "စတင်",
+      "ENG": "Start",
+      "TW": "开始",
+      "CN": "開始"
+    },
+    "countries" :
+    [
+      {
+        "code" : "VN",
+        "in_country" : "Việt Nam",
+        "out_country" : "Vietnam",
+        "flag":"vn-flag",
+        "cities" :
+        [
+          {
+            "code" : "VN-SG",
+            "in_country" : "Hồ Chí Minh",
+            "out_country" : "Ho Chi Minh",
+            "url_image" : "content/images/cities/vn/ho-chi-minh.jpg"
+          },
+          {
+            "code" : "VN-HN",
+            "in_country" : "Hà Nội",
+            "out_country" : "Ha Noi",
+            "url_image" : "content/images/cities/vn/Ha-noi.jpg"
+          },
+          {
+            "code" : "VN-DN",
+            "in_country" : "Đà Nẵng",
+            "out_country" : "Da Nang",
+            "url_image" : "content/images/cities/vn/Da-nang.jpg"
+          },
+          {
+            "code" : "VN-CT",
+            "in_country" : "Cần Thơ",
+            "out_country" : "Can Tho",
+            "url_image" : "content/images/cities/vn/Can-Tho.jpg"
+          },
+          {
+            "code" : "VN-HP",
+            "in_country" : "Hải Phòng",
+            "out_country" : "Hai Phong",
+            "url_image" : "content/images/cities/vn/hai-phong.jpg"
+          },
+          {
+            "code" : "VN",
+            "in_country" : "Khác",
+            "out_country" : "Others",
+            "url_image" : "content/images/cities/vn/others.jpg"
+          }
+        ]
+      },
+      {
+        "code" : "MM",
+        "in_country" : "မြန်မာ",
+        "out_country" : "Myanmar",
+        "flag":"mm-flag",
+
+        "cities" :
+        [
+          {
+            "code" : "MM-06",
+            "in_country" : "ရန်ကုန်",
+            "out_country" : "Yangon",
+            "url_image" : "content/images/cities/my/Yangon.jpg"
+          },
+          {
+            "code" : "MM-04",
+            "in_country" : "မန္တလေးမြို့",
+            "out_country" : "Mandalay",
+            "url_image" : "content/images/cities/my/Mandalay.jpg"
+          },
+          {
+            "code" : "MM-18",
+            "in_country" : "နေပြည်တော်",
+            "out_country" : "Naypyidaw",
+            "url_image" : "content/images/cities/my/Naypyidaw.jpg"
+          },
+          {
+            "code" : "MM-15",
+            "in_country" : "မော်လမြိုင်",
+            "out_country" : "Mawlamyine",
+            "url_image" : "content/images/cities/my/Mawlamyine.jpg"
+          },
+          {
+            "code" : "MM-02",
+            "in_country" : "ပဲခူး",
+            "out_country" : "Bago",
+            "url_image" : "content/images/cities/my/Bago.jpg"
+          },
+          {
+            "code" : "MM",
+            "in_country" : "အခြားသူများကို",
+            "out_country" : "Others",
+            "url_image" : "content/images/cities/my/others.jpg"
+          }
+        ]
+      },
+      {
+        "code" : "TW",
+        "in_country" : "台灣",
+        "out_country" : "Taiwan",
+        "flag":"tw-flag",
+
+        "cities" :
+        [
+          {
+            "code" : "TW-TPE",
+            "in_country" : "臺北市",
+            "out_country" : "Taipei",
+            "url_image" :  "content/images/cities/tw/Taipei.jpg"
+          },
+          {
+            "code" : "TW-KHH",
+            "in_country" : "高雄市",
+            "out_country" : "Kaohsiung",
+            "url_image" : "content/images/cities/tw/Kaohsiung.jpg"
+          },
+          {
+            "code" : "TW-TXG",
+            "in_country" : "臺中市",
+            "out_country" : "Taichung",
+            "url_image" : "content/images/cities/tw/Taichung.jpg"
+          },
+          {
+            "code" : "TW-TNN",
+            "in_country" : "臺南市",
+            "out_country" : "Tainan",
+            "url_image" : "content/images/cities/tw/Tainan.jpg"
+          },
+          {
+            "code" : "TW-TAO",
+            "in_country" : "桃園市",
+            "out_country" : "Taoyuan",
+            "url_image" : "content/images/cities/tw/Taoyuan.jpg"
+          },
+          {
+            "code" : "TW",
+            "in_country" : "別處",
+            "out_country" : "Others",
+            "url_image" : "content/images/cities/cn/others.jpg"
+          }
+        ]
+      },
+      {
+        "code" : "CN",
+        "in_country" : "中国",
+        "out_country" : "China",
+        "flag":"cn-flag",
+
+        "cities" :
+        [
+          {
+            "code" : "CN-11",
+            "in_country" : "北京市",
+            "out_country" : "Beijing",
+            "url_image" : "content/images/cities/cn/Beijing.jpg"
+          },
+          {
+            "code" : "CN-50",
+            "in_country" : "重庆市",
+            "out_country" : "Chongqing",
+            "url_image" : "content/images/cities/cn/chongqing.jpg"
+          },
+          {
+            "code" : "CN-31",
+            "in_country" : "上海市",
+            "out_country" : "Shanghai",
+            "url_image" : "content/images/cities/cn/Shanghai.jpg"
+          },
+          {
+            "code" : "CN-12",
+            "in_country" : "天津市",
+            "out_country" : "Tianjin",
+            "url_image" :  "content/images/cities/cn/Tianjin.jpg"
+          },
+          {
+            "code" : "CN-91",
+            "in_country" : "香港",
+            "out_country" : "Hongkong",
+            "url_image" : "content/images/cities/cn/Hongkong.jpg"
+          },
+          {
+            "code" : "CN-92",
+            "in_country" : "澳门",
+            "out_country" : "Macau",
+            "url_image" : "content/images/cities/cn/Macau.jpg"
+          },
+          {
+            "code" : "CN",
+            "in_country" : "别处",
+            "out_country" : "Others",
+            "url_image" : "content/images/cities/cn/others.jpg"
+          }
+        ]
+      }
+    ]
+
+}

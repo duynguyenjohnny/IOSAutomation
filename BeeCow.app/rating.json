@@ -1,0 +1,31 @@
+{
+  "avgRating": 4.3,
+  "totalReview": 523,
+  "ratingMap": {
+    "1": 150,
+    "2": 10,
+    "3": 40,
+    "4": 110,
+    "5": 20
+  },
+  "myReview": {
+    "createdBy": "admin",
+    "createdDate": "2017-03-29T10:50:18.118+07:00",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": "2017-03-29T10:50:18.118+07:00",
+    "id": 1,
+    "rating": 2,
+    "content": "Unit works ok most of the time. Will NOT set the correct time/day automatically and there is no manual method. Thinks it is Jan,9, 1970. Pretty bad for a high end router. Speed is ok but still stumbles sometimes when pushing a lot of video. Looking for a replacement that has a little more control in the setup/configuration since this just leaves me thinking there are other problems that aren't known because the manufacturer is hiding them. I'm a long time NetGear user but this maybe my last one.",
+    "type": "STORE_REVIEW",
+    "refId": 0,
+    "author": {
+      "userId": 1,
+      "displayName": "user 1",
+      "avatarUrl": "cupid/images/1162",
+      "type": "USER",
+      "city": "HCM",
+      "rate": null,
+      "policyTermId": null
+    }
+  }
+}

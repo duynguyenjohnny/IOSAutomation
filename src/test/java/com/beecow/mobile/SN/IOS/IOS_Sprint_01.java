@@ -84,7 +84,17 @@ public class IOS_Sprint_01 extends BaseTest {
         try {
             //AddingandRemove_SingleCategory();
             // Assert.assertEquals(,true);
-            Thread.sleep(2000);
+            Thread.sleep(3000);
+            System.out.println("Begin Select Myanmar Country");
+            firstScreen.selectLocationByName(firstScreen.countryname);
+            firstScreen.selectLocationByValue(firstScreen.insidecountry);
+            System.out.println("Begin Select language English");
+            firstScreen.selectLocationByName(firstScreen.language);
+            firstScreen.selectLocationByValue(firstScreen.insidelanguage);
+            System.out.println("Begin Select city Mandalay");
+            firstScreen.selectLocationByName(firstScreen.imagecity);
+            System.out.println("Click Start");
+            firstScreen.selectLocationByName(firstScreen.startbutton);
             System.out.println("Begin Select categories for first launching");
             firstScreen.selectCategory("Sport");
             firstScreen.selectCategory("Computer");
@@ -147,7 +157,17 @@ public class IOS_Sprint_01 extends BaseTest {
             try {
             //AddingandRemove_SingleCategory();
             // Assert.assertEquals(,true);
-            Thread.sleep(2000);
+                Thread.sleep(3000);
+                System.out.println("Begin Select Myanmar Country");
+                firstScreen.selectLocationByName(firstScreen.countryname);
+                firstScreen.selectLocationByValue(firstScreen.insidecountry);
+                System.out.println("Begin Select language English");
+                firstScreen.selectLocationByName(firstScreen.language);
+                firstScreen.selectLocationByValue(firstScreen.insidelanguage);
+                System.out.println("Begin Select city Mandalay");
+                firstScreen.selectLocationByName(firstScreen.imagecity);
+                System.out.println("Click Start");
+                firstScreen.selectLocationByName(firstScreen.startbutton);
             System.out.println("Begin Select categories for first launching");
             firstScreen.selectCategory("Sport");
             firstScreen.selectCategory("Computer");
@@ -412,7 +432,17 @@ public class IOS_Sprint_01 extends BaseTest {
         getHelper().addLog("IOS_SN_TC_8:Verify adding/removing single job in first launching");
         try {
 
-            Thread.sleep(2000);
+            Thread.sleep(3000);
+            System.out.println("Begin Select Myanmar Country");
+            firstScreen.selectLocationByName(firstScreen.countryname);
+            firstScreen.selectLocationByValue(firstScreen.insidecountry);
+            System.out.println("Begin Select language English");
+            firstScreen.selectLocationByName(firstScreen.language);
+            firstScreen.selectLocationByValue(firstScreen.insidelanguage);
+            System.out.println("Begin Select city Mandalay");
+            firstScreen.selectLocationByName(firstScreen.imagecity);
+            System.out.println("Click Start");
+            firstScreen.selectLocationByName(firstScreen.startbutton);
             System.out.println("Begin Select categories for first launching");
             firstScreen.selectCategory("Sport");
             firstScreen.selectCategory("Computer");
@@ -464,7 +494,17 @@ public class IOS_Sprint_01 extends BaseTest {
         getHelper().addLog("IOS_SN_TC_9:Verify adding/removing multiple Jobs in first launching");
         try {
 
-            Thread.sleep(2000);
+            Thread.sleep(3000);
+            System.out.println("Begin Select Myanmar Country");
+            firstScreen.selectLocationByName(firstScreen.countryname);
+            firstScreen.selectLocationByValue(firstScreen.insidecountry);
+            System.out.println("Begin Select language English");
+            firstScreen.selectLocationByName(firstScreen.language);
+            firstScreen.selectLocationByValue(firstScreen.insidelanguage);
+            System.out.println("Begin Select city Mandalay");
+            firstScreen.selectLocationByName(firstScreen.imagecity);
+            System.out.println("Click Start");
+            firstScreen.selectLocationByName(firstScreen.startbutton);
             System.out.println("Begin Select categories for first launching");
             firstScreen.selectCategory("Sport");
             firstScreen.selectCategory("Computer");
@@ -516,7 +556,17 @@ public class IOS_Sprint_01 extends BaseTest {
         getHelper().addLog("IOS_SN_TC_10:Verify adding jobs feature only appears in first launching");
         try {
 
-            Thread.sleep(2000);
+            Thread.sleep(3000);
+            System.out.println("Begin Select Myanmar Country");
+            firstScreen.selectLocationByName(firstScreen.countryname);
+            firstScreen.selectLocationByValue(firstScreen.insidecountry);
+            System.out.println("Begin Select language English");
+            firstScreen.selectLocationByName(firstScreen.language);
+            firstScreen.selectLocationByValue(firstScreen.insidelanguage);
+            System.out.println("Begin Select city Mandalay");
+            firstScreen.selectLocationByName(firstScreen.imagecity);
+            System.out.println("Click Start");
+            firstScreen.selectLocationByName(firstScreen.startbutton);
             System.out.println("Begin Select categories for first launching");
             firstScreen.selectCategory("Sport");
             firstScreen.selectCategory("Computer");
@@ -568,8 +618,8 @@ public class IOS_Sprint_01 extends BaseTest {
         getHelper().addLog("IOS_SN_TC_10:Verify adding jobs feature only appears in first launching");
         try {
 
-            Thread.sleep(2000);
-            System.out.println("Begin Select categories for first launching");
+            //Thread.sleep(2000);
+            //System.out.println("Begin Select categories for first launching");
             firstScreen.selectFirstAndSecondLaunching();
 
             System.out.println("restart app");
